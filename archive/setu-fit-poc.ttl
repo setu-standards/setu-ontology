@@ -1,0 +1,718 @@
+@base <http://ontology.setu.nl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix setu: <http://ontology.setu.nl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+setu:Activity
+  rdf:type rdfs:Class ;
+  rdfs:comment "An activity for a person in a given timeframe" ;
+  rdfs:label "Activity" ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass setu:ActivityCode ;
+      owl:onProperty setu:activityCode ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:dateTime ;
+      owl:onProperty setu:activityEnd ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:string ;
+      owl:onProperty setu:customerAssignedActivityIdentifier ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:string ;
+      owl:onProperty setu:supplierAssignedActivityIdentifier ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange xsd:dateTime ;
+      owl:onProperty setu:activityStart ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+setu:ActivityCode
+  rdf:type rdfs:Class ;
+  rdfs:comment "Specification of how the staffing supplier should process the reported time interval" ;
+  rdfs:label "Activity code" ;
+.
+setu:Add
+  rdf:type setu:ActivityCode ;
+  rdfs:comment "Use 'Add' and provide an identifier that is not used yet to add a new time interval item." ;
+  rdfs:label "Add"@en ;
+.
+setu:Allowance
+  rdf:type rdfs:Class ;
+  rdfs:comment "" ;
+  rdfs:label "Allowance" ;
+  rdfs:subClassOf setu:Activity ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:integer ;
+      owl:onProperty setu:allowanceQuantity ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass setu:AllowanceType ;
+      owl:onProperty setu:allowanceType ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass setu:Compensation ;
+      owl:onProperty setu:allowanceCompensation ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange xsd:decimal ;
+      owl:onProperty setu:value ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+setu:AllowanceType
+  rdf:type rdfs:Class ;
+  rdfs:comment "The type of allowance that is reported" ;
+  rdfs:label "Allowance type" ;
+.
+setu:Bonus
+  rdf:type setu:AllowanceType ;
+  rdfs:comment "300" ;
+  rdfs:label "Bonus"@en ;
+  rdfs:label "Toeslag"@nl ;
+.
+setu:BonusShift
+  rdf:type setu:AllowanceType ;
+  rdfs:comment "304" ;
+  rdfs:label "Bonus shift"@en ;
+  rdfs:label "Ploegentoeslag"@nl ;
+.
+setu:Change
+  rdf:type setu:ActivityCode ;
+  rdfs:comment "Use 'Change' and provide the same identifier as on the initial timecard to edit an existing time interval item." ;
+  rdfs:label "Change"@en ;
+.
+setu:Compensation
+  rdf:type rdfs:Class ;
+  rdfs:comment "Specification of the (agreed) compensation" ;
+  rdfs:label "Compensation" ;
+  rdfs:subClassOf setu:MonetaryAmount ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:string ;
+      owl:onProperty setu:billable ;
+    ] ;
+.
+setu:CurrencyCode
+  rdf:type rdfs:Class ;
+  rdfs:comment "The currency code in which the amount is specified" ;
+  rdfs:label "Currency code" ;
+.
+setu:EUR
+  rdf:type setu:CurrencyCode ;
+  rdfs:comment "" ;
+  rdfs:label "Euro"@en ;
+  rdfs:label "Euro"@nl ;
+.
+setu:Expense
+  rdf:type rdfs:Class ;
+  rdfs:comment "" ;
+  rdfs:label "Expense" ;
+  rdfs:subClassOf setu:Activity ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:integer ;
+      owl:onProperty setu:expenseQuantity ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass setu:Compensation ;
+      owl:onProperty setu:expenseCompensation ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass setu:ExpenseType ;
+      owl:onProperty setu:expenseType ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange xsd:decimal ;
+      owl:onProperty setu:value ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+setu:ExpenseType
+  rdf:type rdfs:Class ;
+  rdfs:comment "The type of expense that is reported" ;
+  rdfs:label "Expense type" ;
+.
+setu:GBP
+  rdf:type setu:CurrencyCode ;
+  rdfs:comment "" ;
+  rdfs:label "Britse Pond"@nl ;
+  rdfs:label "Pound Sterling"@en ;
+.
+setu:HourRate
+  rdf:type rdfs:Class ;
+  rdfs:comment "Specification of the (agreed) hour rate that applies to the reported time interval" ;
+  rdfs:label "Hour rate" ;
+  rdfs:subClassOf setu:Compensation ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:boolean ;
+      owl:onProperty setu:inclusiveRate ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:boolean ;
+      owl:onProperty setu:toBeBilled ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:boolean ;
+      owl:onProperty setu:toBePaid ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass setu:PeriodType ;
+      owl:onProperty setu:periodType ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange xsd:integer ;
+      owl:onProperty setu:multiplier ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+setu:HourType
+  rdf:type rdfs:Class ;
+  rdfs:comment "The type of timeframe that is registered" ;
+  rdfs:label "Hour type" ;
+.
+setu:MonetaryAmount
+  rdf:type rdfs:Class ;
+  rdfs:comment "" ;
+  rdfs:label "Monetary amount" ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass setu:CurrencyCode ;
+      owl:onProperty setu:currency ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange xsd:decimal ;
+      owl:onProperty setu:value ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+setu:Overtime
+  rdf:type setu:HourType ;
+  rdfs:comment "" ;
+  rdfs:label "Overtime"@en ;
+  rdfs:label "Overuren"@nl ;
+.
+setu:PeriodType
+  rdf:type rdfs:Class ;
+  rdfs:comment "The type of period that applies to the hour rate" ;
+  rdfs:label "Period type" ;
+.
+setu:Person
+  rdf:type rdfs:Class ;
+  rdfs:comment "" ;
+  rdfs:label "Person" ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:string ;
+      owl:onProperty setu:customerAssignedPersonIdentifier ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:string ;
+      owl:onProperty setu:name ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:string ;
+      owl:onProperty setu:supplierAssignedPersonIdentifier ;
+    ] ;
+.
+setu:Provision
+  rdf:type setu:AllowanceType ;
+  rdfs:comment "802" ;
+  rdfs:label "Provisie"@nl ;
+  rdfs:label "Provision"@en ;
+.
+setu:Regular
+  rdf:type setu:HourType ;
+  rdfs:comment "" ;
+  rdfs:label "Normale/standaard uren"@nl ;
+  rdfs:label "Regular"@en ;
+.
+setu:Shift
+  rdf:type setu:HourType ;
+  rdfs:comment "" ;
+  rdfs:label "Ploegentoeslag"@nl ;
+  rdfs:label "Shift"@en ;
+.
+setu:StayExpense
+  rdf:type setu:ExpenseType ;
+  rdfs:comment "201" ;
+  rdfs:label "Stay expense"@en ;
+  rdfs:label "Verblijfskosten"@nl ;
+.
+setu:Timecard
+  rdf:type rdfs:Class ;
+  rdfs:comment "The main element of the Timecard message" ;
+  rdfs:label "Timecard" ;
+  rdfs:subClassOf [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          [
+            rdf:type owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass setu:Allowance ;
+            owl:onProperty setu:reportedAllowance ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass setu:Expense ;
+            owl:onProperty setu:reportedExpense ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass setu:WorkActivity ;
+            owl:onProperty setu:reportedWorkActivity ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:string ;
+      owl:onProperty setu:customerAssignedTimecardIdentifier ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:string ;
+      owl:onProperty setu:supplierAssignedTimecardIdentifier ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass setu:Person ;
+      owl:onProperty setu:reportedResource ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange xsd:dateTime ;
+      owl:onProperty setu:periodEnd ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange xsd:dateTime ;
+      owl:onProperty setu:periodStart ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+setu:Training
+  rdf:type setu:ExpenseType ;
+  rdfs:comment "400" ;
+  rdfs:label "Opleidingskosten"@nl ;
+  rdfs:label "Training"@en ;
+  rdfs:label "Tuition"@en ;
+.
+setu:TravelExpenses
+  rdf:type setu:ExpenseType ;
+  rdfs:comment "102" ;
+  rdfs:label "Reiskosten"@nl ;
+  rdfs:label "Travel expenses"@en ;
+.
+setu:USD
+  rdf:type setu:CurrencyCode ;
+  rdfs:comment "" ;
+  rdfs:label "US Dollar"@en ;
+.
+setu:Unchanged
+  rdf:type setu:ActivityCode ;
+  rdfs:comment "In the case of a correction timecard, unchanged items are also sent in the message. This actionCode indicates that no correction needs to be made to these items." ;
+  rdfs:label "Unchanged"@en ;
+.
+setu:Void
+  rdf:type setu:ActivityCode ;
+  rdfs:comment "Use 'Void' and provide the same identifier as on the initial timecard to delete an existing time interval item. Based on the trading-partner agreement, this might delete an existing object or mark the object as cancelled. In order to leave this choice to the user, the term 'Void' is used instead of 'Delete', 'Cancel' or 'Remove'." ;
+  rdfs:label "Void"@en ;
+.
+setu:WorkActivity
+  rdf:type rdfs:Class ;
+  rdfs:comment "" ;
+  rdfs:label "Work activity" ;
+  rdfs:subClassOf setu:Activity ;
+  rdfs:subClassOf [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          [
+            rdf:type owl:Restriction ;
+            owl:onDataRange xsd:decimal ;
+            owl:onProperty setu:duration ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+          ]
+          [
+            rdf:type owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty setu:activityEnd ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+          ]
+        ) ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass setu:HourRate ;
+      owl:onProperty setu:billableHourRate ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass setu:HourRate ;
+      owl:onProperty setu:payableHourRate ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:date ;
+      owl:onProperty setu:dayAssignment ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onDataRange xsd:decimal ;
+      owl:onProperty setu:duration ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass setu:HourType ;
+      owl:onProperty setu:hourType ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onDataRange xsd:dateTime ;
+      owl:onProperty setu:activityStart ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+setu:activityCode
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Specification of how the staffing supplier should process the reported time interval" ;
+  rdfs:domain setu:Activity ;
+  rdfs:label "activity code" ;
+  rdfs:range setu:ActivityCode ;
+.
+setu:activityEnd
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The end date (and time) of the activity that is reported" ;
+  rdfs:domain setu:Activity ;
+  rdfs:label "activity end" ;
+  rdfs:range xsd:dateTime ;
+.
+setu:activityStart
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The start date (and time) of the activity that is reported" ;
+  rdfs:domain setu:Activity ;
+  rdfs:label "activity start" ;
+  rdfs:range xsd:dateTime ;
+.
+setu:allowanceCompensation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "" ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "allowance compensation" ;
+  rdfs:range setu:Compensation ;
+.
+setu:allowanceQuantity
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Numerical quantity of the allowance specified, assigned or determined by calculation or measurement" ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "allowance quantity" ;
+  rdfs:range xsd:integer ;
+.
+setu:allowanceType
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The type of allowance that is reported" ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "allowance type" ;
+  rdfs:range setu:AllowanceType ;
+.
+setu:billable
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "" ;
+  rdfs:domain setu:Compensation ;
+  rdfs:label "billable" ;
+  rdfs:range xsd:string ;
+.
+setu:billableHourRate
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "" ;
+  rdfs:domain setu:WorkActivity ;
+  rdfs:label "billable hour rate" ;
+  rdfs:range setu:HourRate ;
+.
+setu:comment
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "A textual comment" ;
+  rdfs:domain setu:Activity ;
+  rdfs:label "comment" ;
+  rdfs:range xsd:string ;
+.
+setu:costCenterCode
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "" ;
+  rdfs:domain setu:Activity ;
+  rdfs:label "cost center code" ;
+  rdfs:range xsd:string ;
+.
+setu:currency
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The currency in which the amount is specified" ;
+  rdfs:domain setu:Compensation ;
+  rdfs:label "currency" ;
+  rdfs:range setu:CurrencyCode ;
+.
+setu:customerAssignedActivityIdentifier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The identifier assigned to the activity as provided by the staffing customer" ;
+  rdfs:domain setu:Activity ;
+  rdfs:label "customer assigned activity identifier" ;
+  rdfs:range xsd:string ;
+.
+setu:customerAssignedPersonIdentifier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The identifier assigned to the person as provided by the staffing customer" ;
+  rdfs:domain setu:Person ;
+  rdfs:label "customer assigned person identifier" ;
+  rdfs:range xsd:string ;
+.
+setu:customerAssignedTimecardIdentifier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The identifier assigned to the timecard as provided by the staffing customer" ;
+  rdfs:domain setu:Timecard ;
+  rdfs:label "customer assigned timecard identifier" ;
+  rdfs:range xsd:string ;
+.
+setu:dayAssignment
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Specification of the administrative start date of the time interval. This is useful in case of nightshifts where the start and end date of a time interval are not the same." ;
+  rdfs:domain setu:WorkActivity ;
+  rdfs:label "day assignment" ;
+  rdfs:range xsd:date ;
+.
+setu:duration
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The duration of the work activity that is reported in hours" ;
+  rdfs:domain setu:WorkActivity ;
+  rdfs:label "duration" ;
+  rdfs:range xsd:decimal ;
+.
+setu:expenseCompensation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "" ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "expense compensation" ;
+  rdfs:range setu:Compensation ;
+.
+setu:expenseQuantity
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Numerical quantity of the expense specified, assigned or determined by calculation or measurement" ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "expense quantity" ;
+  rdfs:range xsd:integer ;
+.
+setu:expenseType
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The type of expense that is reported" ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "expense type" ;
+  rdfs:range setu:ExpenseType ;
+.
+setu:fourweekly
+  rdf:type setu:PeriodType ;
+  rdfs:comment "" ;
+  rdfs:label "four weekly" ;
+.
+setu:hourType
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The type of timeframe that is registered" ;
+  rdfs:domain setu:WorkActivity ;
+  rdfs:label "hour type" ;
+  rdfs:range setu:HourType ;
+.
+setu:hourly
+  rdf:type setu:PeriodType ;
+  rdfs:comment "" ;
+  rdfs:label "hourly" ;
+.
+setu:hourlyconsolidated
+  rdf:type setu:PeriodType ;
+  rdfs:comment "" ;
+  rdfs:label "hourlyconsolidated" ;
+.
+setu:hourlysplit
+  rdf:type setu:PeriodType ;
+  rdfs:comment "" ;
+  rdfs:label "hourlysplit" ;
+.
+setu:inclusiveRate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Specification whether the hour rate for this work activity is inclusive or exclusive the provided multiplier" ;
+  rdfs:domain setu:HourRate ;
+  rdfs:label "inclusive rate" ;
+  rdfs:range xsd:boolean ;
+.
+setu:monthly
+  rdf:type setu:PeriodType ;
+  rdfs:comment "" ;
+  rdfs:label "monthly" ;
+.
+setu:multiplier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The multiplier that should be applied to the rate in order to determine the real amount that has to be paid or billed. The 'standard multiplier' for a rate without mark-up is 100%. A different value can be used in situations where a mark-up is provided on top of the standard rate. The mark-up should be added to the 'base percentage' of 100%, so a mark-up of 50% (1.5 times the standard rate) makes a multiplier of 150%" ;
+  rdfs:domain setu:HourRate ;
+  rdfs:label "multiplier" ;
+  rdfs:range xsd:integer ;
+.
+setu:name
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "" ;
+  rdfs:domain setu:Person ;
+  rdfs:label "name" ;
+  rdfs:range xsd:string ;
+.
+setu:payableHourRate
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "" ;
+  rdfs:domain setu:WorkActivity ;
+  rdfs:label "payable hour rate" ;
+  rdfs:range setu:HourRate ;
+.
+setu:periodEnd
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The end date and/or time of the timeframe that is reported on the timecard" ;
+  rdfs:domain setu:Timecard ;
+  rdfs:label "period end" ;
+  rdfs:range xsd:dateTime ;
+.
+setu:periodStart
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The start date and/or time of the timeframe that is reported on the timecard" ;
+  rdfs:domain setu:Timecard ;
+  rdfs:label "period start" ;
+  rdfs:range xsd:dateTime ;
+.
+setu:periodType
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The type of period that applies to the hour rate" ;
+  rdfs:domain setu:HourRate ;
+  rdfs:label "period type" ;
+  rdfs:range setu:PeriodType ;
+.
+setu:reportedAllowance
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "" ;
+  rdfs:domain setu:Timecard ;
+  rdfs:label "reported allowance" ;
+  rdfs:range setu:Allowance ;
+.
+setu:reportedExpense
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "" ;
+  rdfs:domain setu:Timecard ;
+  rdfs:label "reported expense" ;
+  rdfs:range setu:Expense ;
+.
+setu:reportedResource
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The human resource conducting the activities reported on the Timecard" ;
+  rdfs:domain setu:Timecard ;
+  rdfs:label "reported resource" ;
+  rdfs:range setu:Person ;
+.
+setu:reportedWorkActivity
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "" ;
+  rdfs:domain setu:Timecard ;
+  rdfs:label "reported work activity" ;
+  rdfs:range setu:WorkActivity ;
+.
+setu:supplierAssignedActivityIdentifier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The identifier assigned to the acitivity as provided by the staffing supplier" ;
+  rdfs:domain setu:Activity ;
+  rdfs:label "supplier assigned activity identifier" ;
+  rdfs:range xsd:string ;
+.
+setu:supplierAssignedPersonIdentifier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The identifier assigned to the person as provided by the staffing supplier" ;
+  rdfs:domain setu:Person ;
+  rdfs:label "supplier assigned person identifier" ;
+  rdfs:range xsd:string ;
+.
+setu:supplierAssignedTimecardIdentifier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The identifier assigned to the timecard as provided by the staffing supplier" ;
+  rdfs:domain setu:Timecard ;
+  rdfs:label "supplier assigned timecard identifier" ;
+  rdfs:range xsd:string ;
+.
+setu:toBeBilled
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Specifies whether this hour rate is specified for billing purposes or not" ;
+  rdfs:domain setu:HourRate ;
+  rdfs:label "to be billed" ;
+  rdfs:range xsd:boolean ;
+.
+setu:toBePaid
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Specifies whether this hour rate is specified for payment purposes or not" ;
+  rdfs:domain setu:HourRate ;
+  rdfs:label "to be paid" ;
+  rdfs:range xsd:boolean ;
+.
+setu:value
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The value amount of the compensation" ;
+  rdfs:domain setu:Compensation ;
+  rdfs:label "value" ;
+  rdfs:range xsd:decimal ;
+.
+setu:weekly
+  rdf:type setu:PeriodType ;
+  rdfs:comment "" ;
+  rdfs:label "weekly" ;
+.

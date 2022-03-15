@@ -1,0 +1,3139 @@
+# baseURI: https://ontology.setu.nl#
+# prefix: setu
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix person: <http://www.w3.org/ns/person#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rov: <http://www.w3.org/ns/regorg#> .
+@prefix schema: <http://schema.org/> .
+@prefix setu: <https://ontology.setu.nl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+setu:
+  rdf:type owl:Ontology ;
+  dcterms:contributor <https://www.linkedin.com/in/jan-pieter-wijbenga-19441032/> ;
+  dcterms:contributor <https://www.linkedin.com/in/michielstornebrink/> ;
+  dcterms:creator <https://www.linkedin.com/in/linda-oosterheert-006b0a10/> ;
+  dcterms:creator <https://www.linkedin.com/in/robin-de-veer/> ;
+  dcterms:modified "2021-10-26"^^xsd:date ;
+  dcterms:title "SETU Ontologie voor de uitzendsector"@nl ;
+  dcterms:title "SETU Ontology for the flexible staffing industry"@en ;
+  owl:versionIRI <https://ontology.setu.nl/version/0.9.1> ;
+  owl:versionInfo "0.9.1" ;
+.
+setu:Acceptation
+  rdf:type owl:Class ;
+  rdfs:comment "A message that something is approved."@en ;
+  rdfs:comment "Een bericht dat er ergens mee ingestemd wordt."@nl ;
+  rdfs:label "Acceptatie"@nl ;
+  rdfs:label "Acceptation"@en ;
+.
+setu:Address
+  rdf:type owl:Class ;
+  rdfs:comment "A structured and unique way to indicate where a building unit, berth, location or lot is located or where someone lives."@en ;
+  rdfs:comment "Een gestructureerde en unieke manier om aan te geven waar een gebouweenheid, een ligplaats, een standplaats of een perceel zich bevindt of iemand woont."@nl ;
+  rdfs:label "Address"@en ;
+  rdfs:label "Adres"@nl ;
+.
+setu:Allowance
+  rdf:type owl:Class ;
+  rdfs:comment "'Allowance' means that the financial compensation is paid to the flexworker (also see payToFlexworker) and/or billed to the staffing customer (also see billToStaffingCustomer). An allowance results in a positive amount on the payslip and invoice."@en ;
+  rdfs:comment "'Vergoeding' betekent dat de financiële compensatie verloond wordt aan de flexkracht (zie ook payToFlexworker) en/of gefactureerd wordt aan de inleenorganisatie (zie ook billToStaffingCustomer). Een vergoeding resulteert in een positief bedrag op de loonstrook en factuur."@nl ;
+  rdfs:label "Allowance"@en ;
+  rdfs:label "Vergoeding"@nl ;
+.
+setu:AllowanceType
+  rdf:type owl:Class ;
+  rdfs:comment "Het type vergoeding."@nl ;
+  rdfs:comment "The type of allowance."@en ;
+  rdfs:label "Allowance type"@en ;
+  rdfs:label "Vergoeding type"@nl ;
+.
+setu:Amount
+  rdf:type owl:Class ;
+  rdfs:comment "Het bedrag dat voor een goed of dienst moet worden betaald om het goed in eigendom of de dienst geleverd te krijgen."@nl ;
+  rdfs:comment "The amount that must be paid for a good or service to get the good in ownership or to get the service."@en ;
+  rdfs:label "Amount"@en ;
+  rdfs:label "Bedrag"@nl ;
+.
+setu:Assignment
+  rdf:type owl:Class ;
+  rdfs:comment "De bevestiging van de uitzendorganisatie van het plaatsen van een flexkracht op een positie bij de inleenorganisatie."@nl ;
+  rdfs:comment "The confirmation of the staffing supplier of the placement of a flexworker at a position at the staffing customer."@en ;
+  rdfs:label "Assignment"@en ;
+  rdfs:label "Plaatsing"@nl ;
+.
+setu:Attachment
+  rdf:type owl:Class ;
+  rdfs:comment "An extra part or extension that is or may be attached to something to perform a particular function. There exist embedded and referenced attachments."@en ;
+  rdfs:comment "Een bijlage is een stuk, dat bij een ander stuk is gevoegd, omdat ten aanzien daarvan een dienende functie vervult. Er bestaan ingesloten en gerefereerde bijlages."@nl ;
+  rdfs:label "Attachment"@en ;
+  rdfs:label "Bijlage"@nl ;
+.
+setu:BSN
+  rdf:type owl:Class ;
+  rdfs:comment "Het burgerservicenummer (BSN) is een uniek persoonsgebonden nummer voor iedereen die in Nederland staat ingeschreven in de Basisregistratie Personen (BRP). Het BSN bestaat uit 8 of 9 cijfers."@nl ;
+  rdfs:comment "The 'burgerservicenummer' (BSN) is a unique personal number for everyone who is registered in the 'Basisregistratie Personen' (BRP) within the Netherlands. The BSN consists of 8 or 9 digits."@en ;
+  rdfs:label "BSN"@en ;
+  rdfs:label "BSN"@nl ;
+  rdfs:subClassOf setu:Identifier ;
+.
+setu:BTW_Id
+  rdf:type owl:Class ;
+  rdfs:comment "An organization receives a 'btw-identificatienummer' from the 'Belastingdienst' when the organization is registrered at the 'Kamer van Koophandel' (KVK). The 'btw-identificatienummer' contains: country code NL, 9 digits, letter B, and a check digit of 2 digits."@en ;
+  rdfs:comment "Een organisatie krijgt een btw-identificatienummer van de Belastingdienst wanneer de organisatie is ingeschreven bij de Kamer van Koophandel (KVK). Het btw-identificatienummer bevat: landcode NL, 9 cijfers, letter B, en een controlegetal van 2 cijfers."@nl ;
+  rdfs:label "BTW-id"@en ;
+  rdfs:label "BTW-id"@nl ;
+  rdfs:subClassOf setu:Identifier ;
+.
+setu:Certificate
+  rdf:type owl:Class ;
+  rdfs:comment "A certificate or license a person has, such as a driving license or screening."@en ;
+  rdfs:comment "Een certificaat of licentie die een persoon heeft, zoals een rijbewijs of screening."@nl ;
+  rdfs:label "Certificaat"@nl ;
+  rdfs:label "Certificate"@en ;
+.
+setu:CoffeeMoney
+  rdf:type setu:AllowanceType ;
+  rdf:type setu:ExpenseType ;
+  rdfs:label "Coffee money"@en ;
+  rdfs:label "Koffiegeld"@nl ;
+.
+setu:CollectiveLabourAgreement
+  rdf:type owl:Class ;
+  rdfs:comment "A collective labour agreement (CLA) is a written contract negotiated through collective bargaining for employees by one or more trade unions with the management of a company (or with an employers' association) that regulates the terms and conditions of employees at work."@en ;
+  rdfs:comment "Een collectieve arbeidsovereenkomst (CAO) is een schriftelijke overeenkomst waarin afspraken over arbeidsvoorwaarden zijn vastgelegd die overeen zijn gekomen tussen een of meer werkgevers of werkgeversorganisaties met een of meer werknemersorganisaties."@nl ;
+  rdfs:label "Collectieve arbeidsovereenkomst"@nl ;
+  rdfs:label "Collective labour agreement"@en ;
+.
+setu:Competency
+  rdf:type owl:Class ;
+  rdfs:comment "De bekwaamheid om iets succesvol of efficiënt te doen."@nl ;
+  rdfs:comment "The ability to do something succesfully or efficiently."@en ;
+  rdfs:label "Competency"@en ;
+  rdfs:label "Competentie"@nl ;
+.
+setu:ContactPerson
+  rdf:type owl:Class ;
+  rdfs:comment "A person who acts as a point of contact for, for example, a specific organization, assignment, etc."@en ;
+  rdfs:comment "Een persoon die als aanspreekpunt fungeert voor bijvoorbeeld een specifieke organisatie, plaatsing, etc."@nl ;
+  rdfs:label "Contact person"@en ;
+  rdfs:label "Contactpersoon"@nl ;
+  rdfs:subClassOf setu:Person ;
+.
+setu:ContactPoint
+  rdf:type owl:Class ;
+  rdfs:comment "A point, e.g. customer service, that can be contacted."@en ;
+  rdfs:comment "Een punt, bijv. klantenservice, waarmee contact kan worden opgenomen."@nl ;
+  rdfs:label "Contact point"@en ;
+  rdfs:label "Contactpunt"@nl ;
+  rdfs:subClassOf schema:ContactPoint ;
+.
+setu:CostCenter
+  rdf:type owl:Class ;
+  rdfs:comment "A demarcated unit within an organization for accounting purposes to which costs can be attributed."@en ;
+  rdfs:comment "Een afgebakende eenheid binnen een organisatie ten behoeve van de boekhouding waaraan kosten kunnen worden toegerekend."@nl ;
+  rdfs:label "Cost center"@en ;
+  rdfs:label "Kostenplaats"@nl ;
+.
+setu:Day
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Dag"@nl ;
+  rdfs:label "Day"@en ;
+.
+setu:Department
+  rdf:type owl:Class ;
+  rdfs:comment "A division of a large organization dealing with a specific area of activity. The department itself is not considered a legal entity."@en ;
+  rdfs:comment "Een divisie van een grote organisatie die zich bezighoudt met een specifiek werkgebied. De afdeling zelf wordt niet als juridische entiteit beschouwd."@nl ;
+  rdfs:label "Afdeling"@nl ;
+  rdfs:label "Department"@en ;
+  rdfs:subClassOf org:OrganizationalUnit ;
+.
+setu:Education
+  rdf:type owl:Class ;
+  rdfs:comment "Het onderwijs dat iemand heeft gevolgd om bepaalde kennis of vaardigheden te verwerven, zoals voor een beroep."@nl ;
+  rdfs:comment "The education some person has followed to acquire particular knowledge or skills, as for a profession."@en ;
+  rdfs:label "Education"@en ;
+  rdfs:label "Opleiding"@nl ;
+.
+setu:EducationLevel
+  rdf:type owl:Class ;
+  rdfs:comment "Het niveau van het onderwijs."@nl ;
+  rdfs:comment "The level of the education."@en ;
+  rdfs:label "Education level"@en ;
+  rdfs:label "Onderwijsniveau"@nl ;
+.
+setu:EmbeddedAttachment
+  rdf:type owl:Class ;
+  rdfs:comment "An attachment embedded within message."@en ;
+  rdfs:comment "Een bijlage ingesloten in het bericht."@nl ;
+  rdfs:label "Embedded attachment"@en ;
+  rdfs:label "Ingesloten bijlage"@nl ;
+  rdfs:subClassOf setu:Attachment ;
+.
+setu:EmploymentContract
+  rdf:type owl:Class ;
+  rdfs:comment "A contract between an employer and an employee to attribute rights and responsibilities between parties. Within the SETU context this is a contract between the staffing supplier and the flexworker."@en ;
+  rdfs:comment "Een contract tussen een werkgever en een werknemer om rechten en verantwoordelijkheden tussen partijen toe te kennen. Binnen de SETU context is dit een contract tussen de uitzendorganisatie en de flexkracht."@nl ;
+  rdfs:label "Arbeidsovereenkomst"@nl ;
+  rdfs:label "Employment contract"@en ;
+.
+setu:EmploymentPhase
+  rdf:type owl:Class ;
+  rdfs:comment "De arbeidsfase waarin de flexkracht zich bevindt volgens de ABU of NBBU CAO."@nl ;
+  rdfs:comment "The employment phase the flexworker is in according to the ABU or NBBU CLA."@en ;
+  rdfs:label "Arbeidsfase"@nl ;
+  rdfs:label "Employment phase"@en ;
+.
+setu:EmploymentType
+  rdf:type owl:Class ;
+  rdfs:comment "Het type dienstverband vastgelegd in de arbeidsovereenkomst."@nl ;
+  rdfs:comment "The type of employment contracted in the employment contract."@en ;
+  rdfs:label "Dienstverband type"@nl ;
+  rdfs:label "Employment type"@en ;
+.
+setu:Expense
+  rdf:type owl:Class ;
+  rdfs:comment "'Expense' means that the financial compensation is withheld from the flexworker and/or paid to the staffing customer. An expense results in a negative amount on the payslip and invoice."@en ;
+  rdfs:comment "'Inhouding' betekent dat de financiële compensatie ingehouden wordt bij de flexkracht en/of uitgekeerd wordt aan de inleenorganisatie. Een inhouding resulteert in een negatief bedrag op de loonstrook en factuur."@nl ;
+  rdfs:label "Expense"@en ;
+  rdfs:label "Inhouding"@nl ;
+.
+setu:ExpenseType
+  rdf:type owl:Class ;
+  rdfs:comment "Het type inhouding."@nl ;
+  rdfs:comment "The type of expense."@en ;
+  rdfs:label "expense type"@en ;
+  rdfs:label "inhouding type"@nl ;
+.
+setu:Filled
+  rdf:type setu:PositionStatus ;
+  rdfs:label "Filled"@en ;
+  rdfs:label "Gevuld"@nl ;
+.
+setu:Flexworker
+  rdf:type owl:Class ;
+  rdfs:comment "A person who is contracted by a staffing supplier and who performs flexible work for the staffing supplier at one or more staffing customer(s)."@en ;
+  rdfs:comment "Een persoon die onder contract staat bij een uitzendorganisatie en voor de uitzendorganisatie flexibele arbeid verricht bij een of meerdere inleenorganisaties."@nl ;
+  rdfs:label "Flexkracht"@nl ;
+  rdfs:label "Flexworker"@en ;
+  rdfs:subClassOf setu:Person ;
+.
+setu:FourWeeks
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Four weeks"@en ;
+  rdfs:label "Vier weken"@nl ;
+.
+setu:Friday
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Friday"@en ;
+  rdfs:label "Vrijdag"@nl ;
+.
+setu:FullTime
+  rdf:type setu:EmploymentType ;
+  rdfs:label "Full-time"@en ;
+  rdfs:label "Voltijds"@nl ;
+.
+setu:GeneralSecondaryEducation
+  rdf:type setu:EducationLevel ;
+  rdfs:label "General secondary education"@en ;
+  rdfs:label "HAVO / VWO"@nl ;
+.
+setu:HigherEducationBachelor
+  rdf:type setu:EducationLevel ;
+  rdfs:label "HBO / bachelor"@nl ;
+  rdfs:label "Higher education, bachelor degree"@en ;
+.
+setu:HigherEducationMaster
+  rdf:type setu:EducationLevel ;
+  rdfs:label "Higher education, master degree"@en ;
+  rdfs:label "WO / master"@nl ;
+.
+setu:HiringContract
+  rdf:type owl:Class ;
+  rdfs:comment "A contract between a staffing customer and a staffing supplier with central agreements on hiring staff, such as duration, size and amounts."@en ;
+  rdfs:comment "Een contract tussen een inleenorganisatie en een uitzendorganisatie met centrale afspraken over het inlenen van personeel, zoals duur, omvang en bedragen."@nl ;
+  rdfs:label "Hiring contract"@en ;
+  rdfs:label "Inleenovereenkomst"@nl ;
+.
+setu:Hour
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Hour"@en ;
+  rdfs:label "Uur"@nl ;
+.
+setu:HourRegistration
+  rdf:type owl:Class ;
+  rdfs:comment "De registratie van de gewerkte uren en kosten van de flexkracht bij de uitzendorganisatie. Deze registratie is nodig voor de verloning aan de flexkracht en facturatie aan de uitzendorganisatie."@nl ;
+  rdfs:comment "The registration reporting the worked hours and expenses of the flexworker at the staffing customer. This registration is needed for the remuneration to the flexworker and invoicing to the staffing customer."@en ;
+  rdfs:label "Hour registration"@en ;
+  rdfs:label "Urenregistratie"@nl ;
+.
+setu:HourType
+  rdf:type owl:Class ;
+  rdfs:comment "Het uurtype van de vergoedde uren."@nl ;
+  rdfs:comment "The hour type of the reimbursed hours."@en ;
+  rdfs:label "Hour type"@en ;
+  rdfs:label "Uurtype"@nl ;
+.
+setu:HourlyAllowance
+  rdf:type owl:Class ;
+  rdfs:comment "De financiële vergoeding voor de gewerkte uren. Een urenvergoeding resulteert in een positief bedrag op de loonstrook en factuur."@nl ;
+  rdfs:comment "The financial compensation for the worked hours. An allowance results in a positive amount on the payslip and invoice."@en ;
+  rdfs:label "Hourly allowance"@en ;
+  rdfs:label "Urenvergoeding"@nl ;
+.
+setu:IdentificationDocument
+  rdf:type owl:Class ;
+  rdfs:comment "Een identiteitsbewijs, zoals een paspoort, wordt gebruikt om de identiteit van een persoon te bewijzen."@nl ;
+  rdfs:comment "The identification document, for example a passport, is used to proof the identity of a person."@en ;
+  rdfs:label "Identification document"@en ;
+  rdfs:label "Identiteitsbewijs"@nl ;
+.
+setu:Identifier
+  rdf:type owl:Class ;
+  rdfs:comment "A number identifying something unique that can be referenced."@en ;
+  rdfs:comment "Een nummer dat iets unieks identificeert waarnaar kan worden verwezen."@nl ;
+  rdfs:label "Identifier"@en ;
+  rdfs:label "Identifier"@nl ;
+  rdfs:subClassOf adms:Identifier ;
+.
+setu:IrregularityAllowance
+  rdf:type setu:HourType ;
+  rdfs:label "Irregularity allowance"@en ;
+  rdfs:label "Onregelmatigheidstoeslag"@nl ;
+.
+setu:Job
+  rdf:type owl:Class ;
+  rdfs:comment "A permanent role within the organization that is characterized by certain tasks and activities. If multiple flexworkers are performing the same role, they all have their own position that refers to the same job."@en ;
+  rdfs:comment "Een vaste rol binnen de organisatie die gekenmerkt wordt door bepaalde taken en werkzaamheden. Als meerdere flexkrachten dezelfde rol vervullen, hebben ze allemaal hun eigen positie die verwijzen naar dezelfde functie."@nl ;
+  rdfs:label "Functie"@nl ;
+  rdfs:label "Job"@en ;
+.
+setu:KVK_Nummer
+  rdf:type owl:Class ;
+  rdfs:comment "Een KVK-nummer laat zien dat uw organisatie officieel staat ingeschreven in het Handelsregister van de Kamer van Koophandel. Het KVK-nummer is een uniek 8-cijferig nummer."@nl ;
+  rdfs:comment "The 'KVK-nummer' shows that an organization is officially registered at the 'Handelsregister' at the 'Kamer van Koophandel'. The 'KVK-nummer' is a unique 8-digit number."@en ;
+  rdfs:label "KVK-nummer"@en ;
+  rdfs:label "KVK-nummer"@nl ;
+  rdfs:subClassOf setu:Identifier ;
+.
+setu:Location
+  rdf:type owl:Class ;
+  rdfs:comment "A particular place where an organization is located."@en ;
+  rdfs:comment "Een bepaalde plaats waar een organisatie is gevestigd."@nl ;
+  rdfs:label "Locatie"@nl ;
+  rdfs:label "Location"@en ;
+  rdfs:subClassOf org:Site ;
+.
+setu:Monday
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Maandag"@nl ;
+  rdfs:label "Monday"@en ;
+.
+setu:Month
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Maand"@nl ;
+  rdfs:label "Month"@en ;
+.
+setu:OIN
+  rdf:type owl:Class ;
+  rdfs:comment "Het OIN (Organisatie-identificatienummer) is een uniek identificerend nummer dat gebruikt wordt door organisaties met een publieke taak."@nl ;
+  rdfs:comment "The OIN (Organisatie-identificatienummer) is a unique identifying number used by organizations with a public task."@en ;
+  rdfs:label "OIN"@en ;
+  rdfs:label "OIN"@nl ;
+  rdfs:subClassOf setu:Identifier ;
+.
+setu:Offer
+  rdf:type owl:Class ;
+  rdfs:comment "Het aanbod van de uitzendorganisatie van een flexkracht voor een bepaalde positie bij de inleenorganisatie."@nl ;
+  rdfs:comment "The offer by the staffing supplier of a flexworker for a certain position at the staffing customer."@en ;
+  rdfs:label "Aanbod"@nl ;
+  rdfs:label "Offer"@en ;
+.
+setu:OnCall
+  rdf:type setu:EmploymentType ;
+  rdfs:label "On-call"@en ;
+  rdfs:label "Oproep"@nl ;
+.
+setu:OrderConfirmation
+  rdf:type owl:Class ;
+  rdfs:comment "De bevestiging van de uitzendorganisatie van een flexkracht voor een bepaalde positie bij de inleenorganisatie. Opdrachtbevestiging wordt altijd gebruikt om voor één flexkracht (en dus niet meerdere flexkrachten) een opdracht te bevestigen."@nl ;
+  rdfs:comment "The confirmation by the staffing supplier of a flexworker for a certain position at the staffing customer. OrderConfirmation is always used to confirm an order for one flexworker (and not multiple flexworkers)."@en ;
+  rdfs:label "Opdrachtbevestiging"@nl ;
+  rdfs:label "Order confirmation"@en ;
+.
+setu:Organization
+  rdf:type owl:Class ;
+  rdfs:comment "An organization is a targeted collaboration of people who provide a product or service and has obtained a legal status."@en ;
+  rdfs:comment "Een organisatie is een doelgerichte samenwerking van mensen die een product of dienst leveren en heeft een juridische rechtsvorm."@nl ;
+  rdfs:label "Organisatie"@nl ;
+  rdfs:label "Organization"@en ;
+  rdfs:subClassOf rov:RegisteredOrganization ;
+.
+setu:Overtime
+  rdf:type setu:HourType ;
+  rdfs:label "Overtime"@en ;
+  rdfs:label "Overwerk"@nl ;
+.
+setu:PartTime
+  rdf:type setu:EmploymentType ;
+  rdfs:label "Deeltijds"@nl ;
+  rdfs:label "Part-time"@en ;
+.
+setu:Payroll
+  rdf:type setu:PositionType ;
+  rdfs:label "Payroll"@en ;
+  rdfs:label "Payroll"@nl ;
+.
+setu:Period
+  rdf:type owl:Class ;
+  rdfs:comment "A certain length of time with a beginning and end."@en ;
+  rdfs:comment "Een bepaalde tijdsduur met een begin en eind."@nl ;
+  rdfs:label "Period"@en ;
+  rdfs:label "Periode"@nl ;
+.
+setu:PeriodUnit
+  rdf:type owl:Class ;
+  rdfs:comment "De periode-eenheid waarop het bedrag of de dienst van toepassing is, bijvoorbeeld per uur, per dag, per maand."@nl ;
+  rdfs:comment "The period unit to which the amount or shift apply, e.g. per hour, per day, per month."@en ;
+  rdfs:label "Period unit"@en ;
+  rdfs:label "Periode-eenheid"@nl ;
+.
+setu:Person
+  rdf:type owl:Class ;
+  rdfs:comment "A human being regarded as an individual."@en ;
+  rdfs:comment "Een mens beschouwd als een individu."@nl ;
+  rdfs:label "Person"@en ;
+  rdfs:label "Persoon"@nl ;
+  rdfs:subClassOf person:Person ;
+.
+setu:Phase1
+  rdf:type setu:EmploymentPhase ;
+  rdfs:comment "Fase 1 volgens de NBBU CAO."@nl ;
+  rdfs:comment "Phase 1 according to the collective agreement of the NBBU."@en ;
+  rdfs:label "Fase 1"@nl ;
+  rdfs:label "Phase 1"@en ;
+.
+setu:Phase1-2
+  rdf:type setu:EmploymentPhase ;
+  rdfs:comment "Fase 1-2 volgens de NBBU CAO."@nl ;
+  rdfs:comment "Phase 1-2 according to the collective agreement of the NBBU."@en ;
+  rdfs:label "Fase 1-2"@nl ;
+  rdfs:label "Phase 1-2"@en ;
+.
+setu:Phase2
+  rdf:type setu:EmploymentPhase ;
+  rdfs:comment "Fase 2 volgens de NBBU CAO."@nl ;
+  rdfs:comment "Phase 2 according to the collective agreement of the NBBU."@en ;
+  rdfs:label "Fase 2"@nl ;
+  rdfs:label "Phase 2"@en ;
+.
+setu:Phase3
+  rdf:type setu:EmploymentPhase ;
+  rdfs:comment "Fase 3 volgens de NBBU CAO."@nl ;
+  rdfs:comment "Phase 3 according to the collective agreement of the NBBU."@en ;
+  rdfs:label "Fase 3"@nl ;
+  rdfs:label "Phase 3"@en ;
+.
+setu:Phase4
+  rdf:type setu:EmploymentPhase ;
+  rdfs:comment "Fase 4 volgens de NBBU CAO."@nl ;
+  rdfs:comment "Phase 4 according to the collective agreement of the NBBU."@en ;
+  rdfs:label "Fase 4"@nl ;
+  rdfs:label "Phase 4"@en ;
+.
+setu:PhaseA
+  rdf:type setu:EmploymentPhase ;
+  rdfs:comment "Fase A volgens de ABU CAO."@nl ;
+  rdfs:comment "Phase A according to the collective agreement of the ABU."@en ;
+  rdfs:label "Fase A"@nl ;
+  rdfs:label "Phase A"@en ;
+.
+setu:PhaseB
+  rdf:type setu:EmploymentPhase ;
+  rdfs:comment "Fase B volgens de ABU CAO."@nl ;
+  rdfs:comment "Phase B according to the collective agreement of the ABU."@en ;
+  rdfs:label "Fase B"@nl ;
+  rdfs:label "Phase B"@en ;
+.
+setu:PhaseC
+  rdf:type setu:EmploymentPhase ;
+  rdfs:comment "Fase C volgens de ABU CAO."@nl ;
+  rdfs:comment "Phase C according to the collective agreement of the ABU."@en ;
+  rdfs:label "Fase C"@nl ;
+  rdfs:label "Phase C"@en ;
+.
+setu:Position
+  rdf:type owl:Class ;
+  rdfs:comment "A unique position for a flexworker with a certain role within an organization. If multiple flexworkers are performing the same role, they all have their own position that refers to the same job."@en ;
+  rdfs:comment "Een unieke positie voor een flexkracht met een bepaalde rol binnen een organisatie. Als meerdere flexkrachten dezelfde rol vervullen, hebben ze allemaal hun eigen positie die verwijzen naar dezelfde functie."@nl ;
+  rdfs:label "Positie"@nl ;
+  rdfs:label "Position"@en ;
+.
+setu:PositionStatus
+  rdf:type owl:Class ;
+  rdfs:comment "De status van de positie."@nl ;
+  rdfs:comment "The status of the position."@en ;
+  rdfs:label "Positiestatus"@nl ;
+  rdfs:label "Position status"@en ;
+.
+setu:PositionType
+  rdf:type owl:Class ;
+  rdfs:comment "Geeft aan of het een positie is voor uitzendwerk, detachering, payroll of werving en selectie."@nl ;
+  rdfs:comment "Indicates whether it is a position for temporary work, secondment, payroll or recruitment and selection."@en ;
+  rdfs:label "Positie type"@nl ;
+  rdfs:label "Position type"@en ;
+.
+setu:PreparatorySecondaryVocationalEducation
+  rdf:type setu:EducationLevel ;
+  rdfs:label "Preparatory secondary vocational education"@en ;
+  rdfs:label "VMBO / MBO-1"@nl ;
+.
+setu:PrimaryEducation
+  rdf:type setu:EducationLevel ;
+  rdfs:label "Basisonderwijs"@nl ;
+  rdfs:label "Primary education"@en ;
+.
+setu:Profile
+  rdf:type owl:Class ;
+  rdfs:comment "De onderwijsgeschiedenis, werkervaring, competenties en certificaten waarover een persoon beschikt."@nl ;
+  rdfs:comment "The education history, work experience, competencies and certificates a person has."@en ;
+  rdfs:label "Profiel"@nl ;
+  rdfs:label "Profile"@en ;
+.
+setu:Project
+  rdf:type owl:Class ;
+  rdfs:comment "An activity to create and deliver results within a specified time and resources."@en ;
+  rdfs:comment "Een activiteit om iets te creëren en resultaat op te leveren binnen een bepaalde tijd en middelen."@nl ;
+  rdfs:label "Project"@en ;
+  rdfs:label "Project"@nl ;
+  rdfs:subClassOf org:OrganizationalCollaboration ;
+.
+setu:Quarter
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Kwartaal"@nl ;
+  rdfs:label "Quarter"@en ;
+.
+setu:RSIN
+  rdf:type owl:Class ;
+  rdfs:comment "Het RSIN is een uniek nummer waarmee organisaties eenvoudig informatie met elkaar kunnen delen. RSIN staat voor Rechtspersonen Samenwerkingsverbanden Informatienummer. Iedere organisatie ontvangt het nummer automatisch wanner men start als rechtspersoon of samenwerkingsverband. Het RSIN is het 9-cijfergedeelte dat in het btw-identificatienummer staat tussen NL en B. Het RSIN stond voorheen bekend als het fiscaal nummer (Fi-nummer)."@nl ;
+  rdfs:comment "The RSIN is a unique number that allows organizations to easily share information with each other. RSIN means 'Rechtspersonen Samenwerkingsverbanden Informatienummer'. Every organization receives the number automatically when they start as a legal person or partnership. The RSIN is the 9-digit part that is in the 'btw-identificatienummer' between NL and B. The RSIN was previously known as the tax number (Fi-nummer)."@en ;
+  rdfs:label "RSIN"@en ;
+  rdfs:label "RSIN"@nl ;
+  rdfs:subClassOf setu:Identifier ;
+.
+setu:RecruitmentAndSelection
+  rdf:type setu:PositionType ;
+  rdfs:label "Recruitment and selection"@en ;
+  rdfs:label "Werving en selectie"@nl ;
+.
+setu:ReferencedAttachment
+  rdf:type owl:Class ;
+  rdfs:comment "A reference to an external attachment."@en ;
+  rdfs:comment "Een verwijzing naar een externe bijlage."@nl ;
+  rdfs:label "Gerefereerde bijlage"@nl ;
+  rdfs:label "Referenced attachment"@en ;
+  rdfs:subClassOf setu:Attachment ;
+.
+setu:Registration
+  rdf:type owl:Class ;
+  rdfs:comment "De registratie van een persoon bij een uitzendorganisatie."@nl ;
+  rdfs:comment "The registration of a person at a staffing supplier."@en ;
+  rdfs:label "Inschrijving"@nl ;
+  rdfs:label "Registration"@en ;
+.
+setu:Regular
+  rdf:type setu:HourType ;
+  rdfs:label "Regular"@en ;
+  rdfs:label "Regulier"@nl ;
+.
+setu:Rejection
+  rdf:type owl:Class ;
+  rdfs:comment "A message that something is refused."@en ;
+  rdfs:comment "Een bericht dat er ergens niet op ingegaan wordt."@nl ;
+  rdfs:label "Afwijzing"@nl ;
+  rdfs:label "Rejection"@en ;
+.
+setu:Request
+  rdf:type owl:Class ;
+  rdfs:comment "De aanvraag van de inleenorganisatie bij de uitzendorganisatie voor een of meerdere flexkrachten voor een bepaalde positie."@nl ;
+  rdfs:comment "The request of the staffing customer to the staffing supplier of a flexworker for a certain position at the staffing customer."@en ;
+  rdfs:label "Aanvraag"@nl ;
+  rdfs:label "Request"@en ;
+.
+setu:Saturday
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Saturday"@en ;
+  rdfs:label "Zaterdag"@nl ;
+.
+setu:Secondment
+  rdf:type setu:PositionType ;
+  rdfs:label "Detachering"@nl ;
+  rdfs:label "Secondment"@en ;
+.
+setu:SeniorSecondaryVocationalEducation
+  rdf:type setu:EducationLevel ;
+  rdfs:label "MBO"@nl ;
+  rdfs:label "Senior secondary vocational education"@en ;
+.
+setu:Shift
+  rdf:type owl:Class ;
+  rdfs:comment "A particular shift that is required for or worked by a flexworker."@en ;
+  rdfs:comment "Een bepaalde dienst die is vereist voor of gewerkt door een flexkracht."@nl ;
+  rdfs:label "Dienst"@nl ;
+  rdfs:label "Shift"@en ;
+.
+setu:ShiftAllowance
+  rdf:type setu:HourType ;
+  rdfs:label "Ploegentoeslag"@nl ;
+  rdfs:label "Shift allowance"@en ;
+.
+setu:StaffingCustomer
+  rdf:type owl:Class ;
+  rdfs:comment "An employer that hires staff from a staffing supplier to perform temporary or long-term work."@en ;
+  rdfs:comment "Een werkgever die personeel van een uitzendorganisatie inhuurt voor het tijdelijk of langdurig uitvoeren van werk."@nl ;
+  rdfs:label "Inleenorganisatie"@nl ;
+  rdfs:label "Staffing customer"@en ;
+  rdfs:subClassOf setu:Organization ;
+.
+setu:StaffingSupplier
+  rdf:type owl:Class ;
+  rdfs:comment "A mediator between people who are looking for temporary or long term work and staffing customers, the providers of work."@en ;
+  rdfs:comment "Een bemiddelaar tussen personen die tijdelijk of langdurig werk zoeken en aanbieders van werk."@nl ;
+  rdfs:label "Staffing supplier"@en ;
+  rdfs:label "Uitzendorganisatie"@nl ;
+  rdfs:subClassOf setu:Organization ;
+.
+setu:Sunday
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Sunday"@en ;
+  rdfs:label "Zondag"@nl ;
+.
+setu:TemporaryWork
+  rdf:type setu:PositionType ;
+  rdfs:label "Temporary work"@en ;
+  rdfs:label "Uitzendwerk"@nl ;
+.
+setu:Thursday
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Donderdag"@nl ;
+  rdfs:label "Thursday"@en ;
+.
+setu:TravellingAllowance
+  rdf:type setu:AllowanceType ;
+  rdfs:label "Reiskostenvergoeding"@nl ;
+  rdfs:label "Travelling allowance"@en ;
+.
+setu:Tuesday
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Dinsdag"@nl ;
+  rdfs:label "Tuesday"@en ;
+.
+setu:Vacant
+  rdf:type setu:PositionStatus ;
+  rdfs:label "Vacant"@en ;
+  rdfs:label "Vacant"@nl ;
+.
+setu:Wednesday
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Wednesday"@en ;
+  rdfs:label "Woensdag"@nl ;
+.
+setu:Week
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Week"@en ;
+  rdfs:label "Week"@nl ;
+.
+setu:Withdrawal
+  rdf:type owl:Class ;
+  rdfs:comment "A message that something is being withdrawn."@en ;
+  rdfs:comment "Een bericht dat er iets ingetrokken wordt."@nl ;
+  rdfs:label "Intrekking"@nl ;
+  rdfs:label "Withdrawal"@en ;
+.
+setu:WorkExperience
+  rdf:type owl:Class ;
+  rdfs:comment "De ervaring van het werken bij een organisatie."@nl ;
+  rdfs:comment "The experience of working at an organization."@en ;
+  rdfs:label "Werkervaring"@nl ;
+  rdfs:label "Work experience"@en ;
+.
+setu:Year
+  rdf:type setu:PeriodUnit ;
+  rdfs:label "Jaar"@nl ;
+  rdfs:label "Year"@en ;
+.
+setu:ZeroHour
+  rdf:type setu:EmploymentType ;
+  rdfs:label "Nuluren"@nl ;
+  rdfs:label "Zero-hour"@en ;
+.
+setu:acceptedAssignment
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De acceptatie van de plaatsing door de inleenorganisatie."@nl ;
+  rdfs:comment "The acceptation of the assignment by the staffing customer."@en ;
+  rdfs:domain setu:Acceptation ;
+  rdfs:label "accepted assignment"@en ;
+  rdfs:label "geaccepteerde plaatsing"@nl ;
+  rdfs:range setu:Assignment ;
+.
+setu:allowanceBillToStaffingCustomer
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de vergoeding gefactureerd moet worden aan de inleenorganisatie (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the allowance should be billed to the staffing customer (true) or not (false)."@en ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "bill to staffing customer"@en ;
+  rdfs:label "factureer aan inleenorganisatie"@nl ;
+  rdfs:range xsd:boolean ;
+.
+setu:allowanceHasCostCenter
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De kostenplaats waartoe de vergoeding wordt toegekend."@nl ;
+  rdfs:comment "The cost center to which the allowance is allocated."@en ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "has cost center"@en ;
+  rdfs:label "heeft kostenplaats"@nl ;
+  rdfs:range setu:CostCenter ;
+.
+setu:allowanceHasStaffingCustomerAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An allowance has an identifier as assigned by the staffing customer."@en ;
+  rdfs:comment "Een vergoeding heeft een identifier zoals toegewezen door de inleenorganisatie."@nl ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "has staffing customer assigned identifier"@en ;
+  rdfs:label "heeft door inleenorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingCustomerAssignedIdentifier ;
+.
+setu:allowanceHasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An allowance has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:comment "Een vergoeding heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heeft door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingSupplierAssignedIdentifier ;
+.
+setu:allowancePayToFlexworker
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de vergoeding verloont moet worden aan de flexkracht (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the allowance should be paid to the flexworker (true) or not (false)."@en ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "pay to flexworker"@en ;
+  rdfs:label "verloon aan flexkracht"@nl ;
+  rdfs:range xsd:boolean ;
+.
+setu:allowanceQuantity
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De numerieke hoeveelheid van een vergoeding."@nl ;
+  rdfs:comment "The numerical quantity of an allowance."@en ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "hoeveelheid"@nl ;
+  rdfs:label "quantity"@en ;
+  rdfs:range xsd:decimal ;
+.
+setu:allowanceTaxable
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de vergoeding belastbaar is (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the allowance is taxable (true) or not (false)."@en ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "belastbaar"@nl ;
+  rdfs:label "taxable"@en ;
+  rdfs:range xsd:boolean ;
+.
+setu:allowanceToBeBilledAmount
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het bedrag dat bij een vergoeding gefactureerd moet worden aan de inleenorganisatie."@nl ;
+  rdfs:comment "The amount that must be billed to the staffing customer for an allowance."@en ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "te factureren bedrag"@nl ;
+  rdfs:label "to be billed amount"@en ;
+  rdfs:range setu:Amount ;
+.
+setu:allowanceToBePaidAmount
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het bedrag dat bij een vergoeding verloond wordt aan de flexkracht."@nl ;
+  rdfs:comment "The amount that must be paid to the flexworker for an allowance."@en ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "te verlonen bedrag"@nl ;
+  rdfs:label "to be paid amount"@en ;
+  rdfs:range setu:Amount ;
+.
+setu:allowanceType
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het type vergoeding."@nl ;
+  rdfs:comment "The type of allowance."@en ;
+  rdfs:domain setu:Allowance ;
+  rdfs:label "allowance type"@en ;
+  rdfs:label "vergoeding type"@nl ;
+  rdfs:range setu:AllowanceType ;
+.
+setu:amountBaseQuantity
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het aantal eenheden waarvoor het bedrag geldt. Bijvoorbeeld, wanneer het bedrag van 10 euro geldt voor één uur werken, is de basishoeveelheid '1.0'."@nl ;
+  rdfs:comment "The number of units to which the amount applies. For example, when the amount of 10 euros applies to one hour of work, the base quantity is '1.0'."@en ;
+  rdfs:domain setu:Amount ;
+  rdfs:label "base quantity"@en ;
+  rdfs:label "basishoeveelheid"@nl ;
+  rdfs:range xsd:decimal ;
+.
+setu:amountBaseUnit
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De basiseenheid van het bedrag. Bijvoorbeeld wanneer het bedrag van 20 euro geldt voor één uur werken, is de basiseenheid 'per uur'."@nl ;
+  rdfs:comment "The base unit of the amount. For example, when the amount of 10 euros applies to one hour of work, the base unit is 'per hour'."@en ;
+  rdfs:domain setu:Amount ;
+  rdfs:label "amount base unit"@en ;
+  rdfs:label "bedrag basiseenheid"@nl ;
+  rdfs:range setu:PeriodUnit ;
+.
+setu:amountOfHours
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De duur van de dienst uitgedrukt in uren. Kan gebruikt worden om onderscheid te maken tussen het werkelijke aantal uren en de aanwezige uren (bijv. inclusief lunchpauze)."@nl ;
+  rdfs:comment "The duration of the shift expressed in hours. Can be used to distinguish between the actual number of hours and the hours present (e.g. including lunch break)."@en ;
+  rdfs:domain setu:Shift ;
+  rdfs:label "aantal uren"@nl ;
+  rdfs:label "amount of hours"@en ;
+  rdfs:range xsd:decimal ;
+.
+setu:amountOfReimbursedHours
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het aantal gewerkte uren dat wordt vergoed."@nl ;
+  rdfs:comment "The amount of worked hours that is reimbursed."@en ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "aantal vergoedde uren"@nl ;
+  rdfs:label "amount of reimbursed hours"@en ;
+  rdfs:range xsd:decimal ;
+.
+setu:amountValue
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het bedrag uitgedrukt in euro's."@nl ;
+  rdfs:comment "The amount expressed in euros."@en ;
+  rdfs:domain setu:Amount ;
+  rdfs:label "amount value"@en ;
+  rdfs:label "bedrag waarde"@nl ;
+  rdfs:range xsd:decimal ;
+.
+setu:applicableCollectiveLabourAgreement
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De collectieve arbeidsovereenkomst (CAO) die van toepassing is op de plaatsing."@nl ;
+  rdfs:comment "The collective labour agreement (CLA) that is applicable to the assignment."@en ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "applicable collective labour agreement"@en ;
+  rdfs:label "collectieve arbeidsovereenkomst van toepassing"@nl ;
+  rdfs:range setu:CollectiveLabourAgreement ;
+.
+setu:approvedOn
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De datum en tijd waarop de urenregistratie is goedgekeurd."@nl ;
+  rdfs:comment "The date and time when the hour registration was approved."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "approved on"@en ;
+  rdfs:label "goedgekeurd op"@nl ;
+  rdfs:range xsd:dateTime ;
+.
+setu:assignedDay
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De (administratieve) datum waartoe de dienst behoort. Kan gebruikt worden wanneer de begin- en einddatum van een dienst niet hetzelfde zijn, bijvoorbeeld als er een nachtdienst gedraaid wordt."@nl ;
+  rdfs:comment "The (administrative) date to which the shift belongs. Can be used when the start and end date of a shift are not the same, for example when a night shift is run."@en ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "assigned day"@en ;
+  rdfs:label "toegekende dag"@nl ;
+  rdfs:range xsd:date ;
+.
+setu:assignmentAgreedForPosition
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De positie waarvoor de plaatsing is overeengekomen."@nl ;
+  rdfs:comment "The position for which the assignment has been agreed."@en ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "agreed for"@en ;
+  rdfs:label "overeengekomen voor"@nl ;
+  rdfs:range setu:Position ;
+.
+setu:assignmentHasAgreedAllowance
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An allowance agreed upon for the assignment."@en ;
+  rdfs:comment "Een vergoeding overeengekomen voor de plaatsing."@nl ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "has agreed allowance"@en ;
+  rdfs:label "heeft overeengekomen vergoeding"@nl ;
+  rdfs:range setu:Allowance ;
+.
+setu:assignmentHasAgreedExpense
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An expense agreed upon for the assignment."@en ;
+  rdfs:comment "Een inhouding overeengekomen voor de plaatsing."@nl ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "has agreed expense"@en ;
+  rdfs:label "heeft overeengekomen inhouding"@nl ;
+  rdfs:range setu:Expense ;
+.
+setu:assignmentHasAgreedHourlyAllowance
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An hourly allowance agreed upon for the assignment."@en ;
+  rdfs:comment "Een urenvergoeding overeengekomen voor de plaatsing."@nl ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "has agreed hourly allowance"@en ;
+  rdfs:label "heeft overeengekomen urenvergoeding"@nl ;
+  rdfs:range setu:HourlyAllowance ;
+.
+setu:assignmentHasAssignedFlexworker
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De plaatsing heeft een geplaatse flexkracht."@nl ;
+  rdfs:comment "The assignment has an assigned flexworker."@en ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "has assigned flexworker"@en ;
+  rdfs:label "heeft geplaatste flexkracht"@nl ;
+  rdfs:range setu:Flexworker ;
+.
+setu:assignmentHasEmploymentContract
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De plaatsing heeft een arbeidsovereenkomst."@nl ;
+  rdfs:comment "The assignment has an employment contract."@en ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "has employment contract"@en ;
+  rdfs:label "heeft arbeidsovereenkomst"@nl ;
+  rdfs:range setu:EmploymentContract ;
+.
+setu:assignmentHasHiringContract
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De plaatsing heeft een inleenovereenkomst."@nl ;
+  rdfs:comment "The assignment has an hiring contract."@en ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "has hiring contract"@en ;
+  rdfs:label "heeft inleenovereenkomst"@nl ;
+  rdfs:range setu:HiringContract ;
+.
+setu:assignmentHasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De plaatsing heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:comment "The assignment has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heeft door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingSupplierAssignedIdentifier ;
+.
+setu:assignmentRefersToOrderConfirmation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De plaatsing refereert naar de opdrachtbevestiging."@nl ;
+  rdfs:comment "The assignment refers to the order confirmation."@en ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "refereert naar"@nl ;
+  rdfs:label "refers to"@en ;
+  rdfs:range setu:OrderConfirmation ;
+.
+setu:attachmentType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het type bijgevoegd document, bijv. een CV, rijbewijs of paspoort."@nl ;
+  rdfs:comment "The type of document attached, e.g. a CV, driving license or passport."@en ;
+  rdfs:domain setu:Attachment ;
+  rdfs:label "attachment type"@en ;
+  rdfs:label "type bijlage"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:awardDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De datum waarop de opdracht gegund wordt aan een uitzendorganisatie."@nl ;
+  rdfs:comment "The date on which the order will be awarded to a staffing supplier."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "award date"@en ;
+  rdfs:label "toekenningsdatum"@nl ;
+  rdfs:range xsd:date ;
+.
+setu:base64Code
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De base64-codering van de ingesloten bijlage."@nl ;
+  rdfs:comment "The base64 encoding of the embedded attachment."@en ;
+  rdfs:domain setu:EmbeddedAttachment ;
+  rdfs:label "base64 code"@en ;
+  rdfs:label "base64-code"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:certificateDescription
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Beschrijving van het certificaat of de licentie."@nl ;
+  rdfs:comment "Description of the certificate or licence."@en ;
+  rdfs:domain setu:Certificate ;
+  rdfs:label "certificaatbeschrijving"@nl ;
+  rdfs:label "certificate description"@en ;
+  rdfs:range xsd:string ;
+.
+setu:certificateHasValidityPeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het certificaat heeft een geldigheidsperiode."@nl ;
+  rdfs:comment "The certificate has a validity period."@en ;
+  rdfs:domain setu:Certificate ;
+  rdfs:label "has validity period"@en ;
+  rdfs:label "heeft geldigheidsperiode"@nl ;
+  rdfs:range setu:Period ;
+.
+setu:certificateIssuedByAuthority
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het certificaat is uitgegeven door de instelling."@nl ;
+  rdfs:comment "The certificate is issued by the authority."@en ;
+  rdfs:domain setu:Certificate ;
+  rdfs:label "issued by authority"@en ;
+  rdfs:label "uitgegeven door instelling"@nl ;
+  rdfs:range setu:Organization ;
+.
+setu:certificateName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De naam van het certificaat of de licentie, bijv. rijbewijs."@nl ;
+  rdfs:comment "The name of the certificate or license, e.g. driving license."@en ;
+  rdfs:domain setu:Certificate ;
+  rdfs:label "certificate name"@en ;
+  rdfs:label "naam certificaat"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:collectiveLabourAgreementHasIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het nummer, zoals toegekend door het Ministerie van Sociale Zaken en Werkgelegenheid (SZW), ter identificatie van de collectieve arbeidsovereenkomst (CAO)."@nl ;
+  rdfs:comment "The number, as assigned by the Dutch Ministry of Social Affairs and Employment (SZW), identifying the collective labour agreement (CLA)."@en ;
+  rdfs:domain setu:CollectiveLabourAgreement ;
+  rdfs:label "has identifier"@en ;
+  rdfs:label "heeft identifier"@nl ;
+  rdfs:range setu:Identifier ;
+.
+setu:collectiveLabourAgreementName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De naam van de collectieve arbeidsovereenkomst (CAO)."@nl ;
+  rdfs:comment "The name of the collective labour agreement (CLA)."@en ;
+  rdfs:domain setu:CollectiveLabourAgreement ;
+  rdfs:label "collectieve arbeidsovereenkomst naam"@nl ;
+  rdfs:label "collective labour agreement name"@en ;
+  rdfs:range xsd:string ;
+.
+setu:commutingDistance
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het aantal kilometers tussen het woonadres van de flexkracht en het werkadres van de uitzendorganisatie."@nl ;
+  rdfs:comment "The number of kilometers between the home address of the flexworker and the work site address of the staffing customer."@en ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "commuting distance"@en ;
+  rdfs:label "woon-werkafstand"@nl ;
+  rdfs:range xsd:decimal ;
+.
+setu:competencyDescription
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De beschrijving van de competentie."@nl ;
+  rdfs:comment "The description of the competency."@en ;
+  rdfs:domain setu:Competency ;
+  rdfs:label "competency description"@en ;
+  rdfs:label "competentie beschrijving"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:competencyLevel
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het niveau van de competentie."@nl ;
+  rdfs:comment "The level of the competency."@en ;
+  rdfs:domain setu:Competency ;
+  rdfs:label "competency level"@en ;
+  rdfs:label "competentie niveau"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:competencyName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De naam van de competentie."@nl ;
+  rdfs:comment "The name of the competency."@en ;
+  rdfs:domain setu:Competency ;
+  rdfs:label "competency name"@en ;
+  rdfs:label "competentie naam"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:completedSuccessfully
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de opleiding succesvol is afgerond (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the education has been successfully completed (true) or not (false)."@en ;
+  rdfs:domain setu:Education ;
+  rdfs:label "completed successfully"@en ;
+  rdfs:label "succesvol afgerond"@nl ;
+  rdfs:range xsd:boolean ;
+.
+setu:confirmedByStaffingCustomer
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De opdrachtbevestiging is bevestigd door de inleenorganisatie."@nl ;
+  rdfs:comment "The order confirmation is confirmed by the staffing customer."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "bevestigd door"@nl ;
+  rdfs:label "confirmed by"@en ;
+  rdfs:range setu:StaffingCustomer ;
+.
+setu:confirmedToStaffingSupplier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De opdrachtbevestiging is bevestigd aan de uitzendorganisatie."@nl ;
+  rdfs:comment "The order confirmation is confirmed to the staffing supplier."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "bevestigd aan"@nl ;
+  rdfs:label "confirmed to"@en ;
+  rdfs:range setu:StaffingSupplier ;
+.
+setu:contactPersonRole
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De rol die het contactpersoon vervult in de workflow, bijv. relatiebeheerder."@nl ;
+  rdfs:comment "The role that the contact point fulfills in the workflow, e.g. relationship manager."@en ;
+  rdfs:domain setu:ContactPerson ;
+  rdfs:label "contact person role"@en ;
+  rdfs:label "contactpersoon rol"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:contactPointEmailAddress
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het e-mailadres van het contactpunt."@nl ;
+  rdfs:comment "The email address of the conctact point."@en ;
+  rdfs:domain setu:ContactPoint ;
+  rdfs:label "e-mailadres"@nl ;
+  rdfs:label "email address"@en ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf setu:emailAddress ;
+.
+setu:contactPointFaxNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het faxnummer van het contactpunt."@nl ;
+  rdfs:comment "The fax number of the contact point."@en ;
+  rdfs:domain setu:ContactPoint ;
+  rdfs:label "fax number"@en ;
+  rdfs:label "faxnummer"@nl ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf schema:faxNumber ;
+.
+setu:contactPointHasStaffingCustomerAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het contactpunt heeft een identifier zoals toegewezen door de inleenorganisatie."@nl ;
+  rdfs:comment "The contact point has an identifier as assigned by the staffing customer."@en ;
+  rdfs:domain setu:ContactPoint ;
+  rdfs:label "has staffing customer assigned identifier"@en ;
+  rdfs:label "heeft door inleenorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingCustomerAssignedIdentifier ;
+.
+setu:contactPointHasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het contactpunt heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:comment "The contact point has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:domain setu:ContactPoint ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heeft door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingSupplierAssignedIdentifier ;
+.
+setu:contactPointName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De naam van het contactpunt, bijv. HR-afdeling Flexbureau X."@nl ;
+  rdfs:comment "The name of the contact point, e.g. HR department Flexbureau X."@en ;
+  rdfs:domain setu:ContactPoint ;
+  rdfs:label "contact point name"@en ;
+  rdfs:label "naam contactpunt"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:contactPointRole
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De rol die het contactpunt vervult in de workflow, bijv. HR administratie of relatiebeheer."@nl ;
+  rdfs:comment "The role that the contact point fulfills in the workflow, e.g. HR administration or relationship management."@en ;
+  rdfs:domain setu:ContactPoint ;
+  rdfs:label "contact point role"@en ;
+  rdfs:label "contactpunt rol"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:contactPointTelephoneNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het telefoonnummer van het contactpoint."@nl ;
+  rdfs:comment "The telephone number of the contact point."@en ;
+  rdfs:domain setu:ContactPoint ;
+  rdfs:label "telefoonnummer"@nl ;
+  rdfs:label "telephone number"@en ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf setu:telephoneNumber ;
+.
+setu:contactPointWebsite
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De website van het contactpunt."@nl ;
+  rdfs:comment "The website of the contact point."@en ;
+  rdfs:domain setu:ContactPoint ;
+  rdfs:label "website"@en ;
+  rdfs:label "website"@nl ;
+  rdfs:range xsd:anyURI ;
+  rdfs:subPropertyOf setu:website ;
+.
+setu:costCenterCode
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De code die de kostenplaats bij de inleenorganisatie identificeert."@nl ;
+  rdfs:comment "The code identifying the cost center at the staffing customer."@en ;
+  rdfs:domain setu:CostCenter ;
+  rdfs:label "cost center code"@en ;
+  rdfs:label "kostenplaatscode"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:costCenterName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De naam van de kostenplaats bij de inleenorganisatie."@nl ;
+  rdfs:comment "The name of the cost center at the staffing customer."@en ;
+  rdfs:domain setu:CostCenter ;
+  rdfs:label "cost center name"@en ;
+  rdfs:label "kostenplaatsnaam"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:country
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het land van het adres. Er wordt gebruik gemaakt van de Country authority table die wordt beheerd door the Publications Office of the European Union op de EU Vocabularies website. De opgenomen concepten zijn afkomstig uit de internationale norm ISO 3166."@nl ;
+  rdfs:comment "The country of the address. The Country authority table is used which is maintained by the Publications Office of the European Union on the EU Vocabularies website. The concepts included originate from the ISO 3166 international standard."@en ;
+  rdfs:domain setu:Address ;
+  rdfs:label "country"@en ;
+  rdfs:label "land"@nl ;
+  rdfs:range <http://publications.europa.eu/resource/authority/country> ;
+.
+setu:countryOfBirth
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het land waarin de persoon is geboren."@nl ;
+  rdfs:comment "The country in which the person is born."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "country of birth"@en ;
+  rdfs:label "geboorteland"@nl ;
+  rdfs:range <http://publications.europa.eu/resource/authority/country> ;
+.
+setu:currency
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De valuta waarin het bedrag is uitgedrukt. Er wordt gebruik gemaakt van de Currency authority table die wordt beheerd door the Publications Office of the European Union op de EU Vocabularies website. De opgenomen concepten zijn afkomstig uit de internationale norm ISO 4217."@nl ;
+  rdfs:comment "The currency in which the amount is expressed. The Currency authority table is used which is maintained by the Publications Office of the European Union on the EU Vocabularies website. The concepts included originate from the ISO 4217 international standard."@en ;
+  rdfs:domain setu:Amount ;
+  rdfs:label "currency"@en ;
+  rdfs:label "valuta"@nl ;
+  rdfs:range <http://publications.europa.eu/resource/authority/currency> ;
+.
+setu:dateOfBirth
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De datum waarop de persoon geboren is."@nl ;
+  rdfs:comment "The date the person was born."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "date of birth"@en ;
+  rdfs:label "geboortedatum"@nl ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf schema:birthDate ;
+.
+setu:daysPerWeek
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het aantal te werken dagen per week. Bijvoorbeeld, 36 uur wordt verdeeld over 4 of 5 werkdagen."@nl ;
+  rdfs:comment "The number of working days per week. For example, 36 hours is divided over 4 or 5 working days."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "dagen per week"@nl ;
+  rdfs:label "days per week"@en ;
+  rdfs:range xsd:decimal ;
+.
+setu:departmentCode
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De code die de afdeling bij de inleenorganisatie identificeert."@nl ;
+  rdfs:comment "The code identifying the department at the staffing customer."@en ;
+  rdfs:domain setu:Department ;
+  rdfs:label "afdelingscode"@nl ;
+  rdfs:label "department code"@en ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf org:identifier ;
+.
+setu:departmentName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De naam van de afdeling bij de inleenorganisatie."@nl ;
+  rdfs:comment "The name of the department at the staffing customer."@en ;
+  rdfs:domain setu:Department ;
+  rdfs:label "afdelingsnaam"@nl ;
+  rdfs:label "department name"@en ;
+  rdfs:range xsd:string ;
+.
+setu:distributedToMultipleStaffingSuppliers
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of een aanvraag bij meerdere uitzendorganisaties is uitgezet (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the request is distributed to multiple staffing suppliers (true) or not (false)."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "distributed to multiple staffing suppliers"@en ;
+  rdfs:label "uitgezet bij meerdere uitzendorganisaties"@nl ;
+  rdfs:range xsd:boolean ;
+.
+setu:documentNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het documentnummer van het identiteitsbewijs."@nl ;
+  rdfs:comment "The document number of the identification document."@en ;
+  rdfs:domain setu:IdentificationDocument ;
+  rdfs:label "document number"@en ;
+  rdfs:label "documentnummer"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:documentType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het soort identiteitsbewijs, bijvoorbeeld paspoort."@nl ;
+  rdfs:comment "The type of identification document, for example passport."@en ;
+  rdfs:domain setu:IdentificationDocument ;
+  rdfs:label "document type"@en ;
+  rdfs:label "documenttype"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:educationHasEducationalInstitution
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De instelling waaraan de opleiding gevolgd is."@nl ;
+  rdfs:comment "The institution where the education was followed."@en ;
+  rdfs:domain setu:Education ;
+  rdfs:label "has educational institution"@en ;
+  rdfs:label "heeft onderwijsinstelling"@nl ;
+  rdfs:range setu:Organization ;
+.
+setu:educationLevel
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het niveau van het onderwijs."@nl ;
+  rdfs:comment "The level of the education."@en ;
+  rdfs:domain setu:Education ;
+  rdfs:label "education level"@en ;
+  rdfs:label "onderwijsniveau"@nl ;
+  rdfs:range setu:EducationLevel ;
+.
+setu:educationPeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De periode waarin het onderwijs is gevolgd."@nl ;
+  rdfs:comment "The period in which the education has been followed."@en ;
+  rdfs:domain setu:Education ;
+  rdfs:label "education period"@en ;
+  rdfs:label "onderwijsperiode"@nl ;
+  rdfs:range setu:Period ;
+.
+setu:emailAddress
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het e-mailadres."@nl ;
+  rdfs:comment "The email address."@en ;
+  rdfs:label "e-mailadres"@nl ;
+  rdfs:label "email address"@en ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf schema:email ;
+.
+setu:employmentContractHasValidityPeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De geldigheidsperiode van de arbeidsovereenkomst."@nl ;
+  rdfs:comment "The validity period of the employment contract."@en ;
+  rdfs:domain setu:EmploymentContract ;
+  rdfs:label "has validity period"@en ;
+  rdfs:label "heeft geldigheidsperiode"@nl ;
+  rdfs:range setu:Period ;
+.
+setu:employmentPhase
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De arbeidsfase waarin de flexkracht zich bevindt volgens de ABU of NBBU CAO."@nl ;
+  rdfs:comment "The employment phase the flexworker is in according to the ABU or NBBU CLA."@en ;
+  rdfs:domain setu:Flexworker ;
+  rdfs:label "arbeidsfase"@nl ;
+  rdfs:label "employment phase"@en ;
+  rdfs:range setu:EmploymentPhase ;
+.
+setu:employmentType
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het type dienstverband vastgelegd in de arbeidsovereenkomst."@nl ;
+  rdfs:comment "The type of employment contracted in the employment contract."@en ;
+  rdfs:domain setu:EmploymentContract ;
+  rdfs:label "dienstverband type"@nl ;
+  rdfs:label "employment type"@en ;
+  rdfs:range setu:EmploymentType ;
+.
+setu:endDateTime
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De datum(tijd) waarop de periode eindigt."@nl ;
+  rdfs:comment "The date(time) on which the period ends."@en ;
+  rdfs:domain setu:Period ;
+  rdfs:label "eind datumtijd"@nl ;
+  rdfs:label "end datetime"@en ;
+  rdfs:range xsd:dateTime ;
+.
+setu:endReimbursedShift
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De einddatum en tijd van de vergoedde dienst."@nl ;
+  rdfs:comment "The end date and time of the reimbursed shift."@en ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "eind vergoedde dienst"@nl ;
+  rdfs:label "end reimbursed shift"@en ;
+  rdfs:range xsd:dateTime ;
+.
+setu:endReportedPeriod
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De einddatum (en tijd) van de periode waarover de (uren)vergoedingen en inhoudingen zijn gerapporteerd."@nl ;
+  rdfs:comment "The end date (and time) of the period over which the (hourly) allowances and expenses were reported."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "eind gerapporteerde periode"@nl ;
+  rdfs:label "end reported period"@en ;
+  rdfs:range xsd:dateTime ;
+.
+setu:expenseBillToStaffingCustomer
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de inhouding gefactureerd moet worden aan de inleenorganisatie (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the expense should be billed to the staffing customer (true) or not (false)."@en ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "bill to staffing customer"@en ;
+  rdfs:label "factureer aan inleenorganisatie"@nl ;
+  rdfs:range xsd:boolean ;
+.
+setu:expenseHasCostCenter
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De kostenplaats waartoe de inhouding wordt toegekend."@nl ;
+  rdfs:comment "The cost center to which the expense is allocated."@en ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "has cost center"@en ;
+  rdfs:label "heeft kostenplaats"@nl ;
+  rdfs:range setu:CostCenter ;
+.
+setu:expenseHasStaffingCustomerAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An expense has an identifier as assigned by the staffing customer."@en ;
+  rdfs:comment "Een inhouding heeft een identifier zoals toegewezen door de inleenorganisatie."@nl ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "has staffing customer assigned identifier"@en ;
+  rdfs:label "heeft door inleenorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingCustomerAssignedIdentifier ;
+.
+setu:expenseHasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An expense has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:comment "Een inhouding heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heef door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingSupplierAssignedIdentifier ;
+.
+setu:expensePayToFlexworker
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de inhouding verloont moet worden aan de flexkracht (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the expense should be paid to the flexworker (true) or not (false)."@en ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "pay to flexworker"@en ;
+  rdfs:label "verloon aan flexkracht"@nl ;
+  rdfs:range xsd:boolean ;
+.
+setu:expenseQuantity
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De numerieke hoeveelheid van een inhouding."@nl ;
+  rdfs:comment "The numerical quantity of an expense."@en ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "hoeveelheid"@nl ;
+  rdfs:label "quantity"@en ;
+  rdfs:range xsd:decimal ;
+.
+setu:expenseTaxable
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de inhouding belastbaar is (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the expense is taxable (true) or not (false)."@en ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "belastbaar"@nl ;
+  rdfs:label "taxable"@en ;
+  rdfs:range xsd:boolean ;
+.
+setu:expenseToBeBilledAmount
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het bedrag dat bij een inhouding uitgekeerd wordt aan de inleenorganisatie."@nl ;
+  rdfs:comment "The amount that is paid to the staffing customer for an expense."@en ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "te factureren bedrag"@nl ;
+  rdfs:label "to be billed amount"@en ;
+  rdfs:range setu:Amount ;
+.
+setu:expenseToBePaidAmount
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het bedrag dat bij een inhouding ingehouden wordt bij de flexkracht."@nl ;
+  rdfs:comment "The amount that is withheld from the flexworker for an expense."@en ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "te verlonen bedrag"@nl ;
+  rdfs:label "to be paid amount"@en ;
+  rdfs:range setu:Amount ;
+.
+setu:expenseType
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het type inhouding."@nl ;
+  rdfs:comment "The type of expense."@en ;
+  rdfs:domain setu:Expense ;
+  rdfs:label "expense type"@en ;
+  rdfs:label "inhouding type"@nl ;
+  rdfs:range setu:ExpenseType ;
+.
+setu:fieldOfStudyDescription
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De beschrijving van de studierichting."@nl ;
+  rdfs:comment "The description of the field of study."@en ;
+  rdfs:domain setu:Education ;
+  rdfs:label "field of study description"@en ;
+  rdfs:label "studierichting beschrijving"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:fieldOfStudyIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De identifier van de studierichting."@nl ;
+  rdfs:comment "The identifier of the field of study."@en ;
+  rdfs:domain setu:Education ;
+  rdfs:label "field of study identifier"@en ;
+  rdfs:label "studierichting identifier"@nl ;
+  rdfs:range setu:Identifier ;
+.
+setu:firstIssueDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De eerste datum waarop het certificaat of de licentie is uitgegeven."@nl ;
+  rdfs:comment "The first date on which the certificate or license has been issued."@en ;
+  rdfs:domain setu:Certificate ;
+  rdfs:label "eerste uitgiftedatum"@nl ;
+  rdfs:label "first issue date"@en ;
+  rdfs:range xsd:date ;
+.
+setu:flexworkerHasBSN
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De flexkracht heeft een BSN."@nl ;
+  rdfs:comment "The flexworker has a BSN."@en ;
+  rdfs:domain setu:Flexworker ;
+  rdfs:label "has BSN"@en ;
+  rdfs:label "heeft BSN"@nl ;
+  rdfs:range setu:BSN ;
+  rdfs:subPropertyOf adms:identifier ;
+.
+setu:flexworkerHasIdentificationDocument
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De flexkracht heeft een identiteitsbewijs."@nl ;
+  rdfs:comment "The flexworker has an identification document."@en ;
+  rdfs:domain setu:Flexworker ;
+  rdfs:label "has identification document"@en ;
+  rdfs:label "heeft identiteitsbewijs"@nl ;
+  rdfs:range setu:IdentificationDocument ;
+.
+setu:flexworkerQuantity
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het aantal aangevraagde flexkrachten voor de positie."@nl ;
+  rdfs:comment "The number of requested flexworkers for the position."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "aantal flexwerkers"@nl ;
+  rdfs:label "flexworker quantity"@en ;
+  rdfs:range xsd:integer ;
+.
+setu:givenName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De voornaam van een persoon. Een persoon kan meerdere voornamen hebben."@nl ;
+  rdfs:comment "The given name of a person. A person can have multiple given names."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "given name"@en ;
+  rdfs:label "voornaam"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:hasStaffingCustomerAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Has an identifier as assigned by the staffing customer."@en ;
+  rdfs:comment "Heeft een identifier zoals toegewezen door de inleenorganisatie."@nl ;
+  rdfs:label "has staffing customer assigned identifier"@en ;
+  rdfs:label "heeft door inleenorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf adms:identifier ;
+.
+setu:hasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:comment "Heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heeft door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf adms:identifier ;
+.
+setu:hiringAgreementDrawnUpByStaffingCustomer
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De inleenovereenkomst is opgesteld door de inleenorganisatie."@nl ;
+  rdfs:comment "The hiring contract is drawn up by the staffing customer."@en ;
+  rdfs:domain setu:HiringContract ;
+  rdfs:label "drawn up by"@en ;
+  rdfs:label "opgesteld door"@nl ;
+  rdfs:range setu:StaffingCustomer ;
+.
+setu:hiringAgreementDrawnUpByStaffingSupplier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De inleenovereenkomst is opgesteld door de uitzendorganisatie."@nl ;
+  rdfs:comment "The hiring contract is drawn up by the staffing supplier."@en ;
+  rdfs:domain setu:HiringContract ;
+  rdfs:label "drawn up by"@en ;
+  rdfs:label "opgesteld door"@nl ;
+  rdfs:range setu:StaffingSupplier ;
+.
+setu:hiringAgreementHasStaffingCustomerAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De inleenovereenkomst heeft een identifier zoals toegewezen door de inleenorganisatie."@nl ;
+  rdfs:comment "The hiring contract has an identifier as assigned by the staffing customer."@en ;
+  rdfs:domain setu:HiringContract ;
+  rdfs:label "has staffing customer assigned identifier"@en ;
+  rdfs:label "heeft door inleenorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingCustomerAssignedIdentifier ;
+.
+setu:hiringAgreementHasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De inleenovereenkomst heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:comment "The hiring contract has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:domain setu:HiringContract ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heeft door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingSupplierAssignedIdentifier ;
+.
+setu:hiringContractHasCostCenter
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De inleenovereenkomst heeft een kostenplaats."@nl ;
+  rdfs:comment "The hiring contract has a cost center."@en ;
+  rdfs:domain setu:HiringContract ;
+  rdfs:label "has cost center"@en ;
+  rdfs:label "heeft kostenplaats"@nl ;
+  rdfs:range setu:CostCenter ;
+.
+setu:holidayWork
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de positie vakantiewerk is (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the position is holiday work (true) or not (false)."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "holiday work"@en ;
+  rdfs:label "vakantiewerk"@nl ;
+  rdfs:range xsd:boolean ;
+.
+setu:hourRegistrationApprovedByContactPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De urenregistratie is goedgekeurd door de contactpersoon."@nl ;
+  rdfs:comment "The hour registration was approved by the contact person."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "approved by"@en ;
+  rdfs:label "goedgekeurd door"@nl ;
+  rdfs:range setu:ContactPerson ;
+.
+setu:hourRegistrationConcernsWorkAtStaffingCustomer
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De urenregistratie betreft werk bij de inleenorganisatie."@nl ;
+  rdfs:comment "The hour registration concerns work at the staffing customer."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "betreft werk bij inleenorganisatie"@nl ;
+  rdfs:label "concerns work at staffing customer"@en ;
+  rdfs:range setu:StaffingCustomer ;
+.
+setu:hourRegistrationHasRealisedAllowance
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "A realised allowance included in the hour registration."@en ;
+  rdfs:comment "Een gerealiseerde vergoeding opgenomen in de urenregistratie."@nl ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "has realised allowance"@en ;
+  rdfs:label "heeft gerealiseerde vergoeding"@nl ;
+  rdfs:range setu:Allowance ;
+.
+setu:hourRegistrationHasRealisedExpense
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "A realised expense included in the hour registration."@en ;
+  rdfs:comment "Een gerealiseerde inhouding opgenomen in de urenregistratie."@nl ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "has realised expense"@en ;
+  rdfs:label "heeft gerealiseerde inhouding"@nl ;
+  rdfs:range setu:Expense ;
+.
+setu:hourRegistrationHasRealisedHourlyAllowance
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An expense for realised hours included in the hour registration."@en ;
+  rdfs:comment "Een vergoeding voor gerealiseerde uren opgenomen in de urenregistratie."@nl ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "has realised hourly allowance"@en ;
+  rdfs:label "heeft gerealiseerde urenvergoeding"@nl ;
+  rdfs:range setu:HourlyAllowance ;
+.
+setu:hourRegistrationHasStaffingCustomerAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De urenregistratie heeft een identifier zoals toegewezen door de inleenorganisatie."@nl ;
+  rdfs:comment "The hour registration has an identifier as assigned by the staffing customer."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "has staffing customer assigned identifier"@en ;
+  rdfs:label "heeft door inleenorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingCustomerAssignedIdentifier ;
+.
+setu:hourRegistrationHasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De urenregistratie heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:comment "The hour registration has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heeft door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingSupplierAssignedIdentifier ;
+.
+setu:hourRegistrationIsAccountabilityForStaffingSupplier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De urenregistratie is de verantwoording van de uitzendorganisatie."@nl ;
+  rdfs:comment "The hour registration is the accountability for the staffing supplier."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "is accountability for"@en ;
+  rdfs:label "is verantwoording van"@nl ;
+  rdfs:range setu:StaffingSupplier ;
+.
+setu:hourRegistrationRefersToAssignment
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De urenregistratie refereert naar de plaatsing."@nl ;
+  rdfs:comment "The hour registration refers to the assignment."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "refereert naar"@nl ;
+  rdfs:label "refers to"@en ;
+  rdfs:range setu:Assignment ;
+.
+setu:hourRegistrationRefersToOrderConfirmation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De urenregistratie refereert naar de opdrachtbevestiging."@nl ;
+  rdfs:comment "The hour registration refers to the order confirmation."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "refereert naar"@nl ;
+  rdfs:label "refers to"@en ;
+  rdfs:range setu:OrderConfirmation ;
+.
+setu:hourRegistrationRegisteredForPosition
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De urenregistratie geregistreerd voor een positie."@nl ;
+  rdfs:comment "The hour registration registered for a position."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "geregistreerd voor positie"@nl ;
+  rdfs:label "registered for position"@en ;
+  rdfs:range setu:Position ;
+.
+setu:hourRegistrationRegisteredFromFlexworker
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De uren geregistreerd van de flexkracht."@nl ;
+  rdfs:comment "The hours registered from the flexworker."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "geregistreerd van"@nl ;
+  rdfs:label "registered from"@en ;
+  rdfs:range setu:Flexworker ;
+.
+setu:hourRegistrationSubmittedByContactPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De urenregistratie is ingediend door de contactpersoon."@nl ;
+  rdfs:comment "The hour registration was submitted by the contact person."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "ingediend door"@nl ;
+  rdfs:label "submitted by"@en ;
+  rdfs:range setu:ContactPerson ;
+.
+setu:hourType
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het uurtype van de vergoedde uren."@nl ;
+  rdfs:comment "The hour type of the reimbursed hours."@en ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "hour type"@en ;
+  rdfs:label "uurtype"@nl ;
+  rdfs:range setu:HourType ;
+.
+setu:hourlyAllowanceBillToStaffingCustomer
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de urenvergoeding gefactureerd moet worden aan de inleenorganisatie (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the hourly allowance should be billed to the staffing customer (true) or not (false)."@en ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "bill to staffing customer"@en ;
+  rdfs:label "factureer aan inleenorganisatie"@nl ;
+  rdfs:range xsd:boolean ;
+.
+setu:hourlyAllowanceHasCostCenter
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De kostenplaats waartoe de urenvergoeding wordt toegekend."@nl ;
+  rdfs:comment "The cost center to which the hourly allowance is allocated."@en ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "has cost center"@en ;
+  rdfs:label "heeft kostenplaats"@nl ;
+  rdfs:range setu:CostCenter ;
+.
+setu:hourlyAllowanceHasStaffingCustomerAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An hourly allowance has an identifier as assigned by the staffing customer."@en ;
+  rdfs:comment "Een urenvergoeding heeft een identifier zoals toegewezen door de inleenorganisatie."@nl ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "has staffing customer assigned identifier"@en ;
+  rdfs:label "heeft door inleenorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingCustomerAssignedIdentifier ;
+.
+setu:hourlyAllowanceHasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An hourly allowance has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:comment "Een urenvergoeding heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heeft door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingSupplierAssignedIdentifier ;
+.
+setu:hourlyAllowancePayToFlexworker
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de urenvergoeding verloont moet worden aan de flexkracht (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the hourly allowance should be paid to the flexworker (true) or not (false)."@en ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "pay to flexworker"@en ;
+  rdfs:label "verloon aan flexkracht"@nl ;
+  rdfs:range xsd:boolean ;
+.
+setu:hourlyAllowanceTaxable
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de urenvergoeding belastbaar is (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the hourly allowance is taxable (true) or not (false)."@en ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "belastbaar"@nl ;
+  rdfs:label "taxable"@en ;
+  rdfs:range xsd:boolean ;
+.
+setu:hourlyAllowanceToBeBilledAmount
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het bedrag dat bij een urenvergoeding gefactureerd moet worden aan de inleenorganisatie."@nl ;
+  rdfs:comment "The amount that must be billed to the staffing customer for an hourly allowance."@en ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "te factureren bedrag"@nl ;
+  rdfs:label "to be billed amount"@en ;
+  rdfs:range setu:Amount ;
+.
+setu:hourlyAllowanceToBePaidAmount
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het bedrag dat bij een urenvergoeding verloond wordt aan de flexkracht."@nl ;
+  rdfs:comment "The amount that must be paid to the flexworker for an hourly allowance."@en ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "te verlonen bedrag"@nl ;
+  rdfs:label "to be paid amount"@en ;
+  rdfs:range setu:Amount ;
+.
+setu:houseNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het nummer dat door de gemeente is toegekend aan een adresseerbaar object."@nl ;
+  rdfs:comment "The number assigned by the municipality to an addressable object."@en ;
+  rdfs:domain setu:Address ;
+  rdfs:label "house number"@en ;
+  rdfs:label "huisnummer"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:houseNumberAddition
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Addition to a house number assigned by the municipality to an addressable object."@en ;
+  rdfs:comment "Toevoeging aan een huisnummer dat door de gemeente is toegekend aan een adresseerbaar object."@nl ;
+  rdfs:domain setu:Address ;
+  rdfs:label "house number addition"@en ;
+  rdfs:label "huisnummer toevoeging"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:identificationDocumentHasValidityPeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De geldigheidsduur van het identiteitsbewijs."@nl ;
+  rdfs:comment "The validity period of the identification document."@en ;
+  rdfs:domain setu:IdentificationDocument ;
+  rdfs:label "has validity period"@en ;
+  rdfs:label "heeft geldigheidsperiode"@nl ;
+  rdfs:range setu:Period ;
+.
+setu:identifierValue
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De identifier uitgedrukt in een waarde."@nl ;
+  rdfs:comment "The identifier expressed in a value."@en ;
+  rdfs:domain setu:Identifier ;
+  rdfs:label "identifier value"@en ;
+  rdfs:label "identifier waarde"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:industrialBranch
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De bedrijfstak waartoe de organisatie behoort."@nl ;
+  rdfs:comment "The industrial branch to which the organization belongs."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "bedrijfstak"@nl ;
+  rdfs:label "industrial branch"@en ;
+  rdfs:range xsd:string ;
+.
+setu:initials
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De eerste letter(s) van de voornaam/voornamen."@nl ;
+  rdfs:comment "The first letter(s) of the given name(s)."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "initialen"@nl ;
+  rdfs:label "initials"@en ;
+  rdfs:range xsd:string ;
+.
+setu:jobGroup
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De groep waartoe de functie behoort. Kan worden gebruikt om de functiegroep te specificeren zoals gemeld in de collectieve arbeidsovereenkomst (CAO)."@nl ;
+  rdfs:comment "The group to which the function belongs. Can be used to specify the job group as stated in the collective labour agreement (CLA)."@en ;
+  rdfs:domain setu:Job ;
+  rdfs:label "functiegroep"@nl ;
+  rdfs:label "job group"@en ;
+  rdfs:range xsd:string ;
+.
+setu:jobIdentifier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De identifier van de functie zoals gebruikt door of afgesproken met de inleenorganisatie."@nl ;
+  rdfs:comment "The identifier of the job as used by or agreed with the staffing customer."@en ;
+  rdfs:domain setu:Job ;
+  rdfs:label "functie identifier"@nl ;
+  rdfs:label "job identifier"@en ;
+  rdfs:range xsd:string ;
+.
+setu:jobTitle
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De naam van de functie die is/wordt bekleed."@nl ;
+  rdfs:comment "The name of the job that is/will be occupied."@en ;
+  rdfs:domain setu:Job ;
+  rdfs:label "functietitel"@nl ;
+  rdfs:label "job title"@en ;
+  rdfs:range xsd:string ;
+.
+setu:latestResponseDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De uiterlijk reactiedatum voor de uitzendorganisatie om een flexkracht aan te bieden voor de positie."@nl ;
+  rdfs:comment "The latest response date for the staffing supplier to offer a flexworker for the position."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "latest response date"@en ;
+  rdfs:label "uiterlijke reactiedatum"@nl ;
+  rdfs:range xsd:date ;
+.
+setu:locationHasAddress
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De locatie heeft een adres."@nl ;
+  rdfs:comment "The location has an address."@en ;
+  rdfs:domain setu:Location ;
+  rdfs:label "has address"@en ;
+  rdfs:label "heeft adres"@nl ;
+  rdfs:range setu:Address ;
+.
+setu:locationName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De naam van de locatie."@nl ;
+  rdfs:comment "The name of the location."@en ;
+  rdfs:domain setu:Location ;
+  rdfs:label "locatie naam"@nl ;
+  rdfs:label "location name"@en ;
+  rdfs:range xsd:string ;
+.
+setu:maximumAmountOfHours
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het maximale aantal uren van de dienst. Kan worden gebruikt wanneer het exacte aantal uren van de dienst niet bekend is."@nl ;
+  rdfs:comment "The maximum amount of hours of the shift. Can be used when the exact amount of hours of the shift is not known."@en ;
+  rdfs:domain setu:Shift ;
+  rdfs:label "maximaal aantal uren"@nl ;
+  rdfs:label "maximum amount of hours"@en ;
+  rdfs:range xsd:decimal ;
+.
+setu:mimeType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het mime-type van het bijgevoegde document zoals geregistreerd op de Media Types codelijst van IANA, bijv. 'application/pdf'."@nl ;
+  rdfs:comment "The mime type of the attached document as registered on the Media Types codelist from IANA, e.g. 'application/pdf'."@en ;
+  rdfs:domain setu:EmbeddedAttachment ;
+  rdfs:label "mime type"@en ;
+  rdfs:label "mime-type"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:minimalRequiredValidityDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De minimaal vereiste geldigheidsdatum van het aanbod van de uitzendorganisatie."@nl ;
+  rdfs:comment "The minimal required validity date of the staffing suppliers' offer ."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "minimaal vereiste geldigheidsdatum"@nl ;
+  rdfs:label "minimal required validity date"@en ;
+  rdfs:range xsd:date ;
+.
+setu:minimumAmountOfHours
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het minimale aantal uren van de dienst. Kan worden gebruikt wanneer het exacte aantal uren van de dienst niet bekend is."@nl ;
+  rdfs:comment "The minimum amount of hours of the shift. Can be used when the exact amount of hours of the shift is not known."@en ;
+  rdfs:domain setu:Shift ;
+  rdfs:label "minimaal aantal uren"@nl ;
+  rdfs:label "minimum amount of hours"@en ;
+  rdfs:range xsd:decimal ;
+.
+setu:mobileNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het mobiele telefoonnummer van de persoon."@nl ;
+  rdfs:comment "The mobile number of the person."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "mobiel telefoonnummer"@nl ;
+  rdfs:label "mobile number"@en ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf schema:telephone ;
+.
+setu:nationality
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De nationaliteit van de persoon."@nl ;
+  rdfs:comment "The nationality of the person."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "nationaliteit"@nl ;
+  rdfs:label "nationality"@en ;
+  rdfs:range <http://publications.europa.eu/resource/authority/country> ;
+.
+setu:offerHasStaffingCustomerAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het aanbod heeft een identifier zoals toegewezen door de inleenorganisatie."@nl ;
+  rdfs:comment "The offer has an identifier as assigned by the staffing customer."@en ;
+  rdfs:domain setu:Offer ;
+  rdfs:label "has staffing customer assigned identifier"@en ;
+  rdfs:label "heeft door inleenorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingCustomerAssignedIdentifier ;
+.
+setu:offerHasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het aanbod heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:comment "The offer has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:domain setu:Offer ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heeft door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingSupplierAssignedIdentifier ;
+.
+setu:offerHasValidityPeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De geldigheidsperiode van het aanbod."@nl ;
+  rdfs:comment "The validity period of the offer."@en ;
+  rdfs:domain setu:Offer ;
+  rdfs:label "has validity period"@en ;
+  rdfs:label "heeft geldigheidsperiode"@nl ;
+  rdfs:range setu:Period ;
+.
+setu:offerPeriodEnd
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De einddatum (en tijd) van de periode waarin de uitzendorganisatie een flexkracht kan aanbieden voor de positie."@nl ;
+  rdfs:comment "The end date (and time) of the period in which the staffing supplier can offer a flexworker for the position."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "eind aanbiedingsperiode"@nl ;
+  rdfs:label "offer period end"@en ;
+  rdfs:range xsd:dateTime ;
+.
+setu:offerPeriodStart
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De startdatum (en tijd) van de periode waarin de uitzendorganisatie een flexkracht kan aanbieden voor de positie."@nl ;
+  rdfs:comment "The start date (and time) of the period in which the staffing supplier can offer a flexworker for the position."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "offer period start"@en ;
+  rdfs:label "start aanbiedingsperiode"@nl ;
+  rdfs:range xsd:dateTime ;
+.
+setu:offerRefersToRequest
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het aanbod refereert naar de aanvraag."@nl ;
+  rdfs:comment "The offer refers to the request."@en ;
+  rdfs:domain setu:Offer ;
+  rdfs:label "refereert naar"@nl ;
+  rdfs:label "refers to"@en ;
+  rdfs:range setu:Request ;
+.
+setu:offeredByStaffingSupplier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het aanbod aangeboden door de uitzendorganisatie."@nl ;
+  rdfs:comment "The offer offered by the staffing supplier."@en ;
+  rdfs:domain setu:Offer ;
+  rdfs:label "aangeboden door"@nl ;
+  rdfs:label "offered by"@en ;
+  rdfs:range setu:StaffingSupplier ;
+.
+setu:offeredDaysPerWeek
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het aangeboden aantal te werken dagen per week."@nl ;
+  rdfs:comment "The offered number of working days per week."@en ;
+  rdfs:domain setu:Offer ;
+  rdfs:label "aangeboden dagen per week"@nl ;
+  rdfs:label "offered days per week"@en ;
+  rdfs:range xsd:decimal ;
+.
+setu:offeredFlexworker
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De in het aanbod aangeboden flexkracht."@nl ;
+  rdfs:comment "The in the offer offered flexworker."@en ;
+  rdfs:domain setu:Offer ;
+  rdfs:label "aangeboden flexkracht"@nl ;
+  rdfs:label "offered flexworker"@en ;
+  rdfs:range setu:Flexworker ;
+.
+setu:offeredHoursPerWeek
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het aangeboden aantal te werken uren per week."@nl ;
+  rdfs:comment "The offered number of working hours per week."@en ;
+  rdfs:domain setu:Offer ;
+  rdfs:label "aangeboden uren per week"@nl ;
+  rdfs:label "offered hours per week"@en ;
+  rdfs:range xsd:decimal ;
+.
+setu:offeredToStaffingCustomer
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het aanbod gedaan aan de inleenorganisatie."@nl ;
+  rdfs:comment "The offer offered to the staffing customer."@en ;
+  rdfs:domain setu:Offer ;
+  rdfs:label "aangeboden aan"@nl ;
+  rdfs:label "offered to"@en ;
+  rdfs:range setu:StaffingCustomer ;
+.
+setu:officialLastName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De achternaam van een persoon (zonder tussenvoegsel). Dit is de achternaam zoals officieel geregistreerd bij de geboorte."@nl ;
+  rdfs:comment "The person's last name (without prefix). This is the last name as officially registered at birth."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "official last name"@en ;
+  rdfs:label "officiële achternaam"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:officialLastNamePrefix
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het voorvoegsel van de officiële achternaam van een persoon."@nl ;
+  rdfs:comment "The prefix of a person's official last name."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "last name prefix"@en ;
+  rdfs:label "voorvoegsel achternaam"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:orderConfirmationAuthorizedByContactPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De opdrachtbevestiging is gemachtigd door een contactpersoon."@nl ;
+  rdfs:comment "The order confirmation is authorized by a contact person."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "authorized by"@en ;
+  rdfs:label "gemachtigd door"@nl ;
+  rdfs:range setu:ContactPerson ;
+.
+setu:orderConfirmationCoveredByHiringContract
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De opdrachtbevestiging valt onder de inleenovereenkomst."@nl ;
+  rdfs:comment "The order confirmation is covered by the hiring contract."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "covered by"@en ;
+  rdfs:label "valt onder"@nl ;
+  rdfs:range setu:HiringContract ;
+.
+setu:orderConfirmationCreatedByContactPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De opdrachtbevestiging is gecreëerd door een contactpersoon."@nl ;
+  rdfs:comment "The order confirmation is created by a contact person."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "created by"@en ;
+  rdfs:label "gecreëerd door"@nl ;
+  rdfs:range setu:ContactPerson ;
+.
+setu:orderConfirmationHasConfirmedAllowance
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An allowance confirmed in the order confirmation."@en ;
+  rdfs:comment "Een vergoeding bevestigd in de opdrachtbevestiging."@nl ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "has confirmed allowance"@en ;
+  rdfs:label "heeft bevestigde vergoeding"@nl ;
+  rdfs:range setu:Allowance ;
+.
+setu:orderConfirmationHasConfirmedExpense
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An expense confirmed in the order confirmation."@en ;
+  rdfs:comment "Een inhouding bevestigd in de opdrachtbevestiging."@nl ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "has confirmed expense"@en ;
+  rdfs:label "heeft bevestigde inhouding"@nl ;
+  rdfs:range setu:Expense ;
+.
+setu:orderConfirmationHasConfirmedHourlyAllowance
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An hourly allowance confirmed in the order confirmation."@en ;
+  rdfs:comment "Een urenvergoeding bevestigd in de opdrachtbevestiging."@nl ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "has confirmed hourly allowance"@en ;
+  rdfs:label "heeft bevestigde urenvergoeding"@nl ;
+  rdfs:range setu:HourlyAllowance ;
+.
+setu:orderConfirmationHasFirstDayContactPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De opdrachtbevestiging heeft een persoon toegewezen als contactpersoon voor de eerste dag."@nl ;
+  rdfs:comment "The order confirmation has a contact person appointed as first day contact."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "has first day contact"@en ;
+  rdfs:label "heeft contactpersoon voor eerste dag"@nl ;
+  rdfs:range setu:ContactPerson ;
+.
+setu:orderConfirmationHasStaffingCustomerAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De opdrachtbevestiging heeft een identifier zoals toegewezen door de inleenorganisatie."@nl ;
+  rdfs:comment "The order confirmation has an identifier as assigned by the staffing customer."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "has staffing customer assigned identifier"@en ;
+  rdfs:label "heeft door inleenorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingCustomerAssignedIdentifier ;
+.
+setu:orderConfirmationHasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De opdrachtbevestiging heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:comment "The order confirmation has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heeft door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingSupplierAssignedIdentifier ;
+.
+setu:orderConfirmationOfPosition
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De positie bevestigd in de opdrachtbevestiging."@nl ;
+  rdfs:comment "The position confirmed in the order confirmation."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "bevestiging van positie"@nl ;
+  rdfs:label "confirmation of position"@en ;
+  rdfs:range setu:Position ;
+.
+setu:orderConfirmationRefersToOffer
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De opdrachtbevestiging refereert naar het aanbod."@nl ;
+  rdfs:comment "The order confirmation refers to the offer."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "refereert naar"@nl ;
+  rdfs:label "refers to"@en ;
+  rdfs:range setu:Offer ;
+.
+setu:orderConfirmationRefersToPreviousOrderConfirmation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De opdrachtbevestiging refereert naar een vorige opdrachtbevestiging."@nl ;
+  rdfs:comment "The order confirmation refers to a previous order confirmation."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "refereert naar vorige opdrachtbevestiging"@nl ;
+  rdfs:label "refers to previous order confirmation"@en ;
+  rdfs:range setu:OrderConfirmation ;
+.
+setu:orderConfirmationRefersToRequest
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De opdrachtbevestiging refereert naar de aanvraag."@nl ;
+  rdfs:comment "The order confirmation refers to the request."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "refereert naar"@nl ;
+  rdfs:label "refers to"@en ;
+  rdfs:range setu:Request ;
+.
+setu:orderConfirmationSubmittedByContactPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De opdrachtbevestiging is ingediend door een contactpersoon."@nl ;
+  rdfs:comment "The order confirmation is submitted by a contact person."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "ingediend door"@nl ;
+  rdfs:label "submitted by"@en ;
+  rdfs:range setu:ContactPerson ;
+.
+setu:orderedFlexworker
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De in de opdrachtbevestiging bestelde flexkracht."@nl ;
+  rdfs:comment "The in the order confirmation ordered flexworker."@en ;
+  rdfs:domain setu:OrderConfirmation ;
+  rdfs:label "bestelde flexkracht"@nl ;
+  rdfs:label "ordered flexworker"@en ;
+  rdfs:range setu:Flexworker ;
+.
+setu:organizationHasBTWId
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De organisatie heeft een BTW-id."@nl ;
+  rdfs:comment "The organization has a BTW-id."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "has BTW-id"@en ;
+  rdfs:label "heeft BTW-id"@nl ;
+  rdfs:range setu:BTW_Id ;
+  rdfs:subPropertyOf adms:identifier ;
+.
+setu:organizationHasContactPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De organisatie heeft een contactpersoon."@nl ;
+  rdfs:comment "The organization has a contact person."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "has contact person"@en ;
+  rdfs:label "heeft contactpersoon"@nl ;
+  rdfs:range setu:ContactPerson ;
+.
+setu:organizationHasContactPoint
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De organisatie heeft een contactpunt."@nl ;
+  rdfs:comment "The organization has a contact point."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "has contact point"@en ;
+  rdfs:label "heeft contactpunt"@nl ;
+  rdfs:range setu:ContactPoint ;
+  rdfs:subPropertyOf schema:contactPoint ;
+.
+setu:organizationHasDepartment
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De organisatie heeft een afdeling."@nl ;
+  rdfs:comment "The organization has a department."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "has department"@en ;
+  rdfs:label "heeft afdeling"@nl ;
+  rdfs:range setu:Department ;
+  rdfs:subPropertyOf org:hasUnit ;
+.
+setu:organizationHasKVKNummer
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De organisatie heeft een KVK-nummer."@nl ;
+  rdfs:comment "The organization has a KVK-nummer."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "has KVK-nummer"@en ;
+  rdfs:label "heeft KVK-nummer"@nl ;
+  rdfs:range setu:KVK_Nummer ;
+  rdfs:subPropertyOf adms:identifier ;
+.
+setu:organizationHasLocation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De organisatie heeft een locatie."@nl ;
+  rdfs:comment "The organization has a location."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "has location"@en ;
+  rdfs:label "heeft locatie"@nl ;
+  rdfs:range setu:Location ;
+  rdfs:subPropertyOf org:hasSite ;
+.
+setu:organizationHasOIN
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De organisatie heeft een OIN."@nl ;
+  rdfs:comment "The organization has an OIN."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "has OIN"@en ;
+  rdfs:label "heeft OIN"@nl ;
+  rdfs:range setu:OIN ;
+  rdfs:subPropertyOf adms:identifier ;
+.
+setu:organizationHasPostalAddress
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De organisatie heeft een postadres."@nl ;
+  rdfs:comment "The organization has a postal address."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "has postal address"@en ;
+  rdfs:label "heeft postadres"@nl ;
+  rdfs:range setu:Address ;
+.
+setu:organizationHasRSIN
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De organisatie heeft een RSIN."@nl ;
+  rdfs:comment "The organization has a RSIN."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "has RSIN"@en ;
+  rdfs:label "heeft RSIN"@nl ;
+  rdfs:range setu:RSIN ;
+  rdfs:subPropertyOf adms:identifier ;
+.
+setu:organizationHasStaffingCustomerAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De organisatie heeft een identifier zoals toegewezen door de inleenorganisatie."@nl ;
+  rdfs:comment "The organization has an identifier as assigned by the staffing customer."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "has staffing customer assigned identifier"@en ;
+  rdfs:label "heeft door inleenorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingCustomerAssignedIdentifier ;
+.
+setu:organizationHasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De organisatie heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:comment "The organization has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heeft door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingSupplierAssignedIdentifier ;
+.
+setu:organizationName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De officiële naam van de organisatie."@nl ;
+  rdfs:comment "The legal name of the organization."@en ;
+  rdfs:domain setu:Organization ;
+  rdfs:label "organisatie naam"@nl ;
+  rdfs:label "organization name"@en ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rov:legalName ;
+.
+setu:personDescribedByProfile
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De persoon wordt beschreven door het profiel."@nl ;
+  rdfs:comment "The person is described by the profile."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "beschreven door profiel"@nl ;
+  rdfs:label "described by profile"@en ;
+  rdfs:range setu:Profile ;
+.
+setu:personEmailAddress
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het e-mailadres van de persoon."@nl ;
+  rdfs:comment "The email address of the person."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "e-mailadres"@nl ;
+  rdfs:label "email address"@en ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf setu:emailAddress ;
+.
+setu:personHasAddress
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het adres van de persoon."@nl ;
+  rdfs:comment "The address of the person."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "has address"@en ;
+  rdfs:label "heeft adres"@nl ;
+  rdfs:range setu:Address ;
+.
+setu:personHasAvailabilityPeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De beschikbaarheidsperiode van de persoon."@nl ;
+  rdfs:comment "The availability period of the person."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "has availability period"@en ;
+  rdfs:label "heeft beschikbaarheidsperiode"@nl ;
+  rdfs:range setu:Period ;
+.
+setu:personHasContactPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De contactpersoon van de persoon."@nl ;
+  rdfs:comment "The contact person of the person."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "has contact person"@en ;
+  rdfs:label "heeft contactpersoon"@nl ;
+  rdfs:range setu:ContactPerson ;
+.
+setu:personHasEmploymentContract
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De persoon heeft een arbeidsovereenkomst."@nl ;
+  rdfs:comment "The person has an employment contract."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "has employment contract"@en ;
+  rdfs:label "heeft arbeidsovereenkomst"@nl ;
+  rdfs:range setu:EmploymentContract ;
+.
+setu:personHasStaffingCustomerAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De persoon heeft een identifier zoals toegewezen door de inleenorganisatie."@nl ;
+  rdfs:comment "The person has an identifier as assigned by the staffing customer."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "has staffing customer assigned identifier"@en ;
+  rdfs:label "heeft door inleenorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingCustomerAssignedIdentifier ;
+.
+setu:personHasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De persoon heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:comment "The person has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heeft door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingSupplierAssignedIdentifier ;
+.
+setu:personTelephoneNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het telefoonnummer van de persoon."@nl ;
+  rdfs:comment "The telephone number of the person."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "telefoonnummer"@nl ;
+  rdfs:label "telephone number"@en ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf setu:telephoneNumber ;
+.
+setu:personTitle
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De titel als voor- of achtervoegsel van een persoon, bijv. een academische of eretitel."@nl ;
+  rdfs:comment "The title as pre- or suffix of a person, e.g. an academic or honorary title."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "titel"@nl ;
+  rdfs:label "title"@en ;
+  rdfs:range xsd:string ;
+.
+setu:personWebsite
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De website van de persoon."@nl ;
+  rdfs:comment "The website of the person."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "website"@en ;
+  rdfs:label "website"@nl ;
+  rdfs:range xsd:anyURI ;
+  rdfs:subPropertyOf setu:website ;
+.
+setu:placeOfResidence
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De naam van de woonplaats."@nl ;
+  rdfs:comment "The name of the place of residence."@en ;
+  rdfs:domain setu:Address ;
+  rdfs:label "place of residence"@en ;
+  rdfs:label "woonplaats"@nl ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf schema:addressLocality ;
+  rdfs:subPropertyOf vcard:locality ;
+.
+setu:placedAtStaffingCustomer
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De plaatsing geplaatst bij de inleenorganisatie."@nl ;
+  rdfs:comment "The assignment placed at the staffing customer."@en ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "geplaatst bij"@nl ;
+  rdfs:label "placed at"@en ;
+  rdfs:range setu:StaffingCustomer ;
+.
+setu:placedByStaffingSupplier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De plaatsing geplaatst door de uitzendorganisatie."@nl ;
+  rdfs:comment "The assignment placed by the staffing supplier."@en ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "geplaatst door"@nl ;
+  rdfs:label "placed by"@en ;
+  rdfs:range setu:StaffingSupplier ;
+.
+setu:positionAtStaffingCustomer
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De positie bij de inleenorganisatie."@nl ;
+  rdfs:comment "The position at the staffing customer."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "at staffing customer"@en ;
+  rdfs:label "bij inleenorganisatie"@nl ;
+  rdfs:range setu:StaffingCustomer ;
+.
+setu:positionDescribesJob
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De positie beschrijft een functie."@nl ;
+  rdfs:comment "The position describes a job."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "beschrijft"@nl ;
+  rdfs:label "describes"@en ;
+  rdfs:range setu:Job ;
+.
+setu:positionDescription
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De omschrijving van de positie."@nl ;
+  rdfs:comment "The description of the position."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "positieomschrijving"@nl ;
+  rdfs:label "position description"@en ;
+  rdfs:range xsd:string ;
+.
+setu:positionEndDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De einddatum van de positie bij de inleenorganisatie."@nl ;
+  rdfs:comment "The end date of the position at the staffing customer."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "einddatum"@nl ;
+  rdfs:label "end date"@en ;
+  rdfs:range xsd:date ;
+.
+setu:positionFilledInAtDepartment
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De positie wordt ingevuld op een afdeling."@nl ;
+  rdfs:comment "The position is filled in at a department."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "filled in at"@en ;
+  rdfs:label "ingevuld op"@nl ;
+  rdfs:range setu:Department ;
+  rdfs:subPropertyOf setu:organizationHasDepartment ;
+.
+setu:positionHasContactPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De positie heeft een contactpersoon."@nl ;
+  rdfs:comment "The position has a contact person."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "has contact person"@en ;
+  rdfs:label "heeft contactpersoon"@nl ;
+  rdfs:range setu:ContactPerson ;
+.
+setu:positionHasCostCenter
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De positie heeft een kostenplaats."@nl ;
+  rdfs:comment "The position has a cost center."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "has cost center"@en ;
+  rdfs:label "heeft kostenplaats"@nl ;
+  rdfs:range setu:CostCenter ;
+.
+setu:positionHasProject
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De positie heeft een project."@nl ;
+  rdfs:comment "The position has a project."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "has project"@en ;
+  rdfs:label "heeft project"@nl ;
+  rdfs:range setu:Project ;
+.
+setu:positionHasShift
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De positie heeft een dienst."@nl ;
+  rdfs:comment "The position has a shift."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "has shift"@en ;
+  rdfs:label "heeft dienst"@nl ;
+  rdfs:range setu:Shift ;
+.
+setu:positionHasWorkLocation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De locatie waar de flexkracht het werk voor de positie uitvoert."@nl ;
+  rdfs:comment "The location where the flex worker performs the work for the position."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "has work location"@en ;
+  rdfs:label "heeft werklocatie"@nl ;
+  rdfs:range setu:Location ;
+  rdfs:subPropertyOf setu:organizationHasLocation ;
+.
+setu:positionIdentifier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De identifier van de positie zoals gebruikt door of afgesproken met de inleenorganisatie."@nl ;
+  rdfs:comment "The identifier of the position as used by or agreed with the staffing customer."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "positie identifier"@nl ;
+  rdfs:label "position identifier"@en ;
+  rdfs:range xsd:string ;
+.
+setu:positionStartDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De startdatum van de positie bij de inleenorganisatie."@nl ;
+  rdfs:comment "The start date of the position at the staffing customer."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "start date"@en ;
+  rdfs:label "startdatum"@nl ;
+  rdfs:range xsd:date ;
+.
+setu:positionStatus
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Geeft aan of de positie vacant is of ingevuld."@nl ;
+  rdfs:comment "Indicates whether the position is vacant or filled."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "positiestatus"@nl ;
+  rdfs:label "position status"@en ;
+  rdfs:range setu:PositionStatus ;
+.
+setu:positionSupervisedByContactPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De positie is onder toezicht van een contactpersoon."@nl ;
+  rdfs:comment "The position is supervised by a contact person."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "onder toezicht van"@nl ;
+  rdfs:label "supervised by"@en ;
+  rdfs:range setu:ContactPerson ;
+.
+setu:positionType
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Geeft aan of het een positie is voor uitzendwerk, detachering, payroll of werving en selectie."@nl ;
+  rdfs:comment "Indicates whether it is a position for temporary work, secondment, payroll or recruitment and selection."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "positie type"@nl ;
+  rdfs:label "position type"@en ;
+  rdfs:range setu:PositionType ;
+.
+setu:postalCode
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De vastgestelde code behorende bij een combinatie van een straatnaam en een huisnummer. Een Nederlandse postcode bestaat uit 4 cijfers en 2 letters."@nl ;
+  rdfs:comment "The determined code associated with a combination of a street name and a house number. A Dutch postal code consists of 4 numbers and 2 letters."@en ;
+  rdfs:domain setu:Address ;
+  rdfs:label "postal code"@en ;
+  rdfs:label "postcode"@nl ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf schema:postalCode ;
+  rdfs:subPropertyOf vcard:postal-code ;
+.
+setu:preferredGivenName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De roepnaam van een persoon."@nl ;
+  rdfs:comment "The preferred given name of a person."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "preferred given name"@en ;
+  rdfs:label "roepnaam"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:preferredLastName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De achternaam die in het dagelijks gebruik de voorkeur heeft en wordt gebruikt bij het aanschrijven van een persoon. De voorkeursachternaam kan de achternaam zijn van de partner of een combinatie van de officiële achternaam met de achternaam van de partner."@nl ;
+  rdfs:comment "The last name that is preferred in daily use and is used when writing to a person. The preferred last name can be the last name of the partner or a combination of the official last name with the last name of the partner."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "preferred last name"@en ;
+  rdfs:label "voorkeursachternaam"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:profileContainsCertificate
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het profiel bevat een certificaat."@nl ;
+  rdfs:comment "The profile contains a certificate."@en ;
+  rdfs:domain setu:Profile ;
+  rdfs:label "bevat certificaat"@nl ;
+  rdfs:label "contains certificate"@en ;
+  rdfs:range setu:Certificate ;
+.
+setu:profileContainsCompetency
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het profiel bevat een competentie."@nl ;
+  rdfs:comment "The profile contains a competency."@en ;
+  rdfs:domain setu:Profile ;
+  rdfs:label "bevat competentie"@nl ;
+  rdfs:label "contains competency"@en ;
+  rdfs:range setu:Competency ;
+.
+setu:profileContainsEducation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het profiel bevat een opleiding."@nl ;
+  rdfs:comment "The profile contains an education."@en ;
+  rdfs:domain setu:Profile ;
+  rdfs:label "bevat opleiding"@nl ;
+  rdfs:label "contains education"@en ;
+  rdfs:range setu:Education ;
+.
+setu:profileContainsEmbeddedAttachment
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het profiel bevat een ingesloten bijlage."@nl ;
+  rdfs:comment "The profile contains an embedded attachment."@en ;
+  rdfs:domain setu:Profile ;
+  rdfs:label "bevat ingesloten bijlage"@nl ;
+  rdfs:label "contains embedded attachment"@en ;
+  rdfs:range setu:EmbeddedAttachment ;
+.
+setu:profileContainsReferencedAttachment
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het profiel bevat een gerefereerde bijlage."@nl ;
+  rdfs:comment "The profile contains a referenced attachment."@en ;
+  rdfs:domain setu:Profile ;
+  rdfs:label "bevat gerefereerde bijlage"@nl ;
+  rdfs:label "contains referenced attachment"@en ;
+  rdfs:range setu:ReferencedAttachment ;
+.
+setu:profileContainsWorkExperience
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het profiel bevat een werkervaring."@nl ;
+  rdfs:comment "The profile contains a work experience."@en ;
+  rdfs:domain setu:Profile ;
+  rdfs:label "bevat werkervaring"@nl ;
+  rdfs:label "contains work experience"@en ;
+  rdfs:range setu:WorkExperience ;
+.
+setu:projectCode
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De code die het project bij de inleenorganisatie identificeert."@nl ;
+  rdfs:comment "The code identifying the project at the staffing customer."@en ;
+  rdfs:domain setu:Project ;
+  rdfs:label "project code"@en ;
+  rdfs:label "projectcode"@nl ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf org:identifier ;
+.
+setu:reasonForRejection
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De reden waarom de afwijzing wordt gedaan."@nl ;
+  rdfs:comment "The reason why the rejection is done."@en ;
+  rdfs:domain setu:Rejection ;
+  rdfs:label "reason for rejection"@en ;
+  rdfs:label "reden voor afwijzing"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:reasonForVacantPosition
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De reden waarom de positie vacant is."@nl ;
+  rdfs:comment "The reason why the position is vacant."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "reason for vacant position"@en ;
+  rdfs:label "reden voor vacante positie"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:reasonForWithdrawal
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De reden waarom de intrekking wordt gedaan."@nl ;
+  rdfs:comment "The reason why the withdrawal is done."@en ;
+  rdfs:domain setu:Withdrawal ;
+  rdfs:label "reason for withdrawal"@en ;
+  rdfs:label "reden voor intrekking"@nl ;
+  rdfs:range xsd:string ;
+.
+setu:recruitedByStaffingSupplier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de flexkracht die geplaatst wordt op de positie geworven is door de uitzendorganisatie (true) of door de inleenorganisatie (false)."@nl ;
+  rdfs:comment "Indicates whether the flexworker that is assigned to the position is recruited by the staffing supplier (true) or by the staffing customer (false)."@en ;
+  rdfs:domain setu:Assignment ;
+  rdfs:label "geworven door uitzendorganisatie"@nl ;
+  rdfs:label "recruited by staffing supplier"@en ;
+  rdfs:range xsd:boolean ;
+.
+setu:registeredPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De persoon geregistreerd bij de uitzendorganisatie."@nl ;
+  rdfs:comment "The person registered at the staffing supplier."@en ;
+  rdfs:domain setu:Registration ;
+  rdfs:label "ingeschreven persoon"@nl ;
+  rdfs:label "registered person"@en ;
+  rdfs:range setu:Person ;
+.
+setu:registrationAtStaffingSupplier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De inschrijving van een persoon bij de uitzendorganisatie."@nl ;
+  rdfs:comment "The registration of a person at the staffing supplier."@en ;
+  rdfs:domain setu:Registration ;
+  rdfs:label "inschrijving bij"@nl ;
+  rdfs:label "registration at"@en ;
+  rdfs:range setu:StaffingSupplier ;
+.
+setu:rejectedAssignment
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De afwijzing van de plaatsing."@nl ;
+  rdfs:comment "The rejection of an assignment."@en ;
+  rdfs:domain setu:Rejection ;
+  rdfs:label "afgewezen plaatsing"@nl ;
+  rdfs:label "rejected assignment"@en ;
+  rdfs:range setu:Assignment ;
+.
+setu:rejectedHourRegistration
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De afwijzing van de urenregistratie."@nl ;
+  rdfs:comment "The rejection of the hour registration."@en ;
+  rdfs:domain setu:Rejection ;
+  rdfs:label "afgewezen urenregistratie"@nl ;
+  rdfs:label "rejected hour registration"@en ;
+  rdfs:range setu:HourRegistration ;
+.
+setu:rejectedOffer
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De afwijzing van het aanbod door de inleenorganisatie."@nl ;
+  rdfs:comment "The rejection of the offer by the staffing customer."@en ;
+  rdfs:domain setu:Rejection ;
+  rdfs:label "afgewezen aanbod"@nl ;
+  rdfs:label "rejected offer"@en ;
+  rdfs:range setu:Offer ;
+.
+setu:requestAuthorizedByPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De aanvraag is gemachtigd door een persoon."@nl ;
+  rdfs:comment "The request is authorized by a person."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "authorized by"@en ;
+  rdfs:label "gemachtigd door"@nl ;
+  rdfs:range setu:Person ;
+.
+setu:requestCoveredByHiringContract
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De aanvraag valt onder de inleenovereenkomst."@nl ;
+  rdfs:comment "The request is covered by the hiring contract."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "covered by"@en ;
+  rdfs:label "valt onder"@nl ;
+  rdfs:range setu:HiringContract ;
+.
+setu:requestCreatedByPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De aanvraag is gecreëerd door een persoon."@nl ;
+  rdfs:comment "The request is created by a person."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "created by"@en ;
+  rdfs:label "gecreëerd door"@nl ;
+  rdfs:range setu:Person ;
+.
+setu:requestHasProposedAllowance
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An allowance proposed in the request."@en ;
+  rdfs:comment "Een vergoeding voorgesteld in de aanvraag."@nl ;
+  rdfs:domain setu:Request ;
+  rdfs:label "has proposed allowance"@en ;
+  rdfs:label "heeft voorgestelde vergoeding"@nl ;
+  rdfs:range setu:Allowance ;
+.
+setu:requestHasProposedExpense
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An expense propsed in the request."@en ;
+  rdfs:comment "Een inhouding voorgesteld in de aanvraag."@nl ;
+  rdfs:domain setu:Request ;
+  rdfs:label "has proposed expense"@en ;
+  rdfs:label "heeft voorgestelde inhouding"@nl ;
+  rdfs:range setu:Expense ;
+.
+setu:requestHasProposedHourlyAllowance
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "An hourly allowance proposed in the request."@en ;
+  rdfs:comment "Een urenvergoeding voorgesteld in de aanvraag."@nl ;
+  rdfs:domain setu:Request ;
+  rdfs:label "has proposed hourly allowance"@en ;
+  rdfs:label "heeft voorgestelde urenvergoeding"@nl ;
+  rdfs:range setu:HourlyAllowance ;
+.
+setu:requestHasProposedPosition
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De positie die wordt voorgesteld in de aanvraag."@nl ;
+  rdfs:comment "The position being proposed in the request."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "has proposed position"@en ;
+  rdfs:label "heeft voorgestelde positie"@nl ;
+  rdfs:range setu:Position ;
+.
+setu:requestHasStaffingCustomerAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De aanvraag heeft een identifier zoals toegewezen door de inleenorganisatie."@nl ;
+  rdfs:comment "The request has an identifier as assigned by the staffing customer."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "has staffing customer assigned identifier"@en ;
+  rdfs:label "heeft door inleenorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingCustomerAssignedIdentifier ;
+.
+setu:requestHasStaffingSupplierAssignedIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De aanvraag heeft een identifier zoals toegewezen door de uitzendorganisatie."@nl ;
+  rdfs:comment "The request has an identifier as assigned by the staffing supplier."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "has staffing supplier assigned identifier"@en ;
+  rdfs:label "heeft door uitzendorganisatie toegewezen identifier"@nl ;
+  rdfs:range setu:Identifier ;
+  rdfs:subPropertyOf setu:hasStaffingSupplierAssignedIdentifier ;
+.
+setu:requestSubmittedByPerson
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De aanvraag is ingediend door een persoon."@nl ;
+  rdfs:comment "The request is submitted by a person."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "ingediend door"@nl ;
+  rdfs:label "submitted by"@en ;
+  rdfs:range setu:Person ;
+.
+setu:requestValidFrom
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De datum (en tijd) vanaf wanneer de aanvraag geldig is."@nl ;
+  rdfs:comment "The date (and time) from which the request is valid."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "geldig vanaf"@nl ;
+  rdfs:label "valid from"@en ;
+  rdfs:range xsd:dateTime ;
+.
+setu:requestValidTo
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De datum (en tijd) tot wanneer de aanvraag geldig is."@nl ;
+  rdfs:comment "The date (and time) to which the request is valid."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "geldig tot"@nl ;
+  rdfs:label "valid to"@en ;
+  rdfs:range xsd:dateTime ;
+.
+setu:requestedByStaffingCustomer
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De aanvraag door de inleenorganisatie."@nl ;
+  rdfs:comment "The request by the staffing customer."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "aangevraagd door"@nl ;
+  rdfs:label "requested by"@en ;
+  rdfs:range setu:StaffingCustomer ;
+.
+setu:requestedProfile
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het profiel aangevraagd voor de positie."@nl ;
+  rdfs:comment "The profile requested for the position."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "aangevraagd profiel"@nl ;
+  rdfs:label "requested profile"@en ;
+  rdfs:range setu:Profile ;
+.
+setu:requestedToStaffingSupplier
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De aanvraag bij de uitzendorganisatie."@nl ;
+  rdfs:comment "The request at the staffing supplier."@en ;
+  rdfs:domain setu:Request ;
+  rdfs:label "aangevraagd bij"@nl ;
+  rdfs:label "requested to"@en ;
+  rdfs:range setu:StaffingSupplier ;
+.
+setu:salaryScale
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het nummer van de salarisschaal verbonden aan de positie bij de inleenorganisatie."@nl ;
+  rdfs:comment "The number of the salary scale associated with the position at the staffing customer."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "salarisschaal"@nl ;
+  rdfs:label "salary scale"@en ;
+  rdfs:range xsd:integer ;
+.
+setu:salaryStep
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het nummer van de salaristrede verbonden aan de positie bij de inleenorganisatie."@nl ;
+  rdfs:comment "The number of the salary step associated with the position at the staffing customer."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "salaristrede"@nl ;
+  rdfs:label "salary step"@en ;
+  rdfs:range xsd:integer ;
+.
+setu:sex
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Het geslacht van de persoon. Er wordt gebruik gemaakt van de Human sex authority table die wordt beheerd door the Publications Office of the European Union op de EU Vocabularies website. In de tabel staan ​​de begrippen \"mannelijk\" en \"vrouwelijk\", maar ook \"onbekend\" en \"niet van toepassing\". De opgenomen concepten zijn afkomstig uit de internationale norm ISO 5218."@nl ;
+  rdfs:comment "The sex of the person. The Human sex authority table is used which is maintained by the Publications Office of the European Union on the EU Vocabularies website. The table contains concepts \"male\" and \"female\", but also \"not known\" and \"not applicable\". The concepts included originate from the ISO 5218 international standard."@en ;
+  rdfs:domain setu:Person ;
+  rdfs:label "geslacht"@nl ;
+  rdfs:label "sex"@en ;
+  rdfs:range <http://publications.europa.eu/resource/authority/human-sex> ;
+  rdfs:subPropertyOf schema:gender ;
+  rdfs:subPropertyOf foaf:gender ;
+.
+setu:shiftDescription
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "A description of the type of shift that is worked, for example weekend shift."@en ;
+  rdfs:comment "Een beschrijving van het soort dienst dat wordt gewerkt, bijvoorbeeld weekenddienst."@nl ;
+  rdfs:domain setu:Shift ;
+  rdfs:label "dienstomschrijving"@nl ;
+  rdfs:label "shift description"@en ;
+  rdfs:range xsd:string ;
+.
+setu:shiftPeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De periode-eenheid van de dienst, bijv. per dag, per maand."@nl ;
+  rdfs:comment "The period unit of the shift, e.g. per day, per month."@en ;
+  rdfs:domain setu:Shift ;
+  rdfs:label "dienstperiode"@nl ;
+  rdfs:label "shift period"@en ;
+  rdfs:range setu:PeriodUnit ;
+.
+setu:shiftWork
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de positie het werken in een ploegendienst betreft (true) of niet (false)."@nl ;
+  rdfs:comment "Indicates whether the position concerns shift work (true) or not (false)."@en ;
+  rdfs:domain setu:Position ;
+  rdfs:label "ploegendienst"@nl ;
+  rdfs:label "shift work"@en ;
+  rdfs:range xsd:boolean ;
+.
+setu:staffingCustomerHasHiringContract
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De inleenorganisatie heeft een inleenovereenkomst."@nl ;
+  rdfs:comment "The staffing customer has a hiring contract."@en ;
+  rdfs:domain setu:StaffingCustomer ;
+  rdfs:label "has hiring contract"@en ;
+  rdfs:label "heeft inleenovereenkomst"@nl ;
+  rdfs:range setu:HiringContract ;
+.
+setu:staffingCustomerHasManager
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De manager van de inleenorganisatie."@nl ;
+  rdfs:comment "The manager of the staffing customer."@en ;
+  rdfs:domain setu:StaffingCustomer ;
+  rdfs:label "has manager"@en ;
+  rdfs:label "heeft manager"@nl ;
+  rdfs:range setu:Person ;
+.
+setu:staffingCustomerHasProject
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De inleenorganisatie heeft een project."@nl ;
+  rdfs:comment "The staffing customer has a project."@en ;
+  rdfs:domain setu:StaffingCustomer ;
+  rdfs:label "has project"@en ;
+  rdfs:label "heeft project"@nl ;
+  rdfs:range setu:Project ;
+.
+setu:staffingCustomerHasWorkLocation
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De inleenorganisatie heeft een werklocatie."@nl ;
+  rdfs:comment "The staffing customer has a work location."@en ;
+  rdfs:domain setu:StaffingCustomer ;
+  rdfs:label "has work location"@en ;
+  rdfs:label "heeft werklocatie"@nl ;
+  rdfs:range setu:Location ;
+.
+setu:staffingSupplierHasEmploymentContract
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De uitzendorganisatie heeft een arbeidsovereenkomst."@nl ;
+  rdfs:comment "The staffing supplier has an employment contract."@en ;
+  rdfs:domain setu:StaffingSupplier ;
+  rdfs:label "has employment contract"@en ;
+  rdfs:label "heeft arbeidsovereenkomst"@nl ;
+  rdfs:range setu:EmploymentContract ;
+.
+setu:staffingSupplierHasHiringContract
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De uitzendorganisatie heeft een inleenovereenkomst."@nl ;
+  rdfs:comment "The staffing supplier has a hiring contract."@en ;
+  rdfs:domain setu:StaffingSupplier ;
+  rdfs:label "has hiring contract"@en ;
+  rdfs:label "heeft inleenovereenkomst"@nl ;
+  rdfs:range setu:HiringContract ;
+.
+setu:startDateTime
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De datum(tijd) waarop de periode begint."@nl ;
+  rdfs:comment "The date(time) on which the period begins."@en ;
+  rdfs:domain setu:Period ;
+  rdfs:label "start datetime "@en ;
+  rdfs:label "start datumtijd"@nl ;
+  rdfs:range xsd:dateTime ;
+.
+setu:startReimbursedShift
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De startdatum en tijd van de vergoedde dienst."@nl ;
+  rdfs:comment "The start date and time of the reimbursed shift."@en ;
+  rdfs:domain setu:HourlyAllowance ;
+  rdfs:label "start reimbursed shift"@en ;
+  rdfs:label "start vergoedde dienst"@nl ;
+  rdfs:range xsd:dateTime ;
+.
+setu:startReportedPeriod
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De startdatum (en tijd) van de periode waarover de (uren)vergoedingen en inhoudingen zijn gerapporteerd."@nl ;
+  rdfs:comment "The start date (and time) of the period over which the (hourly) allowances and expenses were reported."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "start gerapporteerde periode"@nl ;
+  rdfs:label "start reported period"@en ;
+  rdfs:range xsd:dateTime ;
+.
+setu:streetName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De naam van de straat waaraan het adresseerbare object staat."@nl ;
+  rdfs:comment "The name of the street on which the addressable object is located."@en ;
+  rdfs:domain setu:Address ;
+  rdfs:label "straatnaam"@nl ;
+  rdfs:label "street name"@en ;
+  rdfs:range xsd:string ;
+.
+setu:submittedOn
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De datum en tijd waarop de urenregistratie is ingediend."@nl ;
+  rdfs:comment "The date and time when the hour registration was issued."@en ;
+  rdfs:domain setu:HourRegistration ;
+  rdfs:label "ingediend op"@nl ;
+  rdfs:label "submitted on"@en ;
+  rdfs:range xsd:dateTime ;
+.
+setu:telephoneNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Het telefoonnummer."@nl ;
+  rdfs:comment "The telephone number."@en ;
+  rdfs:label "telefoonnummer"@nl ;
+  rdfs:label "telephone number"@en ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf schema:telephone ;
+.
+setu:uri
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "De URI (Uniform Resource Identifier) van de bijlage waarnaar wordt verwezen."@nl ;
+  rdfs:comment "The URI (Uniform Resource Identifier) of the referenced attachment."@en ;
+  rdfs:domain setu:ReferencedAttachment ;
+  rdfs:label "uri"@en ;
+  rdfs:label "uri"@nl ;
+  rdfs:range xsd:anyURI ;
+.
+setu:website
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The website."@en ;
+  rdfs:comment "The website."@nl ;
+  rdfs:label "website"@en ;
+  rdfs:label "website"@nl ;
+  rdfs:range xsd:anyURI ;
+.
+setu:withdrawnOffer
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De intrekking van het aanbod door de uitzendorganisatie."@nl ;
+  rdfs:comment "The withdrawal of the offer by the staffing supplier."@en ;
+  rdfs:domain setu:Withdrawal ;
+  rdfs:label "ingetrokken aanbod"@nl ;
+  rdfs:label "withdrawn offer"@en ;
+  rdfs:range setu:Offer ;
+.
+setu:withdrawnRequest
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De intrekking van de aanvraag door de inleenorganisatie."@nl ;
+  rdfs:comment "The withdrawal of the request by the staffing customer."@en ;
+  rdfs:domain setu:Withdrawal ;
+  rdfs:label "ingetrokken aanvraag"@nl ;
+  rdfs:label "withdrawn request"@en ;
+  rdfs:range setu:Request ;
+.
+setu:workExperienceAtOrganization
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De werkervaring bij een organisatie."@nl ;
+  rdfs:comment "The work experience at an organization."@en ;
+  rdfs:domain setu:WorkExperience ;
+  rdfs:label "at organization"@en ;
+  rdfs:label "bij organisatie"@nl ;
+  rdfs:range setu:Organization ;
+.
+setu:workExperienceOnPosition
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "De werkervaring op een positie."@nl ;
+  rdfs:comment "The work experience on a position."@en ;
+  rdfs:domain setu:WorkExperience ;
+  rdfs:label "on position"@en ;
+  rdfs:label "op positie"@nl ;
+  rdfs:range setu:Position ;
+.
+setu:workPermit
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Geeft aan of de flexkracht beschikt over een geldige werkvergunning (true) of niet (false). Wordt voornamelijk gebruikt voor flexkrachten afkomstig van buiten Europa."@nl ;
+  rdfs:comment "Indicates whether the flexworker has a valid work permit (true) or not (false). Mainly used for flexworkers from outside Europe."@en ;
+  rdfs:domain setu:Flexworker ;
+  rdfs:label "werkvergunning"@nl ;
+  rdfs:label "work permit"@en ;
+  rdfs:range xsd:boolean ;
+.

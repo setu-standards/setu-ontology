@@ -1,0 +1,243 @@
+# baseURI: https://ontology.setu.nl/shapes
+# imports: http://datashapes.org/dash
+# imports: https://ontology.setu.nl#
+# prefix: shapes
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix setu: <https://ontology.setu.nl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shapes: <https://ontology.setu.nl/shapes#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ontology.setu.nl/shapes>
+  rdf:type owl:Ontology ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports setu: ;
+  dcterms:creator <https://www.linkedin.com/in/robin-de-veer/> ;
+  dcterms:description "De eerste draft versie van de SHACL constraints behorende bij de SETU ontologie."@nl ;
+  dcterms:description "The first draft version of the SHACL constraints associated with the SETU ontology."@en ;
+  dcterms:modified "2021-01-26"^^xsd:date ;
+  dcterms:title "SETU Ontologie - SHACL constraints"@nl ;
+  dcterms:title "SETU Ontology - SHACL constraints"@en ;
+  owl:versionIRI <https://ontology.setu.nl/shapes#/0.1> ;
+  owl:versionInfo "0.1" ;
+.
+shapes:AssignmentShape
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Assignment shape"@en ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:assignmentAgreedForPosition ;
+      sh:class setu:Position ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:assignmentHasAssignedFlexworker ;
+      sh:class setu:Flexworker ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:assignmentHasHiringContract ;
+      sh:class setu:HiringContract ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:placedAtStaffingCustomer ;
+      sh:class setu:StaffingCustomer ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:placedByStaffingSupplier ;
+      sh:class setu:StaffingSupplier ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass setu:Assignment ;
+.
+shapes:HourRegistrationShape
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Hour registration shape"@en ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:hourRegistrationConcernsWorkAtStaffingCustomer ;
+      sh:class setu:StaffingCustomer ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:hourRegistrationIsAccountabilityForStaffingSupplier ;
+      sh:class setu:StaffingSupplier ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:hourRegistrationRefersToAssignment ;
+      sh:class setu:Attachment ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:hourRegistrationRegisteredForPosition ;
+      sh:class setu:Position ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:hourRegistrationRegisteredFromFlexworker ;
+      sh:class setu:Flexworker ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass setu:HourRegistration ;
+.
+shapes:OfferShape
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Offer shape"@en ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:offeredByStaffingSupplier ;
+      sh:class setu:StaffingSupplier ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:offeredFlexworker ;
+      sh:class setu:Flexworker ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:offeredToStaffingCustomer ;
+      sh:class setu:StaffingCustomer ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass setu:Offer ;
+.
+shapes:OrderConfirmationShape
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Order confirmation shape"@en ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:confirmedByStaffingCustomer ;
+      sh:class setu:StaffingCustomer ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:confirmedToStaffingSupplier ;
+      sh:class setu:StaffingSupplier ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:orderConfirmationCoveredByHiringContract ;
+      sh:class setu:HiringContract ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:orderConfirmationOfPosition ;
+      sh:class setu:Position ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:orderedFlexworker ;
+      sh:class setu:Flexworker ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass setu:OrderConfirmation ;
+.
+shapes:PositionShape
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Position shape"@en ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionAtStaffingCustomer ;
+      sh:class setu:StaffingCustomer ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass setu:Position ;
+.
+shapes:RequestShape
+  rdf:type rdfs:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:label "Request shape"@en ;
+  rdfs:subClassOf rdfs:Resource ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:requestCoveredByHiringContract ;
+      sh:class setu:HiringContract ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:requestHasProposedPosition ;
+      sh:class setu:Position ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:requestedByStaffingCustomer ;
+      sh:class setu:StaffingCustomer ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:requestedToStaffingSupplier ;
+      sh:class setu:StaffingSupplier ;
+      sh:minCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:targetClass setu:Request ;
+.
