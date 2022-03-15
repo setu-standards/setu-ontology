@@ -13,7 +13,7 @@ env:
   GKE_CLUSTER: sth-cluster    # Add your cluster name here.
   GKE_ZONE: europe-west4-a   # Add your cluster zone here.
   DEPLOYMENT_NAME: setu-ontology-doc # Add your deployment name here.
-  IMAGE: europe-west4-docker.pkg.dev/sacred-sol-99413/setu-ontology-doc
+  IMAGE: europe-west4-docker.pkg.dev/sacred-sol-99413/setu/ontology-doc
 
 jobs:
   setup-build-publish-deploy:
