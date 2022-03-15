@@ -62,3 +62,4 @@ jobs:
       run: |-
         kubectl set image deployment/$DEPLOYMENT_NAME setu-ontology-doc=$IMAGE:$GITHUB_SHA -n setu --record
         kubectl rollout status deployment/$DEPLOYMENT_NAME -n setu
+        kubectl get deployments -A
