@@ -20,3 +20,4 @@ RUN cp ./doc/index-en.html ./doc/index.html \
 FROM nginx
 
 COPY --from=build /usr/src/app/doc /usr/share/nginx/html
+COPY ./nginx-conf /etc/nginx/conf.d
