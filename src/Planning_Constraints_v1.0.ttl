@@ -1,0 +1,559 @@
+# baseURI: https://ontology.setu.nl/planning-shapes#
+# imports: https://ontology.setu.nl/planning#
+# prefix: setu
+
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix hropen: <https://hropenstandards.org/schema/xml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix setu: <https://ontology.setu.nl/planning#> .
+@prefix setush: <https://ontology.setu.nl/planning-shapes#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sth: <https://ns.semantic-treehouse.nl/metadata/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ontology.setu.nl/planning-shapes#>
+  rdf:type owl:Ontology ;
+  owl:imports setu: ;
+  dc:contributor <https://www.linkedin.com/in/linda-oosterheert-006b0a10/> ;
+  dc:creator <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
+  dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
+  dc:description "The SHACL constraints associated with the SETU Planning ontology."@en ;
+  dc:modified "2023-06-08"^^xsd:date ;
+  dc:title "Planning Constraints" ;
+  owl:versionInfo "1.0" ;
+.
+sh:property
+  rdf:type owl:AnnotationProperty ;
+.
+hropen:PositionProfile
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionTask ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:requestedWorker ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:standByIndicator ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:travelDistance ;
+      sh:datatype xsd:decimal ;
+      sh:maxCount 1 ;
+    ] ;
+.
+hropen:PositionProfile-positionPeriod
+  rdf:type sh:NodeShape ;
+  sh:property [
+      sh:path hropen:start ;
+      sh:datatype xsd:date ;
+    ] ;
+  sh:property [
+      sh:path hropen:end ;
+      sh:datatype xsd:date ;
+    ] ;
+.
+setu:AvailabilityLine
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:availabilityComment ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:availabilityLineId ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:availabilityStatus ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+.
+setu:AssignedWorker
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:assignedStatus ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+.
+setu:Breaks
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:breakTrigger ;
+      sh:maxCount 1 ;
+      sh:order 6 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:endDateTime ;
+      sh:datatype xsd:dateTime ;
+      sh:description "The end date and time of the break."@en ;
+      sh:maxCount 1 ;
+      sh:order 5 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:endTime ;
+      sh:datatype "xsd:time" ;
+      sh:description "The end time of the break."@en ;
+      sh:maxCount 1 ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:paidOrUnpaid ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:startDateTime ;
+      sh:datatype xsd:dateTime ;
+      sh:description "The start date and time of the break."@en ;
+      sh:maxCount 1 ;
+      sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:startTime ;
+      sh:datatype "xsd:time" ;
+      sh:description "The start time of the break."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
+    ] ;
+.
+setu:BreakTrigger
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:breakDuration ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:hours ;
+      sh:datatype xsd:decimal ;
+      sh:description "The amount of hours worked after which the break applies, expressed as decimal."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 1 ;
+    ] ;
+.
+setu:Id
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:schemeAgencyId ;
+      sh:datatype xsd:string ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:value ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+.
+setu:PeriodicAvailabilityLine
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:availabilityPeriod ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:endTime ;
+      sh:datatype "xsd:time" ;
+      sh:description "The preferred end time of the worker for the specified availability period."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:hours ;
+      sh:datatype xsd:decimal ;
+      sh:description "The number of hours the worker is 'Available', 'NotAvailable', or 'RatherNot' for the specified availability period. The number of hours is including break time(s)."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:startTime ;
+      sh:datatype "xsd:time" ;
+      sh:description "The preferred start time of the worker for the specified availability period."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:relatedWorker ;
+      sh:description "Other worker(s) the worker is related to and has to be taken into account for this availability line when planning."@en ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:actionCode ;
+      sh:description "Specification of how the supplier or the customer should process this periodic availability line."@en ;
+      sh:maxCount 1 ;
+    ] ;
+.
+setu:PeriodicPlanningLine
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:breaks ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:endTime ;
+      sh:datatype "xsd:time" ;
+      sh:description "The end time of the shift."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:hours ;
+      sh:datatype xsd:decimal ;
+      sh:description "The amount of hours the worker works in the period specified. The number of hours is excluding break time(s)."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:planningPeriod ;
+      sh:datatype xsd:string ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:startTime ;
+      sh:datatype "xsd:time" ;
+      sh:description "The start time of the shift."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:relatedWorker ;
+      sh:description "Other worker(s) the worker is related to and is taken into account of this planning line."@en ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:actionCode ;
+      sh:description "Specification of how the supplier or the customer should process this periodic planning line."@en ;
+      sh:maxCount 1 ;
+    ] ;
+.
+setu:PlanningAssignment
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customer ;
+      sh:description "The customer of the worker."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:supplier ;
+      sh:description "The supplier of the worker."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:planningRequestReference ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:assignedWorker ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionProfile ;
+      sh:description "Information concerning the position profile the planning is assigned for."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:assignedPeriodicPlanningLine ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:assignedSinglePlanningLine ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:actionCode ;
+      sh:description "Specification of how the supplier or the customer should process this planning assignment."@en ;
+      sh:maxCount 1 ;
+    ] ; 
+.
+setu:PlanningConstraints
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionProfile ;
+      sh:description "Information concerning the position profile."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customer ;
+      sh:description "The customer of the worker."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:maximumTravelDistance ;
+      sh:datatype xsd:decimal ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:periodicAvailabilityLine ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:singleAvailabilityLine ;
+        ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:supplier ;
+      sh:description "The supplier of the worker."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:worker ;
+      sh:description "Information about the worker to whom the planning constraints apply."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+       sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:actionCode ;
+      sh:description "Specification of how the supplier or the customer should process the planning constraints."@en ;
+      sh:maxCount 1 ;
+    ] ;
+.
+setu:PlanningLine
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:planningLineId ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:planningLineName ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionQuantity ;
+      sh:datatype xsd:integer ;
+      sh:maxCount 1 ;
+    ] ;
+.
+setu:PlanningRequest
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customer ;
+      sh:description "The customer requesting the planning."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:supplier ;
+      sh:description "The supplier receiving the planning request."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionProfile ;
+      sh:description "Information concerning the position profile the planning is requested for."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:requestComments ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:requestedPeriodicPlanningLine ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:requestedSinglePlanningLine ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:actionCode ;
+      sh:description "Specification of how the supplier or the customer should process this planning request."@en ;
+      sh:maxCount 1 ;
+    ] ;
+.
+setu:PositionTask
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:descriptionRef ;
+      sh:datatype hropen:Text ;
+      sh:description "A brief description of the task performed."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
+      sh:description "The identifier of the task performed."@en ;
+      sh:maxCount 1 ;
+    ] ;
+.
+setu:RelatedWorker
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:endDateTime ;
+      sh:description "The end date and time of the period the worker is related to another worker."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:relatedWorkerType ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:startDateTime ;
+      sh:description "The start date and time of the period the worker is related to another worker."@en ;
+      sh:maxCount 1 ;
+    ] ;
+.
+setu:SingleAvailabilityLine
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:endDateTime ;
+      sh:datatype xsd:dateTime ;
+      sh:description "The end date and time of the single availability when the worker is (not) available."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:hours ;
+      sh:datatype xsd:decimal ;
+      sh:description "The number of hours the worker is 'Available', 'NotAvailable', or 'RatherNot' for the specified availability period. The number of hours is including break time(s)."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:periodicAvailabilityLineReference ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:singleAvailabilityType ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:startDateTime ;
+      sh:datatype xsd:dateTime ;
+      sh:description "The start date and time of the single availability when the worker is (not) available."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:relatedWorker ;
+      sh:description "Other worker(s) the worker is related to and has to be taken into account for this availability line when planning."@en ;
+    ] ;
+       sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:actionCode ;
+      sh:description "Specification of how the supplier or the customer should process this single availability line."@en ;
+      sh:maxCount 1 ;
+    ] ;
+.
+setu:SinglePlanningLine
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:breaks ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:endDateTime ;
+      sh:datatype xsd:dateTime ;
+      sh:description "The end date and time of the shift."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:hours ;
+      sh:datatype xsd:decimal ;
+      sh:description "The amount of hours the worker works in the period specified. The number of hours is excluding break time(s)."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:periodicPlanningLineReference ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:singlePlanningType ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:startDateTime ;
+      sh:datatype xsd:dateTime ;
+      sh:description "The start date and time of the shift."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:relatedWorker ;
+      sh:description "Other worker(s) the worker is related to and is taken into account of this planning line."@en ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:actionCode ;
+      sh:description "Specification of how the supplier or the customer should process this single planning line."@en ;
+      sh:maxCount 1 ;
+    ] ;
+.
