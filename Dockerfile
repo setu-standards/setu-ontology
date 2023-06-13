@@ -11,7 +11,7 @@ RUN mkdir doc \
   & java -jar /usr/bin/widoco.jar -ontFile setu.ttl -outFolder doc -webVowl -lang en-nl
 
 RUN mkdir doc/planning \
-  & java -jar /usr/bin/widoco.jar -ontFile planning.ttl -outFolder doc/planning -webVowl -lang en-nl
+  & java -jar /usr/bin/widoco.jar -ontFile Planning_Ontology_v1.0.ttl -outFolder doc/planning -webVowl -lang en-nl
 
 # Copy the NL generated documentation index to be the main index file
 RUN cp ./doc/index-en.html ./doc/index.html \
