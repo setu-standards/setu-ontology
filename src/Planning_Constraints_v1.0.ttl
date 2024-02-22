@@ -21,7 +21,7 @@
   dc:creator <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:description "The SHACL constraints associated with the SETU Planning ontology."@en ;
-  dc:modified "2024-02-20"^^xsd:date ;
+  dc:modified "2024-02-22"^^xsd:date ;
   dc:title "Planning Constraints" ;
   owl:versionInfo "1.1" ;
 .
@@ -54,7 +54,14 @@ hropen:Candidate
       sh:datatype hropen:Party ;
       sh:maxCount 1 ;
     ] ;
-    
+.
+hropen:PayRate
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:multiplier ;
+      sh:maxCount 1 ;
+    ] ;
 .
 hropen:PositionProfile
   rdf:type sh:NodeShape ;
