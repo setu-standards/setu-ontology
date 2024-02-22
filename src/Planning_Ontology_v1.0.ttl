@@ -450,7 +450,7 @@ setu:requestedPeriodicPlanningLine
   rdfs:range setu:PeriodicPlanningLine ;
   skos:definition "A container for specifying a periodic planning line."@en ;
   sth:xmlTag "periodicPlanningLine" ;
-
+.
 setu:resourceClassificationInclusion
   rdf:type owl:ObjectProperty ;
   rdfs:label "resource classification inclusion"@en ;
