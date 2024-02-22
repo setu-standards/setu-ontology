@@ -36,6 +36,18 @@ hropen:Candidate
       sh:datatype hropen:StaffingReferenceIds ;
       sh:maxCount 1 ;
     ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:supplier;
+      sh:datatype hropen:Party ;
+      sh:maxCount 1 ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customer;
+      sh:datatype hropen:Party ;
+      sh:maxCount 1 ;
+    ] ;
 .
 hropen:PositionProfile
   rdf:type sh:NodeShape ;
