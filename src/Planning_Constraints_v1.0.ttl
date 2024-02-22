@@ -62,6 +62,16 @@ hropen:PayRate
       sh:path setu:multiplier ;
       sh:maxCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:toBeBilled ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:toBePaid ;
+      sh:maxCount 1 ;
+    ] ;
 .
 hropen:PositionProfile
   rdf:type sh:NodeShape ;

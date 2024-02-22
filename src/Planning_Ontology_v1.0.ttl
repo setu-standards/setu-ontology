@@ -552,6 +552,18 @@ setu:supplier
   rdfs:range hropen:Party ;
   sth:xmlTag "supplier" ;
 .
+setu:toBeBilled
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "to be billed"@en ;
+  rdfs:range xsd:boolean ;
+  sth:xmlTag "toBeBilled" ;
+.
+setu:toBePaid
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "to be paid"@en ;
+  rdfs:range xsd:boolean ;
+  sth:xmlTag "toBePaid" ;
+.
 setu:travelDistance
   rdf:type owl:DatatypeProperty ;
   rdfs:domain hropen:PositionProfile ;
