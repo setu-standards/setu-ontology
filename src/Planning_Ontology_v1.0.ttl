@@ -171,6 +171,12 @@ setu:actionCode
   sth:allowedValue "DELETE" ;  
   sth:xmlTag "actionCode" ;
 .
+setu:allowance
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "allowance"@en ;
+  rdfs:range hropen:Allowance ;
+  sth:xmlTag "allowance" ;
+.
 setu:assignedPeriodicPlanningLine
   rdf:type owl:ObjectProperty ;
   rdfs:domain setu:PlanningAssignment ;
@@ -307,6 +313,12 @@ setu:endTime
   rdfs:range xsd:time ;
   skos:definition "End time is the end, expressed in time, of an period of time."@en ;
   sth:xmlTag "endTime" ;
+.
+setu:expense
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "expense"@en ;
+  rdfs:range hropen:Expense ;
+  sth:xmlTag "expense" ;
 .
 setu:hours
   rdf:type owl:DatatypeProperty ;

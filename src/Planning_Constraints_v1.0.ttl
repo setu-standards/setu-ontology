@@ -109,6 +109,17 @@ hropen:PositionProfile-positionPeriod
       sh:datatype xsd:date ;
     ] ;
 .
+hropen:Timecard
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:allowance ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:expense ;
+    ] ;
+.
 hropen:TimeCardItem
   rdf:type sh:NodeShape ;
   sh:property [
