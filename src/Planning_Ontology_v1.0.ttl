@@ -556,12 +556,14 @@ setu:toBeBilled
   rdf:type owl:DatatypeProperty ;
   rdfs:label "to be billed"@en ;
   rdfs:range xsd:boolean ;
+  skos:definition "Specifies whether this pay rate is specified for billing purposes or not."@en ;
   sth:xmlTag "toBeBilled" ;
 .
 setu:toBePaid
   rdf:type owl:DatatypeProperty ;
   rdfs:label "to be paid"@en ;
   rdfs:range xsd:boolean ;
+  skos:definition "Specifies whether this pay rate is specified for payment purposes or not."@en ;
   sth:xmlTag "toBePaid" ;
 .
 setu:travelDistance
