@@ -40,6 +40,12 @@ hropen:Allowance
       sh:path setu:quantity ;
       sh:maxCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:actionCode ;
+      sh:description "Specification of how the supplier or the customer should process this allowance."@en ;
+      sh:maxCount 1 ;
+    ] ; 
 .
 hropen:Candidate
   rdf:type sh:NodeShape ;
@@ -80,6 +86,12 @@ hropen:Expense
       sh:path setu:quantity ;
       sh:maxCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:actionCode ;
+      sh:description "Specification of how the supplier or the customer should process this expense."@en ;
+      sh:maxCount 1 ;
+    ] ; 
 .
 hropen:PayRate
   rdf:type sh:NodeShape ;
@@ -145,6 +157,22 @@ hropen:Timecard
       rdf:type sh:PropertyShape ;
       sh:path setu:expense ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customer;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:supplier;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:actionCode ;
+      sh:description "Specification of how the supplier or the customer should process this timecard."@en ;
+      sh:maxCount 1 ;
+    ] ; 
 .
 hropen:TimeCardItem
   rdf:type sh:NodeShape ;
@@ -153,6 +181,12 @@ hropen:TimeCardItem
       sh:path setu:dayAssignment ;
       sh:maxCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:actionCode ;
+      sh:description "Specification of how the supplier or the customer should process this timecard item."@en ;
+      sh:maxCount 1 ;
+    ] ; 
 .
 setu:AvailabilityLine
   rdf:type sh:NodeShape ;
