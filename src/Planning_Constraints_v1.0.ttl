@@ -35,6 +35,11 @@ hropen:AllowanceType
       sh:path setu:period ;
       sh:maxCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:quantity ;
+      sh:maxCount 1 ;
+    ] ;
 .
 hropen:Candidate
   rdf:type sh:NodeShape ;
@@ -68,6 +73,11 @@ hropen:ExpenseType
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:period ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:quantity ;
       sh:maxCount 1 ;
     ] ;
 .

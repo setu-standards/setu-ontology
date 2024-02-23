@@ -443,6 +443,12 @@ setu:positionTask
   skos:definition "The type of task or activity the worker performs on the position."@en ;
   sth:xmlTag "positionTask" ;
 .
+setu:quantity
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "quantity"@en ;
+  rdfs:range hropen:QuantityType;
+  sth:xmlTag "quantity" ;
+.
 setu:relatedWorker
   rdf:type owl:ObjectProperty ;
   rdfs:label "related worker"@en ;
