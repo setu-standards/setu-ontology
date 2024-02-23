@@ -28,7 +28,7 @@
 sh:property
   rdf:type owl:AnnotationProperty ;
 .
-hropen:AllowanceType
+hropen:Allowance
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
@@ -68,7 +68,7 @@ hropen:Candidate
       sh:maxCount 1 ;
     ] ;
 .
-hropen:ExpenseType
+hropen:Expense
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
