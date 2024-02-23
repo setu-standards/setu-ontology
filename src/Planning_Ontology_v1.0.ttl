@@ -446,7 +446,7 @@ setu:positionTask
 setu:quantity
   rdf:type owl:ObjectProperty ;
   rdfs:label "quantity"@en ;
-  rdfs:range hropen:QuantityType;
+  rdfs:range hropen:Quantity;
   sth:xmlTag "quantity" ;
 .
 setu:relatedWorker
