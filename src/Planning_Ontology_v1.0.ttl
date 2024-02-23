@@ -361,7 +361,7 @@ setu:paidOrUnpaid
 setu:period
   rdf:type owl:ObjectProperty ;
   rdfs:label "period"@en ;
-  rdfs:range hropen:PeriodType ;
+  rdfs:range hropen:Period ;
   sth:xmlTag "period" ;
 .
 setu:periodicAvailabilityLine
