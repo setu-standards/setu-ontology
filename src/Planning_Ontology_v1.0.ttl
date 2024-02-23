@@ -358,6 +358,12 @@ setu:paidOrUnpaid
   sth:allowedValue "Unpaid" ;
   sth:xmlTag "paidOrUnpaid" ;
 .
+setu:period
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "period"@en ;
+  rdfs:range hropen:PeriodType ;
+  sth:xmlTag "period" ;
+.
 setu:periodicAvailabilityLine
   rdf:type owl:ObjectProperty ;
   rdfs:domain setu:PlanningConstraints ;

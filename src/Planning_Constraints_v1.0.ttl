@@ -28,6 +28,14 @@
 sh:property
   rdf:type owl:AnnotationProperty ;
 .
+hropen:AllowanceType
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:period ;
+      sh:maxCount 1 ;
+    ] ;
+.
 hropen:Candidate
   rdf:type sh:NodeShape ;
   sh:property [
@@ -52,6 +60,14 @@ hropen:Candidate
       rdf:type sh:PropertyShape ;
       sh:path setu:supplier;
       sh:datatype hropen:Party ;
+      sh:maxCount 1 ;
+    ] ;
+.
+hropen:ExpenseType
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:period ;
       sh:maxCount 1 ;
     ] ;
 .
