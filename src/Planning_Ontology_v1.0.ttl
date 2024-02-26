@@ -358,6 +358,12 @@ setu:paidOrUnpaid
   sth:allowedValue "Unpaid" ;
   sth:xmlTag "paidOrUnpaid" ;
 .
+setu:payRates
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "pay rates"@en ;
+  rdfs:range hropen:PayRate ;
+  sth:xmlTag "payRates" ;
+.
 setu:period
   rdf:type owl:ObjectProperty ;
   rdfs:label "period"@en ;
@@ -554,6 +560,12 @@ setu:singlePlanningType
   sth:allowedValue "Exception" ;
   sth:allowedValue "Occasional" ;
   sth:xmlTag "singlePlanningType" ;
+.
+setu:staffingIdsRef
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "staffing ids ref"@en ;
+  rdfs:range hropen:StaffingReferenceIds ;
+  sth:xmlTag "staffingIdsRef" ;
 .
 setu:standByIndicator
   rdf:type owl:DatatypeProperty ;

@@ -51,26 +51,32 @@ hropen:Candidate
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:customer;
-      sh:datatype hropen:Party ;
+      sh:path setu:actionCode ;
+      sh:description "Specification of how the supplier or the customer should process this message."@en ;
       sh:maxCount 1 ;
+    ] ; 
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customer;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:payRates;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:resourceClassificationInclusion;
-      sh:datatype hropen:ResourceClassificationInclusion ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path hropen:staffingIdsRef ;
-      sh:datatype hropen:StaffingReferenceIds ;
+      sh:path setu:staffingIdsRef ;
       sh:maxCount 1 ;
     ] ;
     sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:supplier;
-      sh:datatype hropen:Party ;
       sh:maxCount 1 ;
     ] ;
 .
