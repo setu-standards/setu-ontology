@@ -279,6 +279,13 @@ setu:breakTrigger
   skos:definition "Container to specify after how many working hours a break occurs and how long the break takes."@en ;
   sth:xmlTag "breakTrigger" ;
 .
+setu:comments 
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "comments"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Additional comments about the message."@en ;
+  sth:xmlTag "comments" ;
+.
 setu:costAllocationRef
   rdf:type owl:ObjectProperty ;
   rdfs:domain hropen:PositionProfile ;
@@ -503,6 +510,13 @@ setu:positionQuantity
   skos:definition "The number of workers requested for this specific period of the staffing position."@en ;
   sth:xmlTag "positionQuantity" ;
 .
+setu:reasonOfChange
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "reason of change"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "The reason of the change in the (status of the) offer"@en ;
+  sth:xmlTag "reasonOfChange" ;
+.
 setu:requestedSinglePlanningLine
   rdf:type owl:ObjectProperty ;
   rdfs:domain setu:PlanningRequest ;
@@ -632,9 +646,9 @@ setu:worker
   rdfs:range hropen:Worker ;
   skos:definition "Worker is a Person Role and is defined as someone who performs labor for an organization. Worker is an abstraction for other more specific work-related roles, for example, Employee and Contractor. (ADP)" ;
 .
-setu:workingPeriod
+setu:workingPeriods
   rdf:type owl:ObjectProperty ;
-  rdfs:label "working period"@en ;
+  rdfs:label "working periods"@en ;
   rdfs:range hropen:WorkingPeriod ;
-  sth:xmlTag "workingPeriod" ;
+  sth:xmlTag "workingPeriods" ;
 .
