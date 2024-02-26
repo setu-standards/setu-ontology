@@ -80,6 +80,14 @@ hropen:Candidate
       sh:maxCount 1 ;
     ] ;
 .
+hropen:CandidateProfile
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:workingPeriod ;
+      sh:maxCount 1 ;
+    ] ; 
+.
 hropen:Expense
   rdf:type sh:NodeShape ;
   sh:property [
