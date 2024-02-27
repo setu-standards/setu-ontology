@@ -133,6 +133,19 @@ hropen:PayRate
       sh:maxCount 1 ;
     ] ;
 .
+hropen:PersonCompetency
+rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:startDateTime ;
+      sh:maxCount 1;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:endDateTime ;
+      sh:maxCount 1;
+    ] ;
+.
 hropen:PositionProfile
   rdf:type sh:NodeShape ;
   sh:property [
