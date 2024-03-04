@@ -334,6 +334,12 @@ setu:hours
   skos:definition "The amount of hours expressed in decimals."@en ;
   sth:xmlTag "hours" ;
 .
+setu:inclusiveRate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "inclusive rate"@en ;
+  rdfs:range xsd:boolean ;
+  sth:xmlTag "inclusiveRate" ;
+.
 setu:licenses
   rdf:type owl:ObjectProperty ;
   rdfs:domain hropen:PositionQualification ;
