@@ -75,7 +75,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:description "The SETU Planning is used to exchange planning data between and with planning systems. It deals with electronically sending planning related information, including updates."@en ;
-  dc:modified "2024-02-23"^^xsd:date ;
+  dc:modified "2024-03-04"^^xsd:date ;
   dc:title "Planning Ontology" ;
   owl:versionInfo "1.1" ;
 .
@@ -326,6 +326,15 @@ setu:expense
   rdfs:label "expense"@en ;
   rdfs:range hropen:Expense ;
   sth:xmlTag "expense" ;
+.
+setu:homeOfficeIndicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "home office indicator"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Contains the value 'Home' or 'Office' to indicate for a timecard item whether the work was executed at home or at the office."@en ;
+  sth:allowedValue "Home" ;
+  sth:allowedValue "Office" ;
+  sth:xmlTag "homeOfficeIndicator" ;
 .
 setu:hours
   rdf:type owl:DatatypeProperty ;
