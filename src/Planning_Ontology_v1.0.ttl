@@ -471,6 +471,12 @@ setu:positionTask
   skos:definition "The type of task or activity the worker performs on the position."@en ;
   sth:xmlTag "positionTask" ;
 .
+setu:purchaseOrderLineItem
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "purchase order line item"@en ;
+  rdfs:range xsd:string;
+  sth:xmlTag "purchaseOrderLineItem" ;
+.
 setu:quantity
   rdf:type owl:ObjectProperty ;
   rdfs:label "quantity"@en ;
