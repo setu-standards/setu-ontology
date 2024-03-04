@@ -213,12 +213,6 @@ hropen:Timecard
       sh:description "Specification of how the supplier or the customer should process this timecard."@en ;
       sh:maxCount 1 ;
     ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:inclusiveRate ;
-      sh:description "Specification whether the rates on this timecard are inclusive or exclusive the provided multiplier."@en ;
-      sh:maxCount 1 ;
-    ] ;
 .
 hropen:TimeCardItem
   rdf:type sh:NodeShape ;
