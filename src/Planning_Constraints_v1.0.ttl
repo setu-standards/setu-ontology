@@ -28,19 +28,6 @@
 sh:property
   rdf:type owl:AnnotationProperty ;
 .
-hropen:Allowance
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:period ;
-      sh:maxCount 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:quantity ;
-      sh:maxCount 1 ;
-    ] ;
-.
 hropen:Candidate
   rdf:type sh:NodeShape ;
   sh:property [
@@ -87,19 +74,6 @@ hropen:CandidateProfile
       rdf:type sh:PropertyShape ;
       sh:path setu:workingPeriods ;
     ] ; 
-.
-hropen:Expense
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:period ;
-      sh:maxCount 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:quantity ;
-      sh:maxCount 1 ;
-    ] ;
 .
 hropen:PayRate
   rdf:type sh:NodeShape ;
@@ -213,6 +187,11 @@ hropen:TimeCardItem
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:customerSpecificRequirements;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:quantity ;
+      sh:maxCount 1 ;
     ] ;
 .
 setu:AvailabilityLine

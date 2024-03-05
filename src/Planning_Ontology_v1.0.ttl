@@ -174,7 +174,7 @@ setu:actionCode
 setu:allowance
   rdf:type owl:ObjectProperty ;
   rdfs:label "allowance"@en ;
-  rdfs:range hropen:Allowance ;
+  rdfs:range hropen:TimeCardItem ;
   sth:xmlTag "allowance" ;
 .
 setu:assignedPeriodicPlanningLine
@@ -331,7 +331,7 @@ setu:endTime
 setu:expense
   rdf:type owl:ObjectProperty ;
   rdfs:label "expense"@en ;
-  rdfs:range hropen:Expense ;
+  rdfs:range hropen:TimeCardItem ;
   sth:xmlTag "expense" ;
 .
 setu:homeOfficeIndicator
