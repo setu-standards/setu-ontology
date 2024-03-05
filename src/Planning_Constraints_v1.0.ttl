@@ -102,6 +102,11 @@ hropen:PayRate
       sh:path setu:rateType ;
       sh:maxCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:period ;
+      sh:maxCount 1 ;
+    ] ;
 .
 hropen:PersonCompetency
 rdf:type sh:NodeShape ;
