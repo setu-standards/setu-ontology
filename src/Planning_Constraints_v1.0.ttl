@@ -97,6 +97,11 @@ hropen:PayRate
       sh:path setu:purchaseOrderLineItem ;
       sh:maxCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:rateType ;
+      sh:maxCount 1 ;
+    ] ;
 .
 hropen:PersonCompetency
 rdf:type sh:NodeShape ;
