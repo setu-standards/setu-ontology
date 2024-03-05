@@ -314,6 +314,13 @@ setu:dayAssignment
   skos:definition "Specification of the administrative start date of the time card item. This is useful in case of nightshifts where the start and end date of a time interval are not the same."@en ;
   sth:xmlTag "dayAssignment" ;
 .
+setu:endDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "end date"@en ;
+  rdfs:range xsd:date ;
+  skos:definition "The end date is the end of a stay, an episode, or other period of time."@en ;
+  sth:xmlTag "endDate" ;
+.
 setu:endDateTime
   rdf:type owl:DatatypeProperty ;
   rdfs:label "end date time"@en ;
@@ -619,6 +626,13 @@ setu:standByIndicator
   rdfs:range xsd:boolean ;
   skos:definition "Specifies whether the position is a stand-by (Dutch: reserve) position (true) or a regular position (false). Default value is 'false'. This element is not used to specify an on-call worker (Dutch: oproepkracht)."@en ;
   sth:xmlTag "standByIndicator" ;
+.
+setu:startDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "start date"@en ;
+  rdfs:range xsd:date ;
+  skos:definition "The start date is the start of a stay, an episode, or other period of time."@en ;
+  sth:xmlTag "startDate" ;
 .
 setu:startDateTime
   rdf:type owl:DatatypeProperty ;
