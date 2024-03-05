@@ -21,7 +21,7 @@
   dc:creator <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:description "The SHACL constraints associated with the SETU Planning ontology."@en ;
-  dc:modified "2024-03-04"^^xsd:date ;
+  dc:modified "2024-03-05"^^xsd:date ;
   dc:title "Planning Constraints" ;
   owl:versionInfo "1.1" ;
 .
@@ -71,10 +71,14 @@ hropen:Candidate
       sh:path setu:staffingIdsRef ;
       sh:maxCount 1 ;
     ] ;
-    sh:property [
+  sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:supplier;
       sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customerSpecificRequirements;
     ] ;
 .
 hropen:CandidateProfile
@@ -189,6 +193,10 @@ hropen:Timecard
       sh:path setu:supplier;
       sh:maxCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customerSpecificRequirements;
+    ] ;
 .
 hropen:TimeCardItem
   rdf:type sh:NodeShape ;
@@ -201,6 +209,10 @@ hropen:TimeCardItem
       rdf:type sh:PropertyShape ;
       sh:path setu:homeOfficeIndicator ;
       sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customerSpecificRequirements;
     ] ;
 .
 setu:AvailabilityLine

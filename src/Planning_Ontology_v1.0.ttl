@@ -75,7 +75,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:description "The SETU Planning is used to exchange planning data between and with planning systems. It deals with electronically sending planning related information, including updates."@en ;
-  dc:modified "2024-03-04"^^xsd:date ;
+  dc:modified "2024-03-05"^^xsd:date ;
   dc:title "Planning Ontology" ;
   owl:versionInfo "1.1" ;
 .
@@ -299,6 +299,13 @@ setu:customer
   rdfs:label "customer"@en ;
   rdfs:range hropen:Party ;
   sth:xmlTag "customer" ;
+.
+setu:customerSpecificRequirements
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "customer specific requirements"@en ;
+  rdfs:range xsd:any ;
+  skos:definition "Container for customer specific requirements. This container can only be filled with customer specific requirements that have been permitted and added to the customer specific requirements codelist by the SETU."@en ;
+  sth:xmlTag "customerSpecificRequirements" ;
 .
 setu:dayAssignment
   rdf:type owl:DatatypeProperty ;
