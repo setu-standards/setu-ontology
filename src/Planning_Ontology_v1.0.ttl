@@ -286,13 +286,13 @@ setu:comments
   skos:definition "Additional comments about the message."@en ;
   sth:xmlTag "comments" ;
 .
-setu:costAllocationRef
+setu:costAllocation
   rdf:type owl:ObjectProperty ;
   rdfs:domain hropen:PositionProfile ;
-  rdfs:label "cost allocation ref"@en ;
+  rdfs:label "cost allocation"@en ;
   rdfs:range hropen:CostAllocation ;
   skos:definition "The cost allocation of the position."@en ;
-  sth:xmlTag "costAllocationRef" ;
+  sth:xmlTag "costAllocation" ;
 .
 setu:customer
   rdf:type owl:ObjectProperty ;
