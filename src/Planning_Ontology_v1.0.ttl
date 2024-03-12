@@ -613,11 +613,11 @@ setu:singlePlanningType
   sth:allowedValue "Occasional" ;
   sth:xmlTag "singlePlanningType" ;
 .
-setu:staffingIdsRef
+setu:staffingIds
   rdf:type owl:ObjectProperty ;
-  rdfs:label "staffing ids ref"@en ;
+  rdfs:label "staffing ids"@en ;
   rdfs:range hropen:StaffingReferenceIds ;
-  sth:xmlTag "staffingIdsRef" ;
+  sth:xmlTag "staffingIds" ;
 .
 setu:standByIndicator
   rdf:type owl:DatatypeProperty ;

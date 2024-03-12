@@ -55,7 +55,7 @@ hropen:Candidate
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:staffingIdsRef ;
+      sh:path setu:staffingIds ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
