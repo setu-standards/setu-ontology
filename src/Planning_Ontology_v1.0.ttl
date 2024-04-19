@@ -335,6 +335,14 @@ setu:endTime
   skos:definition "End time is the end, expressed in time, of an period of time."@en ;
   sth:xmlTag "endTime" ;
 .
+setu:establishment
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain hropen:Party ;
+  rdfs:label "establishment"@en ;
+  rdfs:range hropen:EmployerEstablishment ;
+  skos:definition "Information to identify and reference a specific establishment within an organization."@en ;
+  sth:xmlTag "establishment" ;
+.
 setu:expense
   rdf:type owl:ObjectProperty ;
   rdfs:label "expense"@en ;
