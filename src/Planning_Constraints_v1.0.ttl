@@ -28,6 +28,24 @@
 sh:property
   rdf:type owl:AnnotationProperty ;
 .
+hropen:AddressTypeArray
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:streetName;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:houseNumber;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:houseNumberAddition;
+      sh:maxCount 1 ;
+    ] ;
+.
 hropen:Candidate
   rdf:type sh:NodeShape ;
   sh:property [

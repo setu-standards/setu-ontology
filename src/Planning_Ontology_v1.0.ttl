@@ -75,7 +75,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:description "The SETU Planning is used to exchange planning data between and with planning systems. It deals with electronically sending planning related information, including updates."@en ;
-  dc:modified "2024-03-12"^^xsd:date ;
+  dc:modified "2024-04-19"^^xsd:date ;
   dc:title "Planning Ontology" ;
   owl:versionInfo "1.1" ;
 .
@@ -356,6 +356,22 @@ setu:hours
   rdfs:range xsd:decimal ;
   skos:definition "The amount of hours expressed in decimals."@en ;
   sth:xmlTag "hours" ;
+.
+setu:houseNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain hropen:AddressTypeArray ;
+  rdfs:label "house number"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "The house number of the address."@en ;
+  sth:xmlTag "houseNumber" ;
+.
+setu:houseNumberAddition
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain hropen:AddressTypeArray ;
+  rdfs:label "house number addition"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "The addition of the house number."@en ;
+  sth:xmlTag "houseNumberAddition" ;
 .
 setu:licenses
   rdf:type owl:ObjectProperty ;
@@ -647,6 +663,14 @@ setu:startTime
   rdfs:range xsd:time ;
   skos:definition "The start time of a period of time."@en ;
   sth:xmlTag "startTime" ;
+.
+setu:streetName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain hropen:AddressTypeArray ;
+  rdfs:label "street name"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "The street name of the address."@en ;
+  sth:xmlTag "streetName" ;
 .
 setu:supplier
   rdf:type owl:ObjectProperty ;
