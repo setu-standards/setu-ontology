@@ -75,7 +75,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:description "The SETU Planning is used to exchange planning data between and with planning systems. It deals with electronically sending planning related information, including updates."@en ;
-  dc:modified "2024-04-19"^^xsd:date ;
+  dc:modified "2024-04-26"^^xsd:date ;
   dc:title "Planning Ontology" ;
   owl:versionInfo "1.1" ;
 .
@@ -586,6 +586,13 @@ setu:requestedSinglePlanningLine
   rdfs:range setu:SinglePlanningLine ;
   skos:definition "A container for specifing a single planning line."@en ;
   sth:xmlTag "singlePlanningLine" ;
+.
+setu:residenceAddress
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain hropen:CandidatePerson ;
+  rdfs:label "residence address"@en ;
+  rdfs:range hropen:AddressTypeArray ;
+  sth:xmlTag "residenceAddress" ;
 .
 setu:requestedWorker
   rdf:type owl:ObjectProperty ;
