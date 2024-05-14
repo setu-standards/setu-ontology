@@ -757,3 +757,31 @@ setu:SinglePlanningLine
       sh:minCount 1 ;
     ] ;
 .
+hropen:WorkAssignment
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customer ;
+      sh:description "The customer of the worker."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionProfile ;
+      sh:description "A profile of a position opening that is available at an organization."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:supplier ;
+      sh:description "The supplier of the worker."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:resourceClassificationInclusion;
+      sh:maxCount 1 ;
+    ] ;
+.
