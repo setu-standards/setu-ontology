@@ -161,7 +161,7 @@ setu:SinglePlanningLine
   rdfs:label "Single planning line"@en ;
   rdfs:subClassOf setu:PlanningLine ;
 .
-setu:StaffingOrder
+<https://ontology.setu.nl/#StaffingOrder>
   rdf:type owl:Class ;
   rdfs:label "Staffing order"@en ;
   rdfs:subClassOf hropen:Noun ;

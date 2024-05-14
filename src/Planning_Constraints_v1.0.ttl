@@ -726,3 +726,19 @@ setu:SinglePlanningLine
       sh:maxCount 1 ;
     ] ;
 .
+<https://ontology.setu.nl/#StaffingOrder>
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customer ;
+      sh:description "The customer of the worker."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:supplier ;
+      sh:description "The supplier of the worker."@en ;
+      sh:maxCount 1 ;
+    ] ;
+.
