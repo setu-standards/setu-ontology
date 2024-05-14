@@ -497,7 +497,6 @@ setu:planningRequestReference
 .
 setu:positionProfile
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:Planning ;
   rdfs:label "position profile"@en ;
   rdfs:range hropen:PositionProfile ;
   sth:xmlTag "positionProfile" ;

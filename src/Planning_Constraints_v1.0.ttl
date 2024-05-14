@@ -432,6 +432,14 @@ setu:PeriodicPlanningLine
       sh:maxCount 1 ;
     ] ;
 .
+setu:Planning
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionProfile ;
+      sh:maxCount 1 ;
+    ] ;
+.
 setu:PlanningAssignment
   rdf:type sh:NodeShape ;
   sh:property [
@@ -740,5 +748,12 @@ setu:SinglePlanningLine
       sh:path setu:supplier ;
       sh:description "The supplier of the worker."@en ;
       sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionProfile ;
+      sh:description "A profile of a position opening that is available at an organization."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
     ] ;
 .
