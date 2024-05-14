@@ -756,6 +756,26 @@ setu:SinglePlanningLine
       sh:maxCount 1 ;
       sh:minCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:resourceClassificationInclusion;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:staffingIds ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customerSpecificRequirements;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:orderType ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
 .
 hropen:WorkAssignment
   rdf:type sh:NodeShape ;
