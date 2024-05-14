@@ -768,10 +768,19 @@ hropen:WorkAssignment
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
+      sh:path setu:payRates;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
       sh:path setu:positionProfile ;
       sh:description "A profile of a position opening that is available at an organization."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:staffingIds ;
+      sh:maxCount 1 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
