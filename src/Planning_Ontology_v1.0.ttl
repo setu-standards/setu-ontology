@@ -521,6 +521,14 @@ setu:positionProfile
   rdfs:range hropen:PositionProfile ;
   sth:xmlTag "positionProfile" ;
 .
+setu:positionReason
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain hropen:PositionProfile ;
+  rdfs:label "position reason"@en ;
+  rdfs:range xsd:string;
+  skos:definition "The reason for the open position."@en ;
+  sth:xmlTag "positionReason" ;
+.
 setu:positionTask
   rdf:type owl:ObjectProperty ;
   rdfs:domain hropen:PositionProfile ;
