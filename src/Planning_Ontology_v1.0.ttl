@@ -421,6 +421,16 @@ setu:multiplier
   rdfs:range xsd:decimal ;
   sth:xmlTag "multiplier" ;
 .
+setu:orderType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:StaffingOrder ;
+  rdfs:label "order type"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Specifies whether the Staffing Order message is used as RFQ (= request for quotation) or Order (= procurement order)."@en ;
+  sth:allowedValue "RFQ" ;
+  sth:allowedValue "Order" ;
+  sth:xmlTag "orderType" ;
+.
 setu:paidOrUnpaid
   rdf:type owl:DatatypeProperty ;
   rdfs:domain setu:Breaks ;
