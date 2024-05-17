@@ -149,7 +149,11 @@ rdf:type sh:NodeShape ;
     ] ;
 .
 hropen:PositionProfile
-  rdf:type sh:NodeShape ;
+rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:contractWorkingPeriods ;
+    ] ; 
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:positionTask ;
@@ -598,6 +602,24 @@ setu:PlanningRequest
       sh:maxCount 1 ;
     ] ;
 .
+hropen:PositionProfile-positionLocation
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:streetName;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:houseNumber;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:houseNumberAddition;
+      sh:maxCount 1 ;
+    ] ;
+.
 setu:PositionTask
   rdf:type sh:NodeShape ;
   sh:property [
@@ -792,5 +814,12 @@ hropen:WorkAssignment
       rdf:type sh:PropertyShape ;
       sh:path setu:resourceClassificationInclusion;
       sh:maxCount 1 ;
+    ] ;
+.
+hropen:WorkingPeriod
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:effectiveTimePeriod ;
     ] ;
 .

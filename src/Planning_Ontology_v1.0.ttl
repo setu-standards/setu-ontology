@@ -293,6 +293,12 @@ setu:comments
   skos:definition "Additional comments about the message."@en ;
   sth:xmlTag "comments" ;
 .
+setu:contractWorkingPeriods
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "contract working periods"@en ;
+  rdfs:range hropen:WorkingPeriod ;
+  sth:xmlTag "contractWorkingPeriods" ;
+.
 setu:costAllocation
   rdf:type owl:ObjectProperty ;
   rdfs:domain hropen:PositionProfile ;
@@ -320,6 +326,12 @@ setu:dayAssignment
   rdfs:range xsd:date ;
   skos:definition "Specification of the administrative start date of the time card item. This is useful in case of nightshifts where the start and end date of a time interval are not the same."@en ;
   sth:xmlTag "dayAssignment" ;
+.
+setu:effectiveTimePeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "effective time period"@en ;
+  rdfs:range hropen:EffectiveTimePeriod ;
+  sth:xmlTag "effectiveTimePeriod" ;
 .
 setu:endDate
   rdf:type owl:DatatypeProperty ;
