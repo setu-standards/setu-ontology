@@ -776,6 +776,10 @@ setu:SinglePlanningLine
       sh:maxCount 1 ;
       sh:minCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:comments;
+    ] ;
 .
 hropen:WorkAssignment
   rdf:type sh:NodeShape ;
