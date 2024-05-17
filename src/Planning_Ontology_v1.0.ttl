@@ -386,7 +386,6 @@ setu:hours
 .
 setu:houseNumber
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain hropen:AddressTypeArray ;
   rdfs:label "house number"@en ;
   rdfs:range xsd:string ;
   skos:definition "The house number of the address."@en ;
@@ -394,7 +393,6 @@ setu:houseNumber
 .
 setu:houseNumberAddition
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain hropen:AddressTypeArray ;
   rdfs:label "house number addition"@en ;
   rdfs:range xsd:string ;
   skos:definition "The addition of the house number."@en ;
@@ -709,7 +707,6 @@ setu:startTime
 .
 setu:streetName
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain hropen:AddressTypeArray ;
   rdfs:label "street name"@en ;
   rdfs:range xsd:string ;
   skos:definition "The street name of the address."@en ;
