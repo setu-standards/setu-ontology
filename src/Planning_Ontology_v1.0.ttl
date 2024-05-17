@@ -554,8 +554,7 @@ setu:rateType
   rdfs:label "rate type"@en ;
   rdfs:range xsd:string ;
   sth:allowedValue "TimeInterval" ;
-  sth:allowedValue "Allowance" ;
-  sth:allowedValue "Expense" ;
+  sth:allowedValue "Allowance/Expense" ;
   sth:xmlTag "rateType" ;
 .
 setu:relatedWorker
