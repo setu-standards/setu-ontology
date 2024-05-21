@@ -288,6 +288,36 @@ setu:AssignedWorker
       sh:maxCount 1 ;
       sh:minCount 1 ;
     ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:employeeContract ;
+      sh:maxCount 1 ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:employeePhase;
+      sh:maxCount 1 ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:insuranceGroup;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:recruitedBy ;
+      sh:maxCount 1 ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:salaryScale;
+      sh:maxCount 1 ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:vacationWorker ;
+      sh:maxCount 1 ;
+    ] ;
 .
 setu:Breaks
   rdf:type sh:NodeShape ;

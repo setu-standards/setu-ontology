@@ -357,6 +357,20 @@ setu:effectiveTimePeriod
   rdfs:range hropen:EffectiveTimePeriod ;
   sth:xmlTag "effectiveTimePeriod" ;
 .
+setu:employeeContract
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "employee contract"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Determines whether or not the human resource has a contract at the staffing supplier"@en ;
+  sth:xmlTag "employeeContract" ;
+.
+setu:employeePhase
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "employee phase"@en ;
+  rdfs:range xsd:string;
+  skos:definition "Determines the employment phase in which the human resource is in according to either the ABU CLA or the NBBU CLA"@en ;
+  sth:xmlTag "employeePhase" ;
+.
 setu:endDate
   rdf:type owl:DatatypeProperty ;
   rdfs:label "end date"@en ;
@@ -421,6 +435,13 @@ setu:houseNumberAddition
   rdfs:range xsd:string ;
   skos:definition "The addition of the house number."@en ;
   sth:xmlTag "houseNumberAddition" ;
+.
+setu:insuranceGroup
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "insurance group"@en ;
+  rdfs:range xsd:string;
+  skos:definition "Determines the insurance group the human resource is in"@en ;
+  sth:xmlTag "insuranceGroup" ;
 .
 setu:licenses
   rdf:type owl:ObjectProperty ;
@@ -587,6 +608,14 @@ setu:rateType
   sth:allowedValue "Allowance/Expense" ;
   sth:xmlTag "rateType" ;
 .
+setu:recruitedBy
+  rdf:type owl:DataTypeProperty ;
+  rdfs:label "recruited by"@en ;
+  rdfs:range xsd:string ;
+  sth:allowedValue "Supplier" ;
+  sth:allowedValue "Customer" ;
+  sth:xmlTag "recruitedBy" ;
+.
 setu:relatedWorker
   rdf:type owl:ObjectProperty ;
   rdfs:label "related worker"@en ;
@@ -664,6 +693,13 @@ setu:requestedWorker
   rdfs:range setu:RequestedWorker ;
   skos:definition "Container to specify the preferred worker(s)."@en ;
   sth:xmlTag "requestedWorker" ;
+.
+setu:salaryScale
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "salary scale"@en ;
+  rdfs:range xsd:string;
+  skos:definition "Specifies the salary scale (and step within that scale) the human resource will have at the staffing customer"@en ;
+  sth:xmlTag "salaryScale" ;
 .
 setu:schemeAgencyId
   rdf:type owl:DatatypeProperty ;
@@ -776,6 +812,13 @@ setu:travelDistance
   rdfs:range xsd:decimal ;
   skos:definition "Specifies the number of kilometers between the home of the worker and the work location."@en ;
   sth:xmlTag "travelDistance" ;
+.
+setu:vacationWorker
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "vacation worker"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Determines whether or not the human resource is a vacation worker"@en ;
+  sth:xmlTag "vacationWorker" ;
 .
 setu:value
   rdf:type owl:DatatypeProperty ;
