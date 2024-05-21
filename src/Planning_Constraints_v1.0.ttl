@@ -148,6 +148,14 @@ rdf:type sh:NodeShape ;
       sh:maxCount 1;
     ] ;
 .
+hropen:PositionCompetency
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:maxCount 1;
+    ] ; 
+.
 hropen:PositionProfile
 rdf:type sh:NodeShape ;
   sh:property [

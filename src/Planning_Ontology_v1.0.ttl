@@ -327,6 +327,12 @@ setu:dayAssignment
   skos:definition "Specification of the administrative start date of the time card item. This is useful in case of nightshifts where the start and end date of a time interval are not the same."@en ;
   sth:xmlTag "dayAssignment" ;
 .
+setu:description
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "description"@en ;
+  rdfs:range xsd:string ;
+  sth:xmlTag "description" ;
+.
 setu:effectiveTimePeriod
   rdf:type owl:ObjectProperty ;
   rdfs:label "effective time period"@en ;
