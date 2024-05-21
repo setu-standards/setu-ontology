@@ -102,6 +102,13 @@ hropen:CandidateProfile
       sh:path setu:workingPeriods ;
     ] ; 
 .
+hropen:EducationRequirement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:educationDegrees ;
+    ] ; 
+.
 hropen:PayRate
   rdf:type sh:NodeShape ;
   sh:property [

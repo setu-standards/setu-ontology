@@ -333,6 +333,12 @@ setu:description
   rdfs:range xsd:string ;
   sth:xmlTag "description" ;
 .
+setu:educationDegrees
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "education degrees"@en ;
+  rdfs:range hropen:EducationDegree ;
+  sth:xmlTag "educationDegrees" ;
+.
 setu:effectiveTimePeriod
   rdf:type owl:ObjectProperty ;
   rdfs:label "effective time period"@en ;
