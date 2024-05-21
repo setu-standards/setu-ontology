@@ -156,6 +156,11 @@ setu:RequestedWorker
   rdfs:subClassOf hropen:Worker ;
   rdfs:label "Requested worker"@en ;
 .
+setu:RequestForQuotationDetails
+  rdf:type owl:Class ;
+  rdfs:label "Request for quotation details"@en ;
+  skos:definition "."@en ;
+.
 setu:SingleAvailabilityLine
   rdf:type owl:Class ;
   rdfs:label "Single availability line"@en ;
@@ -464,6 +469,14 @@ setu:multiplier
   rdfs:range xsd:decimal ;
   sth:xmlTag "multiplier" ;
 .
+setu:multiVendorDistribution
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:RequestForQuotationDetails ;
+  rdfs:label "multi vendor distribution"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Indication whether the staffing position is sent to multiple staffing suppliers ('true') or not ('false')."@en ;
+  sth:xmlTag "multiVendorDistribution" ;
+.
 setu:name
   rdf:type owl:DatatypeProperty ;
   rdfs:label "name"@en ;
@@ -472,7 +485,7 @@ setu:name
 .
 setu:orderType
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain setu:StaffingOrder ;
+  rdfs:domain <https://ontology.setu.nl/#StaffingOrder> ;
   rdfs:label "order type"@en ;
   rdfs:range xsd:string ;
   skos:definition "Specifies whether the Staffing Order message is used as RFQ (= request for quotation) or Order (= procurement order)."@en ;
@@ -648,6 +661,22 @@ setu:requestedPeriodicPlanningLine
   rdfs:range setu:PeriodicPlanningLine ;
   skos:definition "A container for specifying a periodic planning line."@en ;
   sth:xmlTag "periodicPlanningLine" ;
+.
+setu:requestForQuotationDetails
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain <https://ontology.setu.nl/#StaffingOrder> ;
+  rdfs:label "request for quotation details"@en ;
+  rdfs:range setu:RequestForQuotationDetails ;
+  skos:definition "Contains elements only used when the Staffing Order message is used as request for quotation. The elements are used to specify further details regarding the handling of the request for quotation and the quotation (Human Resource message) itself."@en ;
+  sth:xmlTag "requestForQuotationDetails" ;
+.
+setu:requiredResponseDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:RequestForQuotationDetails ;
+  rdfs:label "required response date"@en ;
+  rdfs:range xsd:dateTime ;
+  skos:definition "The required response date (and time) for the staffing supplier to provide a quotation to the staffing customer offering a worker."@en ;
+  sth:xmlTag "requiredResponseDate" ;
 .
 setu:resourceClassificationInclusion
   rdf:type owl:ObjectProperty ;

@@ -729,6 +729,33 @@ setu:RelatedWorker
       sh:maxCount 1 ;
     ] ;
 .
+setu:RequestForQuotationDetails
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:validFrom ;
+      sh:datatype hropen:DateDatatype ;
+      sh:description "The start date of the period in which the staffing supplier can respond to the request for the staffing position."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:validTo ;
+      sh:datatype hropen:DateDatatype ;
+      sh:description "The end date of the period in which the staffing supplier can respond to the request for the staffing position."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:requiredResponseDate ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:multiVendorDistribution ;
+      sh:maxCount 1 ;
+    ] ;
+.
 setu:SingleAvailabilityLine
   rdf:type sh:NodeShape ;
   sh:property [
@@ -880,6 +907,11 @@ setu:SinglePlanningLine
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:staffingIds ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:requestForQuotationDetails ;
       sh:maxCount 1 ;
     ] ;
 .
