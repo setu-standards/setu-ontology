@@ -194,6 +194,11 @@ rdf:type sh:NodeShape ;
       sh:path setu:positionReason ;
       sh:maxCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:collectiveLabourAgreement ;
+      sh:maxCount 1 ;
+    ] ;
 .
 hropen:PositionProfile-positionPeriod
   rdf:type sh:NodeShape ;

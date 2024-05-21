@@ -97,6 +97,11 @@ setu:BreakTrigger
   rdf:type owl:Class ;
   rdfs:label "Break trigger"@en ;
 .
+setu:CollectiveLabourAgreement
+  rdf:type owl:Class ;
+  rdfs:label "Collective labour agreement"@en ;
+  skos:definition "The collective labour agreement (CLA; CAO in Dutch) that determines the renumeration. In the Netherlands this can be the CLA of the ABU, NBBU or a specific CLA of the staffing customer."@en ;
+.
 setu:Id
   rdf:type owl:Class ;
   rdfs:label "Id"@en ;
@@ -285,6 +290,13 @@ setu:breakTrigger
   rdfs:range setu:BreakTrigger ;
   skos:definition "Container to specify after how many working hours a break occurs and how long the break takes."@en ;
   sth:xmlTag "breakTrigger" ;
+.
+setu:collectiveLabourAgreement
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "collective labour agreement"@en ;
+  rdfs:range setu:CollectiveLabourAgreement ;
+  skos:definition "Information about the collective labour agreement (CLA; CAO in Dutch) that determines the renumeration. In the Netherlands this can be the CLA of the ABU, NBBU or a specific CLA of the staffing customer."@en ;
+  sth:xmlTag "collectiveLabourAgreement" ;
 .
 setu:comments 
   rdf:type owl:DatatypeProperty ;
