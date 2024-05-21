@@ -356,6 +356,22 @@ setu:BreakTrigger
       sh:order 1 ;
     ] ;
 .
+setu:CollectiveLabourAgreement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:name ;
+      sh:description "The name of the collective labour agreement (CLA)."@en ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
+      sh:description "The identifier of the collective labour agreement (CLA)."@en ;
+      sh:maxCount 1 ;
+    ] ;
+.
 setu:Id
   rdf:type sh:NodeShape ;
   sh:property [

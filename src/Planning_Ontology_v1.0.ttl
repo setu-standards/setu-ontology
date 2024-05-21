@@ -443,6 +443,12 @@ setu:multiplier
   rdfs:range xsd:decimal ;
   sth:xmlTag "multiplier" ;
 .
+setu:name
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "name"@en ;
+  rdfs:range xsd:string ;
+  sth:xmlTag "name" ;
+.
 setu:orderType
   rdf:type owl:DatatypeProperty ;
   rdfs:domain setu:StaffingOrder ;
