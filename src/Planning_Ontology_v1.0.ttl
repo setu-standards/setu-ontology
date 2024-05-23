@@ -179,7 +179,7 @@ setu:SinglePlanningLine
   rdf:type owl:Class ;
   rdfs:label "Staffing order"@en ;
   rdfs:subClassOf hropen:Noun ;
-  skos:definition "The Staffing Order message is used by a staffing customer to request and order (an) employee(s) for an open position."@en ;
+  skos:definition "The Staffing Order message is used by a staffing customer to request and order (a) worker(s) for an open position."@en ;
 .
 setu:actionCode
   rdf:type owl:DatatypeProperty ;
