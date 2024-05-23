@@ -106,6 +106,10 @@ setu:Id
   rdf:type owl:Class ;
   rdfs:label "Id"@en ;
 .
+setu:QuotationRequirements
+  rdf:type owl:Class ;
+  rdfs:label "Quotation requirements"@en ;
+.
 setu:PeriodicAvailabilityLine
   rdf:type owl:Class ;
   rdfs:subClassOf setu:AvailabilityLine ;
@@ -272,6 +276,14 @@ setu:availabilityStatus
   sth:allowedValue "NotAvailable" ;
   sth:allowedValue "RatherNot" ;
   sth:xmlTag "availabilityStatus" ;
+.
+setu:awardDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:QuotationRequirements ;
+  rdfs:label "award date"@en ;
+  rdfs:range xsd:date;
+  skos:definition "Specifies the date when the procurement order will be awarded to one of the possible staffing suppliers."@en ;
+  sth:xmlTag "awardDate" ;
 .
 setu:breakDuration
   rdf:type owl:DatatypeProperty ;
@@ -463,6 +475,14 @@ setu:maximumTravelDistance
   skos:definition "The maximum number of kilometers the worker is willing to travel."@en ;
   sth:xmlTag "maximumTravelDistance" ;
 .
+setu:minimalRequiredValidityDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:QuotationRequirements ;
+  rdfs:label "minimal required validity date"@en ;
+  rdfs:range xsd:date;
+  skos:definition "Specifies the minimal required validity date for the quotation provided by the staffing supplier."@en ;
+  sth:xmlTag "minimalRequiredValidityDate" ;
+.
 setu:multiplier
   rdf:type owl:DatatypeProperty ;
   rdfs:label "multiplier"@en ;
@@ -612,6 +632,22 @@ setu:quantity
   rdfs:label "quantity"@en ;
   rdfs:range hropen:Quantity;
   sth:xmlTag "quantity" ;
+.
+setu:quotationPeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:QuotationRequirements ;
+  rdfs:label "quotation period"@en ;
+  rdfs:range hropen:Period;
+  skos:definition "Specifies the period in which the staffing supplier needs to provide a quotation."@en ;
+  sth:xmlTag "quotationPeriod" ;
+.
+setu:quotationRequirements
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:RequestForQuotationDetails ;
+  rdfs:label "quotation requirements"@en ;
+  rdfs:range setu:QuotationRequirements;
+  skos:definition "Container to specify requirements regarding the quotation provided by staffing suppliers."@en ;
+  sth:xmlTag "quotationRequirements" ;
 .
 setu:rateType
   rdf:type owl:DatatypeProperty ;

@@ -708,6 +708,24 @@ setu:PositionTask
       sh:maxCount 1 ;
     ] ;
 .
+setu:QuotationRequirements
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:minimalRequiredValidityDate ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:quotationPeriod ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:awardDate ;
+      sh:maxCount 1 ;
+    ] ;
+.
 setu:RelatedWorker
   rdf:type sh:NodeShape ;
   sh:property [
@@ -753,6 +771,11 @@ setu:RequestForQuotationDetails
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:multiVendorDistribution ;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:quotationRequirements ;
       sh:maxCount 1 ;
     ] ;
 .
