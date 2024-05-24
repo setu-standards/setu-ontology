@@ -54,6 +54,10 @@ hropen:PositionProfile
 hropen:Text
   rdf:type owl:Class ;
 .
+hropen:WorkAssignment
+  rdf:type owl:Class ; 
+  rdfs:subClassOf hropen:Noun ;
+.
 hropen:Worker
   rdf:type owl:Class ;
 .
