@@ -109,6 +109,15 @@ hropen:EducationRequirement
       sh:path setu:educationDegrees ;
     ] ; 
 .
+hropen:EmployerEstablishment
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:legalIdRef ;
+      sh:datatype hropen:Identifier ;
+      sh:maxCount 1 ;
+    ] ; 
+.
 hropen:PayRate
   rdf:type sh:NodeShape ;
   sh:property [
