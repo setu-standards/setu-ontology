@@ -80,7 +80,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU Planning is used to exchange planning data between and with planning systems. It deals with electronically sending planning related information, including updates."@en ;
-  dc:modified "2024-05-24"^^xsd:date ;
+  dc:modified "2024-05-27"^^xsd:date ;
   dc:title "Planning Ontology" ;
   owl:versionInfo "1.1" ;
 .
@@ -382,14 +382,14 @@ setu:employeeContract
   rdf:type owl:DatatypeProperty ;
   rdfs:label "employee contract"@en ;
   rdfs:range xsd:boolean ;
-  skos:definition "Determines whether or not the human resource has a contract at the staffing supplier"@en ;
+  skos:definition "Determines whether or not the worker has a contract at the staffing supplier."@en ;
   sth:xmlTag "employeeContract" ;
 .
 setu:employeePhase
   rdf:type owl:DatatypeProperty ;
   rdfs:label "employee phase"@en ;
   rdfs:range xsd:string;
-  skos:definition "Determines the employment phase in which the human resource is in according to either the ABU CLA or the NBBU CLA"@en ;
+  skos:definition "Determines the employment phase in which the worker is in according to either the ABU CLA or the NBBU CLA."@en ;
   sth:xmlTag "employeePhase" ;
 .
 setu:endDate
@@ -461,7 +461,7 @@ setu:insuranceGroup
   rdf:type owl:DatatypeProperty ;
   rdfs:label "insurance group"@en ;
   rdfs:range xsd:string;
-  skos:definition "Determines the insurance group the human resource is in"@en ;
+  skos:definition "Determines the insurance group the worker is part of."@en ;
   sth:xmlTag "insuranceGroup" ;
 .
 setu:licenses
@@ -667,6 +667,7 @@ setu:recruitedBy
   rdfs:range xsd:string ;
   sth:allowedValue "Supplier" ;
   sth:allowedValue "Customer" ;
+  skos:definition "Determines whether the staffing customer or staffing supplier has recruited the worker."@en ;
   sth:xmlTag "recruitedBy" ;
 .
 setu:relatedWorker
@@ -767,7 +768,7 @@ setu:salaryScale
   rdf:type owl:DatatypeProperty ;
   rdfs:label "salary scale"@en ;
   rdfs:range xsd:string;
-  skos:definition "Specifies the salary scale (and step within that scale) the human resource will have at the staffing customer"@en ;
+  skos:definition "Specifies the salary scale (and step within that scale) the worker will have at the staffing customer."@en ;
   sth:xmlTag "salaryScale" ;
 .
 setu:schemeAgencyId
@@ -886,7 +887,7 @@ setu:vacationWorker
   rdf:type owl:DatatypeProperty ;
   rdfs:label "vacation worker"@en ;
   rdfs:range xsd:boolean ;
-  skos:definition "Determines whether or not the human resource is a vacation worker"@en ;
+  skos:definition "Determines whether or not the worker is a vacation worker or not."@en ;
   sth:xmlTag "vacationWorker" ;
 .
 setu:value
