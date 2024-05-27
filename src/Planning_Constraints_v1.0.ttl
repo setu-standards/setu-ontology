@@ -22,7 +22,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL constraints associated with the SETU Planning ontology."@en ;
-  dc:modified "2024-05-24"^^xsd:date ;
+  dc:modified "2024-05-27"^^xsd:date ;
   dc:title "Planning Constraints" ;
   owl:versionInfo "1.1" ;
 .
@@ -386,6 +386,10 @@ setu:AssignedWorker
       sh:path setu:vacationWorker ;
       sh:maxCount 1 ;
     ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:OnCallContract ;
+    ] ;
 .
 setu:Breaks
   rdf:type sh:NodeShape ;
@@ -485,6 +489,32 @@ setu:Id
       sh:path setu:value ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+.
+setu:OnCallContract
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:validFrom ;
+      sh:datatype hropen:DateDatatype ;
+      sh:description "The start date of the validity of the on-call contract."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:validTo ;
+      sh:datatype hropen:DateDatatype ;
+      sh:description "The end date of the validity of the on-call contract."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:onCallIndicator ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
       sh:order 0 ;
     ] ;
 .

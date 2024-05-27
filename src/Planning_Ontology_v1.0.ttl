@@ -114,6 +114,10 @@ setu:QuotationRequirements
   rdf:type owl:Class ;
   rdfs:label "Quotation requirements"@en ;
 .
+setu:OnCallContract
+  rdf:type owl:Class ;
+  rdfs:label "On call contract"@en ;
+.
 setu:PeriodicAvailabilityLine
   rdf:type owl:Class ;
   rdfs:subClassOf setu:AvailabilityLine ;
@@ -506,6 +510,14 @@ setu:name
   rdfs:label "name"@en ;
   rdfs:range xsd:string ;
   sth:xmlTag "name" ;
+.
+setu:onCallIndicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:OnCallContract ;
+  rdfs:label "on call indicator"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Indicates whether the contract the worker has at the staffing supplier is a on-call contract (true) or not (false)."@en ;
+  sth:xmlTag "onCallIndicator" ;
 .
 setu:orderType
   rdf:type owl:DatatypeProperty ;
