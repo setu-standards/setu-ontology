@@ -80,7 +80,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU Planning is used to exchange planning data between and with planning systems. It deals with electronically sending planning related information, including updates."@en ;
-  dc:modified "2024-05-27"^^xsd:date ;
+  dc:modified "2024-05-28"^^xsd:date ;
   dc:title "Planning Ontology" ;
   owl:versionInfo "1.1" ;
 .
@@ -232,7 +232,6 @@ setu:assignedStatus
 .
 setu:assignedWorker
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:PlanningAssignment ;
   rdfs:label "assigned worker"@en ;
   rdfs:range setu:AssignedWorker ;
   skos:definition "Container to specify the assigned worker." ;
@@ -510,6 +509,14 @@ setu:name
   rdfs:label "name"@en ;
   rdfs:range xsd:string ;
   sth:xmlTag "name" ;
+.
+setu:onCallContract
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:AssignedWorker ;
+  rdfs:label "on call contract"@en ;
+  rdfs:range setu:OnCallContract ;
+  skos:definition "Container specifying the an on-call contract the worker has at the staffing supplier."@en ;
+  sth:xmlTag "onCallContract" ;
 .
 setu:onCallIndicator
   rdf:type owl:DatatypeProperty ;

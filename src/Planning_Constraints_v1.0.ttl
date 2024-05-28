@@ -22,7 +22,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL constraints associated with the SETU Planning ontology."@en ;
-  dc:modified "2024-05-27"^^xsd:date ;
+  dc:modified "2024-05-28"^^xsd:date ;
   dc:title "Planning Constraints" ;
   owl:versionInfo "1.1" ;
 .
@@ -312,12 +312,12 @@ hropen:WorkAssignment
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:resourceClassificationInclusion;
+      sh:path setu:resourceClassificationInclusion ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:reasonOfChange;
+      sh:path setu:reasonOfChange ;
       sh:maxCount 1 ;
     ] ;
 .
@@ -356,39 +356,39 @@ setu:AssignedWorker
       sh:maxCount 1 ;
       sh:minCount 1 ;
     ] ;
-    sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:employeeContract ;
-      sh:maxCount 1 ;
-    ] ;
-    sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:employeePhase;
-      sh:maxCount 1 ;
-    ] ;
-    sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:insuranceGroup;
-      sh:maxCount 1 ;
+  sh:property [
+    rdf:type sh:PropertyShape ;
+    sh:path setu:employeeContract ;
+    sh:maxCount 1 ;
     ] ;
   sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:recruitedBy ;
-      sh:maxCount 1 ;
+    rdf:type sh:PropertyShape ;
+    sh:path setu:employeePhase ;
+    sh:maxCount 1 ;
     ] ;
-    sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:salaryScale;
-      sh:maxCount 1 ;
+  sh:property [
+    rdf:type sh:PropertyShape ;
+    sh:path setu:insuranceGroup ;
+    sh:maxCount 1 ;
     ] ;
-    sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:vacationWorker ;
-      sh:maxCount 1 ;
+  sh:property [
+    rdf:type sh:PropertyShape ;
+    sh:path setu:recruitedBy ;
+    sh:maxCount 1 ;
     ] ;
-    sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:OnCallContract ;
+  sh:property [
+    rdf:type sh:PropertyShape ;
+    sh:path setu:salaryScale ;
+    sh:maxCount 1 ;
+    ] ;
+  sh:property [
+    rdf:type sh:PropertyShape ;
+    sh:path setu:vacationWorker ;
+    sh:maxCount 1 ;
+    ] ;
+  sh:property [
+    rdf:type sh:PropertyShape ;
+    sh:path setu:onCallContract ;
     ] ;
 .
 setu:Breaks
