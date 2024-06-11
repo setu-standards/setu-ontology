@@ -22,7 +22,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL constraints associated with the SETU Planning ontology."@en ;
-  dc:modified "2024-05-28"^^xsd:date ;
+  dc:modified "2024-06-11"^^xsd:date ;
   dc:title "Planning Constraints" ;
   owl:versionInfo "1.1" ;
 .
@@ -220,6 +220,15 @@ hropen:PositionProfile-positionPeriod
       rdf:type sh:PropertyShape ;
       sh:path hropen:end ;
       sh:datatype xsd:date ;
+    ] ;
+.
+hropen:PositionQualification
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:certificationsRef ;
+      sh:datatype hropen:Certification ;
+      sh:description "Any certifications the person carries for the related position." ;
     ] ;
 .
 hropen:Timecard
