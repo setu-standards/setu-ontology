@@ -651,6 +651,13 @@ setu:positionTask
   skos:definition "The type of task or activity the worker performs on the position."@en ;
   sth:xmlTag "positionTask" ;
 .
+setu:primaryLocation
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "primary location"@en ;
+  rdfs:range xsd:boolean;
+  skos:definition "Indicates whether the location is the primary work location (Dutch: standplaats) of the position."@en ;
+  sth:xmlTag "primaryLocation" ;
+.
 setu:purchaseOrderLineItem
   rdf:type owl:DatatypeProperty ;
   rdfs:label "purchase order line item"@en ;

@@ -807,6 +807,11 @@ hropen:PositionProfile-positionLocation
       sh:path setu:buildingAddition;
       sh:maxCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:primaryLocation;
+      sh:maxCount 1 ;
+    ] ;
 .
 setu:PositionTask
   rdf:type sh:NodeShape ;
