@@ -315,6 +315,13 @@ setu:breakTrigger
   skos:definition "Container to specify after how many working hours a break occurs and how long the break takes."@en ;
   sth:xmlTag "breakTrigger" ;
 .
+setu:buildingAddition
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "building addition"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Any additional, identifiable information regarding the building, e.g. the floor, room, apartment number within a building."@en ;
+  sth:xmlTag "buildingAddition" ;
+.
 setu:collectiveLabourAgreement
   rdf:type owl:ObjectProperty ;
   rdfs:label "collective labour agreement"@en ;

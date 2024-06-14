@@ -46,6 +46,11 @@ hropen:AddressTypeArray
       sh:path setu:houseNumberAddition;
       sh:maxCount 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:buildingAddition;
+      sh:maxCount 1 ;
+    ] ;
 .
 hropen:Candidate
   rdf:type sh:NodeShape ;
@@ -795,6 +800,11 @@ hropen:PositionProfile-positionLocation
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:houseNumberAddition;
+      sh:maxCount 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:buildingAddition;
       sh:maxCount 1 ;
     ] ;
 .
