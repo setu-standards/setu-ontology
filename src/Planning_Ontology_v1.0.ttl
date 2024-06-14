@@ -80,7 +80,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU Planning is used to exchange planning data between and with planning systems. It deals with electronically sending planning related information, including updates."@en ;
-  dc:modified "2024-05-28"^^xsd:date ;
+  dc:modified "2024-06-14"^^xsd:date ;
   dc:title "Planning Ontology" ;
   owl:versionInfo "1.1" ;
 .
@@ -729,14 +729,6 @@ setu:requestForQuotationDetails
   rdfs:range setu:RequestForQuotationDetails ;
   skos:definition "Contains elements only used when the Staffing Order message is used as request for quotation. The elements are used to specify further details regarding the handling of the request for quotation and the quotation (Human Resource message) itself."@en ;
   sth:xmlTag "requestForQuotationDetails" ;
-.
-setu:requiredResponseDate
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain setu:RequestForQuotationDetails ;
-  rdfs:label "required response date"@en ;
-  rdfs:range xsd:dateTime ;
-  skos:definition "The required response date (and time) for the staffing supplier to provide a quotation to the staffing customer offering a worker."@en ;
-  sth:xmlTag "requiredResponseDate" ;
 .
 setu:resourceClassificationInclusion
   rdf:type owl:ObjectProperty ;

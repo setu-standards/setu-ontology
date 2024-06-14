@@ -22,7 +22,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL constraints associated with the SETU Planning ontology."@en ;
-  dc:modified "2024-06-11"^^xsd:date ;
+  dc:modified "2024-06-14"^^xsd:date ;
   dc:title "Planning Constraints" ;
   owl:versionInfo "1.1" ;
 .
@@ -868,11 +868,6 @@ setu:RequestForQuotationDetails
       sh:path hropen:validTo ;
       sh:datatype hropen:DateDatatype ;
       sh:description "The end date of the period in which the staffing supplier can respond to the request for the staffing position."@en ;
-      sh:maxCount 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:requiredResponseDate ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
