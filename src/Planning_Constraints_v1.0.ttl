@@ -22,7 +22,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL constraints associated with the SETU Planning ontology."@en ;
-  dc:modified "2024-06-14"^^xsd:date ;
+  dc:modified "2024-06-17"^^xsd:date ;
   dc:title "Planning Constraints" ;
   owl:versionInfo "1.1" ;
 .
@@ -213,6 +213,11 @@ rdf:type sh:NodeShape ;
       sh:path setu:collectiveLabourAgreement ;
       sh:maxCount 1 ;
     ] ;
+  sh:property [
+    rdf:type sh:PropertyShape ;
+    sh:path setu:salaryScale ;
+    sh:maxCount 1 ;
+    ] ;
 .
 hropen:PositionProfile-positionPeriod
   rdf:type sh:NodeShape ;
@@ -388,11 +393,6 @@ setu:AssignedWorker
   sh:property [
     rdf:type sh:PropertyShape ;
     sh:path setu:recruitedBy ;
-    sh:maxCount 1 ;
-    ] ;
-  sh:property [
-    rdf:type sh:PropertyShape ;
-    sh:path setu:salaryScale ;
     sh:maxCount 1 ;
     ] ;
   sh:property [
