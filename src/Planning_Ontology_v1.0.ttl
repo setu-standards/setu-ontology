@@ -763,7 +763,7 @@ setu:reasonOfChange
   rdf:type owl:DatatypeProperty ;
   rdfs:label "reason of change"@en ;
   rdfs:range xsd:string ;
-  skos:definition "The reason of the change in the (status of the) offer."@en ;
+  skos:definition "The reason for the change of the (status of the) message."@en ;
   sth:xmlTag "reasonOfChange" ;
 .
 setu:requestedSinglePlanningLine
