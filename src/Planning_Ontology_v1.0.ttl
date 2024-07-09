@@ -912,7 +912,7 @@ setu:vacationWorker
   rdf:type owl:DatatypeProperty ;
   rdfs:label "vacation worker"@en ;
   rdfs:range xsd:boolean ;
-  skos:definition "Determines whether or not the worker is a vacation worker or not."@en ;
+  skos:definition "Determines whether the worker is a vacation worker or not."@en ;
   sth:xmlTag "vacationWorker" ;
 .
 setu:value
