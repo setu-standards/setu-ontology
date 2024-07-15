@@ -342,14 +342,6 @@ setu:contractWorkingPeriods
   rdfs:range hropen:WorkingPeriod ;
   sth:xmlTag "contractWorkingPeriods" ;
 .
-setu:costAllocation
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain hropen:PositionProfile ;
-  rdfs:label "cost allocation"@en ;
-  rdfs:range hropen:CostAllocation ;
-  skos:definition "The cost allocation of the position."@en ;
-  sth:xmlTag "costAllocation" ;
-.
 setu:customer
   rdf:type owl:ObjectProperty ;
   rdfs:label "customer"@en ;
