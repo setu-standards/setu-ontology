@@ -501,6 +501,7 @@ setu:multiplier
   rdf:type owl:DatatypeProperty ;
   rdfs:label "multiplier"@en ;
   rdfs:range xsd:decimal ;
+  skos:definition "The multiplier that should be applied to the pay rate in order to determine the real amount that has to be paid or billed (depending on toBeBilled and toBePaid). The 'standard multiplier' for a pay rate without mark-up is 100% (fill in value '100'). A different value can be used in situations where a mark-up is provided on top of the standard rate. The mark-up should be added to the 'base percentage' of 100%, so a mark-up of 50% (1.5 times the standard rate) makes a multiplier of 150%."@en ;
   sth:xmlTag "multiplier" ;
 .
 setu:multiVendorDistribution
