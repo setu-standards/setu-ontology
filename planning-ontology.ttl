@@ -183,7 +183,7 @@ setu:SinglePlanningLine
   rdfs:label "Single planning line"@en ;
   rdfs:subClassOf setu:PlanningLine ;
 .
-<https://ontology.setu.nl/#StaffingOrder>
+setu:StaffingOrder
   rdf:type owl:Class ;
   rdfs:label "Staffing order"@en ;
   rdfs:subClassOf hropen:Noun ;
@@ -528,7 +528,7 @@ setu:onCallIndicator
 .
 setu:orderType
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain <https://ontology.setu.nl/#StaffingOrder> ;
+  rdfs:domain setu:StaffingOrder ;
   rdfs:label "order type"@en ;
   rdfs:range xsd:string ;
   skos:definition "Specifies whether the Staffing Order message is used as RFQ (= request for quotation) or Order (= procurement order)."@en ;
@@ -731,7 +731,7 @@ setu:requestedPeriodicPlanningLine
 .
 setu:requestForQuotationDetails
   rdf:type owl:ObjectProperty ;
-  rdfs:domain <https://ontology.setu.nl/#StaffingOrder> ;
+  rdfs:domain setu:StaffingOrder ;
   rdfs:label "request for quotation details"@en ;
   rdfs:range setu:RequestForQuotationDetails ;
   skos:definition "Contains elements only used when the Staffing Order message is used as request for quotation. The elements are used to specify further details regarding the handling of the request for quotation and the quotation (Human Resource message) itself."@en ;
