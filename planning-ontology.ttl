@@ -695,7 +695,7 @@ setu:rateType
   sth:xmlTag "rateType" ;
 .
 setu:recruitedBy
-  rdf:type owl:DataTypeProperty ;
+  rdf:type owl:DatatypeProperty ;
   rdfs:label "recruited by"@en ;
   rdfs:range xsd:string ;
   sth:allowedValue "Supplier" ;
