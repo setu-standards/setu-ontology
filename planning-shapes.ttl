@@ -22,7 +22,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL constraints associated with the SETU Planning ontology."@en ;
-  dc:modified "2024-09-27"^^xsd:date ;
+  dc:modified "2024-10-29"^^xsd:date ;
   dc:title "Planning Constraints" ;
   owl:versionInfo "1.1" ;
 .
@@ -54,10 +54,6 @@ hropen:AddressTypeArray
 .
 hropen:Candidate
   rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:comments;
-    ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:customer;
@@ -105,13 +101,6 @@ hropen:CandidateProfile
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:workingPeriods ;
-    ] ; 
-.
-hropen:EducationRequirement
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:educationDegrees ;
     ] ; 
 .
 hropen:EmployerEstablishment
@@ -168,14 +157,6 @@ rdf:type sh:NodeShape ;
       sh:path setu:endDate ;
       sh:maxCount 1;
     ] ;
-.
-hropen:PositionCompetency
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:description ;
-      sh:maxCount 1;
-    ] ; 
 .
 hropen:PositionProfile
 rdf:type sh:NodeShape ;
@@ -289,7 +270,7 @@ hropen:TimeCardItem
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:description "The attachment to an allowance/expense including a URL to the proof of payment, for example a receipt of parking costs for reimbursement of these costs."@en ;
+      sh:description "The attachment or online reference to the proof of payment of an allowance/expense, for example a receipt of parking costs for reimbursement of these costs."@en ;
       sh:path setu:attachment ;
     ] ;
 .
@@ -835,24 +816,6 @@ setu:PositionTask
       sh:maxCount 1 ;
     ] ;
 .
-setu:QuotationRequirements
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:minimalRequiredValidityDate ;
-      sh:maxCount 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:quotationPeriod ;
-      sh:maxCount 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:awardDate ;
-      sh:maxCount 1 ;
-    ] ;
-.
 setu:RelatedWorker
   rdf:type sh:NodeShape ;
   sh:property [
@@ -879,11 +842,6 @@ setu:RequestForQuotationDetails
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:multiVendorDistribution ;
-      sh:maxCount 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:quotationRequirements ;
       sh:maxCount 1 ;
     ] ;
 .
