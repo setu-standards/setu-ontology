@@ -1,5 +1,5 @@
-# baseURI: https://ontology.setu.nl/planning-shapes#
-# imports: https://ontology.setu.nl/planning#
+# baseURI: https://ontology.setu.nl/shapes#
+# imports: https://ontology.setu.nl/#
 # prefix: setu
 
 @prefix dc: <http://purl.org/dc/terms/> .
@@ -7,23 +7,24 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix setu: <https://ontology.setu.nl/planning#> .
-@prefix setush: <https://ontology.setu.nl/planning-shapes#> .
+@prefix setu: <https://ontology.setu.nl/#> .
+@prefix setush: <https://ontology.setu.nl/shapes#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sth: <https://ns.semantic-treehouse.nl/metadata/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://ontology.setu.nl/planning-shapes#>
+<https://ontology.setu.nl/shapes#>
   rdf:type owl:Ontology ;
   owl:imports setu: ;
+  dc:contributor <https://www.linkedin.com/in/michielstornebrink/> ;
   dc:contributor <https://www.linkedin.com/in/linda-oosterheert-006b0a10/> ;
   dc:creator <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
-  dc:description "The SHACL constraints associated with the SETU Planning ontology."@en ;
-  dc:modified "2024-10-29"^^xsd:date ;
-  dc:title "Planning Constraints" ;
+  dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
+  dc:modified "2024-11-07"^^xsd:date ;
+  dc:title "SETU SHACL shapes" ;
   owl:versionInfo "1.1" ;
 .
 sh:property
@@ -943,7 +944,7 @@ setu:SinglePlanningLine
       sh:maxCount 1 ;
     ] ;
 .
-<https://ontology.setu.nl/#StaffingOrder>
+setu:StaffingOrder
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;

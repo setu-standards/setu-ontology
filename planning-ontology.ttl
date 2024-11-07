@@ -1,13 +1,13 @@
-# baseURI: https://ontology.setu.nl/planning#
+# baseURI: https://ontology.setu.nl/#
 # prefix: setu
 
-@prefix : <https://ontology.setu.nl/planning#> .
+@prefix : <https://ontology.setu.nl/#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix hropen: <https://hropenstandards.org/schema/xml/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix setu: <https://ontology.setu.nl/planning#> .
+@prefix setu: <https://ontology.setu.nl/#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sth: <https://ns.semantic-treehouse.nl/metadata/> .
@@ -75,13 +75,14 @@ sth:xmlTag
 .
 setu:
   rdf:type owl:Ontology ;
+  dc:contributor <https://www.linkedin.com/in/michielstornebrink/> ;
   dc:contributor <https://www.linkedin.com/in/linda-oosterheert-006b0a10/> ;
   dc:creator <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
-  dc:description "The SETU Planning is used to exchange planning data between and with planning systems. It deals with electronically sending planning related information, including updates."@en ;
-  dc:modified "2024-10-29"^^xsd:date ;
-  dc:title "Planning Ontology" ;
+  dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
+  dc:modified "2024-11-07"^^xsd:date ;
+  dc:title "SETU ontology" ;
   owl:versionInfo "1.1" ;
 .
 setu:AssignedWorker
