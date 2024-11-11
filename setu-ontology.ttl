@@ -81,7 +81,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2024-11-07"^^xsd:date ;
+  dc:modified "2024-11-11"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "1.1" ;
 .
@@ -140,7 +140,7 @@ setu:PlanningConstraints
   rdf:type owl:Class ;
   rdfs:label "Planning constraints"@en ;
   skos:definition "The Planning Constraints message is used for exchanging information on the constraints that need to be taken into account for the planning of an individual worker related to a specific assignment. The message includes information about the availability and other relevant requirements or preferences. The message is sent from the back-office system of the supplier to the planning system at either the customer or supplier."@en ;
-  rdfs:subClassOf hropen:Noun ;
+  rdfs:subClassOf setu:Planning ;
 .
 setu:PlanningLine
   rdf:type owl:Class ;
@@ -150,6 +150,7 @@ setu:PlanningRequest
   rdf:type owl:Class ;
   rdfs:label "Planning request"@en ;
   rdfs:subClassOf setu:Planning ;
+  skos:definition "The Planning Request message is used by the customer to request the planning of workers for a certain position. The message includes information about the position and the exact moments in time workers are requested. The message is sent from the customer to the planning system at the supplier."@en ;
 .
 setu:PositionTask
   rdf:type owl:Class ;
@@ -201,6 +202,7 @@ setu:allowance
   rdf:type owl:ObjectProperty ;
   rdfs:label "allowance"@en ;
   rdfs:range hropen:TimeCardItem ;
+  skos:definition "Contains data on expenses (costs incurred) and/or allowances (additional allowances or bonuses to be given for the duration of the time interval represented) that is being reported on the timecard."@en ;
   sth:xmlTag "allowance" ;
 .
 setu:assignedPeriodicPlanningLine
@@ -336,6 +338,7 @@ setu:contractWorkingPeriods
   rdf:type owl:ObjectProperty ;
   rdfs:label "contract working periods"@en ;
   rdfs:range hropen:WorkingPeriod ;
+  skos:definition "A container for specifying the number of hours for a worker agreed on in the contract (in Dutch: overeengekomen arbeidsomvang)."@en ;
   sth:xmlTag "contractWorkingPeriods" ;
 .
 setu:customer
@@ -406,12 +409,6 @@ setu:establishment
   rdfs:range hropen:EmployerEstablishment ;
   skos:definition "Information to identify and reference a specific establishment within an organization."@en ;
   sth:xmlTag "establishment" ;
-.
-setu:expense
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "expense"@en ;
-  rdfs:range hropen:TimeCardItem ;
-  sth:xmlTag "expense" ;
 .
 setu:homeOfficeIndicator
   rdf:type owl:DatatypeProperty ;
@@ -532,6 +529,7 @@ setu:period
   rdf:type owl:ObjectProperty ;
   rdfs:label "period"@en ;
   rdfs:range hropen:Period ;
+  skos:definition "Container to specify the period in which the pay rate is valid."@en ;
   sth:xmlTag "period" ;
 .
 setu:periodicAvailabilityLine
@@ -643,6 +641,7 @@ setu:rateType
   rdf:type owl:DatatypeProperty ;
   rdfs:label "rate type"@en ;
   rdfs:range xsd:string ;
+  skos:definition "Indicates whether the rate applies to a time interval, an allowance or an expense."@en ;
   sth:allowedValue "TimeInterval" ;
   sth:allowedValue "Allowance/Expense" ;
   sth:xmlTag "rateType" ;
@@ -732,6 +731,7 @@ setu:residenceAddress
   rdfs:domain hropen:CandidatePerson ;
   rdfs:label "residence address"@en ;
   rdfs:range hropen:AddressTypeArray ;
+  skos:definition "Container for specifying the residence address. Only use this container if the residence address differs from the postal address."@en ;
   sth:xmlTag "residenceAddress" ;
 .
 setu:requestedWorker
@@ -795,6 +795,7 @@ setu:staffingIds
   rdf:type owl:ObjectProperty ;
   rdfs:label "staffing ids"@en ;
   rdfs:range hropen:StaffingReferenceIds ;
+  skos:definition "A collection of identifiers related to this message."@en ;
   sth:xmlTag "staffingIds" ;
 .
 setu:standByIndicator
@@ -887,5 +888,6 @@ setu:workingPeriods
   rdf:type owl:ObjectProperty ;
   rdfs:label "working periods"@en ;
   rdfs:range hropen:WorkingPeriod ;
+  skos:definition "Describes the working period of the position that the worker is required for, e.g. 32 hours per week and/or 4 days per week. This is excluding break time(s)."@en ;
   sth:xmlTag "workingPeriods" ;
 .

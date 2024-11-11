@@ -23,7 +23,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
-  dc:modified "2024-11-07"^^xsd:date ;
+  dc:modified "2024-11-11"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
   owl:versionInfo "1.1" ;
 .
@@ -34,22 +34,22 @@ hropen:AddressTypeArray
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:streetName;
+      sh:path setu:streetName ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:houseNumber;
+      sh:path setu:houseNumber ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:houseNumberAddition;
+      sh:path setu:houseNumberAddition ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:buildingAddition;
+      sh:path setu:buildingAddition ;
       sh:maxCount 1 ;
     ] ;
 .
@@ -57,21 +57,23 @@ hropen:Candidate
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:customer;
+      sh:path setu:customer ;
+      sh:description "The customer of the worker."@en ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:payRates;
+      sh:path setu:payRates ;
+      sh:description "Container to specify the pay and/or bill rate the human resource is offered for."@en ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:reasonOfChange;
+      sh:path setu:reasonOfChange ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:resourceClassificationInclusion;
+      sh:path setu:resourceClassificationInclusion ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
@@ -81,7 +83,8 @@ hropen:Candidate
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:supplier;
+      sh:path setu:supplier ;
+      sh:description "The supplier of the worker."@en ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
@@ -110,6 +113,7 @@ hropen:EmployerEstablishment
       rdf:type sh:PropertyShape ;
       sh:path hropen:legalIdRef ;
       sh:datatype hropen:Identifier ;
+      sh:description "A government assigned identifier to distinguish the party (organization, person, or legal entity) to a transaction."@en ;
       sh:maxCount 1 ;
     ] ; 
 .
@@ -133,6 +137,7 @@ hropen:PayRate
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:purchaseOrderLineItem ;
+      sh:description "The related purchase order line number."@en ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
@@ -207,6 +212,7 @@ hropen:PositionProfile-positionPeriod
       rdf:type sh:PropertyShape ;
       sh:path hropen:start ;
       sh:datatype xsd:date ;
+      sh:description "The start date of the assignment on the position."@en ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
@@ -220,7 +226,7 @@ hropen:PositionQualification
       rdf:type sh:PropertyShape ;
       sh:path hropen:certificationsRef ;
       sh:datatype hropen:Certification ;
-      sh:description "Any certifications the person carries for the related position." ;
+      sh:description "Any certifications the person carries for the related position."@en ;
     ] ;
 .
 hropen:Timecard
@@ -231,21 +237,19 @@ hropen:Timecard
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:expense ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:customer;
+      sh:path setu:customer ;
+      sh:description "The customer of the worker."@en ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:supplier;
+      sh:path setu:supplier ;
+      sh:description "The supplier of the worker."@en ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:customerSpecificRequirements;
+      sh:path setu:customerSpecificRequirements ;
     ] ;
 .
 hropen:TimeCardItem
@@ -267,12 +271,13 @@ hropen:TimeCardItem
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:quantity ;
+      sh:description "Numerical quantity of the allowance or expense specified, assigned or determined by calculation or measurement."@en ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:description "The attachment or online reference to the proof of payment of an allowance/expense, for example a receipt of parking costs for reimbursement of these costs."@en ;
       sh:path setu:attachment ;
+      sh:description "The attachment or online reference to the proof of payment of an allowance/expense, for example a receipt of parking costs for reimbursement of these costs."@en ;
     ] ;
 .
 hropen:WorkAssignment
@@ -292,11 +297,12 @@ hropen:WorkAssignment
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:customerSpecificRequirements;
+      sh:path setu:customerSpecificRequirements ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:payRates;
+      sh:path setu:payRates ;
+      sh:description "Container to specify the agreed pay and/or bill rates applicable for the Assignment."@en ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
@@ -332,6 +338,7 @@ hropen:WorkingPeriod
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:effectiveTimePeriod ;
+      sh:description "The period for which the agreed hours in the contract are valid."@en ;
     ] ;
 .
 setu:AvailabilityLine
@@ -968,7 +975,7 @@ setu:StaffingOrder
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:resourceClassificationInclusion;
+      sh:path setu:resourceClassificationInclusion ;
       sh:maxCount 1 ;
     ] ;
   sh:property [
@@ -978,7 +985,7 @@ setu:StaffingOrder
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:customerSpecificRequirements;
+      sh:path setu:customerSpecificRequirements ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
@@ -988,16 +995,12 @@ setu:StaffingOrder
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:comments;
+      sh:path setu:comments ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:payRates;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:staffingIds ;
-      sh:maxCount 1 ;
+      sh:path setu:payRates ;
+      sh:description "Container to specify the pay and/or bill rate the staffing customer is willing/going to pay and/or bill for the required human resource."@en ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
@@ -1006,7 +1009,7 @@ setu:StaffingOrder
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:reasonOfChange;
+      sh:path setu:reasonOfChange ;
       sh:maxCount 1 ;
     ] ;
 .
