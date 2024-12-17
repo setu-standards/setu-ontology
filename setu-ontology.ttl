@@ -1,13 +1,13 @@
-# baseURI: https://ontology.setu.nl/planning#
+# baseURI: https://ontology.setu.nl/#
 # prefix: setu
 
-@prefix : <https://ontology.setu.nl/planning#> .
+@prefix : <https://ontology.setu.nl/#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix hropen: <https://hropenstandards.org/schema/xml/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix setu: <https://ontology.setu.nl/planning#> .
+@prefix setu: <https://ontology.setu.nl/#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sth: <https://ns.semantic-treehouse.nl/metadata/> .
@@ -54,6 +54,10 @@ hropen:PositionProfile
 hropen:Text
   rdf:type owl:Class ;
 .
+hropen:WorkAssignment
+  rdf:type owl:Class ; 
+  rdfs:subClassOf hropen:Noun ;
+.
 hropen:Worker
   rdf:type owl:Class ;
 .
@@ -71,13 +75,15 @@ sth:xmlTag
 .
 setu:
   rdf:type owl:Ontology ;
+  dc:contributor <https://www.linkedin.com/in/michielstornebrink/> ;
   dc:contributor <https://www.linkedin.com/in/linda-oosterheert-006b0a10/> ;
   dc:creator <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
-  dc:description "The SETU Planning is used to exchange planning data between and with planning systems. It deals with electronically sending planning related information, including updates."@en ;
-  dc:modified "2023-06-01"^^xsd:date ;
-  dc:title "Planning Ontology" ;
-  owl:versionInfo "1.0" ;
+  dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
+  dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
+  dc:modified "2024-12-17"^^xsd:date ;
+  dc:title "SETU ontology" ;
+  owl:versionInfo "2.0" ;
 .
 setu:AssignedWorker
   rdf:type owl:Class ;
@@ -96,9 +102,18 @@ setu:BreakTrigger
   rdf:type owl:Class ;
   rdfs:label "Break trigger"@en ;
 .
+setu:CollectiveLabourAgreement
+  rdf:type owl:Class ;
+  rdfs:label "Collective labour agreement"@en ;
+  skos:definition "The collective labour agreement (CLA; CAO in Dutch) that determines the renumeration. In the Netherlands this can be the CLA of the ABU, NBBU or a specific CLA of the staffing customer."@en ;
+.
 setu:Id
   rdf:type owl:Class ;
   rdfs:label "Id"@en ;
+.
+setu:OnCallContract
+  rdf:type owl:Class ;
+  rdfs:label "On call contract"@en ;
 .
 setu:PeriodicAvailabilityLine
   rdf:type owl:Class ;
@@ -125,7 +140,7 @@ setu:PlanningConstraints
   rdf:type owl:Class ;
   rdfs:label "Planning constraints"@en ;
   skos:definition "The Planning Constraints message is used for exchanging information on the constraints that need to be taken into account for the planning of an individual worker related to a specific assignment. The message includes information about the availability and other relevant requirements or preferences. The message is sent from the back-office system of the supplier to the planning system at either the customer or supplier."@en ;
-  rdfs:subClassOf hropen:Noun ;
+  rdfs:subClassOf setu:Planning ;
 .
 setu:PlanningLine
   rdf:type owl:Class ;
@@ -135,6 +150,7 @@ setu:PlanningRequest
   rdf:type owl:Class ;
   rdfs:label "Planning request"@en ;
   rdfs:subClassOf setu:Planning ;
+  skos:definition "The Planning Request message is used by the customer to request the planning of workers for a certain position. The message includes information about the position and the exact moments in time workers are requested. The message is sent from the customer to the planning system at the supplier."@en ;
 .
 setu:PositionTask
   rdf:type owl:Class ;
@@ -150,6 +166,11 @@ setu:RequestedWorker
   rdfs:subClassOf hropen:Worker ;
   rdfs:label "Requested worker"@en ;
 .
+setu:RequestForQuotationDetails
+  rdf:type owl:Class ;
+  rdfs:label "Request for quotation details"@en ;
+  skos:definition "."@en ;
+.
 setu:SingleAvailabilityLine
   rdf:type owl:Class ;
   rdfs:label "Single availability line"@en ;
@@ -159,6 +180,12 @@ setu:SinglePlanningLine
   rdf:type owl:Class ;
   rdfs:label "Single planning line"@en ;
   rdfs:subClassOf setu:PlanningLine ;
+.
+setu:StaffingOrder
+  rdf:type owl:Class ;
+  rdfs:label "Staffing order"@en ;
+  rdfs:subClassOf hropen:Noun ;
+  skos:definition "The Staffing Order message is used by a staffing customer to request and order (a) worker(s) for an open position."@en ;
 .
 setu:actionCode
   rdf:type owl:DatatypeProperty ;
@@ -170,6 +197,13 @@ setu:actionCode
   sth:allowedValue "PUT" ;
   sth:allowedValue "DELETE" ;  
   sth:xmlTag "actionCode" ;
+.
+setu:allowance
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "allowance"@en ;
+  rdfs:range hropen:TimeCardItem ;
+  skos:definition "Contains data on expenses (costs incurred) and/or allowances (additional allowances or bonuses to be given for the duration of the time interval represented) that is being reported on the timecard."@en ;
+  sth:xmlTag "allowance" ;
 .
 setu:assignedPeriodicPlanningLine
   rdf:type owl:ObjectProperty ;
@@ -197,11 +231,17 @@ setu:assignedStatus
 .
 setu:assignedWorker
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:PlanningAssignment ;
   rdfs:label "assigned worker"@en ;
   rdfs:range setu:AssignedWorker ;
   skos:definition "Container to specify the assigned worker." ;
   sth:xmlTag "assignedWorker" ;
+.
+setu:attachment
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "attachment"@en ;
+  rdfs:range hropen:Attachment ;
+  skos:definition "Embedded attachment data or URL to actual attachment." ;
+  sth:xmlTag "attachment" ;
 .
 setu:availabilityComment
   rdf:type owl:DatatypeProperty ;
@@ -273,19 +313,80 @@ setu:breakTrigger
   skos:definition "Container to specify after how many working hours a break occurs and how long the break takes."@en ;
   sth:xmlTag "breakTrigger" ;
 .
-setu:costAllocationRef
+setu:buildingAddition
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "building addition"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Any additional, identifiable information regarding the building, e.g. the floor, room, apartment number within a building."@en ;
+  sth:xmlTag "buildingAddition" ;
+.
+setu:collectiveLabourAgreement
   rdf:type owl:ObjectProperty ;
-  rdfs:domain hropen:PositionProfile ;
-  rdfs:label "cost allocation ref"@en ;
-  rdfs:range hropen:CostAllocation ;
-  skos:definition "The cost allocation of the position."@en ;
-  sth:xmlTag "costAllocationRef" ;
+  rdfs:label "collective labour agreement"@en ;
+  rdfs:range setu:CollectiveLabourAgreement ;
+  skos:definition "Information about the collective labour agreement (CLA; CAO in Dutch) that determines the renumeration. In the Netherlands this can be the CLA of the ABU, NBBU or a specific CLA of the staffing customer."@en ;
+  sth:xmlTag "collectiveLabourAgreement" ;
+.
+setu:comments 
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "comments"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Additional comments about the message."@en ;
+  sth:xmlTag "comments" ;
+.
+setu:contractWorkingPeriods
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "contract working periods"@en ;
+  rdfs:range hropen:WorkingPeriod ;
+  skos:definition "A container for specifying the number of hours for a worker agreed on in the contract (in Dutch: overeengekomen arbeidsomvang)."@en ;
+  sth:xmlTag "contractWorkingPeriods" ;
 .
 setu:customer
   rdf:type owl:ObjectProperty ;
   rdfs:label "customer"@en ;
   rdfs:range hropen:Party ;
   sth:xmlTag "customer" ;
+.
+setu:customerSpecificRequirements
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "customer specific requirements"@en ;
+  rdfs:range xsd:any ;
+  skos:definition "Container for customer specific requirements. This container can only be filled with customer specific requirements that have been permitted and added to the customer specific requirements codelist by the SETU."@en ;
+  sth:xmlTag "customerSpecificRequirements" ;
+.
+setu:dayAssignment
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "day assignment"@en ;
+  rdfs:range xsd:date ;
+  skos:definition "Specification of the administrative start date of the time card item. This is useful in case of nightshifts where the start and end date of a time interval are not the same."@en ;
+  sth:xmlTag "dayAssignment" ;
+.
+setu:effectiveTimePeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "effective time period"@en ;
+  rdfs:range hropen:EffectiveTimePeriod ;
+  sth:xmlTag "effectiveTimePeriod" ;
+.
+setu:employeeContract
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "employee contract"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Determines whether or not the worker has a contract at the staffing supplier."@en ;
+  sth:xmlTag "employeeContract" ;
+.
+setu:employeePhase
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "employee phase"@en ;
+  rdfs:range xsd:string;
+  skos:definition "Determines the employment phase in which the worker is in according to either the ABU CLA or the NBBU CLA."@en ;
+  sth:xmlTag "employeePhase" ;
+.
+setu:endDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "end date"@en ;
+  rdfs:range xsd:date ;
+  skos:definition "The end date is the end of a stay, an episode, or other period of time."@en ;
+  sth:xmlTag "endDate" ;
 .
 setu:endDateTime
   rdf:type owl:DatatypeProperty ;
@@ -301,12 +402,50 @@ setu:endTime
   skos:definition "End time is the end, expressed in time, of an period of time."@en ;
   sth:xmlTag "endTime" ;
 .
+setu:establishment
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain hropen:Party ;
+  rdfs:label "establishment"@en ;
+  rdfs:range hropen:EmployerEstablishment ;
+  skos:definition "Information to identify and reference a specific establishment within an organization."@en ;
+  sth:xmlTag "establishment" ;
+.
+setu:homeOfficeIndicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "home office indicator"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Contains the value 'Home' or 'Office' to indicate for a timecard item whether the work was executed at home or at the office."@en ;
+  sth:allowedValue "Home" ;
+  sth:allowedValue "Office" ;
+  sth:xmlTag "homeOfficeIndicator" ;
+.
 setu:hours
   rdf:type owl:DatatypeProperty ;
   rdfs:label "hours"@en ;
   rdfs:range xsd:decimal ;
   skos:definition "The amount of hours expressed in decimals."@en ;
   sth:xmlTag "hours" ;
+.
+setu:houseNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "house number"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "The house number of the address."@en ;
+  sth:xmlTag "houseNumber" ;
+.
+setu:houseNumberAddition
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "house number addition"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "The addition of the house number."@en ;
+  sth:xmlTag "houseNumberAddition" ;
+.
+setu:insuranceGroup
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "insurance group"@en ;
+  rdfs:range xsd:string;
+  skos:definition "Determines the insurance group the worker is part of."@en ;
+  sth:xmlTag "insuranceGroup" ;
 .
 setu:licenses
   rdf:type owl:ObjectProperty ;
@@ -323,6 +462,53 @@ setu:maximumTravelDistance
   skos:definition "The maximum number of kilometers the worker is willing to travel."@en ;
   sth:xmlTag "maximumTravelDistance" ;
 .
+setu:multiplier
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "multiplier"@en ;
+  rdfs:range xsd:decimal ;
+  skos:definition "The multiplier that should be applied to the pay rate in order to determine the real amount that has to be paid or billed (depending on toBeBilled and toBePaid). The 'standard multiplier' for a pay rate without mark-up is 100% (fill in value '100'). A different value can be used in situations where a mark-up is provided on top of the standard rate. The mark-up should be added to the 'base percentage' of 100%, so a mark-up of 50% (1.5 times the standard rate) makes a multiplier of 150%."@en ;
+  sth:xmlTag "multiplier" ;
+.
+setu:multiVendorDistribution
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:RequestForQuotationDetails ;
+  rdfs:label "multi vendor distribution"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Indication whether the staffing position is sent to multiple staffing suppliers ('true') or not ('false')."@en ;
+  sth:xmlTag "multiVendorDistribution" ;
+.
+setu:name
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "name"@en ;
+  rdfs:range xsd:string ;
+  sth:xmlTag "name" ;
+.
+setu:onCallContract
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:AssignedWorker ;
+  rdfs:label "on call contract"@en ;
+  rdfs:range setu:OnCallContract ;
+  skos:definition "Container specifying the an on-call contract the worker has at the staffing supplier."@en ;
+  sth:xmlTag "onCallContract" ;
+.
+setu:onCallIndicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:OnCallContract ;
+  rdfs:label "on call indicator"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Indicates whether the contract the worker has at the staffing supplier is a on-call contract (true) or not (false)."@en ;
+  sth:xmlTag "onCallIndicator" ;
+.
+setu:orderType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:StaffingOrder ;
+  rdfs:label "order type"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Specifies whether the Staffing Order message is used as RFQ (= request for quotation) or Order (= procurement order)."@en ;
+  sth:allowedValue "RFQ" ;
+  sth:allowedValue "Order" ;
+  sth:xmlTag "orderType" ;
+.
 setu:paidOrUnpaid
   rdf:type owl:DatatypeProperty ;
   rdfs:domain setu:Breaks ;
@@ -332,6 +518,19 @@ setu:paidOrUnpaid
   sth:allowedValue "Paid" ;
   sth:allowedValue "Unpaid" ;
   sth:xmlTag "paidOrUnpaid" ;
+.
+setu:payRates
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "pay rates"@en ;
+  rdfs:range hropen:PayRate ;
+  sth:xmlTag "payRates" ;
+.
+setu:period
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "period"@en ;
+  rdfs:range hropen:Period ;
+  skos:definition "Container to specify the period in which the pay rate is valid."@en ;
+  sth:xmlTag "period" ;
 .
 setu:periodicAvailabilityLine
   rdf:type owl:ObjectProperty ;
@@ -399,10 +598,17 @@ setu:planningRequestReference
 .
 setu:positionProfile
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:Planning ;
   rdfs:label "position profile"@en ;
   rdfs:range hropen:PositionProfile ;
   sth:xmlTag "positionProfile" ;
+.
+setu:positionReason
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain hropen:PositionProfile ;
+  rdfs:label "position reason"@en ;
+  rdfs:range xsd:string;
+  skos:definition "The reason for the open position."@en ;
+  sth:xmlTag "positionReason" ;
 .
 setu:positionTask
   rdf:type owl:ObjectProperty ;
@@ -411,6 +617,43 @@ setu:positionTask
   rdfs:range setu:PositionTask;
   skos:definition "The type of task or activity the worker performs on the position."@en ;
   sth:xmlTag "positionTask" ;
+.
+setu:primaryLocation
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "primary location"@en ;
+  rdfs:range xsd:boolean;
+  skos:definition "Indicates whether the location is the primary work location (Dutch: standplaats) of the position."@en ;
+  sth:xmlTag "primaryLocation" ;
+.
+setu:purchaseOrderLineItem
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "purchase order line item"@en ;
+  rdfs:range xsd:string;
+  sth:xmlTag "purchaseOrderLineItem" ;
+.
+setu:quantity
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "quantity"@en ;
+  rdfs:range hropen:Quantity;
+  sth:xmlTag "quantity" ;
+.
+setu:rateType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "rate type"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Indicates whether the rate applies to a time interval, an allowance or an expense."@en ;
+  sth:allowedValue "TimeInterval" ;
+  sth:allowedValue "Allowance/Expense" ;
+  sth:xmlTag "rateType" ;
+.
+setu:recruitedBy
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "recruited by"@en ;
+  rdfs:range xsd:string ;
+  sth:allowedValue "Supplier" ;
+  sth:allowedValue "Customer" ;
+  skos:definition "Determines whether the staffing customer or staffing supplier has recruited the worker."@en ;
+  sth:xmlTag "recruitedBy" ;
 .
 setu:relatedWorker
   rdf:type owl:ObjectProperty ;
@@ -445,6 +688,21 @@ setu:requestedPeriodicPlanningLine
   skos:definition "A container for specifying a periodic planning line."@en ;
   sth:xmlTag "periodicPlanningLine" ;
 .
+setu:requestForQuotationDetails
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:StaffingOrder ;
+  rdfs:label "request for quotation details"@en ;
+  rdfs:range setu:RequestForQuotationDetails ;
+  skos:definition "Contains elements only used when the Staffing Order message is used as request for quotation. The elements are used to specify further details regarding the handling of the request for quotation and the quotation (Human Resource message) itself."@en ;
+  sth:xmlTag "requestForQuotationDetails" ;
+.
+setu:resourceClassificationInclusion
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "resource classification inclusion"@en ;
+  rdfs:range hropen:ResourceClassificationInclusion ;
+  skos:definition "Holds customer specific properties of an entity."@en ;
+  sth:xmlTag "resourceClassificationInclusion" ;
+.
 setu:positionQuantity
   rdf:type owl:DatatypeProperty ;
   rdfs:domain setu:PlanningLine ;
@@ -452,6 +710,13 @@ setu:positionQuantity
   rdfs:range xsd:integer ;
   skos:definition "The number of workers requested for this specific period of the staffing position."@en ;
   sth:xmlTag "positionQuantity" ;
+.
+setu:reasonOfChange
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "reason of change"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "The reason for the change of the (status of the) message."@en ;
+  sth:xmlTag "reasonOfChange" ;
 .
 setu:requestedSinglePlanningLine
   rdf:type owl:ObjectProperty ;
@@ -461,6 +726,14 @@ setu:requestedSinglePlanningLine
   skos:definition "A container for specifing a single planning line."@en ;
   sth:xmlTag "singlePlanningLine" ;
 .
+setu:residenceAddress
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain hropen:CandidatePerson ;
+  rdfs:label "residence address"@en ;
+  rdfs:range hropen:AddressTypeArray ;
+  skos:definition "Container for specifying the residence address. Only use this container if the residence address differs from the postal address."@en ;
+  sth:xmlTag "residenceAddress" ;
+.
 setu:requestedWorker
   rdf:type owl:ObjectProperty ;
   rdfs:domain hropen:PositionProfile ;
@@ -468,6 +741,13 @@ setu:requestedWorker
   rdfs:range setu:RequestedWorker ;
   skos:definition "Container to specify the preferred worker(s)."@en ;
   sth:xmlTag "requestedWorker" ;
+.
+setu:salaryScale
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "salary scale"@en ;
+  rdfs:range xsd:string;
+  skos:definition "Specifies the salary scale (and step within that scale) the worker will have at the staffing customer."@en ;
+  sth:xmlTag "salaryScale" ;
 .
 setu:schemeAgencyId
   rdf:type owl:DatatypeProperty ;
@@ -511,6 +791,13 @@ setu:singlePlanningType
   sth:allowedValue "Occasional" ;
   sth:xmlTag "singlePlanningType" ;
 .
+setu:staffingIds
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "staffing ids"@en ;
+  rdfs:range hropen:StaffingReferenceIds ;
+  skos:definition "A collection of identifiers related to this message."@en ;
+  sth:xmlTag "staffingIds" ;
+.
 setu:standByIndicator
   rdf:type owl:DatatypeProperty ;
   rdfs:domain hropen:PositionProfile ;
@@ -518,6 +805,13 @@ setu:standByIndicator
   rdfs:range xsd:boolean ;
   skos:definition "Specifies whether the position is a stand-by (Dutch: reserve) position (true) or a regular position (false). Default value is 'false'. This element is not used to specify an on-call worker (Dutch: oproepkracht)."@en ;
   sth:xmlTag "standByIndicator" ;
+.
+setu:startDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "start date"@en ;
+  rdfs:range xsd:date ;
+  skos:definition "The start date is the start of a stay, an episode, or other period of time."@en ;
+  sth:xmlTag "startDate" ;
 .
 setu:startDateTime
   rdf:type owl:DatatypeProperty ;
@@ -533,19 +827,47 @@ setu:startTime
   skos:definition "The start time of a period of time."@en ;
   sth:xmlTag "startTime" ;
 .
+setu:streetName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "street name"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "The street name of the address."@en ;
+  sth:xmlTag "streetName" ;
+.
 setu:supplier
   rdf:type owl:ObjectProperty ;
   rdfs:label "supplier"@en ;
   rdfs:range hropen:Party ;
   sth:xmlTag "supplier" ;
 .
+setu:toBeBilled
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "to be billed"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Specifies whether this pay rate is specified for billing purposes or not."@en ;
+  sth:xmlTag "toBeBilled" ;
+.
+setu:toBePaid
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "to be paid"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Specifies whether this pay rate is specified for payment purposes or not."@en ;
+  sth:xmlTag "toBePaid" ;
+.
 setu:travelDistance
   rdf:type owl:DatatypeProperty ;
   rdfs:domain hropen:PositionProfile ;
   rdfs:label "travel distance"@en ;
   rdfs:range xsd:decimal ;
-  skos:definition "Specifies the number of kilometers between the home of the worker and the work location."@en ;
+  skos:definition "Specifies the number of kilometers between the home of the worker and the primary work location (Dutch: standplaats)."@en ;
   sth:xmlTag "travelDistance" ;
+.
+setu:vacationWorker
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "vacation worker"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Determines whether the worker is a vacation worker or not."@en ;
+  sth:xmlTag "vacationWorker" ;
 .
 setu:value
   rdf:type owl:DatatypeProperty ;
@@ -561,4 +883,11 @@ setu:worker
   rdfs:label "worker"@en ;
   rdfs:range hropen:Worker ;
   skos:definition "Worker is a Person Role and is defined as someone who performs labor for an organization. Worker is an abstraction for other more specific work-related roles, for example, Employee and Contractor. (ADP)" ;
+.
+setu:workingPeriods
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "working periods"@en ;
+  rdfs:range hropen:WorkingPeriod ;
+  skos:definition "Describes the working period of the position that the worker is required for, e.g. 32 hours per week and/or 4 days per week. This is excluding break time(s)."@en ;
+  sth:xmlTag "workingPeriods" ;
 .
