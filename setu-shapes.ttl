@@ -25,7 +25,7 @@
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
   dc:modified "2024-12-17"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
-  owl:versionInfo "1.1" ;
+  owl:versionInfo "2.0" ;
 .
 sh:property
   rdf:type owl:AnnotationProperty ;

@@ -83,7 +83,7 @@ setu:
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
   dc:modified "2024-12-17"^^xsd:date ;
   dc:title "SETU ontology" ;
-  owl:versionInfo "1.1" ;
+  owl:versionInfo "2.0" ;
 .
 setu:AssignedWorker
   rdf:type owl:Class ;
