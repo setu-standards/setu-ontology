@@ -23,7 +23,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
-  dc:modified "2024-11-11"^^xsd:date ;
+  dc:modified "2024-12-17"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
   owl:versionInfo "1.1" ;
 .
