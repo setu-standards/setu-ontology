@@ -111,6 +111,12 @@ setu:Id
   rdf:type owl:Class ;
   rdfs:label "Id"@en ;
 .
+setu:InquiryPayEquity
+  rdf:type owl:Class ;
+  rdfs:label "Inquiry pay equity"@en ;
+  rdfs:subClassOf hropen:Noun ;
+  skos:definition "The Inquiry Pay Equity message is used by the staffing customer to exchange remuneration information with the staffing supplier in order to accurately apply equal pay for flex workers according to the staffing customer's collective labor agreement."@en ;
+.
 setu:OnCallContract
   rdf:type owl:Class ;
   rdfs:label "On call contract"@en ;

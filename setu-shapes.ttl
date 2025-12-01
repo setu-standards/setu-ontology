@@ -558,6 +558,9 @@ setu:Id
       sh:order 0 ;
     ] ;
 .
+setu:InquiryPayEquity
+  rdf:type sh:NodeShape ;
+.
 setu:OnCallContract
   rdf:type sh:NodeShape ;
   sh:property [
