@@ -566,6 +566,13 @@ setu:InquiryPayEquity
       sh:datatype hropen:Identifier ;
       sh:order 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:issued ;
+      sh:datatype xsd:dateTime ;
+      sh:description "The datetime the document was issued."@en ;
+      sh:order 2 ;
+    ] ;
 .
 setu:OnCallContract
   rdf:type sh:NodeShape ;
