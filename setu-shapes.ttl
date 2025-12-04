@@ -562,8 +562,8 @@ setu:InquiryPayEquity
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:versionId ;
-      sh:maxCount 1 ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
       sh:order 1 ;
     ] ;
 .

@@ -883,12 +883,6 @@ setu:value
   skos:definition "The value of the unique identifier."@en ;
   sth:xmlTag "value" ;
 .
-setu:versionId
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "version id"@en ;
-  rdfs:range hropen:Identifier ;
-  sth:xmlTag "versionId" ;
-.
 setu:worker
   rdf:type owl:ObjectProperty ;
   rdfs:domain setu:PlanningConstraints ;
