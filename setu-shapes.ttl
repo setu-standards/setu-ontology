@@ -259,6 +259,16 @@ hropen:PositionQualification
       sh:description "Any certifications the person carries for the related position."@en ;
     ] ;
 .
+hropen:SpecifiedPerson
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:positionTitle ;
+      sh:datatype hropen:PositionProfile-positionTitleDatatype ;
+      sh:description "The title of the position of the contact person."@en ;
+      sh:order 5 ;
+    ] ;
+.
 hropen:Timecard
   rdf:type sh:NodeShape ;
   sh:property [
@@ -539,6 +549,13 @@ setu:CollectiveLabourAgreement
       sh:maxCount 1 ;
       sh:order 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:effectiveTimePeriod ;
+      sh:description "The validity period of this specific collective labour agreement (version). The period is from the start date up to and including the end date."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
+    ] ;
 .
 setu:Id
   rdf:type sh:NodeShape ;
@@ -571,6 +588,47 @@ setu:InquiryPayEquity
       sh:path hropen:issued ;
       sh:datatype xsd:dateTime ;
       sh:description "The datetime the document was issued."@en ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:effectiveTimePeriod ;
+      sh:description "The overall period during which the information in this document is valid. The period is from the start date up to and including the end date."@en ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customer ;
+      sh:description "The customer/hirer of the worker."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 4 ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:labourAgreements ;
+      sh:maxCount 1 ;
+      sh:order 6 ;
+    ] ;
+.
+setu:LabourAgreements
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:industryIdentifier ;
+      sh:datatype hropen:Identifier ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:collectiveLabourAgreement ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customLabourAgreement ;
+      sh:maxCount 1 ;
       sh:order 2 ;
     ] ;
 .

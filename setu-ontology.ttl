@@ -117,6 +117,11 @@ setu:InquiryPayEquity
   rdfs:subClassOf hropen:Noun ;
   skos:definition "The Inquiry Pay Equity message is used by the staffing customer to exchange remuneration information with the staffing supplier in order to accurately apply equal pay for flex workers according to the staffing customer's collective labor agreement."@en ;
 .
+setu:LabourAgreements
+  rdf:type owl:Class ;
+  rdfs:label "Labour agreements"@en ;
+  skos:definition "This container indicates in which sector the staffing customer works and which specific collective labour agreement (CLA) and/or the own employment conditions scheme is leading for the provision of remuneration information."@en ;
+.
 setu:OnCallContract
   rdf:type owl:Class ;
   rdfs:label "On call contract"@en ;
@@ -360,6 +365,13 @@ setu:customerSpecificRequirements
   skos:definition "Container for customer specific requirements. This container can only be filled with customer specific requirements that have been permitted and added to the customer specific requirements codelist by the SETU."@en ;
   sth:xmlTag "customerSpecificRequirements" ;
 .
+setu:customLabourAgreement
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "custom labour agreement"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Indicator to determine whether a custom labour agreement is active."@en ;
+  sth:xmlTag "customLabourAgreement" ;
+.
 setu:dayAssignment
   rdf:type owl:DatatypeProperty ;
   rdfs:label "day assignment"@en ;
@@ -446,12 +458,26 @@ setu:houseNumberAddition
   skos:definition "The addition of the house number."@en ;
   sth:xmlTag "houseNumberAddition" ;
 .
+setu:industryIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "industry identifier"@en ;
+  rdfs:range hropen:Identifier;
+  skos:definition "The types of industry to which the organization belongs. The industry identifiers could be referenced to using a standard taxonomy, such as the CBS - SBI 2008 (Standaard Bedrijfsindeling)."@en ;
+  sth:xmlTag "industryIdentifier" ;
+.
 setu:insuranceGroup
   rdf:type owl:DatatypeProperty ;
   rdfs:label "insurance group"@en ;
   rdfs:range xsd:string;
   skos:definition "Determines the insurance group the worker is part of."@en ;
   sth:xmlTag "insuranceGroup" ;
+.
+setu:labourAgreements
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "labour agreements"@en ;
+  rdfs:range setu:LabourAgreements ;
+  skos:definition "Indicates in which sector the staffing customer works and which specific collective labour agreement (CLA) and/or the own employment conditions scheme is leading for the provision of remuneration information."@en ;
+  sth:xmlTag "labourAgreements" ;
 .
 setu:licenses
   rdf:type owl:ObjectProperty ;
