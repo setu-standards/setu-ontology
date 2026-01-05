@@ -23,7 +23,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
-  dc:modified "2025-12-04"^^xsd:date ;
+  dc:modified "2026-01-05"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
   owl:versionInfo "2.9" ;
 .
@@ -170,7 +170,7 @@ hropen:PayRate
     ] ;
 .
 hropen:PersonCompetency
-rdf:type sh:NodeShape ;
+  rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:startDate ;
@@ -185,7 +185,7 @@ rdf:type sh:NodeShape ;
     ] ;
 .
 hropen:PositionProfile
-rdf:type sh:NodeShape ;
+  rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:contractWorkingPeriods ;
@@ -232,6 +232,18 @@ rdf:type sh:NodeShape ;
     sh:path setu:salaryScale ;
     sh:maxCount 1 ;
     sh:order 27 ;
+    ] ;
+  sh:property [
+    rdf:type sh:PropertyShape ;
+    sh:path setu:referenceTitle ;
+    sh:maxCount 1 ;
+    sh:order 28 ;
+    ] ;
+  sh:property [
+    rdf:type sh:PropertyShape ;
+    sh:path setu:workDescription ;
+    sh:maxCount 1 ;
+    sh:order 29 ;
     ] ;
 .
 hropen:PositionProfile-positionPeriod
@@ -609,6 +621,12 @@ setu:InquiryPayEquity
       sh:path setu:labourAgreements ;
       sh:maxCount 1 ;
       sh:order 6 ;
+    ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionProfile ;
+      sh:description "These are the position profiles for which the inquiry pay equity applies."@en ;
+      sh:order 7 ;
     ] ;
 .
 setu:LabourAgreements
