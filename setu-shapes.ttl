@@ -634,6 +634,12 @@ setu:InquiryPayEquity
       sh:description "These are the position profiles for which the inquiry pay equity applies."@en ;
       sh:order 7 ;
     ] ;
+    sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:remuneration ;
+      sh:minCount 1 ;
+      sh:order 8 ;
+    ] ;
 .
 setu:LabourAgreementReference
   rdf:type sh:NodeShape ;

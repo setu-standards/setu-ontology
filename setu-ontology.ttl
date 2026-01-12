@@ -177,6 +177,11 @@ setu:RelatedWorker
   rdfs:subClassOf hropen:Worker ;
   rdfs:label "Related worker"@en ;
 .
+setu:RemunerationPackage
+  rdf:type owl:Class ;
+  rdfs:label "Remuneration package"@en ;
+  skos:definition "Details about the remuneration package, including salary tables based on the work duration. It includes one or more salary tables for a specific work duration or characteristics."@en ;
+.
 setu:RequestedWorker
   rdf:type owl:Class ;
   rdfs:subClassOf hropen:Worker ;
@@ -185,7 +190,6 @@ setu:RequestedWorker
 setu:RequestForQuotationDetails
   rdf:type owl:Class ;
   rdfs:label "Request for quotation details"@en ;
-  skos:definition "."@en ;
 .
 setu:SingleAvailabilityLine
   rdf:type owl:Class ;
@@ -735,6 +739,13 @@ setu:relatedWorkerType
   sth:allowedValue "Preferred" ;
   sth:allowedValue "Required" ;
   sth:xmlTag "relatedWorkerType" ;
+.
+setu:remuneration
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "remuneration"@en ;
+  rdfs:range setu:RemunerationPackage ;
+  skos:definition "Details about the remuneration package, including salary tables based on the work duration. It includes one or more salary tables for a specific work duration or characteristics."@en ;
+  sth:xmlTag "remuneration" ;
 .
 setu:requestComments
   rdf:type owl:DatatypeProperty ;
