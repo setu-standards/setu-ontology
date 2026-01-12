@@ -1066,6 +1066,23 @@ setu:RelatedWorker
       sh:order 6 ;
     ] ;
 .
+setu:RemunerationPackage
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:origin ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:effectiveTimePeriod ;
+      sh:description "Indicates the validity period of this regulation. The period is from the start date up to and including the end date."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+.
 setu:RequestForQuotationDetails
   rdf:type sh:NodeShape ;
   sh:property [
