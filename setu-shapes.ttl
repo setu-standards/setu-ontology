@@ -23,7 +23,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
-  dc:modified "2026-01-05"^^xsd:date ;
+  dc:modified "2026-01-12"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
   owl:versionInfo "2.9" ;
 .
@@ -188,14 +188,21 @@ hropen:PositionProfile
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:contractWorkingPeriods ;
-      sh:order 22 ;
-    ] ; 
-  sh:property [
-      rdf:type sh:PropertyShape ;
       sh:path setu:positionTask ;
       sh:maxCount 1 ;
       sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:origin ;
+      sh:maxCount 1 ;
+      sh:order 5 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:standByIndicator ;
+      sh:maxCount 1 ;
+      sh:order 6 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
@@ -204,9 +211,14 @@ hropen:PositionProfile
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:standByIndicator ;
+      sh:path setu:contractWorkingPeriods ;
+      sh:order 22 ;
+    ] ; 
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionReason ;
       sh:maxCount 1 ;
-      sh:order 5 ;
+      sh:order 23 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
@@ -214,12 +226,6 @@ hropen:PositionProfile
       sh:datatype xsd:decimal ;
       sh:maxCount 1 ;
       sh:order 25 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:positionReason ;
-      sh:maxCount 1 ;
-      sh:order 23 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
@@ -629,6 +635,16 @@ setu:InquiryPayEquity
       sh:order 7 ;
     ] ;
 .
+setu:LabourAgreementReference
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:type ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+.
 setu:LabourAgreements
   rdf:type sh:NodeShape ;
   sh:property [
@@ -643,7 +659,7 @@ setu:LabourAgreements
       sh:maxCount 1 ;
       sh:order 1 ;
     ] ;
-    sh:property [
+  sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:customLabourAgreement ;
       sh:maxCount 1 ;
