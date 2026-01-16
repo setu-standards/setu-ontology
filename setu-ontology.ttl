@@ -81,7 +81,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-01-12"^^xsd:date ;
+  dc:modified "2026-01-16"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
 .
@@ -320,6 +320,14 @@ setu:availabilityStatus
   sth:allowedValue "NotAvailable" ;
   sth:allowedValue "RatherNot" ;
   sth:xmlTag "availabilityStatus" ;
+.
+setu:basedOn
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:CollectiveLabourAgreement ;
+  rdfs:label "based on"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "A collective labour agreement (CLA) applies if the employer is a member of the industry association, if the CLA has been declared generally binding for the sector by the Minister of Social Affairs and Employment, or if it is declared applicable in the employee's employment contract."@en ;
+  sth:xmlTag "basedOn" ;
 .
 setu:breakDuration
   rdf:type owl:DatatypeProperty ;
