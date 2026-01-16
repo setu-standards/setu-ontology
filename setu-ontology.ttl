@@ -107,6 +107,11 @@ setu:CollectiveLabourAgreement
   rdfs:label "Collective labour agreement"@en ;
   skos:definition "The collective labour agreement (CLA; CAO in Dutch) that determines the renumeration. In the Netherlands this can be the CLA of the ABU, NBBU or a specific CLA of the staffing customer."@en ;
 .
+setu:HourlyWageConversion
+  rdf:type owl:Class ;
+  rdfs:label "Hourly wage conversion"@en ;
+  skos:definition "Information about the conversion to regular hourly wages."@en ;
+.
 setu:Id
   rdf:type owl:Class ;
   rdfs:label "Id"@en ;
@@ -464,6 +469,34 @@ setu:homeOfficeIndicator
   sth:allowedValue "Home" ;
   sth:allowedValue "Office" ;
   sth:xmlTag "homeOfficeIndicator" ;
+.
+setu:hourlyWageConversion
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:RemunerationPackage ;
+  rdfs:label "hourly wage conversion"@en ;
+  rdfs:range setu:HourlyWageConversion ;
+  skos:definition "Information about the conversion to regular hourly wages."@en ;
+  skos:note "It is possible that hourly conversion rates differ on the step/cell level. If this is the case for one or more steps/cells, then add a salary table that describes the remuneration per hour." ;
+  skos:note "If your employment conditions or collective labour agreement do not specify hourly wages or a clear calculation method, the hourly wage is calculated as follows: monthly salary / (4.35 x normal working hours)." ;
+  sth:xmlTag "hourlyWageConversion" ;
+.
+setu:hourlyWageFactor
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:HourlyWageConversion ;
+  rdfs:label "hourly wage factor"@en ;
+  rdfs:range xsd:decimal ;
+  skos:definition "A number used to calculate the hourly wage from a periodic salary (e.g., monthly salary). The periodic salary is divided by this factor to determine the hourly wage. Formula: hourly wage = periodic salary / hourlyWageFactor."@en ;
+  skos:note "It is possible that hourly conversion rates differ on the step/cell level. If this is the case for one or more steps/cells, then add a salary table that describes the remuneration per hour." ;
+  sth:xmlTag "hourlyWageFactor" ;
+.
+setu:hourlyWagePercentage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:HourlyWageConversion ;
+  rdfs:label "hourly wage percentage"@en ;
+  rdfs:range xsd:decimal ;
+  skos:definition "A percentage that the periodic salary (such as a monthly salary) is multiplied by to calculate the hourly wage. Formula: hourly wage = (periodic salary * hourlyWagePercentage) / 100."@en ;
+  skos:note "It is possible that hourly conversion rates differ on the step/cell level. If this is the case for one or more steps/cells, then add a salary table that describes the remuneration per hour." ;
+  sth:xmlTag "hourlyWagePercentage" ;
 .
 setu:hours
   rdf:type owl:DatatypeProperty ;
