@@ -129,6 +129,22 @@ hropen:EmployerEstablishment
       sh:maxCount 1 ;
     ] ; 
 .
+hropen:MonetaryAmount
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:name ;
+      sh:description "The name or label of the salary scale. E.g., 1,2,3."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:salaryStep ;
+      sh:order 4 ;
+    ] ; 
+.
 hropen:PayRate
   rdf:type sh:NodeShape ;
   sh:property [
@@ -1108,6 +1124,14 @@ setu:RemunerationPackage
       sh:path setu:hourlyWageConversion ;
       sh:maxCount 1 ;
       sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:baseSalariesRef ;
+      sh:datatype hropen:MonetaryAmount ;
+      sh:description "Base salary of a job or of an employee including minimum and maximum salary and certain salary steps."@en ;
+      sh:minCount 1 ;
+      sh:order 5 ;
     ] ;
 .
 setu:RequestForQuotationDetails

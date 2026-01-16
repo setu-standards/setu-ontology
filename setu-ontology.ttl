@@ -865,6 +865,13 @@ setu:salaryScale
   skos:definition "Specifies the salary scale (and step within that scale) the worker will have at the staffing customer."@en ;
   sth:xmlTag "salaryScale" ;
 .
+setu:salaryStep
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "salary step"@en ;
+  rdfs:range hropen:MonetaryAmount;
+  skos:definition "Specifies the steps within each salary scale, where each step has a name/label, a salary value, and possible conditions."@en ;
+  sth:xmlTag "salaryStep" ;
+.
 setu:schemeAgencyId
   rdf:type owl:DatatypeProperty ;
   rdfs:domain setu:Id ;
