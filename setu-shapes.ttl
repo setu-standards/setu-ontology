@@ -23,7 +23,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
-  dc:modified "2026-01-16"^^xsd:date ;
+  dc:modified "2026-01-19"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
   owl:versionInfo "2.9" ;
 .
@@ -127,22 +127,6 @@ hropen:EmployerEstablishment
       sh:datatype hropen:Identifier ;
       sh:description "A government assigned identifier to distinguish the party (organization, person, or legal entity) to a transaction."@en ;
       sh:maxCount 1 ;
-    ] ; 
-.
-hropen:MonetaryAmount
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:name ;
-      sh:description "The name or label of the salary scale. E.g., 1,2,3."@en ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 0 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:salaryStep ;
-      sh:order 4 ;
     ] ; 
 .
 hropen:PayRate
@@ -563,6 +547,23 @@ setu:BreakTrigger
       sh:description "The amount of hours worked after which the break applies, expressed as decimal."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
+      sh:order 1 ;
+    ] ;
+.
+setu:CareerLevel
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:indicator ;
+      sh:description "A boolean indicating the presence of taking into account classification of career levels."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "Description of the career levels."@en ;
+      sh:maxCount 1 ;
       sh:order 1 ;
     ] ;
 .
@@ -1127,9 +1128,8 @@ setu:RemunerationPackage
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path hropen:baseSalariesRef ;
-      sh:datatype hropen:MonetaryAmount ;
-      sh:description "Base salary of a job or of an employee including minimum and maximum salary and certain salary steps."@en ;
+      sh:path setu:salaryScaleStructure ;
+      sh:datatype setu:SalaryScale ;
       sh:minCount 1 ;
       sh:order 5 ;
     ] ;
@@ -1140,6 +1140,47 @@ setu:RequestForQuotationDetails
       rdf:type sh:PropertyShape ;
       sh:path setu:multiVendorDistribution ;
       sh:maxCount 1 ;
+    ] ;
+.
+setu:SalaryScale
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:name ;
+      sh:description "The name or label of the salary scale. E.g., 1,2,3."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:salaryStep ;
+      sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:careerLevel ;
+      sh:maxCount 1 ;
+      sh:order 9 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionProfileReference ;
+      sh:order 10 ;
+    ] ;
+.
+setu:SalaryStep
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:minimumWage ;
+      sh:maxCount 1 ;
+      sh:order 7 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:conditions ;
+      sh:order 8 ;
     ] ;
 .
 setu:SingleAvailabilityLine

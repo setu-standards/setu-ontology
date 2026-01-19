@@ -81,7 +81,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-01-16"^^xsd:date ;
+  dc:modified "2026-01-19"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
 .
@@ -101,6 +101,11 @@ setu:Breaks
 setu:BreakTrigger
   rdf:type owl:Class ;
   rdfs:label "Break trigger"@en ;
+.
+setu:Condition
+  rdf:type owl:Class ;
+  rdfs:label "Condition"@en ;
+  skos:definition "A container element for providing more information about a condition that has to be met before a rate is applied. An employee that meets these conditions is eligible for the rate." ;
 .
 setu:CollectiveLabourAgreement
   rdf:type owl:Class ;
@@ -195,6 +200,16 @@ setu:RequestedWorker
 setu:RequestForQuotationDetails
   rdf:type owl:Class ;
   rdfs:label "Request for quotation details"@en ;
+.
+setu:SalaryScale
+  rdf:type owl:Class ;
+  rdfs:subClassOf hropen:MonetaryAmount ;
+  rdfs:label "Salary scale"@en ;
+.
+setu:SalaryStep
+  rdf:type owl:Class ;
+  rdfs:subClassOf setu:SalaryScale ;
+  rdfs:label "Salary step"@en ;
 .
 setu:SingleAvailabilityLine
   rdf:type owl:Class ;
@@ -364,6 +379,13 @@ setu:buildingAddition
   skos:definition "Any additional, identifiable information regarding the building, e.g. the floor, room, apartment number within a building."@en ;
   sth:xmlTag "buildingAddition" ;
 .
+setu:careerLevel
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "career level"@en ;
+  rdfs:range setu:CareerLevel ;
+  skos:definition "Indicates whether work experience is considered in the salary scale, with a true or false value and a possible description."@en ;
+  sth:xmlTag "careerLevel" ;
+.
 setu:collectiveLabourAgreement
   rdf:type owl:ObjectProperty ;
   rdfs:label "collective labour agreement"@en ;
@@ -377,6 +399,13 @@ setu:comments
   rdfs:range xsd:string ;
   skos:definition "Additional comments about the message."@en ;
   sth:xmlTag "comments" ;
+.
+setu:conditions
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "conditions"@en ;
+  rdfs:range setu:Condition ;
+  skos:definition "A container element for providing more information about the conditions that have to be met before this rate is applied. An employee that meets these conditions is eligible for the rate."@en ;
+  sth:xmlTag "conditions" ;
 .
 setu:contractWorkingPeriods
   rdf:type owl:ObjectProperty ;
@@ -411,6 +440,12 @@ setu:dayAssignment
   rdfs:range xsd:date ;
   skos:definition "Specification of the administrative start date of the time card item. This is useful in case of nightshifts where the start and end date of a time interval are not the same."@en ;
   sth:xmlTag "dayAssignment" ;
+.
+setu:description
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "description"@en ;
+  rdfs:range xsd:string ;
+  sth:xmlTag "description" ;
 .
 setu:effectiveTimePeriod
   rdf:type owl:ObjectProperty ;
@@ -519,6 +554,12 @@ setu:houseNumberAddition
   skos:definition "The addition of the house number."@en ;
   sth:xmlTag "houseNumberAddition" ;
 .
+setu:indicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "indicator"@en ;
+  rdfs:range xsd:boolean ;
+  sth:xmlTag "indicator" ;
+.
 setu:industryIdentifier
   rdf:type owl:ObjectProperty ;
   rdfs:label "industry identifier"@en ;
@@ -554,6 +595,13 @@ setu:maximumTravelDistance
   rdfs:range xsd:decimal ;
   skos:definition "The maximum number of kilometers the worker is willing to travel."@en ;
   sth:xmlTag "maximumTravelDistance" ;
+.
+setu:minimumWage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "minimum wage"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "A boolean that indicates whether this salary step is equal to the minimum wage."@en ;
+  sth:xmlTag "minimumWage" ;
 .
 setu:multiplier
   rdf:type owl:DatatypeProperty ;
@@ -701,6 +749,13 @@ setu:positionProfile
   rdfs:label "position profile"@en ;
   rdfs:range hropen:PositionProfile ;
   sth:xmlTag "positionProfile" ;
+.
+setu:positionProfileReference
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "position profile reference"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Refers to the position profile that this salary scale is applied to. This element refers to the 'positionId/value' element in the corresponding position profile."@en ;
+  sth:xmlTag "positionProfileReference" ;
 .
 setu:positionReason
   rdf:type owl:DatatypeProperty ;
@@ -865,10 +920,17 @@ setu:salaryScale
   skos:definition "Specifies the salary scale (and step within that scale) the worker will have at the staffing customer."@en ;
   sth:xmlTag "salaryScale" ;
 .
+setu:salaryScaleStructure
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "salary scale"@en ;
+  rdfs:range setu:SalaryScale ;
+  skos:definition "Base salary of a job or of an employee including minimum and maximum salary and certain salary steps."@en ;
+  sth:xmlTag "salaryScaleStructure" ;
+.
 setu:salaryStep
   rdf:type owl:ObjectProperty ;
   rdfs:label "salary step"@en ;
-  rdfs:range hropen:MonetaryAmount;
+  rdfs:range setu:SalaryStep;
   skos:definition "Specifies the steps within each salary scale, where each step has a name/label, a salary value, and possible conditions."@en ;
   sth:xmlTag "salaryStep" ;
 .
