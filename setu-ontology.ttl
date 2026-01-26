@@ -81,7 +81,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-01-19"^^xsd:date ;
+  dc:modified "2026-01-26"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
 .
@@ -120,6 +120,11 @@ setu:HourlyWageConversion
 setu:Id
   rdf:type owl:Class ;
   rdfs:label "Id"@en ;
+.
+setu:IndividualSalaryIncrease
+  rdf:type owl:Class ;
+  rdfs:label "Individual salary increase"@en ;
+  skos:definition "The individual salary review is a process where an employee's salary is evaluated and adjusted based on individual performance, and other relevant criteria. This container specifies the increase rate of these adjustments."@en ;
 .
 setu:InquiryPayEquity
   rdf:type owl:Class ;
@@ -186,6 +191,16 @@ setu:RelatedWorker
   rdf:type owl:Class ;
   rdfs:subClassOf hropen:Worker ;
   rdfs:label "Related worker"@en ;
+.
+setu:RemunerationAmount
+  rdf:type owl:Class ;
+  rdfs:label "Remuneration amount"@en ;
+  skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
+.
+setu:RemunerationLine
+  rdf:type owl:Class ;
+  rdfs:label "Remuneration line"@en ;
+  skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
 .
 setu:RemunerationPackage
   rdf:type owl:Class ;
@@ -560,6 +575,14 @@ setu:indicator
   rdfs:range xsd:boolean ;
   sth:xmlTag "indicator" ;
 .
+setu:individualSalaryIncrease
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:RemunerationPackage ;
+  rdfs:label "individual salary increase"@en ;
+  rdfs:range setu:IndividualSalaryIncrease ;
+  skos:definition "The individual salary review is a process where an employee's salary is evaluated and adjusted based on individual performance, and other relevant criteria. This container specifies the increase rate of these adjustments."@en ;
+  sth:xmlTag "individualSalaryIncrease" ;
+.
 setu:industryIdentifier
   rdf:type owl:ObjectProperty ;
   rdfs:label "industry identifier"@en ;
@@ -842,6 +865,20 @@ setu:remuneration
   rdfs:range setu:RemunerationPackage ;
   skos:definition "Details about the remuneration package, including salary tables based on the work duration. It includes one or more salary tables for a specific work duration or characteristics."@en ;
   sth:xmlTag "remuneration" ;
+.
+setu:remunerationAmount
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "amount"@en ;
+  rdfs:range setu:RemunerationAmount ;
+  skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
+  sth:xmlTag "remunerationAmount" ;
+.
+setu:remunerationLine
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "line"@en ;
+  rdfs:range setu:RemunerationLine ;
+  skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
+  sth:xmlTag "remunerationLine" ;
 .
 setu:requestComments
   rdf:type owl:DatatypeProperty ;

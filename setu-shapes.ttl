@@ -23,7 +23,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
-  dc:modified "2026-01-19"^^xsd:date ;
+  dc:modified "2026-01-26"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
   owl:versionInfo "2.9" ;
 .
@@ -631,6 +631,22 @@ setu:Id
       sh:order 0 ;
     ] ;
 .
+setu:IndividualSalaryIncrease
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:effectiveTimePeriod ;
+      sh:description "This element allows to specify on which date the salary adjustment or increase takes effect."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:remunerationLine ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+.
 setu:InquiryPayEquity
   rdf:type sh:NodeShape ;
   sh:property [
@@ -660,19 +676,19 @@ setu:InquiryPayEquity
       sh:minCount 1 ;
       sh:order 4 ;
     ] ;
-    sh:property [
+  sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:labourAgreements ;
       sh:maxCount 1 ;
       sh:order 6 ;
     ] ;
-    sh:property [
+  sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:positionProfile ;
       sh:description "These are the position profiles for which the inquiry pay equity applies."@en ;
       sh:order 7 ;
     ] ;
-    sh:property [
+  sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:remuneration ;
       sh:minCount 1 ;
@@ -1104,6 +1120,27 @@ setu:RelatedWorker
       sh:order 6 ;
     ] ;
 .
+setu:RemunerationAmount
+  rdf:type sh:NodeShape ;
+  
+.
+setu:RemunerationLine
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
+      sh:description "The unique identifier of this specific remuneration line."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:remunerationAmount ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+.
 setu:RemunerationPackage
   rdf:type sh:NodeShape ;
   sh:property [
@@ -1132,6 +1169,11 @@ setu:RemunerationPackage
       sh:datatype setu:SalaryScale ;
       sh:minCount 1 ;
       sh:order 5 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:individualSalaryIncrease ;
+      sh:order 6 ;
     ] ;
 .
 setu:RequestForQuotationDetails
