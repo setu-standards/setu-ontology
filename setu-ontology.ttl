@@ -81,7 +81,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-01-26"^^xsd:date ;
+  dc:modified "2026-02-02"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
 .
@@ -93,6 +93,11 @@ setu:AssignedWorker
 setu:AvailabilityLine
   rdf:type owl:Class ;
   rdfs:type "Availability line"@en ;
+.
+setu:BaseAmount
+  rdf:type owl:Class ;
+  rdfs:label "Base amount"@en ;
+  skos:definition "This element stores information about the base over which the amount is calculated."@en ;
 .
 setu:Breaks
   rdf:type owl:Class ;
@@ -355,6 +360,20 @@ setu:availabilityStatus
   sth:allowedValue "NotAvailable" ;
   sth:allowedValue "RatherNot" ;
   sth:xmlTag "availabilityStatus" ;
+.
+setu:baseAmount
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "base amount"@en ;
+  rdfs:range setu:BaseAmount ;
+  skos:definition "This element stores information about the base over which the amount is calculated."@en ;
+  sth:xmlTag "baseAmount" ;
+.
+setu:baseType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "base type"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Base type definition. Refers to the base over which this amount was calculated."@en ;
+  sth:xmlTag "baseType" ;
 .
 setu:basedOn
   rdf:type owl:DatatypeProperty ;
