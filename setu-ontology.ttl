@@ -81,7 +81,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-02-02"^^xsd:date ;
+  dc:modified "2026-02-03"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
 .
@@ -130,6 +130,10 @@ setu:IndividualSalaryIncrease
   rdf:type owl:Class ;
   rdfs:label "Individual salary increase"@en ;
   skos:definition "The individual salary review is a process where an employee's salary is evaluated and adjusted based on individual performance, and other relevant criteria. This container specifies the increase rate of these adjustments."@en ;
+.
+setu:IntervalCode
+  rdf:type owl:Class ;
+  rdfs:label "Interval code"@en ;
 .
 setu:InquiryPayEquity
   rdf:type owl:Class ;
@@ -191,6 +195,11 @@ setu:PlanningRequest
 setu:PositionTask
   rdf:type owl:Class ;
   rdfs:label "Position task"@en ;
+.
+setu:Proportional
+  rdf:type owl:Class ;
+  rdfs:label "Proportional"@en ;
+  skos:definition "The proportional element is used to specify whether certain work-related conditions such as leave entitlements, remuneration, or similar employment provisions are applied proportionally based on specific employee characteristics."@en ;
 .
 setu:RelatedWorker
   rdf:type owl:Class ;
@@ -501,6 +510,14 @@ setu:employeePhase
   skos:definition "Determines the employment phase in which the worker is in according to either the ABU CLA or the NBBU CLA."@en ;
   sth:xmlTag "employeePhase" ;
 .
+setu:employmentDuration
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:Proportional ;
+  rdfs:label "employment duration"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Indicates whether proportional calculation must be applied according to the employee's length of employment."@en ;
+  sth:xmlTag "employmentDuration" ;
+.
 setu:endDate
   rdf:type owl:DatatypeProperty ;
   rdfs:label "end date"@en ;
@@ -605,16 +622,22 @@ setu:individualSalaryIncrease
 setu:industryIdentifier
   rdf:type owl:ObjectProperty ;
   rdfs:label "industry identifier"@en ;
-  rdfs:range hropen:Identifier;
+  rdfs:range hropen:Identifier ;
   skos:definition "The types of industry to which the organization belongs. The industry identifiers could be referenced to using a standard taxonomy, such as the CBS - SBI 2008 (Standaard Bedrijfsindeling)."@en ;
   sth:xmlTag "industryIdentifier" ;
 .
 setu:insuranceGroup
   rdf:type owl:DatatypeProperty ;
   rdfs:label "insurance group"@en ;
-  rdfs:range xsd:string;
+  rdfs:range xsd:string ;
   skos:definition "Determines the insurance group the worker is part of."@en ;
   sth:xmlTag "insuranceGroup" ;
+.
+setu:intervalCode
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "interval code"@en ;
+  rdfs:range setu:IntervalCode ;
+  sth:xmlTag "intervalCode" ;
 .
 setu:labourAgreements
   rdf:type owl:ObjectProperty ;
@@ -708,6 +731,14 @@ setu:paidOrUnpaid
   sth:allowedValue "Paid" ;
   sth:allowedValue "Unpaid" ;
   sth:xmlTag "paidOrUnpaid" ;
+.
+setu:partTimePercentage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain setu:Proportional ;
+  rdfs:label "part time percentage"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Indicates whether the condition is calculated proportionally based on the employee's part-time percentage, typically measured against a full-time work week (commonly 36-40 hours)."@en ;
+  sth:xmlTag "partTimePercentage" ;
 .
 setu:payRates
   rdf:type owl:ObjectProperty ;
@@ -821,6 +852,14 @@ setu:primaryLocation
   rdfs:range xsd:boolean;
   skos:definition "Indicates whether the location is the primary work location (Dutch: standplaats) of the position."@en ;
   sth:xmlTag "primaryLocation" ;
+.
+setu:proportional
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:RemunerationAmount ;
+  rdfs:label "proportional"@en ;
+  rdfs:range setu:Proportional ;
+  skos:definition "The proportional element is used to specify whether certain work-related conditions such as leave entitlements, remuneration, or similar employment provisions are applied proportionally based on specific employee characteristics."@en ;
+  sth:xmlTag "proportional" ;
 .
 setu:purchaseOrderLineItem
   rdf:type owl:DatatypeProperty ;

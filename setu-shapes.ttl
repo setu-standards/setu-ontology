@@ -23,7 +23,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
-  dc:modified "2026-02-02"^^xsd:date ;
+  dc:modified "2026-02-03"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
   owl:versionInfo "2.9" ;
 .
@@ -689,6 +689,27 @@ setu:IndividualSalaryIncrease
       sh:order 1 ;
     ] ;
 .
+setu:IntervalCode
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:value ;
+      sh:datatype xsd:string ;
+      sh:description "The value can be used to express denominations of the provided interval code. If for instance it is required that the interval is every 15 minutes, the unit code can be 'Hour' and the value will be 0.25 as a quarter of 60 minutes is 15 minutes."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:unitCode ;
+      sh:datatype xsd:string ;
+      sh:description "The unit code of the interval."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 1 ;
+    ] ;
+.
 setu:InquiryPayEquity
   rdf:type sh:NodeShape ;
   sh:property [
@@ -1138,6 +1159,30 @@ setu:PositionTask
       sh:order 0 ;
     ] ;
 .
+setu:Proportional
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:partTimePercentage ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:employmentDuration ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "A free-text field for capturing any additional details, clarifications, or contextual information relevant to how the proportional rule is applied."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
+    ] ;
+.
 setu:RelatedWorker
   rdf:type sh:NodeShape ;
   sh:property [
@@ -1205,6 +1250,12 @@ setu:RemunerationAmount
       sh:maxCount 1 ;
       sh:order 4 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:proportional ;
+      sh:maxCount 1 ;
+      sh:order 5 ;
+    ] ;
 .
 setu:RemunerationLine
   rdf:type sh:NodeShape ;
@@ -1221,6 +1272,19 @@ setu:RemunerationLine
       sh:path setu:remunerationAmount ;
       sh:maxCount 1 ;
       sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:intervalCode ;
+      sh:description "This element is used to signify the interval in which this rate is applied. If this rate is applied every hour then the unit code would be 'Hour' or if this rate is applied every kilometer, the interval code would be 'Kilometer'. The value can be used to express denominations of the provided interval code. If for instance it is required that the interval is every 15 minutes, the unit code can be 'Hour' and the value will be 0.25 as a quarter of 60 minutes is 15 minutes."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:conditions ;
+      sh:order 3 ;
     ] ;
 .
 setu:RemunerationPackage
