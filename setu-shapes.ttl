@@ -640,6 +640,30 @@ setu:CollectiveLabourAgreement
       sh:order 3 ;
     ] ;
 .
+setu:GeneralSalaryIncrease
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:effectiveTimePeriod ;
+      sh:description "The effective start date of this initial increase."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:remunerationAmount ;
+      sh:description "Container element that contains the value of the amount and the type of unit of the value."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "Free text description of the general salary table increase."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
+    ] ;
+.
 setu:HourlyWageConversion
   rdf:type sh:NodeShape ;
   sh:property [
@@ -1320,6 +1344,17 @@ setu:RemunerationPackage
       rdf:type sh:PropertyShape ;
       sh:path setu:individualSalaryIncrease ;
       sh:order 6 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:generalSalaryIncrease ;
+      sh:order 7 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:conditions ;
+      sh:description "A container element for providing more information about the conditions that have to be met before this remuneration applies."@en ;
+      sh:order 8 ;
     ] ;
 .
 setu:RequestForQuotationDetails

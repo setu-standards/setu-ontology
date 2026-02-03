@@ -117,6 +117,11 @@ setu:CollectiveLabourAgreement
   rdfs:label "Collective labour agreement"@en ;
   skos:definition "The collective labour agreement (CLA; CAO in Dutch) that determines the renumeration. In the Netherlands this can be the CLA of the ABU, NBBU or a specific CLA of the staffing customer."@en ;
 .
+setu:GeneralSalaryIncrease
+  rdf:type owl:Class ;
+  rdfs:label "General salary increase"@en ;
+  skos:definition "The general salary adjustment refers to the increase applied uniformly to the entire salary table. This adjustment ensures that all employees receive a consistent percentage or fixed increase in their salaries."@en ;
+.
 setu:HourlyWageConversion
   rdf:type owl:Class ;
   rdfs:label "Hourly wage conversion"@en ;
@@ -546,6 +551,14 @@ setu:establishment
   rdfs:range hropen:EmployerEstablishment ;
   skos:definition "Information to identify and reference a specific establishment within an organization."@en ;
   sth:xmlTag "establishment" ;
+.
+setu:generalSalaryIncrease
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:RemunerationPackage ;
+  rdfs:label "general salary increase"@en ;
+  rdfs:range setu:GeneralSalaryIncrease ;
+  skos:definition "The general salary adjustment refers to the increase applied uniformly to the entire salary table. This adjustment ensures that all employees receive a consistent percentage or fixed increase in their salaries. Please mind the usage note when to use this container."@en ;
+  sth:xmlTag "generalSalaryIncrease" ;
 .
 setu:homeOfficeIndicator
   rdf:type owl:DatatypeProperty ;
