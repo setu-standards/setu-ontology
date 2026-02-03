@@ -99,6 +99,11 @@ setu:BaseAmount
   rdfs:label "Base amount"@en ;
   skos:definition "This element stores information about the base over which the amount is calculated."@en ;
 .
+setu:BaseDefinition
+  rdf:type owl:Class ;
+  rdfs:label "Base definition"@en ;
+  skos:definition "Definitions of the bases (in Dutch: 'Grondslagen') that can be used to calculate the different rates."@en ;
+.
 setu:Breaks
   rdf:type owl:Class ;
   rdfs:label "Breaks"@en ;
@@ -283,12 +288,26 @@ setu:type
   sth:allowedValue "Unknown" ;  
   sth:xmlTag "type" ;
 .
+setu:allAllowancesIndicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "all allowances indicator"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "This element can be used to indicate whether allowances are taken into consideration for calculating this base. If 'True', then all allowances are taken into account. If 'False', the allowances that are taken into account can be specified in the 'allowances' element."@en ;
+  sth:xmlTag "allAllowancesIndicator" ;
+.
 setu:allowance
   rdf:type owl:ObjectProperty ;
   rdfs:label "allowance"@en ;
   rdfs:range hropen:TimeCardItem ;
   skos:definition "Contains data on expenses (costs incurred) and/or allowances (additional allowances or bonuses to be given for the duration of the time interval represented) that is being reported on the timecard."@en ;
   sth:xmlTag "allowance" ;
+.
+setu:allowances
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "allowances"@en ;
+  rdfs:range setu:IncludedAllowances ;
+  skos:definition "A list of allowances that are included in this base."@en ;
+  sth:xmlTag "allowances" ;
 .
 setu:assignedPeriodicPlanningLine
   rdf:type owl:ObjectProperty ;
@@ -381,6 +400,14 @@ setu:baseAmount
   rdfs:range setu:BaseAmount ;
   skos:definition "This element stores information about the base over which the amount is calculated."@en ;
   sth:xmlTag "baseAmount" ;
+.
+setu:baseDefinition
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:label "base definition"@en ;
+  rdfs:range setu:BaseDefinition ;
+  skos:definition "Definitions of the bases (in Dutch: 'Grondslagen') that can be used to calculate the different rates."@en ;
+  sth:xmlTag "baseDefinition" ;
 .
 setu:baseType
   rdf:type owl:DatatypeProperty ;
@@ -560,6 +587,13 @@ setu:generalSalaryIncrease
   skos:definition "The general salary adjustment refers to the increase applied uniformly to the entire salary table. This adjustment ensures that all employees receive a consistent percentage or fixed increase in their salaries. Please mind the usage note when to use this container."@en ;
   sth:xmlTag "generalSalaryIncrease" ;
 .
+setu:holidayAllowanceIndicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "holiday allowance indicator"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "This element can be used to indicate whether holiday allowance(s) is/are taken into consideration for calculating this base."@en ;
+  sth:xmlTag "holidayAllowanceIndicator" ;
+.
 setu:homeOfficeIndicator
   rdf:type owl:DatatypeProperty ;
   rdfs:label "home office indicator"@en ;
@@ -734,6 +768,13 @@ setu:origin
   rdfs:range setu:LabourAgreementReference ;
   skos:definition "Specifies the origin of the applicable agreement."@en ;
   sth:xmlTag "origin" ;
+.
+setu:paidLeaveDayIndicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "paid leave day indicator"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "This element can be used to indicate whether paid leave days are taken into consideration for calculating this base."@en ;
+  sth:xmlTag "paidLeaveDayIndicator" ;
 .
 setu:paidOrUnpaid
   rdf:type owl:DatatypeProperty ;
@@ -943,6 +984,13 @@ setu:remunerationAmount
   rdfs:range setu:RemunerationAmount ;
   skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
   sth:xmlTag "remunerationAmount" ;
+.
+setu:remunerationIndicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "remuneration indicator"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "This element can be used to indicate whether remuneration(s) is/are taken into consideration for calculating this base."@en ;
+  sth:xmlTag "remunerationIndicator" ;
 .
 setu:remunerationLine
   rdf:type owl:ObjectProperty ;
@@ -1154,6 +1202,12 @@ setu:travelDistance
   rdfs:range xsd:decimal ;
   skos:definition "Specifies the number of kilometers between the home of the worker and the primary work location (Dutch: standplaats)."@en ;
   sth:xmlTag "travelDistance" ;
+.
+setu:typeCode
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "type code"@en ;
+  rdfs:range xsd:string ;
+  sth:xmlTag "typeCode" ;
 .
 setu:vacationWorker
   rdf:type owl:DatatypeProperty ;

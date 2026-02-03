@@ -525,6 +525,52 @@ setu:BaseAmount
       sh:order 4 ;
     ] ;
 .
+setu:BaseDefinition
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:baseType ;
+      sh:description "A code to signify which base is defined here."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:remunerationIndicator ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:holidayAllowanceIndicator ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:paidLeaveDayIndicator ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:allAllowancesIndicator ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:allowances ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 5 ;
+    ] ;
+.
 setu:Breaks
   rdf:type sh:NodeShape ;
   sh:property [
@@ -697,6 +743,15 @@ setu:Id
       sh:order 0 ;
     ] ;
 .
+setu:IncludedAllowances
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:typeCode ;
+      sh:description "The codes of the allowances that are included in this base. A code specifying the type of allowance, such as ORT (irregularity allowance) or physical burden. There is a codelist with predefined allowances."@en ;
+      sh:order 0 ;
+    ] ;
+.
 setu:IndividualSalaryIncrease
   rdf:type sh:NodeShape ;
   sh:property [
@@ -762,6 +817,11 @@ setu:InquiryPayEquity
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:baseDefinition ;
+      sh:order 5 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
