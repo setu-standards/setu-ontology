@@ -23,7 +23,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
-  dc:modified "2026-02-03"^^xsd:date ;
+  dc:modified "2026-02-05"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
   owl:versionInfo "2.9" ;
 .
@@ -841,6 +841,51 @@ setu:InquiryPayEquity
       sh:minCount 1 ;
       sh:order 8 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:allowanceArrangement ;
+      sh:order 9 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:holidayAllowanceArrangement ;
+      sh:order 10 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:sickPayArrangement ;
+      sh:order 11 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:leaveArrangement ;
+      sh:order 12 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:individualChoiceBudgetArrangement ;
+      sh:order 13 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:pensionArrangement ;
+      sh:order 14 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:sustainableEmployabilityArrangement ;
+      sh:order 15 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:supplementaryArrangement ;
+      sh:order 16 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:otherArrangement ;
+      sh:order 17 ;
+    ] ;
 .
 setu:LabourAgreementReference
   rdf:type sh:NodeShape ;
@@ -1339,6 +1384,17 @@ setu:RemunerationAmount
       sh:path setu:proportional ;
       sh:maxCount 1 ;
       sh:order 5 ;
+    ] ;
+.
+setu:RemunerationArrangement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
+      sh:description "The unique identifier of this arrangement."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
     ] ;
 .
 setu:RemunerationLine

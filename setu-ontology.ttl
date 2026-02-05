@@ -40,6 +40,12 @@ hropen:DatePeriod
 hropen:Identifier
   rdf:type owl:Class ;
 .
+hropen:Identifier-schemeAgencyIdDatatype
+  skos:definition "The organization that issues the identifier. This organization is also responsible for unicity of the identifier within its own context."@en ;
+.
+hropen:Identifier-valueDatatype
+  skos:definition "The value of the unique identifier."@en ;
+.
 hropen:Noun
   rdf:type owl:Class ;
 .
@@ -81,9 +87,14 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-02-03"^^xsd:date ;
+  dc:modified "2026-02-05"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
+.
+setu:AllowanceArrangement
+  rdf:type owl:Class ;
+  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:label "Allowance arrangement"@en ;
 .
 setu:AssignedWorker
   rdf:type owl:Class ;
@@ -127,6 +138,11 @@ setu:GeneralSalaryIncrease
   rdfs:label "General salary increase"@en ;
   skos:definition "The general salary adjustment refers to the increase applied uniformly to the entire salary table. This adjustment ensures that all employees receive a consistent percentage or fixed increase in their salaries."@en ;
 .
+setu:HolidayAllowanceArrangement
+  rdf:type owl:Class ;
+  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:label "Holiday allowance arrangement"@en ;
+.
 setu:HourlyWageConversion
   rdf:type owl:Class ;
   rdfs:label "Hourly wage conversion"@en ;
@@ -135,6 +151,11 @@ setu:HourlyWageConversion
 setu:Id
   rdf:type owl:Class ;
   rdfs:label "Id"@en ;
+.
+setu:IndividualChoiceBudgetArrangement
+  rdf:type owl:Class ;
+  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:label "Individual choice budget arrangement"@en ;
 .
 setu:IndividualSalaryIncrease
   rdf:type owl:Class ;
@@ -161,9 +182,24 @@ setu:LabourAgreementReference
   rdfs:label "Labour agreement reference"@en ;
   skos:definition "Contains references to the labour agreement applicable."@en ;
 .
+setu:LeaveArrangement
+  rdf:type owl:Class ;
+  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:label "Leave arrangement"@en ;
+.
 setu:OnCallContract
   rdf:type owl:Class ;
   rdfs:label "On call contract"@en ;
+.
+setu:OtherArrangement
+  rdf:type owl:Class ;
+  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:label "Other arrangement"@en ;
+.
+setu:PensionArrangement
+  rdf:type owl:Class ;
+  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:label "Pension arrangement"@en ;
 .
 setu:PeriodicAvailabilityLine
   rdf:type owl:Class ;
@@ -221,6 +257,11 @@ setu:RemunerationAmount
   rdfs:label "Remuneration amount"@en ;
   skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
 .
+setu:RemunerationArrangement
+  rdf:type owl:Class ;
+  rdfs:type "Remuneration arrangement"@en ;
+  skos:definition "Class to specify a remuneration arrangement."@en ;
+.
 setu:RemunerationLine
   rdf:type owl:Class ;
   rdfs:label "Remuneration line"@en ;
@@ -250,6 +291,11 @@ setu:SalaryStep
   rdfs:subClassOf setu:SalaryScale ;
   rdfs:label "Salary step"@en ;
 .
+setu:SickPayArrangement
+  rdf:type owl:Class ;
+  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:label "Sick pay arrangement"@en ;
+.
 setu:SingleAvailabilityLine
   rdf:type owl:Class ;
   rdfs:label "Single availability line"@en ;
@@ -265,6 +311,16 @@ setu:StaffingOrder
   rdfs:label "Staffing order"@en ;
   rdfs:subClassOf hropen:Noun ;
   skos:definition "The Staffing Order message is used by a staffing customer to request and order (a) worker(s) for an open position."@en ;
+.
+setu:SupplementaryArrangement
+  rdf:type owl:Class ;
+  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:label "Supplementary arrangement"@en ;
+.
+setu:SustainableEmployabilityArrangement
+  rdf:type owl:Class ;
+  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:label "Sustainable employability arrangement"@en ;
 .
 setu:actionCode
   rdf:type owl:DatatypeProperty ;
@@ -301,6 +357,14 @@ setu:allowance
   rdfs:range hropen:TimeCardItem ;
   skos:definition "Contains data on expenses (costs incurred) and/or allowances (additional allowances or bonuses to be given for the duration of the time interval represented) that is being reported on the timecard."@en ;
   sth:xmlTag "allowance" ;
+.
+setu:allowanceArrangement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:label "allowance"@en ;
+  rdfs:range setu:AllowanceArrangement ;
+  skos:definition "A container element that includes various allowances that can be granted to an employee."@en ;
+  sth:xmlTag "allowanceArrangement" ;
 .
 setu:allowances
   rdf:type owl:ObjectProperty ;
@@ -587,6 +651,14 @@ setu:generalSalaryIncrease
   skos:definition "The general salary adjustment refers to the increase applied uniformly to the entire salary table. This adjustment ensures that all employees receive a consistent percentage or fixed increase in their salaries. Please mind the usage note when to use this container."@en ;
   sth:xmlTag "generalSalaryIncrease" ;
 .
+setu:holidayAllowanceArrangement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:label "holiday allowance"@en ;
+  rdfs:range setu:HolidayAllowanceArrangement ;
+  skos:definition "A container that contains the details of the holiday allowance arrangement."@en ;
+  sth:xmlTag "holidayAllowanceArrangement" ;
+.
 setu:holidayAllowanceIndicator
   rdf:type owl:DatatypeProperty ;
   rdfs:label "holiday allowance indicator"@en ;
@@ -658,6 +730,14 @@ setu:indicator
   rdfs:range xsd:boolean ;
   sth:xmlTag "indicator" ;
 .
+setu:individualChoiceBudgetArrangement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:label "individual choice budget"@en ;
+  rdfs:range setu:IndividualChoiceBudgetArrangement ;
+  skos:definition "Individual choice budget (Dutch: IKB) is used if the employer has an individual choice budget. It's elements are used for the different options an employee has regarding this budget as well as its costs."@en ;
+  sth:xmlTag "individualChoiceBudgetArrangement" ;
+.
 setu:individualSalaryIncrease
   rdf:type owl:ObjectProperty ;
   rdfs:domain setu:RemunerationPackage ;
@@ -692,6 +772,14 @@ setu:labourAgreements
   rdfs:range setu:LabourAgreements ;
   skos:definition "Indicates in which sector the staffing customer works and which specific collective labour agreement (CLA) and/or the own employment conditions scheme is leading for the provision of remuneration information."@en ;
   sth:xmlTag "labourAgreements" ;
+.
+setu:leaveArrangement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:label "leave"@en ;
+  rdfs:range setu:LeaveArrangement ;
+  skos:definition "A container that contains the details of the leave arrangement, such as the type of leave, the amount of the leave, as well as any conditions."@en ;
+  sth:xmlTag "leaveArrangement" ;
 .
 setu:licenses
   rdf:type owl:ObjectProperty ;
@@ -769,6 +857,14 @@ setu:origin
   skos:definition "Specifies the origin of the applicable agreement."@en ;
   sth:xmlTag "origin" ;
 .
+setu:otherArrangement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:label "other arrangement"@en ;
+  rdfs:range setu:OtherArrangement ;
+  skos:definition "This element can be used to provide any additional arrangements that have not been covered by the other elements."@en ;
+  sth:xmlTag "otherArrangement" ;
+.
 setu:paidLeaveDayIndicator
   rdf:type owl:DatatypeProperty ;
   rdfs:label "paid leave day indicator"@en ;
@@ -799,6 +895,14 @@ setu:payRates
   rdfs:label "pay rates"@en ;
   rdfs:range hropen:PayRate ;
   sth:xmlTag "payRates" ;
+.
+setu:pensionArrangement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:label "pension"@en ;
+  rdfs:range setu:PensionArrangement ;
+  skos:definition "The employer's contribution to a pension plan."@en ;
+  sth:xmlTag "pensionArrangement" ;
 .
 setu:period
   rdf:type owl:ObjectProperty ;
@@ -1100,6 +1204,14 @@ setu:schemeAgencyId
   sth:allowedValue "Supplier" ;
   sth:xmlTag "schemeAgencyId" ;
 .
+setu:sickPayArrangement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:label "sick pay"@en ;
+  rdfs:range setu:SickPayArrangement ;
+  skos:definition "This element refers to the method in which the employer continues to compensate an employee when the employee has fallen ill."@en ;
+  sth:xmlTag "sickPayArrangement" ;
+.
 setu:singleAvailabilityLine
   rdf:type owl:ObjectProperty ;
   rdfs:domain setu:PlanningConstraints ;
@@ -1175,11 +1287,27 @@ setu:streetName
   skos:definition "The street name of the address."@en ;
   sth:xmlTag "streetName" ;
 .
+setu:supplementaryArrangement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:label "supplementary arrangement"@en ;
+  rdfs:range setu:SupplementaryArrangement ;
+  skos:definition "A container that specifies the supplementary arrangement(s) (In Dutch: 'aanvullende regelingen')."@en ;
+  sth:xmlTag "supplementaryArrangement" ;
+.
 setu:supplier
   rdf:type owl:ObjectProperty ;
   rdfs:label "supplier"@en ;
   rdfs:range hropen:Party ;
   sth:xmlTag "supplier" ;
+.
+setu:sustainableEmployabilityArrangement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:label "sustainable employability"@en ;
+  rdfs:range setu:SustainableEmployabilityArrangement ;
+  skos:definition "Sustainable employability allows for the employer to add information regarding sustainable employability arrangement that the employer might have (e.g. study budget for the employee)."@en ;
+  sth:xmlTag "sustainableEmployabilityArrangement" ;
 .
 setu:toBeBilled
   rdf:type owl:DatatypeProperty ;
