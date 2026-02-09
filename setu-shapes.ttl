@@ -419,6 +419,56 @@ hropen:WorkingPeriod
       sh:order 4 ;
     ] ;
 .
+inq:AmountExtended
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:value ;
+      sh:datatype xsd:decimal ;
+      sh:description "The numerical value of the remuneration amount expressed as decimal. The unit type of this value can be specified in the unit code element."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:minValue ;
+      sh:datatype xsd:decimal ;
+      sh:description "If applicable, a minimum value can be provided to signify a minimum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will be used instead of the value element."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:maxValue ;
+      sh:datatype xsd:decimal ;
+      sh:description "If applicable, a maximum value can be provided to signify a maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the maximum value, the maximum value will be used instead of the value element."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:unitCode ;
+      sh:datatype xsd:string ;
+      sh:description "This element provides a way to specify the type of unit of the value. This can be for example 'percentage' if the unit type of the value is to be interpreted as a percentage or euro if the unity type of the value is to be interpreted as a euro monetary amount."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:baseAmount ;
+      sh:description "This element stores information about the base over which the amount is calculated. If the value is 3, the unit code is 'Percentage' and the base code is 'MonthlySalary', together they would imply a 3% of monthly salary."@en ;
+      sh:maxCount 1 ;
+      sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:proportional ;
+      sh:maxCount 1 ;
+      sh:order 5 ;
+    ] ;
+.
 inq:Arrangement
   rdf:type sh:NodeShape ;
   sh:property [
@@ -442,7 +492,8 @@ inq:ArrangementLine
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:remunerationAmount ;
+      sh:path inq:amount ;
+      sh:datatype inq:AmountExtended ;
       sh:maxCount 1 ;
       sh:order 1 ;
     ] ;
@@ -472,7 +523,8 @@ inq:ArrangementLineLimited
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:remunerationAmount ;
+      sh:path inq:amount ;
+      sh:datatype inq:AmountExtended ;
       sh:maxCount 1 ;
       sh:order 1 ;
     ] ;
@@ -913,7 +965,8 @@ setu:GeneralSalaryIncrease
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:remunerationAmount ;
+      sh:path inq:amount ;
+      sh:datatype inq:Amount ;
       sh:description "Container element that contains the value of the amount and the type of unit of the value."@en ;
       sh:maxCount 1 ;
       sh:order 1 ;
@@ -1453,56 +1506,6 @@ setu:RelatedWorker
       sh:description "The start date and time of the period the worker is related to another worker."@en ;
       sh:maxCount 1 ;
       sh:order 6 ;
-    ] ;
-.
-setu:RemunerationAmount
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path hropen:value ;
-      sh:datatype xsd:decimal ;
-      sh:description "The numerical value of the remuneration amount expressed as decimal. The unit type of this value can be specified in the unit code element."@en ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 0 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path hropen:minValue ;
-      sh:datatype xsd:decimal ;
-      sh:description "If applicable, a minimum value can be provided to signify a minimum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will be used instead of the value element."@en ;
-      sh:maxCount 1 ;
-      sh:order 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path hropen:maxValue ;
-      sh:datatype xsd:decimal ;
-      sh:description "If applicable, a maximum value can be provided to signify a maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the maximum value, the maximum value will be used instead of the value element."@en ;
-      sh:maxCount 1 ;
-      sh:order 2 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path hropen:unitCode ;
-      sh:datatype xsd:string ;
-      sh:description "This element provides a way to specify the type of unit of the value. This can be for example 'percentage' if the unit type of the value is to be interpreted as a percentage or euro if the unity type of the value is to be interpreted as a euro monetary amount."@en ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 3 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:baseAmount ;
-      sh:description "This element stores information about the base over which the amount is calculated. If the value is 3, the unit code is 'Percentage' and the base code is 'MonthlySalary', together they would imply a 3% of monthly salary."@en ;
-      sh:maxCount 1 ;
-      sh:order 4 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:proportional ;
-      sh:maxCount 1 ;
-      sh:order 5 ;
     ] ;
 .
 setu:RequestForQuotationDetails

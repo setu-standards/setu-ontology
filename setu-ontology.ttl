@@ -83,6 +83,11 @@ inq:AllowanceArrangement
   rdfs:subClassOf inq:Arrangement ;
   rdfs:label "Allowance arrangement"@en ;
 .
+inq:AmountExtended
+  rdf:type owl:Class ;
+  rdfs:label "Amount extended"@en ;
+  skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
+.
 inq:Arrangement
   rdf:type owl:Class ;
   rdfs:type "Arrangement"@en ;
@@ -156,6 +161,12 @@ inq:allowanceArrangement
   rdfs:range inq:AllowanceArrangement ;
   skos:definition "A container element that includes various allowances that can be granted to an employee."@en ;
   sth:xmlTag "allowanceArrangement" ;
+.
+inq:amount
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "amount"@en ;
+  skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
+  sth:xmlTag "amount" ;
 .
 inq:arrangementLine
   rdf:type owl:ObjectProperty ;
@@ -382,11 +393,6 @@ setu:RelatedWorker
   rdf:type owl:Class ;
   rdfs:subClassOf hropen:Worker ;
   rdfs:label "Related worker"@en ;
-.
-setu:RemunerationAmount
-  rdf:type owl:Class ;
-  rdfs:label "Remuneration amount"@en ;
-  skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
 .
 setu:RequestedWorker
   rdf:type owl:Class ;
@@ -1066,7 +1072,7 @@ setu:primaryLocation
 .
 setu:proportional
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:RemunerationAmount ;
+  rdfs:domain inq:AmountExtended ;
   rdfs:label "proportional"@en ;
   rdfs:range setu:Proportional ;
   skos:definition "The proportional element is used to specify whether certain work-related conditions such as leave entitlements, remuneration, or similar employment provisions are applied proportionally based on specific employee characteristics."@en ;
@@ -1127,13 +1133,6 @@ setu:relatedWorkerType
   sth:allowedValue "Preferred" ;
   sth:allowedValue "Required" ;
   sth:xmlTag "relatedWorkerType" ;
-.
-setu:remunerationAmount
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "amount"@en ;
-  rdfs:range setu:RemunerationAmount ;
-  skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
-  sth:xmlTag "remunerationAmount" ;
 .
 setu:remunerationIndicator
   rdf:type owl:DatatypeProperty ;
