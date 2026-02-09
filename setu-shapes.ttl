@@ -419,6 +419,17 @@ hropen:WorkingPeriod
       sh:order 4 ;
     ] ;
 .
+inq:Arrangement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
+      sh:description "The unique identifier of this arrangement."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+.
 inq:InquiryPayEquity
   rdf:type sh:NodeShape ;
   sh:property [
@@ -467,65 +478,100 @@ inq:InquiryPayEquity
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:remuneration ;
+      sh:path inq:remuneration ;
       sh:minCount 1 ;
       sh:order 8 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:allowanceArrangement ;
+      sh:path inq:allowanceArrangement ;
       sh:order 9 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:holidayAllowanceArrangement ;
+      sh:path inq:holidayAllowanceArrangement ;
       sh:order 10 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:sickPayArrangement ;
+      sh:path inq:sickPayArrangement ;
       sh:order 11 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:leaveArrangement ;
+      sh:path inq:leaveArrangement ;
       sh:order 12 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:individualChoiceBudgetArrangement ;
+      sh:path inq:individualChoiceBudgetArrangement ;
       sh:order 13 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:pensionArrangement ;
+      sh:path inq:pensionArrangement ;
       sh:order 14 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:sustainableEmployabilityArrangement ;
+      sh:path inq:sustainableEmployabilityArrangement ;
       sh:order 15 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:supplementaryArrangement ;
+      sh:path inq:supplementaryArrangement ;
       sh:order 16 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:otherArrangement ;
+      sh:path inq:otherArrangement ;
       sh:order 17 ;
     ] ;
 .
-setu:Arrangement
+inq:RemunerationPackage
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path hropen:idRef ;
-      sh:datatype hropen:Identifier ;
-      sh:description "The unique identifier of this arrangement."@en ;
+      sh:path setu:origin ;
       sh:maxCount 1 ;
+      sh:minCount 1 ;
       sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:effectiveTimePeriod ;
+      sh:description "Indicates the validity period of this regulation. The period is from the start date up to and including the end date."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:hourlyWageConversion ;
+      sh:maxCount 1 ;
+      sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:salaryScaleStructure ;
+      sh:datatype setu:SalaryScale ;
+      sh:minCount 1 ;
+      sh:order 5 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:individualSalaryIncrease ;
+      sh:order 6 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:generalSalaryIncrease ;
+      sh:order 7 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:conditions ;
+      sh:description "A container element for providing more information about the conditions that have to be met before this remuneration applies."@en ;
+      sh:order 8 ;
     ] ;
 .
 setu:AssignedWorker
@@ -1426,52 +1472,6 @@ setu:RemunerationLine
       rdf:type sh:PropertyShape ;
       sh:path setu:conditions ;
       sh:order 3 ;
-    ] ;
-.
-setu:RemunerationPackage
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:origin ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 0 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:effectiveTimePeriod ;
-      sh:description "Indicates the validity period of this regulation. The period is from the start date up to and including the end date."@en ;
-      sh:maxCount 1 ;
-      sh:order 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:hourlyWageConversion ;
-      sh:maxCount 1 ;
-      sh:order 4 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:salaryScaleStructure ;
-      sh:datatype setu:SalaryScale ;
-      sh:minCount 1 ;
-      sh:order 5 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:individualSalaryIncrease ;
-      sh:order 6 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:generalSalaryIncrease ;
-      sh:order 7 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:conditions ;
-      sh:description "A container element for providing more information about the conditions that have to be met before this remuneration applies."@en ;
-      sh:order 8 ;
     ] ;
 .
 setu:RequestForQuotationDetails
