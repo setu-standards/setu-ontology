@@ -87,14 +87,19 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-02-05"^^xsd:date ;
+  dc:modified "2026-02-09"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
 .
 setu:AllowanceArrangement
   rdf:type owl:Class ;
-  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:subClassOf setu:Arrangement ;
   rdfs:label "Allowance arrangement"@en ;
+.
+setu:Arrangement
+  rdf:type owl:Class ;
+  rdfs:type "Arrangement"@en ;
+  skos:definition "Class to specify an arrangement."@en ;
 .
 setu:AssignedWorker
   rdf:type owl:Class ;
@@ -140,7 +145,7 @@ setu:GeneralSalaryIncrease
 .
 setu:HolidayAllowanceArrangement
   rdf:type owl:Class ;
-  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:subClassOf setu:Arrangement ;
   rdfs:label "Holiday allowance arrangement"@en ;
 .
 setu:HourlyWageConversion
@@ -154,7 +159,7 @@ setu:Id
 .
 setu:IndividualChoiceBudgetArrangement
   rdf:type owl:Class ;
-  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:subClassOf setu:Arrangement ;
   rdfs:label "Individual choice budget arrangement"@en ;
 .
 setu:IndividualSalaryIncrease
@@ -184,7 +189,7 @@ setu:LabourAgreementReference
 .
 setu:LeaveArrangement
   rdf:type owl:Class ;
-  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:subClassOf setu:Arrangement ;
   rdfs:label "Leave arrangement"@en ;
 .
 setu:OnCallContract
@@ -193,12 +198,12 @@ setu:OnCallContract
 .
 setu:OtherArrangement
   rdf:type owl:Class ;
-  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:subClassOf setu:Arrangement ;
   rdfs:label "Other arrangement"@en ;
 .
 setu:PensionArrangement
   rdf:type owl:Class ;
-  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:subClassOf setu:Arrangement ;
   rdfs:label "Pension arrangement"@en ;
 .
 setu:PeriodicAvailabilityLine
@@ -257,11 +262,6 @@ setu:RemunerationAmount
   rdfs:label "Remuneration amount"@en ;
   skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
 .
-setu:RemunerationArrangement
-  rdf:type owl:Class ;
-  rdfs:type "Remuneration arrangement"@en ;
-  skos:definition "Class to specify a remuneration arrangement."@en ;
-.
 setu:RemunerationLine
   rdf:type owl:Class ;
   rdfs:label "Remuneration line"@en ;
@@ -293,7 +293,7 @@ setu:SalaryStep
 .
 setu:SickPayArrangement
   rdf:type owl:Class ;
-  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:subClassOf setu:Arrangement ;
   rdfs:label "Sick pay arrangement"@en ;
 .
 setu:SingleAvailabilityLine
@@ -314,12 +314,12 @@ setu:StaffingOrder
 .
 setu:SupplementaryArrangement
   rdf:type owl:Class ;
-  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:subClassOf setu:Arrangement ;
   rdfs:label "Supplementary arrangement"@en ;
 .
 setu:SustainableEmployabilityArrangement
   rdf:type owl:Class ;
-  rdfs:subClassOf setu:RemunerationArrangement ;
+  rdfs:subClassOf setu:Arrangement ;
   rdfs:label "Sustainable employability arrangement"@en ;
 .
 setu:actionCode
