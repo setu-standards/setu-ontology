@@ -83,6 +83,10 @@ inq:AllowanceArrangement
   rdfs:subClassOf inq:Arrangement ;
   rdfs:label "Allowance arrangement"@en ;
 .
+inq:AllowanceReference
+  rdf:type owl:Class ;
+  rdfs:label "Allowance reference"@en ;
+.
 inq:Amount
   rdf:type owl:Class ;
   rdfs:label "Amount"@en ;
@@ -107,6 +111,11 @@ inq:ArrangementLineLimited
   rdf:type owl:Class ;
   rdfs:label "Arrangement line limited"@en ;
   skos:definition "A container that contains the details of the increase rate. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
+.
+inq:BaseDefinition
+  rdf:type owl:Class ;
+  rdfs:label "Base definition"@en ;
+  skos:definition "Definitions of the bases (in Dutch: 'Grondslagen') that can be used to calculate the different rates."@en ;
 .
 inq:GeneralSalaryIncrease
   rdf:type owl:Class ;
@@ -169,6 +178,13 @@ inq:SustainableEmployabilityArrangement
   rdfs:subClassOf inq:Arrangement ;
   rdfs:label "Sustainable employability arrangement"@en ;
 .
+inq:allAllowancesIndicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "all allowances indicator"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "This element can be used to indicate whether allowances are taken into consideration for calculating this base. If 'True', then all allowances are taken into account. If 'False', the allowances that are taken into account can be specified in the 'allowances' element."@en ;
+  sth:xmlTag "allAllowancesIndicator" ;
+.
 inq:allowanceArrangement
   rdf:type owl:ObjectProperty ;
   rdfs:domain inq:InquiryPayEquity ;
@@ -176,6 +192,13 @@ inq:allowanceArrangement
   rdfs:range inq:AllowanceArrangement ;
   skos:definition "A container element that includes various allowances that can be granted to an employee."@en ;
   sth:xmlTag "allowanceArrangement" ;
+.
+inq:allowances
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "allowances"@en ;
+  rdfs:range inq:AllowanceReference ;
+  skos:definition "A list of allowances that are included in this base."@en ;
+  sth:xmlTag "allowances" ;
 .
 inq:amount
   rdf:type owl:ObjectProperty ;
@@ -188,6 +211,21 @@ inq:arrangementLine
   rdfs:label "line"@en ;
   skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
   sth:xmlTag "arrangementLine" ;
+.
+inq:baseDefinition
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain inq:InquiryPayEquity ;
+  rdfs:label "base definition"@en ;
+  rdfs:range inq:BaseDefinition ;
+  skos:definition "Definitions of the bases (in Dutch: 'Grondslagen') that can be used to calculate the different rates."@en ;
+  sth:xmlTag "baseDefinition" ;
+.
+inq:baseType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "base type"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Base type definition. Refers to the base over which this amount was calculated."@en ;
+  sth:xmlTag "baseType" ;
 .
 inq:generalSalaryIncrease
   rdf:type owl:ObjectProperty ;
@@ -204,6 +242,13 @@ inq:holidayAllowanceArrangement
   rdfs:range inq:HolidayAllowanceArrangement ;
   skos:definition "A container that contains the details of the holiday allowance arrangement."@en ;
   sth:xmlTag "holidayAllowanceArrangement" ;
+.
+inq:holidayAllowanceIndicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "holiday allowance indicator"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "This element can be used to indicate whether holiday allowance(s) is/are taken into consideration for calculating this base."@en ;
+  sth:xmlTag "holidayAllowanceIndicator" ;
 .
 inq:individualChoiceBudgetArrangement
   rdf:type owl:ObjectProperty ;
@@ -237,6 +282,13 @@ inq:otherArrangement
   skos:definition "This element can be used to provide any additional arrangements that have not been covered by the other elements."@en ;
   sth:xmlTag "otherArrangement" ;
 .
+inq:paidLeaveDayIndicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "paid leave day indicator"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "This element can be used to indicate whether paid leave days are taken into consideration for calculating this base."@en ;
+  sth:xmlTag "paidLeaveDayIndicator" ;
+.
 inq:pensionArrangement
   rdf:type owl:ObjectProperty ;
   rdfs:domain inq:InquiryPayEquity ;
@@ -251,6 +303,13 @@ inq:remuneration
   rdfs:range inq:RemunerationPackage ;
   skos:definition "Details about the remuneration package, including salary tables based on the work duration. It includes one or more salary tables for a specific work duration or characteristics."@en ;
   sth:xmlTag "remuneration" ;
+.
+inq:remunerationIndicator
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "remuneration indicator"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "This element can be used to indicate whether remuneration(s) is/are taken into consideration for calculating this base."@en ;
+  sth:xmlTag "remunerationIndicator" ;
 .
 inq:sickPayArrangement
   rdf:type owl:ObjectProperty ;
@@ -275,6 +334,12 @@ inq:sustainableEmployabilityArrangement
   rdfs:range inq:SustainableEmployabilityArrangement ;
   skos:definition "Sustainable employability allows for the employer to add information regarding sustainable employability arrangement that the employer might have (e.g. study budget for the employee)."@en ;
   sth:xmlTag "sustainableEmployabilityArrangement" ;
+.
+inq:typeCode
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "type code"@en ;
+  rdfs:range xsd:string ;
+  sth:xmlTag "typeCode" ;
 .
 sth:allowedValue
   rdf:type owl:AnnotationProperty ;
@@ -313,11 +378,6 @@ setu:BaseAmount
   rdf:type owl:Class ;
   rdfs:label "Base amount"@en ;
   skos:definition "This element stores information about the base over which the amount is calculated."@en ;
-.
-setu:BaseDefinition
-  rdf:type owl:Class ;
-  rdfs:label "Base definition"@en ;
-  skos:definition "Definitions of the bases (in Dutch: 'Grondslagen') that can be used to calculate the different rates."@en ;
 .
 setu:Breaks
   rdf:type owl:Class ;
@@ -472,26 +532,12 @@ setu:type
   sth:allowedValue "Unknown" ;  
   sth:xmlTag "type" ;
 .
-setu:allAllowancesIndicator
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "all allowances indicator"@en ;
-  rdfs:range xsd:boolean ;
-  skos:definition "This element can be used to indicate whether allowances are taken into consideration for calculating this base. If 'True', then all allowances are taken into account. If 'False', the allowances that are taken into account can be specified in the 'allowances' element."@en ;
-  sth:xmlTag "allAllowancesIndicator" ;
-.
 setu:allowance
   rdf:type owl:ObjectProperty ;
   rdfs:label "allowance"@en ;
   rdfs:range hropen:TimeCardItem ;
   skos:definition "Contains data on expenses (costs incurred) and/or allowances (additional allowances or bonuses to be given for the duration of the time interval represented) that is being reported on the timecard."@en ;
   sth:xmlTag "allowance" ;
-.
-setu:allowances
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "allowances"@en ;
-  rdfs:range setu:IncludedAllowances ;
-  skos:definition "A list of allowances that are included in this base."@en ;
-  sth:xmlTag "allowances" ;
 .
 setu:assignedPeriodicPlanningLine
   rdf:type owl:ObjectProperty ;
@@ -584,21 +630,6 @@ setu:baseAmount
   rdfs:range setu:BaseAmount ;
   skos:definition "This element stores information about the base over which the amount is calculated."@en ;
   sth:xmlTag "baseAmount" ;
-.
-setu:baseDefinition
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain inq:InquiryPayEquity ;
-  rdfs:label "base definition"@en ;
-  rdfs:range setu:BaseDefinition ;
-  skos:definition "Definitions of the bases (in Dutch: 'Grondslagen') that can be used to calculate the different rates."@en ;
-  sth:xmlTag "baseDefinition" ;
-.
-setu:baseType
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "base type"@en ;
-  rdfs:range xsd:string ;
-  skos:definition "Base type definition. Refers to the base over which this amount was calculated."@en ;
-  sth:xmlTag "baseType" ;
 .
 setu:basedOn
   rdf:type owl:DatatypeProperty ;
@@ -762,13 +793,6 @@ setu:establishment
   rdfs:range hropen:EmployerEstablishment ;
   skos:definition "Information to identify and reference a specific establishment within an organization."@en ;
   sth:xmlTag "establishment" ;
-.
-setu:holidayAllowanceIndicator
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "holiday allowance indicator"@en ;
-  rdfs:range xsd:boolean ;
-  skos:definition "This element can be used to indicate whether holiday allowance(s) is/are taken into consideration for calculating this base."@en ;
-  sth:xmlTag "holidayAllowanceIndicator" ;
 .
 setu:homeOfficeIndicator
   rdf:type owl:DatatypeProperty ;
@@ -936,13 +960,6 @@ setu:origin
   rdfs:range setu:LabourAgreementReference ;
   skos:definition "Specifies the origin of the applicable agreement."@en ;
   sth:xmlTag "origin" ;
-.
-setu:paidLeaveDayIndicator
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "paid leave day indicator"@en ;
-  rdfs:range xsd:boolean ;
-  skos:definition "This element can be used to indicate whether paid leave days are taken into consideration for calculating this base."@en ;
-  sth:xmlTag "paidLeaveDayIndicator" ;
 .
 setu:paidOrUnpaid
   rdf:type owl:DatatypeProperty ;
@@ -1138,13 +1155,6 @@ setu:relatedWorkerType
   sth:allowedValue "Preferred" ;
   sth:allowedValue "Required" ;
   sth:xmlTag "relatedWorkerType" ;
-.
-setu:remunerationIndicator
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "remuneration indicator"@en ;
-  rdfs:range xsd:boolean ;
-  skos:definition "This element can be used to indicate whether remuneration(s) is/are taken into consideration for calculating this base."@en ;
-  sth:xmlTag "remunerationIndicator" ;
 .
 setu:requestComments
   rdf:type owl:DatatypeProperty ;
@@ -1349,12 +1359,6 @@ setu:travelDistance
   rdfs:range xsd:decimal ;
   skos:definition "Specifies the number of kilometers between the home of the worker and the primary work location (Dutch: standplaats)."@en ;
   sth:xmlTag "travelDistance" ;
-.
-setu:typeCode
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "type code"@en ;
-  rdfs:range xsd:string ;
-  sth:xmlTag "typeCode" ;
 .
 setu:vacationWorker
   rdf:type owl:DatatypeProperty ;

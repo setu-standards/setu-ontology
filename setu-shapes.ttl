@@ -419,6 +419,15 @@ hropen:WorkingPeriod
       sh:order 4 ;
     ] ;
 .
+inq:AllowanceReference
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:typeCode ;
+      sh:description "The codes of the allowances that are included in this base. A code specifying the type of allowance, such as ORT (irregularity allowance) or physical burden. There is a codelist with predefined allowances."@en ;
+      sh:order 0 ;
+    ] ;
+.
 inq:Amount
   rdf:type sh:NodeShape ;
   sh:property [
@@ -563,6 +572,52 @@ inq:ArrangementLineLimited
       sh:order 3 ;
     ] ;
 .
+inq:BaseDefinition
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:baseType ;
+      sh:description "A code to signify which base is defined here."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:remunerationIndicator ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:holidayAllowanceIndicator ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:paidLeaveDayIndicator ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:allAllowancesIndicator ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:allowances ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 5 ;
+    ] ;
+.
 inq:GeneralSalaryIncrease
   rdf:type sh:NodeShape ;
   sh:property [
@@ -636,7 +691,7 @@ inq:InquiryPayEquity
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:baseDefinition ;
+      sh:path inq:baseDefinition ;
       sh:order 5 ;
     ] ;
   sh:property [
@@ -827,7 +882,7 @@ setu:BaseAmount
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:baseType ;
+      sh:path inq:baseType ;
       sh:maxCount 1 ;
       sh:order 1 ;
     ] ;
@@ -854,52 +909,6 @@ setu:BaseAmount
       sh:description "If applicable, a maximum value can be provided to signify a maximum that the value in this base has to be. This implies that if the value is more than the maximum value, the maximum value will be used instead of the value element."@en ;
       sh:maxCount 1 ;
       sh:order 4 ;
-    ] ;
-.
-setu:BaseDefinition
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:baseType ;
-      sh:description "A code to signify which base is defined here."@en ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 0 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:remunerationIndicator ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:holidayAllowanceIndicator ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 2 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:paidLeaveDayIndicator ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 3 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:allAllowancesIndicator ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 4 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:allowances ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 5 ;
     ] ;
 .
 setu:Breaks
@@ -1047,15 +1056,6 @@ setu:Id
       sh:path setu:value ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-      sh:order 0 ;
-    ] ;
-.
-setu:IncludedAllowances
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:typeCode ;
-      sh:description "The codes of the allowances that are included in this base. A code specifying the type of allowance, such as ORT (irregularity allowance) or physical burden. There is a codelist with predefined allowances."@en ;
       sh:order 0 ;
     ] ;
 .
