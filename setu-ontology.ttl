@@ -83,6 +83,11 @@ inq:AllowanceArrangement
   rdfs:subClassOf inq:Arrangement ;
   rdfs:label "Allowance arrangement"@en ;
 .
+inq:Amount
+  rdf:type owl:Class ;
+  rdfs:label "Amount"@en ;
+  skos:definition "Container element that contains the value of the amount and the type of unit of the value."@en ;
+.
 inq:AmountExtended
   rdf:type owl:Class ;
   rdfs:label "Amount extended"@en ;
@@ -103,6 +108,11 @@ inq:ArrangementLineLimited
   rdfs:label "Arrangement line limited"@en ;
   skos:definition "A container that contains the details of the increase rate. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
 .
+inq:GeneralSalaryIncrease
+  rdf:type owl:Class ;
+  rdfs:label "General salary increase"@en ;
+  skos:definition "The general salary adjustment refers to the increase applied uniformly to the entire salary table. This adjustment ensures that all employees receive a consistent percentage or fixed increase in their salaries."@en ;
+.
 inq:HolidayAllowanceArrangement
   rdf:type owl:Class ;
   rdfs:subClassOf inq:Arrangement ;
@@ -112,6 +122,11 @@ inq:IndividualChoiceBudgetArrangement
   rdf:type owl:Class ;
   rdfs:subClassOf inq:Arrangement ;
   rdfs:label "Individual choice budget arrangement"@en ;
+.
+inq:IndividualSalaryIncrease
+  rdf:type owl:Class ;
+  rdfs:label "Individual salary increase"@en ;
+  skos:definition "The individual salary review is a process where an employee's salary is evaluated and adjusted based on individual performance, and other relevant criteria. This container specifies the increase rate of these adjustments."@en ;
 .
 inq:InquiryPayEquity
   rdf:type owl:Class ;
@@ -174,6 +189,14 @@ inq:arrangementLine
   skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
   sth:xmlTag "arrangementLine" ;
 .
+inq:generalSalaryIncrease
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain inq:RemunerationPackage ;
+  rdfs:label "general salary increase"@en ;
+  rdfs:range inq:GeneralSalaryIncrease ;
+  skos:definition "The general salary adjustment refers to the increase applied uniformly to the entire salary table. This adjustment ensures that all employees receive a consistent percentage or fixed increase in their salaries. Please mind the usage note when to use this container."@en ;
+  sth:xmlTag "generalSalaryIncrease" ;
+.
 inq:holidayAllowanceArrangement
   rdf:type owl:ObjectProperty ;
   rdfs:domain inq:InquiryPayEquity ;
@@ -189,6 +212,14 @@ inq:individualChoiceBudgetArrangement
   rdfs:range inq:IndividualChoiceBudgetArrangement ;
   skos:definition "Individual choice budget (Dutch: IKB) is used if the employer has an individual choice budget. It's elements are used for the different options an employee has regarding this budget as well as its costs."@en ;
   sth:xmlTag "individualChoiceBudgetArrangement" ;
+.
+inq:individualSalaryIncrease
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain inq:RemunerationPackage ;
+  rdfs:label "individual salary increase"@en ;
+  rdfs:range inq:IndividualSalaryIncrease ;
+  skos:definition "The individual salary review is a process where an employee's salary is evaluated and adjusted based on individual performance, and other relevant criteria. This container specifies the increase rate of these adjustments."@en ;
+  sth:xmlTag "individualSalaryIncrease" ;
 .
 inq:leaveArrangement
   rdf:type owl:ObjectProperty ;
@@ -306,11 +337,6 @@ setu:CollectiveLabourAgreement
   rdfs:label "Collective labour agreement"@en ;
   skos:definition "The collective labour agreement (CLA; CAO in Dutch) that determines the renumeration. In the Netherlands this can be the CLA of the ABU, NBBU or a specific CLA of the staffing customer."@en ;
 .
-setu:GeneralSalaryIncrease
-  rdf:type owl:Class ;
-  rdfs:label "General salary increase"@en ;
-  skos:definition "The general salary adjustment refers to the increase applied uniformly to the entire salary table. This adjustment ensures that all employees receive a consistent percentage or fixed increase in their salaries."@en ;
-.
 setu:HourlyWageConversion
   rdf:type owl:Class ;
   rdfs:label "Hourly wage conversion"@en ;
@@ -319,11 +345,6 @@ setu:HourlyWageConversion
 setu:Id
   rdf:type owl:Class ;
   rdfs:label "Id"@en ;
-.
-setu:IndividualSalaryIncrease
-  rdf:type owl:Class ;
-  rdfs:label "Individual salary increase"@en ;
-  skos:definition "The individual salary review is a process where an employee's salary is evaluated and adjusted based on individual performance, and other relevant criteria. This container specifies the increase rate of these adjustments."@en ;
 .
 setu:IntervalCode
   rdf:type owl:Class ;
@@ -742,14 +763,6 @@ setu:establishment
   skos:definition "Information to identify and reference a specific establishment within an organization."@en ;
   sth:xmlTag "establishment" ;
 .
-setu:generalSalaryIncrease
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain inq:RemunerationPackage ;
-  rdfs:label "general salary increase"@en ;
-  rdfs:range setu:GeneralSalaryIncrease ;
-  skos:definition "The general salary adjustment refers to the increase applied uniformly to the entire salary table. This adjustment ensures that all employees receive a consistent percentage or fixed increase in their salaries. Please mind the usage note when to use this container."@en ;
-  sth:xmlTag "generalSalaryIncrease" ;
-.
 setu:holidayAllowanceIndicator
   rdf:type owl:DatatypeProperty ;
   rdfs:label "holiday allowance indicator"@en ;
@@ -820,14 +833,6 @@ setu:indicator
   rdfs:label "indicator"@en ;
   rdfs:range xsd:boolean ;
   sth:xmlTag "indicator" ;
-.
-setu:individualSalaryIncrease
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain inq:RemunerationPackage ;
-  rdfs:label "individual salary increase"@en ;
-  rdfs:range setu:IndividualSalaryIncrease ;
-  skos:definition "The individual salary review is a process where an employee's salary is evaluated and adjusted based on individual performance, and other relevant criteria. This container specifies the increase rate of these adjustments."@en ;
-  sth:xmlTag "individualSalaryIncrease" ;
 .
 setu:industryIdentifier
   rdf:type owl:ObjectProperty ;

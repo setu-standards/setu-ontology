@@ -419,6 +419,27 @@ hropen:WorkingPeriod
       sh:order 4 ;
     ] ;
 .
+inq:Amount
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:value ;
+      sh:datatype xsd:decimal ;
+      sh:description "The value of the unique identifier."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:unitCode ;
+      sh:datatype xsd:string ;
+      sh:description "This element provides a way to specify the type of unit of the value."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 1 ;
+    ] ;
+.
 inq:AmountExtended
   rdf:type sh:NodeShape ;
   sh:property [
@@ -540,6 +561,48 @@ inq:ArrangementLineLimited
       rdf:type sh:PropertyShape ;
       sh:path setu:conditions ;
       sh:order 3 ;
+    ] ;
+.
+inq:GeneralSalaryIncrease
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:effectiveTimePeriod ;
+      sh:description "The effective start date of this initial increase."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:amount ;
+      sh:datatype inq:Amount ;
+      sh:description "Container element that contains the value of the amount and the type of unit of the value."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "Free text description of the general salary table increase."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
+    ] ;
+.
+inq:IndividualSalaryIncrease
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:effectiveTimePeriod ;
+      sh:description "This element allows to specify on which date the salary adjustment or increase takes effect."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:arrangementLine ;
+      sh:datatype inq:ArrangementLineLimited ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
     ] ;
 .
 inq:InquiryPayEquity
@@ -671,12 +734,12 @@ inq:RemunerationPackage
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:individualSalaryIncrease ;
+      sh:path inq:individualSalaryIncrease ;
       sh:order 6 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:generalSalaryIncrease ;
+      sh:path inq:generalSalaryIncrease ;
       sh:order 7 ;
     ] ;
   sh:property [
@@ -954,31 +1017,6 @@ setu:CollectiveLabourAgreement
       sh:order 3 ;
     ] ;
 .
-setu:GeneralSalaryIncrease
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:effectiveTimePeriod ;
-      sh:description "The effective start date of this initial increase."@en ;
-      sh:maxCount 1 ;
-      sh:order 0 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path inq:amount ;
-      sh:datatype inq:Amount ;
-      sh:description "Container element that contains the value of the amount and the type of unit of the value."@en ;
-      sh:maxCount 1 ;
-      sh:order 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:description ;
-      sh:description "Free text description of the general salary table increase."@en ;
-      sh:maxCount 1 ;
-      sh:order 2 ;
-    ] ;
-.
 setu:HourlyWageConversion
   rdf:type sh:NodeShape ;
   sh:property [
@@ -1019,23 +1057,6 @@ setu:IncludedAllowances
       sh:path setu:typeCode ;
       sh:description "The codes of the allowances that are included in this base. A code specifying the type of allowance, such as ORT (irregularity allowance) or physical burden. There is a codelist with predefined allowances."@en ;
       sh:order 0 ;
-    ] ;
-.
-setu:IndividualSalaryIncrease
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:effectiveTimePeriod ;
-      sh:description "This element allows to specify on which date the salary adjustment or increase takes effect."@en ;
-      sh:maxCount 1 ;
-      sh:order 0 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path inq:arrangementLine ;
-      sh:datatype inq:ArrangementLineLimited ;
-      sh:maxCount 1 ;
-      sh:order 1 ;
     ] ;
 .
 setu:IntervalCode
