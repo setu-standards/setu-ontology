@@ -622,7 +622,7 @@ inq:GeneralSalaryIncrease
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:effectiveTimePeriod ;
+      sh:path setu:effectivePeriod ;
       sh:description "The effective start date of this initial increase."@en ;
       sh:maxCount 1 ;
       sh:order 0 ;
@@ -647,7 +647,7 @@ inq:IndividualSalaryIncrease
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:effectiveTimePeriod ;
+      sh:path setu:effectivePeriod ;
       sh:description "This element allows to specify on which date the salary adjustment or increase takes effect."@en ;
       sh:maxCount 1 ;
       sh:order 0 ;
@@ -677,7 +677,7 @@ inq:InquiryPayEquity
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:effectiveTimePeriod ;
+      sh:path setu:effectivePeriod ;
       sh:description "The overall period during which the information in this document is valid. The period is from the start date up to and including the end date."@en ;
       sh:order 3 ;
     ] ;
@@ -769,7 +769,7 @@ inq:RemunerationPackage
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:effectiveTimePeriod ;
+      sh:path setu:effectivePeriod ;
       sh:description "Indicates the validity period of this regulation. The period is from the start date up to and including the end date."@en ;
       sh:maxCount 1 ;
       sh:order 1 ;
@@ -1024,6 +1024,25 @@ setu:CollectiveLabourAgreement
       sh:path setu:basedOn ;
       sh:maxCount 1 ;
       sh:order 3 ;
+    ] ;
+.
+setu:EffectivePeriod
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:validFrom ;
+      sh:datatype hropen:DateDatatype ;
+      sh:description "The start date of the validity period."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:validTo ;
+      sh:datatype hropen:DateDatatype ;
+      sh:description "The end date of the validity period."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
     ] ;
 .
 setu:HourlyWageConversion

@@ -397,6 +397,11 @@ setu:CollectiveLabourAgreement
   rdfs:label "Collective labour agreement"@en ;
   skos:definition "The collective labour agreement (CLA; CAO in Dutch) that determines the renumeration. In the Netherlands this can be the CLA of the ABU, NBBU or a specific CLA of the staffing customer."@en ;
 .
+setu:EffectivePeriod
+  rdf:type owl:Class ;
+  rdfs:label "Effective period"@en ;
+  skos:definition "A date period in which an associated object is effective."@en ;
+.
 setu:HourlyWageConversion
   rdf:type owl:Class ;
   rdfs:label "Hourly wage conversion"@en ;
@@ -736,6 +741,12 @@ setu:description
   rdfs:label "description"@en ;
   rdfs:range xsd:string ;
   sth:xmlTag "description" ;
+.
+setu:effectivePeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "effective period"@en ;
+  rdfs:range setu:EffectivePeriod ;
+  sth:xmlTag "effectivePeriod" ;
 .
 setu:effectiveTimePeriod
   rdf:type owl:ObjectProperty ;
