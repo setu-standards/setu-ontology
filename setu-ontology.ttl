@@ -4,6 +4,7 @@
 @prefix : <https://ontology.setu.nl#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix hropen: <https://hropenstandards.org/schema/xml/> .
+@prefix inq: <https://ontology.setu.nl/inquiry-pay-equity#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -66,6 +67,22 @@ hropen:WorkAssignment
 .
 hropen:Worker
   rdf:type owl:Class ;
+.
+inq:
+  rdf:type owl:Ontology ;
+  dc:contributor <https://www.linkedin.com/in/michielstornebrink/> ;
+  dc:contributor <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
+  dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
+  dc:description "The Inquiry Pay Equity module of the SETU ontology includes concepts created from the SETU context used in the SETU Inquiry Pay Equity standard."@en ;
+  dc:modified "2026-02-09"^^xsd:date ;
+  dc:title "SETU Inquiry Pay Equity module" ;
+  owl:versionInfo "0.9" ;
+.
+inq:InquiryPayEquity
+  rdf:type owl:Class ;
+  rdfs:label "Inquiry pay equity"@en ;
+  rdfs:subClassOf hropen:Noun ;
+  skos:definition "The Inquiry Pay Equity message is used by the staffing customer to exchange remuneration information with the staffing supplier in order to accurately apply equal pay for flex workers according to the staffing customer's collective labor agreement."@en ;
 .
 sth:allowedValue
   rdf:type owl:AnnotationProperty ;
@@ -170,12 +187,6 @@ setu:IndividualSalaryIncrease
 setu:IntervalCode
   rdf:type owl:Class ;
   rdfs:label "Interval code"@en ;
-.
-setu:InquiryPayEquity
-  rdf:type owl:Class ;
-  rdfs:label "Inquiry pay equity"@en ;
-  rdfs:subClassOf hropen:Noun ;
-  skos:definition "The Inquiry Pay Equity message is used by the staffing customer to exchange remuneration information with the staffing supplier in order to accurately apply equal pay for flex workers according to the staffing customer's collective labor agreement."@en ;
 .
 setu:LabourAgreements
   rdf:type owl:Class ;
@@ -360,7 +371,7 @@ setu:allowance
 .
 setu:allowanceArrangement
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:domain inq:InquiryPayEquity ;
   rdfs:label "allowance"@en ;
   rdfs:range setu:AllowanceArrangement ;
   skos:definition "A container element that includes various allowances that can be granted to an employee."@en ;
@@ -467,7 +478,7 @@ setu:baseAmount
 .
 setu:baseDefinition
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:domain inq:InquiryPayEquity ;
   rdfs:label "base definition"@en ;
   rdfs:range setu:BaseDefinition ;
   skos:definition "Definitions of the bases (in Dutch: 'Grondslagen') that can be used to calculate the different rates."@en ;
@@ -653,7 +664,7 @@ setu:generalSalaryIncrease
 .
 setu:holidayAllowanceArrangement
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:domain inq:InquiryPayEquity ;
   rdfs:label "holiday allowance"@en ;
   rdfs:range setu:HolidayAllowanceArrangement ;
   skos:definition "A container that contains the details of the holiday allowance arrangement."@en ;
@@ -732,7 +743,7 @@ setu:indicator
 .
 setu:individualChoiceBudgetArrangement
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:domain inq:InquiryPayEquity ;
   rdfs:label "individual choice budget"@en ;
   rdfs:range setu:IndividualChoiceBudgetArrangement ;
   skos:definition "Individual choice budget (Dutch: IKB) is used if the employer has an individual choice budget. It's elements are used for the different options an employee has regarding this budget as well as its costs."@en ;
@@ -775,7 +786,7 @@ setu:labourAgreements
 .
 setu:leaveArrangement
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:domain inq:InquiryPayEquity ;
   rdfs:label "leave"@en ;
   rdfs:range setu:LeaveArrangement ;
   skos:definition "A container that contains the details of the leave arrangement, such as the type of leave, the amount of the leave, as well as any conditions."@en ;
@@ -859,7 +870,7 @@ setu:origin
 .
 setu:otherArrangement
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:domain inq:InquiryPayEquity ;
   rdfs:label "other arrangement"@en ;
   rdfs:range setu:OtherArrangement ;
   skos:definition "This element can be used to provide any additional arrangements that have not been covered by the other elements."@en ;
@@ -898,7 +909,7 @@ setu:payRates
 .
 setu:pensionArrangement
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:domain inq:InquiryPayEquity ;
   rdfs:label "pension"@en ;
   rdfs:range setu:PensionArrangement ;
   skos:definition "The employer's contribution to a pension plan."@en ;
@@ -1206,7 +1217,7 @@ setu:schemeAgencyId
 .
 setu:sickPayArrangement
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:domain inq:InquiryPayEquity ;
   rdfs:label "sick pay"@en ;
   rdfs:range setu:SickPayArrangement ;
   skos:definition "This element refers to the method in which the employer continues to compensate an employee when the employee has fallen ill."@en ;
@@ -1289,7 +1300,7 @@ setu:streetName
 .
 setu:supplementaryArrangement
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:domain inq:InquiryPayEquity ;
   rdfs:label "supplementary arrangement"@en ;
   rdfs:range setu:SupplementaryArrangement ;
   skos:definition "A container that specifies the supplementary arrangement(s) (In Dutch: 'aanvullende regelingen')."@en ;
@@ -1303,7 +1314,7 @@ setu:supplier
 .
 setu:sustainableEmployabilityArrangement
   rdf:type owl:ObjectProperty ;
-  rdfs:domain setu:InquiryPayEquity ;
+  rdfs:domain inq:InquiryPayEquity ;
   rdfs:label "sustainable employability"@en ;
   rdfs:range setu:SustainableEmployabilityArrangement ;
   skos:definition "Sustainable employability allows for the employer to add information regarding sustainable employability arrangement that the employer might have (e.g. study budget for the employee)."@en ;

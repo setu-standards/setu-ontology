@@ -4,6 +4,7 @@
 
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix hropen: <https://hropenstandards.org/schema/xml/> .
+@prefix inq: <https://ontology.setu.nl/inquiry-pay-equity#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -16,7 +17,7 @@
 
 <https://ontology.setu.nl/shapes#>
   rdf:type owl:Ontology ;
-  owl:imports setu: ;
+  owl:imports setu:, inq: ;
   dc:contributor <https://www.linkedin.com/in/michielstornebrink/> ;
   dc:contributor <https://www.linkedin.com/in/linda-oosterheert-006b0a10/> ;
   dc:creator <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
@@ -418,6 +419,104 @@ hropen:WorkingPeriod
       sh:order 4 ;
     ] ;
 .
+inq:InquiryPayEquity
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:issued ;
+      sh:datatype xsd:dateTime ;
+      sh:description "The datetime the document was issued."@en ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:effectiveTimePeriod ;
+      sh:description "The overall period during which the information in this document is valid. The period is from the start date up to and including the end date."@en ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customer ;
+      sh:description "The customer/hirer of the worker."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:baseDefinition ;
+      sh:order 5 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:labourAgreements ;
+      sh:maxCount 1 ;
+      sh:order 6 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:positionProfile ;
+      sh:description "These are the position profiles for which the inquiry pay equity applies."@en ;
+      sh:order 7 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:remuneration ;
+      sh:minCount 1 ;
+      sh:order 8 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:allowanceArrangement ;
+      sh:order 9 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:holidayAllowanceArrangement ;
+      sh:order 10 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:sickPayArrangement ;
+      sh:order 11 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:leaveArrangement ;
+      sh:order 12 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:individualChoiceBudgetArrangement ;
+      sh:order 13 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:pensionArrangement ;
+      sh:order 14 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:sustainableEmployabilityArrangement ;
+      sh:order 15 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:supplementaryArrangement ;
+      sh:order 16 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:otherArrangement ;
+      sh:order 17 ;
+    ] ;
+.
 setu:Arrangement
   rdf:type sh:NodeShape ;
   sh:property [
@@ -798,104 +897,6 @@ setu:IntervalCode
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:order 1 ;
-    ] ;
-.
-setu:InquiryPayEquity
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path hropen:idRef ;
-      sh:datatype hropen:Identifier ;
-      sh:order 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path hropen:issued ;
-      sh:datatype xsd:dateTime ;
-      sh:description "The datetime the document was issued."@en ;
-      sh:order 2 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:effectiveTimePeriod ;
-      sh:description "The overall period during which the information in this document is valid. The period is from the start date up to and including the end date."@en ;
-      sh:order 3 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:customer ;
-      sh:description "The customer/hirer of the worker."@en ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 4 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:baseDefinition ;
-      sh:order 5 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:labourAgreements ;
-      sh:maxCount 1 ;
-      sh:order 6 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:positionProfile ;
-      sh:description "These are the position profiles for which the inquiry pay equity applies."@en ;
-      sh:order 7 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:remuneration ;
-      sh:minCount 1 ;
-      sh:order 8 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:allowanceArrangement ;
-      sh:order 9 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:holidayAllowanceArrangement ;
-      sh:order 10 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:sickPayArrangement ;
-      sh:order 11 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:leaveArrangement ;
-      sh:order 12 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:individualChoiceBudgetArrangement ;
-      sh:order 13 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:pensionArrangement ;
-      sh:order 14 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:sustainableEmployabilityArrangement ;
-      sh:order 15 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:supplementaryArrangement ;
-      sh:order 16 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:otherArrangement ;
-      sh:order 17 ;
     ] ;
 .
 setu:LabourAgreementReference
