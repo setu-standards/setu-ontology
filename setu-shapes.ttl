@@ -430,6 +430,66 @@ inq:Arrangement
       sh:order 0 ;
     ] ;
 .
+inq:ArrangementLine
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
+      sh:description "The unique identifier of this specific remuneration line."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:remunerationAmount ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:intervalCode ;
+      sh:description "This element is used to signify the interval in which this rate is applied. If this rate is applied every hour then the unit code would be 'Hour' or if this rate is applied every kilometer, the interval code would be 'Kilometer'. The value can be used to express denominations of the provided interval code. If for instance it is required that the interval is every 15 minutes, the unit code can be 'Hour' and the value will be 0.25 as a quarter of 60 minutes is 15 minutes."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:conditions ;
+      sh:order 3 ;
+    ] ;
+.
+inq:ArrangementLineLimited
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
+      sh:description "The unique identifier of this specific remuneration line."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:remunerationAmount ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:intervalCode ;
+      sh:description "This element is used to signify the interval in which this rate is applied. If this rate is applied every hour then the unit code would be 'Hour' or if this rate is applied every kilometer, the interval code would be 'Kilometer'. The value can be used to express denominations of the provided interval code. If for instance it is required that the interval is every 15 minutes, the unit code can be 'Hour' and the value will be 0.25 as a quarter of 60 minutes is 15 minutes."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:conditions ;
+      sh:order 3 ;
+    ] ;
+.
 inq:InquiryPayEquity
   rdf:type sh:NodeShape ;
   sh:property [
@@ -919,7 +979,8 @@ setu:IndividualSalaryIncrease
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:remunerationLine ;
+      sh:path inq:arrangementLine ;
+      sh:datatype inq:ArrangementLineLimited ;
       sh:maxCount 1 ;
       sh:order 1 ;
     ] ;
@@ -1442,36 +1503,6 @@ setu:RemunerationAmount
       sh:path setu:proportional ;
       sh:maxCount 1 ;
       sh:order 5 ;
-    ] ;
-.
-setu:RemunerationLine
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path hropen:idRef ;
-      sh:datatype hropen:Identifier ;
-      sh:description "The unique identifier of this specific remuneration line."@en ;
-      sh:maxCount 1 ;
-      sh:order 0 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:remunerationAmount ;
-      sh:maxCount 1 ;
-      sh:order 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:intervalCode ;
-      sh:description "This element is used to signify the interval in which this rate is applied. If this rate is applied every hour then the unit code would be 'Hour' or if this rate is applied every kilometer, the interval code would be 'Kilometer'. The value can be used to express denominations of the provided interval code. If for instance it is required that the interval is every 15 minutes, the unit code can be 'Hour' and the value will be 0.25 as a quarter of 60 minutes is 15 minutes."@en ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 2 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:conditions ;
-      sh:order 3 ;
     ] ;
 .
 setu:RequestForQuotationDetails

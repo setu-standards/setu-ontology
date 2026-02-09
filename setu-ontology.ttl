@@ -88,6 +88,16 @@ inq:Arrangement
   rdfs:type "Arrangement"@en ;
   skos:definition "Class to specify an arrangement."@en ;
 .
+inq:ArrangementLine
+  rdf:type owl:Class ;
+  rdfs:label "Arrangement line"@en ;
+  skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
+.
+inq:ArrangementLineLimited
+  rdf:type owl:Class ;
+  rdfs:label "Arrangement line limited"@en ;
+  skos:definition "A container that contains the details of the increase rate. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
+.
 inq:HolidayAllowanceArrangement
   rdf:type owl:Class ;
   rdfs:subClassOf inq:Arrangement ;
@@ -146,6 +156,12 @@ inq:allowanceArrangement
   rdfs:range inq:AllowanceArrangement ;
   skos:definition "A container element that includes various allowances that can be granted to an employee."@en ;
   sth:xmlTag "allowanceArrangement" ;
+.
+inq:arrangementLine
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "line"@en ;
+  skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
+  sth:xmlTag "arrangementLine" ;
 .
 inq:holidayAllowanceArrangement
   rdf:type owl:ObjectProperty ;
@@ -371,11 +387,6 @@ setu:RemunerationAmount
   rdf:type owl:Class ;
   rdfs:label "Remuneration amount"@en ;
   skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
-.
-setu:RemunerationLine
-  rdf:type owl:Class ;
-  rdfs:label "Remuneration line"@en ;
-  skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
 .
 setu:RequestedWorker
   rdf:type owl:Class ;
@@ -1130,13 +1141,6 @@ setu:remunerationIndicator
   rdfs:range xsd:boolean ;
   skos:definition "This element can be used to indicate whether remuneration(s) is/are taken into consideration for calculating this base."@en ;
   sth:xmlTag "remunerationIndicator" ;
-.
-setu:remunerationLine
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "line"@en ;
-  rdfs:range setu:RemunerationLine ;
-  skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
-  sth:xmlTag "remunerationLine" ;
 .
 setu:requestComments
   rdf:type owl:DatatypeProperty ;
