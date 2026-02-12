@@ -74,7 +74,7 @@ inq:
   dc:contributor <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:description "The Inquiry Pay Equity module of the SETU ontology includes concepts created from the SETU context used in the SETU Inquiry Pay Equity standard."@en ;
-  dc:modified "2026-02-09"^^xsd:date ;
+  dc:modified "2026-02-12"^^xsd:date ;
   dc:title "SETU Inquiry Pay Equity module" ;
   owl:versionInfo "0.9" ;
 .
@@ -361,7 +361,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-02-09"^^xsd:date ;
+  dc:modified "2026-02-12"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
 .
@@ -390,7 +390,12 @@ setu:BreakTrigger
 setu:Condition
   rdf:type owl:Class ;
   rdfs:label "Condition"@en ;
-  skos:definition "A container element for providing more information about a condition that has to be met before a rate is applied. An employee that meets these conditions is eligible for the rate." ;
+  skos:definition "A container element for providing more information about a condition that has to be met before a rate is applied. An employee that meets these conditions is eligible for the rate."@en ;
+.
+setu:ContactPerson
+  rdf:type owl:Class ;
+  rdfs:subClassOf hropen:SpecifiedPerson ;
+  rdfs:label "Contact person"@en ;
 .
 setu:CollectiveLabourAgreement
   rdf:type owl:Class ;
@@ -428,6 +433,10 @@ setu:LabourAgreementReference
 setu:OnCallContract
   rdf:type owl:Class ;
   rdfs:label "On call contract"@en ;
+.
+setu:Party
+  rdf:type owl:Class ;
+  rdfs:label "Party"@en ;
 .
 setu:PeriodicAvailabilityLine
   rdf:type owl:Class ;
@@ -712,7 +721,6 @@ setu:contractWorkingPeriods
 setu:customer
   rdf:type owl:ObjectProperty ;
   rdfs:label "customer"@en ;
-  rdfs:range hropen:Party ;
   sth:xmlTag "customer" ;
 .
 setu:customerSpecificRequirements

@@ -24,7 +24,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
-  dc:modified "2026-02-09"^^xsd:date ;
+  dc:modified "2026-02-12"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
   owl:versionInfo "2.9" ;
 .
@@ -63,6 +63,7 @@ hropen:Candidate
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:customer ;
+      sh:datatype hropen:Party ;
       sh:description "The customer of the worker."@en ;
       sh:maxCount 1 ;
       sh:order 2 ;
@@ -278,16 +279,6 @@ hropen:PositionQualification
       sh:description "Any certifications the person carries for the related position."@en ;
     ] ;
 .
-hropen:SpecifiedPerson
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path hropen:positionTitle ;
-      sh:datatype hropen:PositionProfile-positionTitleDatatype ;
-      sh:description "The title of the position of the contact person."@en ;
-      sh:order 5 ;
-    ] ;
-.
 hropen:Timecard
   rdf:type sh:NodeShape ;
   sh:property [
@@ -298,6 +289,7 @@ hropen:Timecard
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:customer ;
+      sh:datatype hropen:Party ;
       sh:description "The customer of the worker."@en ;
       sh:maxCount 1 ;
       sh:order 3 ;
@@ -360,6 +352,7 @@ hropen:WorkAssignment
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:customer ;
+      sh:datatype hropen:Party ;
       sh:description "The customer of the worker."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -684,6 +677,7 @@ inq:InquiryPayEquity
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:customer ;
+      sh:datatype setu:Party ;
       sh:description "The customer/hirer of the worker."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1026,6 +1020,17 @@ setu:CollectiveLabourAgreement
       sh:order 3 ;
     ] ;
 .
+setu:ContactPerson
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:positionTitle ;
+      sh:datatype hropen:PositionProfile-positionTitleDatatype ;
+      sh:description "The title of the position of the contact person."@en ;
+      sh:maxCount 1 ;
+      sh:order 5 ;
+    ] ;
+.
 setu:EffectivePeriod
   rdf:type sh:NodeShape ;
   sh:property [
@@ -1156,6 +1161,41 @@ setu:OnCallContract
       sh:order 0 ;
     ] ;
 .
+setu:Party
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
+      sh:description "A unique identifier which cannot be expressed as enumeration."@en ;
+      sh:maxCount 2 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:name ;
+      sh:datatype hropen:Party-nameDatatype ;
+      sh:description "The name of the customer."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:legalIdRef ;
+      sh:datatype hropen:Identifier ;
+      sh:description "A government assigned identifier to distinguish the party (organization, person, or legal entity) to a transaction."@en ;
+      sh:minCount 1 ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:personContactsRef ;
+      sh:datatype setu:ContactPerson ;
+      sh:description "Specific people at the party who are contacts. This is the person authorized to provide the information."@en ;
+      sh:minCount 1 ;
+      sh:order 6 ;
+    ] ;
+.
 setu:PeriodicAvailabilityLine
   rdf:type sh:NodeShape ;
   sh:property [
@@ -1269,6 +1309,7 @@ setu:PlanningAssignment
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:customer ;
+      sh:datatype hropen:Party ;
       sh:description "The customer of the worker."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1332,6 +1373,7 @@ setu:PlanningConstraints
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:customer ;
+      sh:datatype hropen:Party ;
       sh:description "The customer of the worker."@en ;
       sh:maxCount 1 ;
       sh:order 4 ;
@@ -1405,6 +1447,7 @@ setu:PlanningRequest
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:customer ;
+      sh:datatype hropen:Party ;
       sh:description "The customer requesting the planning."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -1715,6 +1758,7 @@ setu:StaffingOrder
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:customer ;
+      sh:datatype hropen:Party ;
       sh:description "The customer of the worker."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
