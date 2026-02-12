@@ -155,6 +155,11 @@ inq:InquiryPayEquity
   rdfs:subClassOf hropen:Noun ;
   skos:definition "The Inquiry Pay Equity message is used by the staffing customer to exchange remuneration information with the staffing supplier in order to accurately apply equal pay for flex workers according to the staffing customer's collective labor agreement."@en ;
 .
+inq:LabourAgreements
+  rdf:type owl:Class ;
+  rdfs:label "Labour agreements"@en ;
+  skos:definition "This container indicates in which sector the staffing customer works and which specific collective labour agreement (CLA) and/or the own employment conditions scheme is leading for the provision of remuneration information."@en ;
+.
 inq:LeaveArrangement
   rdf:type owl:Class ;
   rdfs:subClassOf inq:Arrangement ;
@@ -277,6 +282,13 @@ inq:individualSalaryIncrease
   rdfs:range inq:IndividualSalaryIncrease ;
   skos:definition "The individual salary review is a process where an employee's salary is evaluated and adjusted based on individual performance, and other relevant criteria. This container specifies the increase rate of these adjustments."@en ;
   sth:xmlTag "individualSalaryIncrease" ;
+.
+inq:labourAgreements
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "labour agreements"@en ;
+  rdfs:range inq:LabourAgreements ;
+  skos:definition "Indicates in which sector the staffing customer works and which specific collective labour agreement (CLA) and/or the own employment conditions scheme is leading for the provision of remuneration information."@en ;
+  sth:xmlTag "labourAgreements" ;
 .
 inq:leaveArrangement
   rdf:type owl:ObjectProperty ;
@@ -430,11 +442,6 @@ setu:Id
 setu:IntervalCode
   rdf:type owl:Class ;
   rdfs:label "Interval code"@en ;
-.
-setu:LabourAgreements
-  rdf:type owl:Class ;
-  rdfs:label "Labour agreements"@en ;
-  skos:definition "This container indicates in which sector the staffing customer works and which specific collective labour agreement (CLA) and/or the own employment conditions scheme is leading for the provision of remuneration information."@en ;
 .
 setu:LabourAgreementReference
   rdf:type owl:Class ;
@@ -907,13 +914,6 @@ setu:intervalCode
   rdfs:label "interval code"@en ;
   rdfs:range setu:IntervalCode ;
   sth:xmlTag "intervalCode" ;
-.
-setu:labourAgreements
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "labour agreements"@en ;
-  rdfs:range setu:LabourAgreements ;
-  skos:definition "Indicates in which sector the staffing customer works and which specific collective labour agreement (CLA) and/or the own employment conditions scheme is leading for the provision of remuneration information."@en ;
-  sth:xmlTag "labourAgreements" ;
 .
 setu:licenses
   rdf:type owl:ObjectProperty ;

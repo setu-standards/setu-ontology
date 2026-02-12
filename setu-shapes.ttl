@@ -691,7 +691,7 @@ inq:InquiryPayEquity
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:labourAgreements ;
+      sh:path inq:labourAgreements ;
       sh:maxCount 1 ;
       sh:order 6 ;
     ] ;
@@ -751,6 +751,27 @@ inq:InquiryPayEquity
       rdf:type sh:PropertyShape ;
       sh:path inq:otherArrangement ;
       sh:order 17 ;
+    ] ;
+.
+inq:LabourAgreements
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:industryIdentifier ;
+      sh:datatype hropen:Identifier ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:collectiveLabourAgreement ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:customLabourAgreement ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
     ] ;
 .
 inq:RemunerationPackage
@@ -1009,7 +1030,7 @@ setu:CollectiveLabourAgreement
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:effectiveTimePeriod ;
+      sh:path setu:effectivePeriod ;
       sh:description "The validity period of this specific collective labour agreement (version). The period is from the start date up to and including the end date."@en ;
       sh:maxCount 1 ;
       sh:order 2 ;
@@ -1113,27 +1134,6 @@ setu:LabourAgreementReference
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:order 0 ;
-    ] ;
-.
-setu:LabourAgreements
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:industryIdentifier ;
-      sh:datatype hropen:Identifier ;
-      sh:order 0 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:collectiveLabourAgreement ;
-      sh:maxCount 1 ;
-      sh:order 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:customLabourAgreement ;
-      sh:maxCount 1 ;
-      sh:order 2 ;
     ] ;
 .
 setu:OnCallContract
