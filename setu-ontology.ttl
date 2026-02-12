@@ -83,6 +83,12 @@ inq:AllowanceArrangement
   rdfs:subClassOf inq:Arrangement ;
   rdfs:label "Allowance arrangement"@en ;
 .
+inq:AllowanceCode
+  rdf:type rdfs:Datatype ;
+  rdfs:label "Allowance code" ;
+  rdfs:subClassOf xsd:string ;
+  owl:onDatatype xsd:string ;
+.
 inq:AllowanceReference
   rdf:type owl:Class ;
   rdfs:label "Allowance reference"@en ;
@@ -116,6 +122,12 @@ inq:BaseDefinition
   rdf:type owl:Class ;
   rdfs:label "Base definition"@en ;
   skos:definition "Definitions of the bases (in Dutch: 'Grondslagen') that can be used to calculate the different rates."@en ;
+.
+inq:BaseDefinitionCode
+  rdf:type rdfs:Datatype ;
+  rdfs:label "Base definition code" ;
+  rdfs:subClassOf xsd:string ;
+  owl:onDatatype xsd:string ;
 .
 inq:GeneralSalaryIncrease
   rdf:type owl:Class ;
@@ -338,7 +350,6 @@ inq:sustainableEmployabilityArrangement
 inq:typeCode
   rdf:type owl:DatatypeProperty ;
   rdfs:label "type code"@en ;
-  rdfs:range xsd:string ;
   sth:xmlTag "typeCode" ;
 .
 sth:allowedValue

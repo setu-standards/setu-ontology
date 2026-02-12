@@ -417,6 +417,7 @@ inq:AllowanceReference
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path inq:typeCode ;
+      sh:datatype inq:AllowanceCode ;
       sh:description "The codes of the allowances that are included in this base. A code specifying the type of allowance, such as ORT (irregularity allowance) or physical burden. There is a codelist with predefined allowances."@en ;
       sh:maxCount 1 ;
       sh:order 0 ;
@@ -571,6 +572,7 @@ inq:BaseDefinition
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path inq:baseType ;
+      sh:datatype inq:BaseDefinitionCode ;
       sh:description "A code to signify which base is defined here."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
