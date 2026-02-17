@@ -74,7 +74,7 @@ inq:
   dc:contributor <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:description "The Inquiry Pay Equity module of the SETU ontology includes concepts created from the SETU context used in the SETU Inquiry Pay Equity standard."@en ;
-  dc:modified "2026-02-12"^^xsd:date ;
+  dc:modified "2026-02-17"^^xsd:date ;
   dc:title "SETU Inquiry Pay Equity module" ;
   owl:versionInfo "0.9" ;
 .
@@ -155,6 +155,21 @@ inq:InquiryPayEquity
   rdfs:subClassOf hropen:Noun ;
   skos:definition "The Inquiry Pay Equity message is used by the staffing customer to exchange remuneration information with the staffing supplier in order to accurately apply equal pay for flex workers according to the staffing customer's collective labor agreement."@en ;
 .
+inq:Interval
+  rdf:type owl:Class ;
+  rdfs:label "Interval" ;
+  skos:definition "The interval block specifies the period over which these hours apply."@en ;
+.
+inq:IntervalCode
+  rdf:type rdfs:Datatype ;
+  rdfs:subClassOf setu:UnitCode ;
+  rdfs:label "Interval code" ;
+.
+inq:IntervalHourUnitCode
+  rdf:type rdfs:Datatype ;
+  rdfs:subClassOf setu:UnitCode ;
+  rdfs:label "Interval hour unit code" ;
+.
 inq:LabourAgreements
   rdf:type owl:Class ;
   rdfs:label "Labour agreements"@en ;
@@ -194,6 +209,11 @@ inq:SustainableEmployabilityArrangement
   rdf:type owl:Class ;
   rdfs:subClassOf inq:Arrangement ;
   rdfs:label "Sustainable employability arrangement"@en ;
+.
+inq:WorkDuration
+  rdf:type owl:Class ;
+  rdfs:label "Work duration"@en ;
+  skos:definition "Specifies the default work duration."@en ;
 .
 inq:allAllowancesIndicator
   rdf:type owl:DatatypeProperty ;
@@ -283,6 +303,12 @@ inq:individualSalaryIncrease
   skos:definition "The individual salary review is a process where an employee's salary is evaluated and adjusted based on individual performance, and other relevant criteria. This container specifies the increase rate of these adjustments."@en ;
   sth:xmlTag "individualSalaryIncrease" ;
 .
+inq:interval
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "interval"@en ;
+  rdfs:range inq:Interval ;
+  sth:xmlTag "interval" ;
+.
 inq:labourAgreements
   rdf:type owl:ObjectProperty ;
   rdfs:label "labour agreements"@en ;
@@ -364,6 +390,20 @@ inq:typeCode
   rdfs:label "type code"@en ;
   sth:xmlTag "typeCode" ;
 .
+inq:valuePerWeek
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "value per week"@en ;
+  rdfs:range xsd:decimal ;
+  skos:definition "The equivalent number of hours per week, useful for calculations such as leave entitlement."@en ;
+  sth:xmlTag "valuePerWeek" ;
+.
+inq:workDuration
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "work duration"@en ;
+  rdfs:range inq:WorkDuration ;
+  skos:definition "Specifies the default work duration."@en ;
+  sth:xmlTag "workDuration" ;
+.
 sth:allowedValue
   rdf:type owl:AnnotationProperty ;
 .
@@ -384,7 +424,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-02-12"^^xsd:date ;
+  dc:modified "2026-02-17"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
 .
@@ -438,10 +478,6 @@ setu:HourlyWageConversion
 setu:Id
   rdf:type owl:Class ;
   rdfs:label "Id"@en ;
-.
-setu:IntervalCode
-  rdf:type owl:Class ;
-  rdfs:label "Interval code"@en ;
 .
 setu:LabourAgreementReference
   rdf:type owl:Class ;
@@ -541,6 +577,12 @@ setu:StaffingOrder
   rdfs:label "Staffing order"@en ;
   rdfs:subClassOf hropen:Noun ;
   skos:definition "The Staffing Order message is used by a staffing customer to request and order (a) worker(s) for an open position."@en ;
+.
+setu:UnitCode
+  rdf:type rdfs:Datatype ;
+  rdfs:label "Unit code" ;
+  rdfs:subClassOf xsd:string ;
+  owl:onDatatype xsd:string ;
 .
 setu:actionCode
   rdf:type owl:DatatypeProperty ;
@@ -908,12 +950,6 @@ setu:insuranceGroup
   rdfs:range xsd:string ;
   skos:definition "Determines the insurance group the worker is part of."@en ;
   sth:xmlTag "insuranceGroup" ;
-.
-setu:intervalCode
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "interval code"@en ;
-  rdfs:range setu:IntervalCode ;
-  sth:xmlTag "intervalCode" ;
 .
 setu:licenses
   rdf:type owl:ObjectProperty ;
@@ -1390,6 +1426,12 @@ setu:travelDistance
   skos:definition "Specifies the number of kilometers between the home of the worker and the primary work location (Dutch: standplaats)."@en ;
   sth:xmlTag "travelDistance" ;
 .
+setu:unitCode
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "unit code"@en ;
+  skos:definition "The unit of measure."@en ;
+  sth:xmlTag "unitCode" ;
+.
 setu:vacationWorker
   rdf:type owl:DatatypeProperty ;
   rdfs:label "vacation worker"@en ;
@@ -1418,7 +1460,7 @@ setu:worker
   rdfs:domain setu:PlanningConstraints ;
   rdfs:label "worker"@en ;
   rdfs:range hropen:Worker ;
-  skos:definition "Worker is a Person Role and is defined as someone who performs labor for an organization. Worker is an abstraction for other more specific work-related roles, for example, Employee and Contractor. (ADP)" ;
+  skos:definition "Worker is a Person Role and is defined as someone who performs labor for an organization. Worker is an abstraction for other more specific work-related roles, for example, Employee and Contractor. (ADP)"@en ;
   sth:xmlTag "worker" ;
 .
 setu:workingPeriods
