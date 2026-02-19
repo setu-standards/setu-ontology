@@ -637,6 +637,21 @@ inq:GeneralSalaryIncrease
       sh:order 2 ;
     ] ;
 .
+inq:HourlyWageConversion
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:hourlyWageFactor ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:hourlyWagePercentage ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+.
 inq:IndividualSalaryIncrease
   rdf:type sh:NodeShape ;
   sh:property [
@@ -830,7 +845,7 @@ inq:RemunerationPackage
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:hourlyWageConversion ;
+      sh:path inq:hourlyWageConversion ;
       sh:maxCount 1 ;
       sh:order 4 ;
     ] ;
@@ -1133,21 +1148,6 @@ setu:EffectivePeriod
       sh:path hropen:validTo ;
       sh:datatype hropen:DateDatatype ;
       sh:description "The end date of the validity period."@en ;
-      sh:maxCount 1 ;
-      sh:order 1 ;
-    ] ;
-.
-setu:HourlyWageConversion
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:hourlyWageFactor ;
-      sh:maxCount 1 ;
-      sh:order 0 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:hourlyWagePercentage ;
       sh:maxCount 1 ;
       sh:order 1 ;
     ] ;

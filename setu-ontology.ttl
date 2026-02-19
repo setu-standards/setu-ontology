@@ -139,6 +139,11 @@ inq:HolidayAllowanceArrangement
   rdfs:subClassOf inq:Arrangement ;
   rdfs:label "Holiday allowance arrangement"@en ;
 .
+inq:HourlyWageConversion
+  rdf:type owl:Class ;
+  rdfs:label "Hourly wage conversion"@en ;
+  skos:definition "Information about the conversion to regular hourly wages."@en ;
+.
 inq:IndividualChoiceBudgetArrangement
   rdf:type owl:Class ;
   rdfs:subClassOf inq:Arrangement ;
@@ -286,6 +291,34 @@ inq:holidayAllowanceIndicator
   rdfs:range xsd:boolean ;
   skos:definition "This element can be used to indicate whether holiday allowance(s) is/are taken into consideration for calculating this base."@en ;
   sth:xmlTag "holidayAllowanceIndicator" ;
+.
+inq:hourlyWageConversion
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain inq:RemunerationPackage ;
+  rdfs:label "hourly wage conversion"@en ;
+  rdfs:range inq:HourlyWageConversion ;
+  skos:definition "Information about the conversion to regular hourly wages."@en ;
+  skos:note "It is possible that hourly conversion rates differ on the step/cell level. If this is the case for one or more steps/cells, then add a salary table that describes the remuneration per hour." ;
+  skos:note "If your employment conditions or collective labour agreement do not specify hourly wages or a clear calculation method, the hourly wage is calculated as follows: monthly salary / (4.35 x normal working hours)." ;
+  sth:xmlTag "hourlyWageConversion" ;
+.
+inq:hourlyWageFactor
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain inq:HourlyWageConversion ;
+  rdfs:label "hourly wage factor"@en ;
+  rdfs:range xsd:decimal ;
+  skos:definition "A number used to calculate the hourly wage from a periodic salary (e.g., monthly salary). The periodic salary is divided by this factor to determine the hourly wage. Formula: hourly wage = periodic salary / hourlyWageFactor."@en ;
+  skos:note "It is possible that hourly conversion rates differ on the step/cell level. If this is the case for one or more steps/cells, then add a salary table that describes the remuneration per hour." ;
+  sth:xmlTag "hourlyWageFactor" ;
+.
+inq:hourlyWagePercentage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain inq:HourlyWageConversion ;
+  rdfs:label "hourly wage percentage"@en ;
+  rdfs:range xsd:decimal ;
+  skos:definition "A percentage that the periodic salary (such as a monthly salary) is multiplied by to calculate the hourly wage. Formula: hourly wage = (periodic salary * hourlyWagePercentage) / 100."@en ;
+  skos:note "It is possible that hourly conversion rates differ on the step/cell level. If this is the case for one or more steps/cells, then add a salary table that describes the remuneration per hour." ;
+  sth:xmlTag "hourlyWagePercentage" ;
 .
 inq:individualChoiceBudgetArrangement
   rdf:type owl:ObjectProperty ;
@@ -469,11 +502,6 @@ setu:EffectivePeriod
   rdf:type owl:Class ;
   rdfs:label "Effective period"@en ;
   skos:definition "A date period in which an associated object is effective."@en ;
-.
-setu:HourlyWageConversion
-  rdf:type owl:Class ;
-  rdfs:label "Hourly wage conversion"@en ;
-  skos:definition "Information about the conversion to regular hourly wages."@en ;
 .
 setu:Id
   rdf:type owl:Class ;
@@ -881,34 +909,6 @@ setu:homeOfficeIndicator
   sth:allowedValue "Home" ;
   sth:allowedValue "Office" ;
   sth:xmlTag "homeOfficeIndicator" ;
-.
-setu:hourlyWageConversion
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain inq:RemunerationPackage ;
-  rdfs:label "hourly wage conversion"@en ;
-  rdfs:range setu:HourlyWageConversion ;
-  skos:definition "Information about the conversion to regular hourly wages."@en ;
-  skos:note "It is possible that hourly conversion rates differ on the step/cell level. If this is the case for one or more steps/cells, then add a salary table that describes the remuneration per hour." ;
-  skos:note "If your employment conditions or collective labour agreement do not specify hourly wages or a clear calculation method, the hourly wage is calculated as follows: monthly salary / (4.35 x normal working hours)." ;
-  sth:xmlTag "hourlyWageConversion" ;
-.
-setu:hourlyWageFactor
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain setu:HourlyWageConversion ;
-  rdfs:label "hourly wage factor"@en ;
-  rdfs:range xsd:decimal ;
-  skos:definition "A number used to calculate the hourly wage from a periodic salary (e.g., monthly salary). The periodic salary is divided by this factor to determine the hourly wage. Formula: hourly wage = periodic salary / hourlyWageFactor."@en ;
-  skos:note "It is possible that hourly conversion rates differ on the step/cell level. If this is the case for one or more steps/cells, then add a salary table that describes the remuneration per hour." ;
-  sth:xmlTag "hourlyWageFactor" ;
-.
-setu:hourlyWagePercentage
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain setu:HourlyWageConversion ;
-  rdfs:label "hourly wage percentage"@en ;
-  rdfs:range xsd:decimal ;
-  skos:definition "A percentage that the periodic salary (such as a monthly salary) is multiplied by to calculate the hourly wage. Formula: hourly wage = (periodic salary * hourlyWagePercentage) / 100."@en ;
-  skos:note "It is possible that hourly conversion rates differ on the step/cell level. If this is the case for one or more steps/cells, then add a salary table that describes the remuneration per hour." ;
-  sth:xmlTag "hourlyWagePercentage" ;
 .
 setu:hours
   rdf:type owl:DatatypeProperty ;
