@@ -74,7 +74,7 @@ inq:
   dc:contributor <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:description "The Inquiry Pay Equity module of the SETU ontology includes concepts created from the SETU context used in the SETU Inquiry Pay Equity standard."@en ;
-  dc:modified "2026-02-17"^^xsd:date ;
+  dc:modified "2026-02-19"^^xsd:date ;
   dc:title "SETU Inquiry Pay Equity module" ;
   owl:versionInfo "0.9" ;
 .
@@ -128,6 +128,15 @@ inq:BaseDefinitionCode
   rdfs:label "Base definition code" ;
   rdfs:subClassOf xsd:string ;
   owl:onDatatype xsd:string ;
+.
+inq:CareerLevel
+  rdf:type owl:Class ;
+  rdfs:label "Career level"@en ;
+.
+inq:Condition
+  rdf:type owl:Class ;
+  rdfs:label "Condition"@en ;
+  skos:definition "A container element for providing more information about a condition that has to be met before a rate is applied. An employee that meets these conditions is eligible for the rate."@en ;
 .
 inq:GeneralSalaryIncrease
   rdf:type owl:Class ;
@@ -195,10 +204,23 @@ inq:PensionArrangement
   rdfs:subClassOf inq:Arrangement ;
   rdfs:label "Pension arrangement"@en ;
 .
+inq:PositionProfileReference
+  rdf:type owl:Class ;
+  rdfs:label "Position profile reference"@en ;
+  skos:definition "Reference to the applicable position profile."@en ;
+.
 inq:RemunerationPackage
   rdf:type owl:Class ;
   rdfs:label "Remuneration package"@en ;
   skos:definition "Details about the remuneration package, including salary tables based on the work duration. It includes one or more salary tables for a specific work duration or characteristics."@en ;
+.
+inq:SalaryScale
+  rdf:type owl:Class ;
+  rdfs:label "Salary scale"@en ;
+.
+inq:SalaryScaleStep
+  rdf:type owl:Class ;
+  rdfs:label "Salary scale step"@en ;
 .
 inq:SickPayArrangement
   rdf:type owl:Class ;
@@ -268,6 +290,20 @@ inq:baseType
   rdfs:range xsd:string ;
   skos:definition "Base type definition. Refers to the base over which this amount was calculated."@en ;
   sth:xmlTag "baseType" ;
+.
+inq:careerLevel
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "career level"@en ;
+  rdfs:range inq:CareerLevel ;
+  skos:definition "Indicates whether work experience is considered in the salary scale, with a true or false value and a possible description."@en ;
+  sth:xmlTag "careerLevel" ;
+.
+inq:conditions
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "conditions"@en ;
+  rdfs:range inq:Condition ;
+  skos:definition "A container element for providing more information about the conditions that have to be met before this rate is applied. An employee that meets these conditions is eligible for the rate."@en ;
+  sth:xmlTag "conditions" ;
 .
 inq:generalSalaryIncrease
   rdf:type owl:ObjectProperty ;
@@ -357,6 +393,13 @@ inq:leaveArrangement
   skos:definition "A container that contains the details of the leave arrangement, such as the type of leave, the amount of the leave, as well as any conditions."@en ;
   sth:xmlTag "leaveArrangement" ;
 .
+inq:minimumWage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "minimum wage"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "A boolean that indicates whether this salary step is equal to the minimum wage."@en ;
+  sth:xmlTag "minimumWage" ;
+.
 inq:otherArrangement
   rdf:type owl:ObjectProperty ;
   rdfs:domain inq:InquiryPayEquity ;
@@ -380,6 +423,13 @@ inq:pensionArrangement
   skos:definition "The employer's contribution to a pension plan."@en ;
   sth:xmlTag "pensionArrangement" ;
 .
+inq:positionProfileReference
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "position profile reference"@en ;
+  rdfs:range inq:PositionProfileReference ;
+  skos:definition "Refers to the position profile that this salary scale is applied to. This element refers to the 'positionId/value' element in the corresponding position profile."@en ;
+  sth:xmlTag "positionProfileReference" ;
+.
 inq:remuneration
   rdf:type owl:ObjectProperty ;
   rdfs:label "remuneration"@en ;
@@ -394,6 +444,20 @@ inq:remunerationIndicator
   skos:definition "This element can be used to indicate whether remuneration(s) is/are taken into consideration for calculating this base."@en ;
   sth:xmlTag "remunerationIndicator" ;
 .
+inq:salaryScaleStructure
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "salary scale"@en ;
+  rdfs:range inq:SalaryScale ;
+  skos:definition "Base salary of a job or of an employee including minimum and maximum salary and certain salary steps."@en ;
+  sth:xmlTag "salaryScaleStructure" ;
+.
+inq:salaryStep
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "salary step"@en ;
+  rdfs:range inq:SalaryScaleStep;
+  skos:definition "Specifies the steps within each salary scale, where each step has a name/label, a salary value, and possible conditions."@en ;
+  sth:xmlTag "salaryStep" ;
+.
 inq:sickPayArrangement
   rdf:type owl:ObjectProperty ;
   rdfs:domain inq:InquiryPayEquity ;
@@ -401,6 +465,13 @@ inq:sickPayArrangement
   rdfs:range inq:SickPayArrangement ;
   skos:definition "This element refers to the method in which the employer continues to compensate an employee when the employee has fallen ill."@en ;
   sth:xmlTag "sickPayArrangement" ;
+.
+inq:startSalaryStep
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "start salary step"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "A code or numeric value indicating the initial salary step assigned to the role or employee upon entry into the salary scale. It defines the starting point within the organization's structured salary progression."@en ;
+  sth:xmlTag "startSalaryStep" ;
 .
 inq:supplementaryArrangement
   rdf:type owl:ObjectProperty ;
@@ -457,7 +528,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-02-17"^^xsd:date ;
+  dc:modified "2026-02-19"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
 .
@@ -482,11 +553,6 @@ setu:Breaks
 setu:BreakTrigger
   rdf:type owl:Class ;
   rdfs:label "Break trigger"@en ;
-.
-setu:Condition
-  rdf:type owl:Class ;
-  rdfs:label "Condition"@en ;
-  skos:definition "A container element for providing more information about a condition that has to be met before a rate is applied. An employee that meets these conditions is eligible for the rate."@en ;
 .
 setu:ContactPerson
   rdf:type owl:Class ;
@@ -579,16 +645,6 @@ setu:RequestedWorker
 setu:RequestForQuotationDetails
   rdf:type owl:Class ;
   rdfs:label "Request for quotation details"@en ;
-.
-setu:SalaryScale
-  rdf:type owl:Class ;
-  rdfs:subClassOf hropen:MonetaryAmount ;
-  rdfs:label "Salary scale"@en ;
-.
-setu:SalaryStep
-  rdf:type owl:Class ;
-  rdfs:subClassOf setu:SalaryScale ;
-  rdfs:label "Salary step"@en ;
 .
 setu:SingleAvailabilityLine
   rdf:type owl:Class ;
@@ -771,13 +827,6 @@ setu:buildingAddition
   skos:definition "Any additional, identifiable information regarding the building, e.g. the floor, room, apartment number within a building."@en ;
   sth:xmlTag "buildingAddition" ;
 .
-setu:careerLevel
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "career level"@en ;
-  rdfs:range setu:CareerLevel ;
-  skos:definition "Indicates whether work experience is considered in the salary scale, with a true or false value and a possible description."@en ;
-  sth:xmlTag "careerLevel" ;
-.
 setu:collectiveLabourAgreement
   rdf:type owl:ObjectProperty ;
   rdfs:label "collective labour agreement"@en ;
@@ -791,13 +840,6 @@ setu:comments
   rdfs:range xsd:string ;
   skos:definition "Additional comments about the message."@en ;
   sth:xmlTag "comments" ;
-.
-setu:conditions
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "conditions"@en ;
-  rdfs:range setu:Condition ;
-  skos:definition "A container element for providing more information about the conditions that have to be met before this rate is applied. An employee that meets these conditions is eligible for the rate."@en ;
-  sth:xmlTag "conditions" ;
 .
 setu:contractWorkingPeriods
   rdf:type owl:ObjectProperty ;
@@ -966,13 +1008,6 @@ setu:maximumTravelDistance
   skos:definition "The maximum number of kilometers the worker is willing to travel."@en ;
   sth:xmlTag "maximumTravelDistance" ;
 .
-setu:minimumWage
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "minimum wage"@en ;
-  rdfs:range xsd:boolean ;
-  skos:definition "A boolean that indicates whether this salary step is equal to the minimum wage."@en ;
-  sth:xmlTag "minimumWage" ;
-.
 setu:multiplier
   rdf:type owl:DatatypeProperty ;
   rdfs:label "multiplier"@en ;
@@ -1127,13 +1162,6 @@ setu:positionProfile
   rdfs:label "position profile"@en ;
   rdfs:range hropen:PositionProfile ;
   sth:xmlTag "positionProfile" ;
-.
-setu:positionProfileReference
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "position profile reference"@en ;
-  rdfs:range xsd:string ;
-  skos:definition "Refers to the position profile that this salary scale is applied to. This element refers to the 'positionId/value' element in the corresponding position profile."@en ;
-  sth:xmlTag "positionProfileReference" ;
 .
 setu:positionReason
   rdf:type owl:DatatypeProperty ;
@@ -1298,20 +1326,6 @@ setu:salaryScale
   rdfs:range xsd:string;
   skos:definition "Specifies the salary scale (and step within that scale) the worker will have at the staffing customer."@en ;
   sth:xmlTag "salaryScale" ;
-.
-setu:salaryScaleStructure
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "salary scale"@en ;
-  rdfs:range setu:SalaryScale ;
-  skos:definition "Base salary of a job or of an employee including minimum and maximum salary and certain salary steps."@en ;
-  sth:xmlTag "salaryScaleStructure" ;
-.
-setu:salaryStep
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "salary step"@en ;
-  rdfs:range setu:SalaryStep;
-  skos:definition "Specifies the steps within each salary scale, where each step has a name/label, a salary value, and possible conditions."@en ;
-  sth:xmlTag "salaryStep" ;
 .
 setu:schemeAgencyId
   rdf:type owl:DatatypeProperty ;
