@@ -983,6 +983,7 @@ inq:SalaryScaleStep
       sh:datatype xsd:decimal ;
       sh:description "The value of the salary scale step."@en ;
       sh:maxCount 1 ;
+      sh:minCount 1 ;
       sh:order 2 ;
     ] ;
   sh:property [
