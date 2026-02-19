@@ -438,7 +438,7 @@ inq:Amount
       rdf:type sh:PropertyShape ;
       sh:path setu:unitCode ;
       sh:datatype setu:UnitCode ;
-      sh:description "The unit of measure."@en ;
+      sh:description "This element provides a way to specify the type of unit of the value. This can be for example 'percentage' if the unit type of the value is to be interpreted as a percentage or euro if the unity type of the value is to be interpreted as a euro monetary amount."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:order 1 ;
@@ -473,8 +473,8 @@ inq:AmountExtended
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path hropen:unitCode ;
-      sh:datatype xsd:string ;
+      sh:path setu:unitCode ;
+      sh:datatype inq:AmountUnitCodeExtended ;
       sh:description "This element provides a way to specify the type of unit of the value. This can be for example 'percentage' if the unit type of the value is to be interpreted as a percentage or euro if the unity type of the value is to be interpreted as a euro monetary amount."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -482,14 +482,14 @@ inq:AmountExtended
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:baseAmount ;
+      sh:path inq:baseAmount ;
       sh:description "This element stores information about the base over which the amount is calculated. If the value is 3, the unit code is 'Percentage' and the base code is 'MonthlySalary', together they would imply a 3% of monthly salary."@en ;
       sh:maxCount 1 ;
       sh:order 4 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:proportional ;
+      sh:path inq:proportional ;
       sh:maxCount 1 ;
       sh:order 5 ;
     ] ;
@@ -567,12 +567,53 @@ inq:ArrangementLineLimited
       sh:order 3 ;
     ] ;
 .
+inq:BaseAmount
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:unitCode ;
+      sh:datatype inq:BaseUnitCode ;
+      sh:description "The type code of the base amount."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:baseType ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:value ;
+      sh:datatype xsd:decimal ;
+      sh:description "This element can be used to store additional information about the value of the base if applicable."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:minValue ;
+      sh:datatype xsd:decimal ;
+      sh:description "If applicable, a minimum value can be provided to signify a minimum that the value in this base has to be. This implies that if the value is less than the minimum value, the minimum value will be used instead of the value element."@en ;
+      sh:maxCount 1 ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:maxValue ;
+      sh:datatype xsd:decimal ;
+      sh:description "If applicable, a maximum value can be provided to signify a maximum that the value in this base has to be. This implies that if the value is more than the maximum value, the maximum value will be used instead of the value element."@en ;
+      sh:maxCount 1 ;
+      sh:order 4 ;
+    ] ;
+.
 inq:BaseDefinition
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path inq:baseType ;
-      sh:datatype inq:BaseDefinitionCode ;
       sh:description "A code to signify which base is defined here."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -852,6 +893,30 @@ inq:PositionProfileReference
       sh:order 2 ;
     ] ;
 .
+inq:Proportional
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:partTimePercentage ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:employmentDuration ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "A free-text field for capturing any additional details, clarifications, or contextual information relevant to how the proportional rule is applied."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
+    ] ;
+.
 inq:RemunerationPackage
   rdf:type sh:NodeShape ;
   sh:property [
@@ -1088,48 +1153,6 @@ setu:AvailabilityLine
       sh:path setu:availabilityStatus ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
-    ] ;
-.
-setu:BaseAmount
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path hropen:unitCode ;
-      sh:datatype xsd:string ;
-      sh:description "The type code of the base amount."@en ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 0 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path inq:baseType ;
-      sh:maxCount 1 ;
-      sh:order 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path hropen:value ;
-      sh:datatype xsd:decimal ;
-      sh:description "This element can be used to store additional information about the value of the base if applicable."@en ;
-      sh:maxCount 1 ;
-      sh:order 2 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path hropen:minValue ;
-      sh:datatype xsd:decimal ;
-      sh:description "If applicable, a minimum value can be provided to signify a minimum that the value in this base has to be. This implies that if the value is less than the minimum value, the minimum value will be used instead of the value element."@en ;
-      sh:maxCount 1 ;
-      sh:order 3 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path hropen:maxValue ;
-      sh:datatype xsd:decimal ;
-      sh:description "If applicable, a maximum value can be provided to signify a maximum that the value in this base has to be. This implies that if the value is more than the maximum value, the maximum value will be used instead of the value element."@en ;
-      sh:maxCount 1 ;
-      sh:order 4 ;
     ] ;
 .
 setu:Breaks
@@ -1694,30 +1717,6 @@ setu:PositionTask
       sh:description "The identifier of the task performed."@en ;
       sh:maxCount 1 ;
       sh:order 0 ;
-    ] ;
-.
-setu:Proportional
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:partTimePercentage ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 0 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:employmentDuration ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 1 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:description ;
-      sh:description "A free-text field for capturing any additional details, clarifications, or contextual information relevant to how the proportional rule is applied."@en ;
-      sh:maxCount 1 ;
-      sh:order 2 ;
     ] ;
 .
 setu:RelatedWorker

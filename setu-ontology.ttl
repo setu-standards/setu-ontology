@@ -103,6 +103,16 @@ inq:AmountExtended
   rdfs:label "Amount extended"@en ;
   skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
 .
+inq:AmountUnitCode
+  rdf:type rdfs:Datatype ;
+  rdfs:subClassOf setu:UnitCode ;
+  rdfs:label "Amount unit code" ;
+.
+inq:AmountUnitCodeExtended
+  rdf:type rdfs:Datatype ;
+  rdfs:subClassOf setu:UnitCode ;
+  rdfs:label "Amount unit code extended" ;
+.
 inq:Arrangement
   rdf:type owl:Class ;
   rdfs:type "Arrangement"@en ;
@@ -118,6 +128,11 @@ inq:ArrangementLineLimited
   rdfs:label "Arrangement line limited"@en ;
   skos:definition "A container that contains the details of the increase rate. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
 .
+inq:BaseAmount
+  rdf:type owl:Class ;
+  rdfs:label "Base amount"@en ;
+  skos:definition "This element stores information about the base over which the amount is calculated."@en ;
+.
 inq:BaseDefinition
   rdf:type owl:Class ;
   rdfs:label "Base definition"@en ;
@@ -128,6 +143,11 @@ inq:BaseDefinitionCode
   rdfs:label "Base definition code" ;
   rdfs:subClassOf xsd:string ;
   owl:onDatatype xsd:string ;
+.
+inq:BaseUnitCode
+  rdf:type rdfs:Datatype ;
+  rdfs:subClassOf setu:UnitCode ;
+  rdfs:label "Base unit code" ;
 .
 inq:CareerLevel
   rdf:type owl:Class ;
@@ -209,6 +229,11 @@ inq:PositionProfileReference
   rdfs:label "Position profile reference"@en ;
   skos:definition "Reference to the applicable position profile."@en ;
 .
+inq:Proportional
+  rdf:type owl:Class ;
+  rdfs:label "Proportional"@en ;
+  skos:definition "The proportional element is used to specify whether certain work-related conditions such as leave entitlements, remuneration, or similar employment provisions are applied proportionally based on specific employee characteristics."@en ;
+.
 inq:RemunerationPackage
   rdf:type owl:Class ;
   rdfs:label "Remuneration package"@en ;
@@ -276,6 +301,13 @@ inq:arrangementLine
   skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
   sth:xmlTag "arrangementLine" ;
 .
+inq:baseAmount
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "base amount"@en ;
+  rdfs:range inq:BaseAmount ;
+  skos:definition "This element stores information about the base over which the amount is calculated."@en ;
+  sth:xmlTag "baseAmount" ;
+.
 inq:baseDefinition
   rdf:type owl:ObjectProperty ;
   rdfs:domain inq:InquiryPayEquity ;
@@ -287,7 +319,7 @@ inq:baseDefinition
 inq:baseType
   rdf:type owl:DatatypeProperty ;
   rdfs:label "base type"@en ;
-  rdfs:range xsd:string ;
+  rdfs:range inq:BaseDefinitionCode ;
   skos:definition "Base type definition. Refers to the base over which this amount was calculated."@en ;
   sth:xmlTag "baseType" ;
 .
@@ -304,6 +336,14 @@ inq:conditions
   rdfs:range inq:Condition ;
   skos:definition "A container element for providing more information about the conditions that have to be met before this rate is applied. An employee that meets these conditions is eligible for the rate."@en ;
   sth:xmlTag "conditions" ;
+.
+inq:employmentDuration
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain inq:Proportional ;
+  rdfs:label "employment duration"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Indicates whether proportional calculation must be applied according to the employee's length of employment."@en ;
+  sth:xmlTag "employmentDuration" ;
 .
 inq:generalSalaryIncrease
   rdf:type owl:ObjectProperty ;
@@ -415,6 +455,14 @@ inq:paidLeaveDayIndicator
   skos:definition "This element can be used to indicate whether paid leave days are taken into consideration for calculating this base."@en ;
   sth:xmlTag "paidLeaveDayIndicator" ;
 .
+inq:partTimePercentage
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain inq:Proportional ;
+  rdfs:label "part time percentage"@en ;
+  rdfs:range xsd:boolean ;
+  skos:definition "Indicates whether the condition is calculated proportionally based on the employee's part-time percentage, typically measured against a full-time work week (commonly 36-40 hours)."@en ;
+  sth:xmlTag "partTimePercentage" ;
+.
 inq:pensionArrangement
   rdf:type owl:ObjectProperty ;
   rdfs:domain inq:InquiryPayEquity ;
@@ -429,6 +477,14 @@ inq:positionProfileReference
   rdfs:range inq:PositionProfileReference ;
   skos:definition "Refers to the position profile that this salary scale is applied to. This element refers to the 'positionId/value' element in the corresponding position profile."@en ;
   sth:xmlTag "positionProfileReference" ;
+.
+inq:proportional
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain inq:AmountExtended ;
+  rdfs:label "proportional"@en ;
+  rdfs:range inq:Proportional ;
+  skos:definition "The proportional element is used to specify whether certain work-related conditions such as leave entitlements, remuneration, or similar employment provisions are applied proportionally based on specific employee characteristics."@en ;
+  sth:xmlTag "proportional" ;
 .
 inq:remuneration
   rdf:type owl:ObjectProperty ;
@@ -541,11 +597,6 @@ setu:AvailabilityLine
   rdf:type owl:Class ;
   rdfs:type "Availability line"@en ;
 .
-setu:BaseAmount
-  rdf:type owl:Class ;
-  rdfs:label "Base amount"@en ;
-  skos:definition "This element stores information about the base over which the amount is calculated."@en ;
-.
 setu:Breaks
   rdf:type owl:Class ;
   rdfs:label "Breaks"@en ;
@@ -626,11 +677,6 @@ setu:PlanningRequest
 setu:PositionTask
   rdf:type owl:Class ;
   rdfs:label "Position task"@en ;
-.
-setu:Proportional
-  rdf:type owl:Class ;
-  rdfs:label "Proportional"@en ;
-  skos:definition "The proportional element is used to specify whether certain work-related conditions such as leave entitlements, remuneration, or similar employment provisions are applied proportionally based on specific employee characteristics."@en ;
 .
 setu:RelatedWorker
   rdf:type owl:Class ;
@@ -782,13 +828,6 @@ setu:availabilityStatus
   sth:allowedValue "RatherNot" ;
   sth:xmlTag "availabilityStatus" ;
 .
-setu:baseAmount
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "base amount"@en ;
-  rdfs:range setu:BaseAmount ;
-  skos:definition "This element stores information about the base over which the amount is calculated."@en ;
-  sth:xmlTag "baseAmount" ;
-.
 setu:basedOn
   rdf:type owl:DatatypeProperty ;
   rdfs:domain setu:CollectiveLabourAgreement ;
@@ -905,14 +944,6 @@ setu:employeePhase
   rdfs:range xsd:string;
   skos:definition "Determines the employment phase in which the worker is in according to either the ABU CLA or the NBBU CLA."@en ;
   sth:xmlTag "employeePhase" ;
-.
-setu:employmentDuration
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain setu:Proportional ;
-  rdfs:label "employment duration"@en ;
-  rdfs:range xsd:boolean ;
-  skos:definition "Indicates whether proportional calculation must be applied according to the employee's length of employment."@en ;
-  sth:xmlTag "employmentDuration" ;
 .
 setu:endDate
   rdf:type owl:DatatypeProperty ;
@@ -1072,14 +1103,6 @@ setu:paidOrUnpaid
   sth:allowedValue "Unpaid" ;
   sth:xmlTag "paidOrUnpaid" ;
 .
-setu:partTimePercentage
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain setu:Proportional ;
-  rdfs:label "part time percentage"@en ;
-  rdfs:range xsd:boolean ;
-  skos:definition "Indicates whether the condition is calculated proportionally based on the employee's part-time percentage, typically measured against a full-time work week (commonly 36-40 hours)."@en ;
-  sth:xmlTag "partTimePercentage" ;
-.
 setu:payRates
   rdf:type owl:ObjectProperty ;
   rdfs:label "pay rates"@en ;
@@ -1185,14 +1208,6 @@ setu:primaryLocation
   rdfs:range xsd:boolean;
   skos:definition "Indicates whether the location is the primary work location (Dutch: standplaats) of the position."@en ;
   sth:xmlTag "primaryLocation" ;
-.
-setu:proportional
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain inq:AmountExtended ;
-  rdfs:label "proportional"@en ;
-  rdfs:range setu:Proportional ;
-  skos:definition "The proportional element is used to specify whether certain work-related conditions such as leave entitlements, remuneration, or similar employment provisions are applied proportionally based on specific employee characteristics."@en ;
-  sth:xmlTag "proportional" ;
 .
 setu:purchaseOrderLineItem
   rdf:type owl:DatatypeProperty ;
