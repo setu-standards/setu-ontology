@@ -429,6 +429,57 @@ inq:Amount
       rdf:type sh:PropertyShape ;
       sh:path hropen:value ;
       sh:datatype xsd:decimal ;
+      sh:description "The numerical value of the remuneration amount expressed as decimal. The unit type of this value can be specified in the unit code element."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:minValue ;
+      sh:datatype xsd:decimal ;
+      sh:description "If applicable, a minimum value can be provided to signify a minimum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will be used instead of the value element."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:maxValue ;
+      sh:datatype xsd:decimal ;
+      sh:description "If applicable, a maximum value can be provided to signify a maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the maximum value, the maximum value will be used instead of the value element."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:unitCode ;
+      sh:datatype inq:AmountUnitCode ;
+      sh:description "This element provides a way to specify the type of unit of the value. This can be for example 'percentage' if the unit type of the value is to be interpreted as a percentage or euro if the unity type of the value is to be interpreted as a euro monetary amount."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:baseAmount ;
+      sh:description "This element stores information about the base over which the amount is calculated. If the value is 3, the unit code is 'Percentage' and the base code is 'MonthlySalary', together they would imply a 3% of monthly salary."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:proportional ;
+      sh:maxCount 1 ;
+      sh:order 5 ;
+    ] ;
+.
+inq:AmountLimited
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:value ;
+      sh:datatype xsd:decimal ;
       sh:description "The value of the amount."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
@@ -485,6 +536,7 @@ inq:AmountExtended
       sh:path inq:baseAmount ;
       sh:description "This element stores information about the base over which the amount is calculated. If the value is 3, the unit code is 'Percentage' and the base code is 'MonthlySalary', together they would imply a 3% of monthly salary."@en ;
       sh:maxCount 1 ;
+      sh:minCount 1 ;
       sh:order 4 ;
     ] ;
   sh:property [
@@ -543,9 +595,42 @@ inq:ArrangementLine
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path hropen:idRef ;
-      sh:datatype hropen:Identifier ;
-      sh:description "The unique identifier of this specific remuneration line."@en ;
+      sh:path setu:lineId ;
+      sh:description "A unique identifier of this specific line element."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:amount ;
+      sh:datatype inq:Amount ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:interval ;
+      sh:description "This element is used to signify the interval in which this rate is applied. If this rate is applied every hour then the unit code would be 'Hour' or if this rate is applied every kilometer, the interval code would be 'Kilometer'. The value can be used to express denominations of the provided interval code. If for instance it is required that the interval is every 15 minutes, the unit code can be 'Hour' and the value will be 0.25 as a quarter of 60 minutes is 15 minutes."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:conditions ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:ikbReference ;
+      sh:order 4 ;
+    ] ;
+.
+inq:ArrangementLineExtended
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:lineId ;
+      sh:description "A unique identifier of this specific line element."@en ;
       sh:maxCount 1 ;
       sh:order 0 ;
     ] ;
@@ -568,13 +653,17 @@ inq:ArrangementLine
       sh:path inq:conditions ;
       sh:order 3 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:ikbReference ;
+      sh:order 4 ;
+    ] ;
 .
 inq:ArrangementLineLimited
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path hropen:idRef ;
-      sh:datatype hropen:Identifier ;
+      sh:path setu:lineId ;
       sh:description "The unique identifier of this specific remuneration line."@en ;
       sh:maxCount 1 ;
       sh:order 0 ;
@@ -714,7 +803,7 @@ inq:GeneralSalaryIncrease
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path inq:amount ;
-      sh:datatype inq:Amount ;
+      sh:datatype inq:AmountLimited ;
       sh:description "Container element that contains the value of the amount and the type of unit of the value."@en ;
       sh:maxCount 1 ;
       sh:order 1 ;
@@ -740,6 +829,32 @@ inq:HourlyWageConversion
       sh:path inq:hourlyWagePercentage ;
       sh:maxCount 1 ;
       sh:order 1 ;
+    ] ;
+.
+inq:IkbReference
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:relationType ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
+      sh:description "The unique identifier that references a specific arrangement or a specific rule within an arrangement."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "A free text-field for additional information and/or context about the ikb reference."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
     ] ;
 .
 inq:IndividualSalaryIncrease
@@ -1110,7 +1225,7 @@ inq:WorkDuration
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path inq:amount ;
-      sh:datatype inq:Amount ;
+      sh:datatype inq:AmountLimited ;
       sh:description "The value of the work duration in hours, expressed as decimal."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;

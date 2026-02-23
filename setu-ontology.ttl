@@ -96,12 +96,17 @@ inq:AllowanceReference
 inq:Amount
   rdf:type owl:Class ;
   rdfs:label "Amount"@en ;
-  skos:definition "Container element that contains the value of the amount and the type of unit of the value."@en ;
+  skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
 .
 inq:AmountExtended
   rdf:type owl:Class ;
   rdfs:label "Amount extended"@en ;
   skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
+.
+inq:AmountLimited
+  rdf:type owl:Class ;
+  rdfs:label "Amount limited"@en ;
+  skos:definition "Container element that contains the value of the amount and the type of unit of the value."@en ;
 .
 inq:AmountUnitCode
   rdf:type rdfs:Datatype ;
@@ -121,6 +126,11 @@ inq:Arrangement
 inq:ArrangementLine
   rdf:type owl:Class ;
   rdfs:label "Arrangement line"@en ;
+  skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
+.
+inq:ArrangementLineExtended
+  rdf:type owl:Class ;
+  rdfs:label "Arrangement line extended"@en ;
   skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
 .
 inq:ArrangementLineLimited
@@ -172,6 +182,11 @@ inq:HourlyWageConversion
   rdf:type owl:Class ;
   rdfs:label "Hourly wage conversion"@en ;
   skos:definition "Information about the conversion to regular hourly wages."@en ;
+.
+inq:IkbReference
+  rdf:type owl:Class ;
+  rdfs:label "Ikb reference"@en ;
+  skos:definition "Container element to refer how a renumeration element connects to 'het Individueel Keuze Budget' (EN: Individual Choice Budget)."@en ;
 .
 inq:IndividualChoiceBudgetArrangement
   rdf:type owl:Class ;
@@ -401,6 +416,13 @@ inq:hourlyWagePercentage
   skos:note "It is possible that hourly conversion rates differ on the step/cell level. If this is the case for one or more steps/cells, then add a salary table that describes the remuneration per hour." ;
   sth:xmlTag "hourlyWagePercentage" ;
 .
+inq:ikbReference
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "ikb reference"@en ;
+  rdfs:range inq:IkbReference ;
+  skos:definition "Container element to refer how a renumeration element connects to 'het Individueel Keuze Budget' (EN: Individual Choice Budget)."@en ;
+  sth:xmlTag "ikbReference" ;
+.
 inq:individualChoiceBudgetArrangement
   rdf:type owl:ObjectProperty ;
   rdfs:domain inq:InquiryPayEquity ;
@@ -497,6 +519,13 @@ inq:proportional
   rdfs:range inq:Proportional ;
   skos:definition "The proportional element is used to specify whether certain work-related conditions such as leave entitlements, remuneration, or similar employment provisions are applied proportionally based on specific employee characteristics."@en ;
   sth:xmlTag "proportional" ;
+.
+inq:relationType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "relation type"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "Provides the relationship between the line element and the IKB."@en ;
+  sth:xmlTag "relationType" ;
 .
 inq:remuneration
   rdf:type owl:ObjectProperty ;
@@ -646,6 +675,12 @@ setu:EffectivePeriod
 setu:Id
   rdf:type owl:Class ;
   rdfs:label "Id"@en ;
+.
+setu:IdValue
+  rdf:type rdfs:Datatype ;
+  rdfs:label "Id value" ;
+  rdfs:subClassOf xsd:string ;
+  owl:onDatatype xsd:string ;
 .
 setu:OnCallContract
   rdf:type owl:Class ;
@@ -1038,6 +1073,13 @@ setu:licenses
   rdfs:range hropen:License ;
   skos:definition "The required licenses for the position."@en ;
   sth:xmlTag "licenses" ;
+.
+setu:lineId
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "line id"@en ;
+  rdfs:range setu:Id ;
+  skos:definition "The unique identifier of this specific line."@en ;
+  sth:xmlTag "lineId" ;
 .
 setu:maximumTravelDistance
   rdf:type owl:DatatypeProperty ;
@@ -1472,7 +1514,7 @@ setu:value
   rdf:type owl:DatatypeProperty ;
   rdfs:domain setu:Id ;
   rdfs:label "value"@en ;
-  rdfs:range xsd:string ;
+  rdfs:range setu:IdValue ;
   skos:definition "The value of the unique identifier."@en ;
   sth:xmlTag "value" ;
 .
