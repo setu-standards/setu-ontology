@@ -24,7 +24,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
-  dc:modified "2026-02-19"^^xsd:date ;
+  dc:modified "2026-02-23"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
   owl:versionInfo "2.9" ;
 .
@@ -503,6 +503,13 @@ inq:Arrangement
       sh:description "The unique identifier of this arrangement."@en ;
       sh:maxCount 1 ;
       sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:name ;
+      sh:description "The name or description of the arrangement, indicating the type of arrangement and providing extra information that does not fit in any of the other fields."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
     ] ;
 .
 inq:ArrangementLine
