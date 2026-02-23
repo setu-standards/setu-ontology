@@ -204,6 +204,11 @@ inq:IntervalHourUnitCode
   rdfs:subClassOf setu:UnitCode ;
   rdfs:label "Interval hour unit code" ;
 .
+inq:LabourAgreementReference
+  rdf:type owl:Class ;
+  rdfs:label "Labour agreement reference"@en ;
+  skos:definition "Contains references to the labour agreement applicable."@en ;
+.
 inq:LabourAgreements
   rdf:type owl:Class ;
   rdfs:label "Labour agreements"@en ;
@@ -440,6 +445,13 @@ inq:minimumWage
   skos:definition "A boolean that indicates whether this salary step is equal to the minimum wage."@en ;
   sth:xmlTag "minimumWage" ;
 .
+inq:origin
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "origin"@en ;
+  rdfs:range inq:LabourAgreementReference ;
+  skos:definition "Specifies the origin of the applicable agreement."@en ;
+  sth:xmlTag "origin" ;
+.
 inq:otherArrangement
   rdf:type owl:ObjectProperty ;
   rdfs:domain inq:InquiryPayEquity ;
@@ -545,6 +557,17 @@ inq:sustainableEmployabilityArrangement
   skos:definition "Sustainable employability allows for the employer to add information regarding sustainable employability arrangement that the employer might have (e.g. study budget for the employee)."@en ;
   sth:xmlTag "sustainableEmployabilityArrangement" ;
 .
+inq:type
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "type"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "The type of agreement."@en ;
+  sth:allowedValue "CollectiveLabourAgreement" ;
+  sth:allowedValue "CollectiveLabourAgreementExtended" ;
+  sth:allowedValue "CustomLabourAgreement" ;
+  sth:allowedValue "Unknown" ;  
+  sth:xmlTag "type" ;
+.
 inq:typeCode
   rdf:type owl:DatatypeProperty ;
   rdfs:label "type code"@en ;
@@ -623,11 +646,6 @@ setu:EffectivePeriod
 setu:Id
   rdf:type owl:Class ;
   rdfs:label "Id"@en ;
-.
-setu:LabourAgreementReference
-  rdf:type owl:Class ;
-  rdfs:label "Labour agreement reference"@en ;
-  skos:definition "Contains references to the labour agreement applicable."@en ;
 .
 setu:OnCallContract
   rdf:type owl:Class ;
@@ -724,17 +742,6 @@ setu:actionCode
   sth:allowedValue "PUT" ;
   sth:allowedValue "DELETE" ;  
   sth:xmlTag "actionCode" ;
-.
-setu:type
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "type"@en ;
-  rdfs:range xsd:string ;
-  skos:definition "The type of agreement."@en ;
-  sth:allowedValue "CollectiveLabourAgreement" ;
-  sth:allowedValue "CollectiveLabourAgreementExtended" ;
-  sth:allowedValue "CustomLabourAgreement" ;
-  sth:allowedValue "Unknown" ;  
-  sth:xmlTag "type" ;
 .
 setu:allowance
   rdf:type owl:ObjectProperty ;
@@ -1085,13 +1092,6 @@ setu:orderType
   sth:allowedValue "RFQ" ;
   sth:allowedValue "Order" ;
   sth:xmlTag "orderType" ;
-.
-setu:origin
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "origin"@en ;
-  rdfs:range setu:LabourAgreementReference ;
-  skos:definition "Specifies the origin of the applicable agreement."@en ;
-  sth:xmlTag "origin" ;
 .
 setu:paidOrUnpaid
   rdf:type owl:DatatypeProperty ;

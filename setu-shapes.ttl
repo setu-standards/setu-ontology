@@ -196,7 +196,7 @@ hropen:PositionProfile
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:origin ;
+      sh:path inq:origin ;
       sh:maxCount 1 ;
       sh:order 5 ;
     ] ;
@@ -511,6 +511,33 @@ inq:Arrangement
       sh:maxCount 1 ;
       sh:order 1 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:origin ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:effectivePeriod ;
+      sh:description "Indicates the validity period of this arrangement. The period is from the start date up to and including the end date."@en ;
+      sh:maxCount 1 ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:arrangementLine ;
+      sh:datatype inq:ArrangementLine ;
+      sh:order 10 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "A free-text field for capturing additional details related to reward element (NL: beloningscomponent), such as specifics, limitations and other conditions."@en ;
+      sh:maxCount 1 ;
+      sh:order 25 ;
+    ] ;
 .
 inq:ArrangementLine
   rdf:type sh:NodeShape ;
@@ -534,7 +561,6 @@ inq:ArrangementLine
       sh:path inq:interval ;
       sh:description "This element is used to signify the interval in which this rate is applied. If this rate is applied every hour then the unit code would be 'Hour' or if this rate is applied every kilometer, the interval code would be 'Kilometer'. The value can be used to express denominations of the provided interval code. If for instance it is required that the interval is every 15 minutes, the unit code can be 'Hour' and the value will be 0.25 as a quarter of 60 minutes is 15 minutes."@en ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
       sh:order 2 ;
     ] ;
   sh:property [
@@ -565,7 +591,6 @@ inq:ArrangementLineLimited
       sh:path inq:interval ;
       sh:description "This element is used to signify the interval in which this rate is applied. If this rate is applied every hour then the unit code would be 'Hour' or if this rate is applied every kilometer, the interval code would be 'Kilometer'. The value can be used to express denominations of the provided interval code. If for instance it is required that the interval is every 15 minutes, the unit code can be 'Hour' and the value will be 0.25 as a quarter of 60 minutes is 15 minutes."@en ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
       sh:order 2 ;
     ] ;
   sh:property [
@@ -854,6 +879,16 @@ inq:Interval
       sh:order 1 ;
     ] ;
 .
+inq:LabourAgreementReference
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:type ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+.
 inq:LabourAgreements
   rdf:type sh:NodeShape ;
   sh:property [
@@ -928,7 +963,7 @@ inq:RemunerationPackage
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:origin ;
+      sh:path inq:origin ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:order 0 ;
@@ -1303,16 +1338,6 @@ setu:Id
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:value ;
-      sh:maxCount 1 ;
-      sh:minCount 1 ;
-      sh:order 0 ;
-    ] ;
-.
-setu:LabourAgreementReference
-  rdf:type sh:NodeShape ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path setu:type ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:order 0 ;
