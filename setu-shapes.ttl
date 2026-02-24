@@ -432,6 +432,17 @@ inq:AllowanceArrangement
       sh:description "A container element that specifies the time period(s) during which the allowance is applicable. It includes a date period (which can be used for date ranges or individual dates), a time period (given the selected dates, this lets us specify the allowed times) and a weekday element that lets us specify recurring days of the week."@en ;
       sh:order 5 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:reference ;
+      sh:order 11 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:phaseOutScheme ;
+      sh:maxCount 1 ;
+      sh:order 12 ;
+    ] ;
 .
 inq:AllowanceReference
   rdf:type sh:NodeShape ;
@@ -442,6 +453,40 @@ inq:AllowanceReference
       sh:description "The codes of the allowances that are included in this base. A code specifying the type of allowance, such as ORT (irregularity allowance) or physical burden. There is a codelist with predefined allowances."@en ;
       sh:maxCount 1 ;
       sh:order 0 ;
+    ] ;
+.
+inq:AllowanceReferenceExtended
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
+      sh:description "The unique identifier that references a specific arrangement or a specific rule within an arrangement."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:typeCode ;
+      sh:datatype inq:AllowanceCode ;
+      sh:description "The type code of the object that is referred to. If for instance this rate has to be calculated before any overwork rates can be calculated, this element would contain the code for overwork."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "A description of the nature of the relation."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:relationType ;
+      sh:description "The code of the type of relation that this reference is."@en ;
+      sh:maxCount 1 ;
+      sh:order 3 ;
     ] ;
 .
 inq:Amount
@@ -857,6 +902,7 @@ inq:IkbReference
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path inq:relationType ;
+      sh:description "Provides the relationship between the line element and the IKB."@en ;
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:order 0 ;

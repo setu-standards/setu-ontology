@@ -88,6 +88,10 @@ inq:AllowanceReference
   rdf:type owl:Class ;
   rdfs:label "Allowance reference"@en ;
 .
+inq:AllowanceReferenceExtended
+  rdf:type owl:Class ;
+  rdfs:label "Allowance reference"@en ;
+.
 inq:Amount
   rdf:type owl:Class ;
   rdfs:label "Amount"@en ;
@@ -512,6 +516,13 @@ inq:pensionArrangement
   skos:definition "The employer's contribution to a pension plan."@en ;
   sth:xmlTag "pensionArrangement" ;
 .
+inq:phaseOutScheme
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "phase out scheme"@en ;
+  rdfs:range xsd:string ;
+  skos:definition "If this allowance has a phasing out scheme arrangement, this can be described in this element."@en ;
+  sth:xmlTag "phaseOutScheme" ;
+.
 inq:positionProfileReference
   rdf:type owl:ObjectProperty ;
   rdfs:label "position profile reference"@en ;
@@ -531,8 +542,14 @@ inq:relationType
   rdf:type owl:DatatypeProperty ;
   rdfs:label "relation type"@en ;
   rdfs:range xsd:string ;
-  skos:definition "Provides the relationship between the line element and the IKB."@en ;
   sth:xmlTag "relationType" ;
+.
+inq:reference
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "reference"@en ;
+  rdfs:range inq:AllowanceReferenceExtended ;
+  skos:definition "This element is used indicate relations to other elements of this structure. An example of such a relation could be that an allowance is used to calculate another allowance on a compounding basis. Meaning that the the value of allowance A is calculated before and used in the calculation of the value of allowance B."@en ;
+  sth:xmlTag "reference" ;
 .
 inq:remuneration
   rdf:type owl:ObjectProperty ;
