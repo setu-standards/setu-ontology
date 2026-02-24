@@ -24,7 +24,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
-  dc:modified "2026-02-23"^^xsd:date ;
+  dc:modified "2026-02-24"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
   owl:versionInfo "2.9" ;
 .
@@ -409,6 +409,18 @@ hropen:WorkingPeriod
       rdf:type sh:PropertyShape ;
       sh:path setu:effectiveTimePeriod ;
       sh:description "The period for which the agreed hours in the contract are valid."@en ;
+      sh:order 4 ;
+    ] ;
+.
+inq:AllowanceArrangement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:typeCode ;
+      sh:datatype inq:AllowanceCode ;
+      sh:description "A code specifying the type of allowance."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
       sh:order 4 ;
     ] ;
 .
@@ -1218,6 +1230,30 @@ inq:SalaryScaleStep
       rdf:type sh:PropertyShape ;
       sh:path inq:conditions ;
       sh:order 8 ;
+    ] ;
+.
+inq:SupplementaryArrangement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:typeCode ;
+      sh:datatype inq:SupplementaryArrangementCode ;
+      sh:description "A code specifying the type of supplementary arrangement."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 4 ;
+    ] ;
+.
+inq:SustainableEmployabilityArrangement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:typeCode ;
+      sh:datatype inq:SustainabilityCode ;
+      sh:description "A code specifying the type of sustainable employability plan."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 4 ;
     ] ;
 .
 inq:WorkDuration
