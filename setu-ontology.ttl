@@ -674,6 +674,10 @@ setu:CollectiveLabourAgreement
   rdfs:label "Collective labour agreement"@en ;
   skos:definition "The collective labour agreement (CLA; CAO in Dutch) that determines the renumeration. In the Netherlands this can be the CLA of the ABU, NBBU or a specific CLA of the staffing customer."@en ;
 .
+setu:DatePeriod
+  rdf:type owl:Class ;
+  rdfs:label "Date period"@en ;
+.
 setu:EffectivePeriod
   rdf:type owl:Class ;
   rdfs:label "Effective period"@en ;
@@ -696,6 +700,10 @@ setu:OnCallContract
 setu:Party
   rdf:type owl:Class ;
   rdfs:label "Party"@en ;
+.
+setu:Period
+  rdf:type owl:Class ;
+  rdfs:label "Period"@en ;
 .
 setu:PeriodicAvailabilityLine
   rdf:type owl:Class ;
@@ -768,9 +776,19 @@ setu:StaffingOrder
   rdfs:subClassOf hropen:Noun ;
   skos:definition "The Staffing Order message is used by a staffing customer to request and order (a) worker(s) for an open position."@en ;
 .
+setu:TimePeriod
+  rdf:type owl:Class ;
+  rdfs:label "Time period"@en ;
+.
 setu:UnitCode
   rdf:type rdfs:Datatype ;
   rdfs:label "Unit code" ;
+  rdfs:subClassOf xsd:string ;
+  owl:onDatatype xsd:string ;
+.
+setu:WeekdayCode
+  rdf:type rdfs:Datatype ;
+  rdfs:label "Weekday code" ;
   rdfs:subClassOf xsd:string ;
   owl:onDatatype xsd:string ;
 .
@@ -954,6 +972,13 @@ setu:customLabourAgreement
   rdfs:range xsd:boolean ;
   skos:definition "Indicator to determine whether a custom labour agreement is active."@en ;
   sth:xmlTag "customLabourAgreement" ;
+.
+setu:datePeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:Period ;
+  rdfs:label "date period"@en ;
+  rdfs:range setu:DatePeriod ;
+  sth:xmlTag "datePeriod" ;
 .
 setu:dayAssignment
   rdf:type owl:DatatypeProperty ;
@@ -1161,8 +1186,6 @@ setu:payRates
 setu:period
   rdf:type owl:ObjectProperty ;
   rdfs:label "period"@en ;
-  rdfs:range hropen:Period ;
-  skos:definition "Container to specify the period in which the pay rate is valid."@en ;
   sth:xmlTag "period" ;
 .
 setu:periodicAvailabilityLine
@@ -1496,6 +1519,13 @@ setu:toBePaid
   skos:definition "Specifies whether this pay rate is specified for payment purposes or not."@en ;
   sth:xmlTag "toBePaid" ;
 .
+setu:timePeriod
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain setu:Period ;
+  rdfs:label "time period"@en ;
+  rdfs:range setu:TimePeriod ;
+  sth:xmlTag "timePeriod" ;
+.
 setu:travelDistance
   rdf:type owl:DatatypeProperty ;
   rdfs:domain hropen:PositionProfile ;
@@ -1524,6 +1554,12 @@ setu:value
   rdfs:range setu:IdValue ;
   skos:definition "The value of the unique identifier."@en ;
   sth:xmlTag "value" ;
+.
+setu:weekday
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "weekday"@en ;
+  rdfs:range setu:WeekdayCode ;
+  sth:xmlTag "weekday" ;
 .
 setu:workDescription
   rdf:type owl:DatatypeProperty ;

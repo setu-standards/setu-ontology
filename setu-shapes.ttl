@@ -167,6 +167,8 @@ hropen:PayRate
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path setu:period ;
+      sh:datatype hropen:Period ;
+      sh:description "Container to specify the period in which the pay rate is valid."@en ;
       sh:maxCount 1 ;
       sh:order 5 ;
     ] ;
@@ -422,6 +424,13 @@ inq:AllowanceArrangement
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:period ;
+      sh:datatype setu:Period;
+      sh:description "A container element that specifies the time period(s) during which the allowance is applicable. It includes a date period (which can be used for date ranges or individual dates), a time period (given the selected dates, this lets us specify the allowed times) and a weekday element that lets us specify recurring days of the week."@en ;
+      sh:order 5 ;
     ] ;
 .
 inq:AllowanceReference
@@ -1457,6 +1466,26 @@ setu:ContactPerson
       sh:order 5 ;
     ] ;
 .
+setu:DatePeriod
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:start ;
+      sh:datatype hropen:DateDatatype ;
+      sh:description "Date representation according ISO 8601 standard."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:end ;
+      sh:datatype hropen:DateDatatype ;
+      sh:description "Date representation according ISO 8601 standard."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+.
 setu:EffectivePeriod
   rdf:type sh:NodeShape ;
   sh:property [
@@ -1553,6 +1582,32 @@ setu:Party
       sh:description "Specific people at the party who are contacts. This is the person authorized to provide the information."@en ;
       sh:minCount 1 ;
       sh:order 6 ;
+    ] ;
+.
+setu:Period
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:datePeriod ;
+      sh:datatype setu:DatePeriod ;
+      sh:description "Single period spanning from the start date up and including to the end date. If both start and end is provided, the date period element indicates a range of dates. If only the start date is provided, the date period element only indicates this singular date."@en ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:timePeriod ;
+      sh:datatype setu:TimePeriod ;
+      sh:description "The time period during which the allowance is applicable. This period spans from the start time up and including to the end time. In the event that multiple time periods are required, multiple period elements can be provided."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:weekday ;
+      sh:datatype setu:WeekdayCode ;
+      sh:description "The day in the week to which the allowance is applicable."@en ;
+      sh:order 2 ;
     ] ;
 .
 setu:PeriodicAvailabilityLine
@@ -2119,5 +2174,26 @@ setu:StaffingOrder
       sh:path setu:reasonOfChange ;
       sh:maxCount 1 ;
       sh:order 12 ;
+    ] ;
+.
+setu:TimePeriod
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:start ;
+      sh:datatype hropen:TimeDatatype ;
+      sh:description "Time point according ISO 8601 standard."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:end ;
+      sh:datatype hropen:TimeDatatype ;
+      sh:description "Time point according ISO 8601 standard."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 1 ;
     ] ;
 .
