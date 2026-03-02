@@ -111,11 +111,19 @@ inq:AmountUnitCode
   rdf:type rdfs:Datatype ;
   rdfs:subClassOf setu:UnitCode ;
   rdfs:label "Amount unit code" ;
+  sth:allowedValue "Euro" ;
+  sth:allowedValue "Hour" ;
+  sth:allowedValue "Percentage" ;
 .
 inq:AmountUnitCodeExtended
   rdf:type rdfs:Datatype ;
   rdfs:subClassOf setu:UnitCode ;
   rdfs:label "Amount unit code extended" ;
+  sth:allowedValue "Day" ;
+  sth:allowedValue "Euro" ;
+  sth:allowedValue "Hour" ;
+  sth:allowedValue "Percentage" ;
+  sth:allowedValue "SalaryStep" ;
 .
 inq:Arrangement
   rdf:type owl:Class ;
@@ -217,11 +225,14 @@ inq:IntervalHourUnitCode
   rdf:type rdfs:Datatype ;
   rdfs:subClassOf setu:UnitCode ;
   rdfs:label "Interval hour unit code" ;
+  sth:allowedValue "Hour" ;
 .
 inq:IntervalHourDayUnitCode
   rdf:type rdfs:Datatype ;
   rdfs:subClassOf setu:UnitCode ;
   rdfs:label "Interval hour day unit code" ;
+  sth:allowedValue "Day" ;
+  sth:allowedValue "Hour" ;
 .
 inq:LabourAgreementReference
   rdf:type owl:Class ;
