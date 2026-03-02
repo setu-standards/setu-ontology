@@ -1305,6 +1305,7 @@ inq:SalaryScaleStep
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path inq:conditions ;
+      sh:description "The conditions that apply to this salary step. E.g., age or any other condition."@en ;
       sh:order 8 ;
     ] ;
 .
