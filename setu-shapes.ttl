@@ -1309,6 +1309,15 @@ inq:SalaryScaleStep
       sh:order 8 ;
     ] ;
 .
+inq:SickPayArrangement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:waitingDays ;
+      sh:maxCount 1 ;
+      sh:order 6 ;
+    ] ;
+.
 inq:SupplementaryArrangement
   rdf:type sh:NodeShape ;
   sh:property [
@@ -1338,6 +1347,33 @@ inq:SustainableEmployabilityArrangement
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:order 4 ;
+    ] ;
+.
+inq:WaitingDays
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:value ;
+      sh:datatype xsd:decimal ;
+      sh:description "The value of the amount expressed in number of days."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:conditions ;
+      sh:description "Conditions that an employee is subjected to before the waiting days apply. An example of this would be that the waiting days are only applicable if an employee has called in sick a specific amount of times."@en ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:unitCode ;
+      sh:datatype inq:IntervalHourDayUnitCode ;
+      sh:description "This element provides a way to specify the type of unit of the value."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 2 ;
     ] ;
 .
 inq:WorkDuration

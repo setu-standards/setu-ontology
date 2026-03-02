@@ -218,6 +218,11 @@ inq:IntervalHourUnitCode
   rdfs:subClassOf setu:UnitCode ;
   rdfs:label "Interval hour unit code" ;
 .
+inq:IntervalHourDayUnitCode
+  rdf:type rdfs:Datatype ;
+  rdfs:subClassOf setu:UnitCode ;
+  rdfs:label "Interval hour day unit code" ;
+.
 inq:LabourAgreementReference
   rdf:type owl:Class ;
   rdfs:label "Labour agreement reference"@en ;
@@ -292,6 +297,10 @@ inq:SustainableEmployabilityArrangement
   rdf:type owl:Class ;
   rdfs:subClassOf inq:Arrangement ;
   rdfs:label "Sustainable employability arrangement"@en ;
+.
+inq:WaitingDays
+  rdf:type owl:Class ;
+  rdfs:label "Waiting days" ;
 .
 inq:WorkDuration
   rdf:type owl:Class ;
@@ -652,6 +661,13 @@ inq:valuePerWeek
   rdfs:range xsd:decimal ;
   skos:definition "The equivalent number of hours per week, useful for calculations such as leave entitlement."@en ;
   sth:xmlTag "valuePerWeek" ;
+.
+inq:waitingDays
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "waiting days"@en ;
+  rdfs:range inq:WaitingDays ;
+  skos:definition "The amount of waiting days (NL: wachtdagen) that the worker is subjected to before being eligible to receive sick pay."@en ;
+  sth:xmlTag "waitingDays" ;
 .
 inq:workDuration
   rdf:type owl:ObjectProperty ;
