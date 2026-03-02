@@ -625,6 +625,51 @@ inq:AmountExtended
       sh:order 5 ;
     ] ;
 .
+inq:AmountLeaveDay
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:value ;
+      sh:datatype xsd:decimal ;
+      sh:description "The numerical value of the financial equivalent of one leave day. It reflects the cost or compensation value of a single day off from work."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:minValue ;
+      sh:datatype xsd:decimal ;
+      sh:description "If applicable, a minimum value can be provided to signify a minimum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will be used instead of the value element."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:maxValue ;
+      sh:datatype xsd:decimal ;
+      sh:description "If applicable, a maximum value can be provided to signify a maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the maximum value, the maximum value will be used instead of the value element."@en ;
+      sh:maxCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:unitCode ;
+      sh:datatype inq:AmountUnitCode ;
+      sh:description "This element provides a way to specify the type of unit of the value. This can be for example 'percentage' if the unit type of the value is to be interpreted as a percentage or euro if the unity type of the value is to be interpreted as a euro monetary amount."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:baseAmount ;
+      sh:description "This element stores information about the base over which the amount is calculated. If the value is 3, the unit code is 'Percentage' and the base code is 'MonthlySalary', together they would imply a 3% of monthly salary."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 4 ;
+    ] ;
+.
 inq:Arrangement
   rdf:type sh:NodeShape ;
   sh:property [
@@ -730,6 +775,55 @@ inq:ArrangementLineExtended
       rdf:type sh:PropertyShape ;
       sh:path inq:ikbReference ;
       sh:order 4 ;
+    ] ;
+.
+inq:ArrangementLineLeave
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:name ;
+      sh:description "Free text description of this arrangement."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:lineId ;
+      sh:description "A unique identifier of this specific leave line element."@en ;
+      sh:maxCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:amount ;
+      sh:datatype inq:AmountExtended ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:interval ;
+      sh:description "This element is used to signify the interval in which this rate is applied. If this rate is applied every hour then the unit code would be 'Hour' or if this rate is applied every kilometer, the interval code would be 'Kilometer'. The value can be used to express denominations of the provided interval code. If for instance it is required that the interval is every 15 minutes, the unit code can be 'Hour' and the value will be 0.25 as a quarter of 60 minutes is 15 minutes."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:conditions ;
+      sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:leaveDayValue ;
+      sh:maxCount 1 ;
+      sh:order 5 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:ikbReference ;
+      sh:order 6 ;
     ] ;
 .
 inq:ArrangementLineLimited
@@ -1188,7 +1282,32 @@ inq:LeaveArrangement
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:mandatoryLeaveAllocation ;
+      sh:path inq:paidLeave ;
+      sh:order 16 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:workingHoursReduction ;
+      sh:order 17 ;
+    ] ;  
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:holidays ;
+      sh:order 18 ;
+    ] ;  
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:specialLeave ;
+      sh:order 19 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:additionalParentalLeave ;
+      sh:order 20 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:mandatoryLeaveAllocation ;
       sh:maxCount 1 ;
       sh:order 22 ;
     ] ;

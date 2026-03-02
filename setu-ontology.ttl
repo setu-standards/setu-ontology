@@ -107,6 +107,11 @@ inq:AmountLimited
   rdfs:label "Amount limited"@en ;
   skos:definition "Container element that contains the value of the amount and the type of unit of the value."@en ;
 .
+inq:AmountLeaveDay
+  rdf:type owl:Class ;
+  rdfs:label "Amount leave day"@en ;
+  skos:definition "The financial equivalent of one leave day. It reflects the cost or compensation value of a single day off from work."@en ;
+.
 inq:AmountUnitCode
   rdf:type rdfs:Datatype ;
   rdfs:subClassOf setu:UnitCode ;
@@ -139,6 +144,10 @@ inq:ArrangementLineExtended
   rdf:type owl:Class ;
   rdfs:label "Arrangement line extended"@en ;
   skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
+.
+inq:ArrangementLineLeave
+  rdf:type owl:Class ;
+  rdfs:label "Arrangement line leave"@en ;
 .
 inq:ArrangementLineLimited
   rdf:type owl:Class ;
@@ -329,6 +338,14 @@ inq:WorkDuration
   rdfs:label "Work duration"@en ;
   skos:definition "Specifies the default work duration."@en ;
 .
+inq:additionalParentalLeave
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain inq:LeaveArrangement ;
+  rdfs:label "additional parental leave"@en ;
+  rdfs:range inq:ArrangementLineLeave ;
+  skos:definition "An employer-provided addition to the legally mandated maternity, paternity, or parental leave benefits. This supplement provides additional compensation or extends the duration of leave beyond the statutory minimum."@en ;
+  sth:xmlTag "additionalParentalLeave" ;
+.
 inq:allAllowancesIndicator
   rdf:type owl:DatatypeProperty ;
   rdfs:label "all allowances indicator"@en ;
@@ -429,6 +446,13 @@ inq:generalSalaryIncrease
   skos:definition "The general salary adjustment refers to the increase applied uniformly to the entire salary table. This adjustment ensures that all employees receive a consistent percentage or fixed increase in their salaries. Please mind the usage note when to use this container."@en ;
   sth:xmlTag "generalSalaryIncrease" ;
 .
+inq:holidays
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain inq:LeaveArrangement ;
+  rdfs:label "holidays"@en ;
+  rdfs:range inq:ArrangementLineLeave ;
+  sth:xmlTag "holidays" ;
+.
 inq:holidayAllowanceArrangement
   rdf:type owl:ObjectProperty ;
   rdfs:domain inq:InquiryPayEquity ;
@@ -516,6 +540,13 @@ inq:leaveArrangement
   skos:definition "A container that contains the details of the leave arrangement, such as the type of leave, the amount of the leave, as well as any conditions."@en ;
   sth:xmlTag "leaveArrangement" ;
 .
+inq:leaveDayValue
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "leave day value"@en ;
+  rdfs:range inq:AmountLeaveDay ;
+  skos:definition "The financial equivalent of one leave day. It reflects the cost or compensation value of a single day off from work."@en ;
+  sth:xmlTag "leaveDayValue" ;
+.
 inq:mandatoryLeaveAllocation
   rdf:type owl:ObjectProperty ;
   rdfs:domain inq:LeaveArrangement ;
@@ -552,6 +583,14 @@ inq:otherArrangement
   rdfs:range inq:OtherArrangement ;
   skos:definition "This element can be used to provide any additional arrangements that have not been covered by the other elements."@en ;
   sth:xmlTag "otherArrangement" ;
+.
+inq:paidLeave
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain inq:LeaveArrangement ;
+  rdfs:label "paid leave"@en ;
+  rdfs:range inq:ArrangementLineLeave ;
+  skos:definition "A container that contains details of the paid leave compensation offered by the employer. It contains an amount of paid leave compensation, an interval that this compensation is repeated (if applicable) and any conditions that have to be met."@en ;
+  sth:xmlTag "paidLeave" ;
 .
 inq:paidLeaveDayIndicator
   rdf:type owl:DatatypeProperty ;
@@ -660,6 +699,14 @@ inq:sickPayArrangement
   skos:definition "This element refers to the method in which the employer continues to compensate an employee when the employee has fallen ill."@en ;
   sth:xmlTag "sickPayArrangement" ;
 .
+inq:specialLeave
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain inq:LeaveArrangement ;
+  rdfs:label "special leave"@en ;
+  rdfs:range inq:ArrangementLineLeave ;
+  skos:definition "Leave granted for specific, non-routine circumstances as defined by the employer or applicable Collective Labour Agreement, such as bereavement, marriage, or relocation. The specific reasons and duration of special leave may vary."@en ;
+  sth:xmlTag "specialLeave" ;
+.
 inq:startSalaryStep
   rdf:type owl:DatatypeProperty ;
   rdfs:label "start salary step"@en ;
@@ -719,6 +766,14 @@ inq:workDuration
   rdfs:range inq:WorkDuration ;
   skos:definition "Specifies the default work duration."@en ;
   sth:xmlTag "workDuration" ;
+.
+inq:workingHoursReduction
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain inq:LeaveArrangement ;
+  rdfs:label "working hours reduction"@en ;
+  rdfs:range inq:ArrangementLineLeave ;
+  skos:definition "This element contains the details of the working hours reduction compensation regulation."@en ;
+  sth:xmlTag "workingHoursReduction" ;
 .
 sth:allowedValue
   rdf:type owl:AnnotationProperty ;
