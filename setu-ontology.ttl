@@ -359,7 +359,7 @@ inq:allowanceArrangement
   rdfs:label "allowance"@en ;
   rdfs:range inq:AllowanceArrangement ;
   skos:definition "A container element that includes various allowances that can be granted to an employee."@en ;
-  sth:xmlTag "allowanceArrangement" ;
+  sth:xmlTag "allowance" ;
 .
 inq:allowances
   rdf:type owl:ObjectProperty ;
@@ -459,7 +459,7 @@ inq:holidayAllowanceArrangement
   rdfs:label "holiday allowance"@en ;
   rdfs:range inq:HolidayAllowanceArrangement ;
   skos:definition "A container that contains the details of the holiday allowance arrangement."@en ;
-  sth:xmlTag "holidayAllowanceArrangement" ;
+  sth:xmlTag "holidayAllowance" ;
 .
 inq:holidayAllowanceIndicator
   rdf:type owl:DatatypeProperty ;
@@ -509,7 +509,7 @@ inq:individualChoiceBudgetArrangement
   rdfs:label "individual choice budget"@en ;
   rdfs:range inq:IndividualChoiceBudgetArrangement ;
   skos:definition "Individual choice budget (Dutch: IKB) is used if the employer has an individual choice budget. It's elements are used for the different options an employee has regarding this budget as well as its costs."@en ;
-  sth:xmlTag "individualChoiceBudgetArrangement" ;
+  sth:xmlTag "individualChoiceBudget" ;
 .
 inq:individualSalaryIncrease
   rdf:type owl:ObjectProperty ;
@@ -538,7 +538,7 @@ inq:leaveArrangement
   rdfs:label "leave"@en ;
   rdfs:range inq:LeaveArrangement ;
   skos:definition "A container that contains the details of the leave arrangement, such as the type of leave, the amount of the leave, as well as any conditions."@en ;
-  sth:xmlTag "leaveArrangement" ;
+  sth:xmlTag "leave" ;
 .
 inq:leaveDayValue
   rdf:type owl:ObjectProperty ;
@@ -619,7 +619,7 @@ inq:pensionArrangement
   rdfs:label "pension"@en ;
   rdfs:range inq:PensionArrangement ;
   skos:definition "The employer's contribution to a pension plan."@en ;
-  sth:xmlTag "pensionArrangement" ;
+  sth:xmlTag "pension" ;
 .
 inq:phaseOutScheme
   rdf:type owl:DatatypeProperty ;
@@ -697,7 +697,7 @@ inq:sickPayArrangement
   rdfs:label "sick pay"@en ;
   rdfs:range inq:SickPayArrangement ;
   skos:definition "This element refers to the method in which the employer continues to compensate an employee when the employee has fallen ill."@en ;
-  sth:xmlTag "sickPayArrangement" ;
+  sth:xmlTag "sickPay" ;
 .
 inq:specialLeave
   rdf:type owl:ObjectProperty ;
@@ -728,7 +728,7 @@ inq:sustainableEmployabilityArrangement
   rdfs:label "sustainable employability"@en ;
   rdfs:range inq:SustainableEmployabilityArrangement ;
   skos:definition "Sustainable employability allows for the employer to add information regarding sustainable employability arrangement that the employer might have (e.g. study budget for the employee)."@en ;
-  sth:xmlTag "sustainableEmployabilityArrangement" ;
+  sth:xmlTag "sustainableEmployability" ;
 .
 inq:type
   rdf:type owl:DatatypeProperty ;
