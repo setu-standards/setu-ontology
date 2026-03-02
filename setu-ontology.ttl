@@ -69,7 +69,7 @@ inq:
   dc:contributor <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:description "The Inquiry Pay Equity module of the SETU ontology includes concepts created from the SETU context used in the SETU Inquiry Pay Equity standard."@en ;
-  dc:modified "2026-02-24"^^xsd:date ;
+  dc:modified "2026-03-02"^^xsd:date ;
   dc:title "SETU Inquiry Pay Equity module" ;
   owl:versionInfo "0.9" ;
 .
@@ -368,6 +368,13 @@ inq:conditions
   skos:definition "A container element for providing more information about the conditions that have to be met before this rate is applied. An employee that meets these conditions is eligible for the rate."@en ;
   sth:xmlTag "conditions" ;
 .
+inq:effectiveDate
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "effective date"@en ;
+  rdfs:range setu:Occurrence ;
+  skos:definition "This element allows us to specify on which date the salary adjustment or increase takes effect."@en ;
+  sth:xmlTag "effectiveDate" ;
+.
 inq:employmentDuration
   rdf:type owl:DatatypeProperty ;
   rdfs:domain inq:Proportional ;
@@ -508,6 +515,12 @@ inq:partTimePercentage
   skos:definition "Indicates whether the condition is calculated proportionally based on the employee's part-time percentage, typically measured against a full-time work week (commonly 36-40 hours)."@en ;
   sth:xmlTag "partTimePercentage" ;
 .
+inq:payDate
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "pay date"@en ;
+  rdfs:range setu:Occurrence ;
+  sth:xmlTag "payDate" ;
+.
 inq:pensionArrangement
   rdf:type owl:ObjectProperty ;
   rdfs:domain inq:InquiryPayEquity ;
@@ -550,6 +563,13 @@ inq:reference
   rdfs:range inq:AllowanceReferenceExtended ;
   skos:definition "This element is used indicate relations to other elements of this structure. An example of such a relation could be that an allowance is used to calculate another allowance on a compounding basis. Meaning that the the value of allowance A is calculated before and used in the calculation of the value of allowance B."@en ;
   sth:xmlTag "reference" ;
+.
+inq:referenceDate
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "reference date"@en ;
+  rdfs:range setu:Occurrence ;
+  skos:definition "The reference date specifies the date at which a base (grondslag) is evaluated, determining which rules, values, or conditions apply at that moment in time."@en ;
+  sth:xmlTag "referenceDate" ;
 .
 inq:remuneration
   rdf:type owl:ObjectProperty ;
@@ -660,7 +680,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-02-24"^^xsd:date ;
+  dc:modified "2026-03-02"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
 .
@@ -709,6 +729,11 @@ setu:IdValue
   rdfs:label "Id value" ;
   rdfs:subClassOf xsd:string ;
   owl:onDatatype xsd:string ;
+.
+setu:Occurrence
+  rdf:type owl:Class ;
+  rdfs:label "Occurrence"@en ;
+  skos:definition "Base type for occurrences with different occurrence types."@en ;
 .
 setu:OnCallContract
   rdf:type owl:Class ;

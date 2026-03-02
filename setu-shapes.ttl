@@ -24,7 +24,7 @@
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SHACL shapes/constraints associated with the SETU ontology."@en ;
-  dc:modified "2026-02-24"^^xsd:date ;
+  dc:modified "2026-03-02"^^xsd:date ;
   dc:title "SETU SHACL shapes" ;
   owl:versionInfo "2.9" ;
 .
@@ -434,14 +434,21 @@ inq:AllowanceArrangement
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:reference ;
+      sh:path inq:payDate ;
+      sh:description "If the employer has a specific pay date for the allowance, it can be specified here. If only the start is provided, the pay date is a specific date. If a start and an end date are provided, the payment can be made somewhere in this date range."@en ;
+      sh:maxCount 1 ;
       sh:order 11 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:reference ;
+      sh:order 12 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path inq:phaseOutScheme ;
       sh:maxCount 1 ;
-      sh:order 12 ;
+      sh:order 13 ;
     ] ;
 .
 inq:AllowanceReference
@@ -839,6 +846,12 @@ inq:BaseDefinition
       sh:path inq:allowances ;
       sh:order 5 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:referenceDate ;
+      sh:maxCount 1 ;
+      sh:order 6 ;
+    ] ;
 .
 inq:CareerLevel
   rdf:type sh:NodeShape ;
@@ -861,8 +874,7 @@ inq:GeneralSalaryIncrease
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:effectivePeriod ;
-      sh:description "The effective start date of this initial increase."@en ;
+      sh:path inq:effectiveDate ;
       sh:maxCount 1 ;
       sh:order 0 ;
     ] ;
@@ -880,6 +892,16 @@ inq:GeneralSalaryIncrease
       sh:description "Free text description of the general salary table increase."@en ;
       sh:maxCount 1 ;
       sh:order 2 ;
+    ] ;
+.
+inq:HolidayAllowanceArrangement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:payDate ;
+      sh:description "If the employer has a specific pay date for the holiday allowance, it can be specified here. If only the start is provided, the pay date is a specific date. If a start and an end date are provided, the payment can be made somewhere in this date range."@en ;
+      sh:maxCount 1 ;
+      sh:order 11 ;
     ] ;
 .
 inq:HourlyWageConversion
@@ -928,8 +950,7 @@ inq:IndividualSalaryIncrease
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path setu:effectivePeriod ;
-      sh:description "This element allows to specify on which date the salary adjustment or increase takes effect."@en ;
+      sh:path inq:effectiveDate ;
       sh:maxCount 1 ;
       sh:order 0 ;
     ] ;
@@ -1297,6 +1318,13 @@ inq:SupplementaryArrangement
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:payDate ;
+      sh:description "If the employer allows the employee to let the sustainable employability budget be paid out to the employee, the pay date (or range of dates) in which the payment has to be made, can be provided here."@en ;
+      sh:maxCount 1 ;
+      sh:order 11 ;
     ] ;
 .
 inq:SustainableEmployabilityArrangement
