@@ -1447,13 +1447,6 @@ inq:SupplementaryArrangement
       sh:datatype inq:ArrangementLineExtended ;
       sh:order 10 ;
     ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path inq:payDate ;
-      sh:description "If the employer allows the employee to let the sustainable employability budget be paid out to the employee, the pay date (or range of dates) in which the payment has to be made, can be provided here."@en ;
-      sh:maxCount 1 ;
-      sh:order 11 ;
-    ] ;
 .
 inq:SustainableEmployabilityArrangement
   rdf:type sh:NodeShape ;
@@ -1471,6 +1464,13 @@ inq:SustainableEmployabilityArrangement
       sh:path inq:arrangementLine ;
       sh:datatype inq:ArrangementLineExtended ;
       sh:order 10 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:payDate ;
+      sh:description "If the employer allows the employee to let the sustainable employability budget be paid out to the employee, the pay date (or range of dates) in which the payment has to be made, can be provided here."@en ;
+      sh:maxCount 1 ;
+      sh:order 11 ;
     ] ;
 .
 inq:WaitingDays
