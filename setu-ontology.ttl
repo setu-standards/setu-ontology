@@ -256,6 +256,10 @@ inq:LeaveArrangement
   rdf:type owl:Class ;
   rdfs:label "Leave arrangement"@en ;
 .
+inq:MandatoryLeave
+  rdf:type owl:Class ;
+  rdfs:label "Mandatory leave"@en ;
+.
 inq:OtherArrangement
   rdf:type owl:Class ;
   rdfs:subClassOf inq:Arrangement ;
@@ -511,6 +515,14 @@ inq:leaveArrangement
   rdfs:range inq:LeaveArrangement ;
   skos:definition "A container that contains the details of the leave arrangement, such as the type of leave, the amount of the leave, as well as any conditions."@en ;
   sth:xmlTag "leaveArrangement" ;
+.
+inq:mandatoryLeaveAllocation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain inq:LeaveArrangement ;
+  rdfs:label "mandatory leave allocation"@en ;
+  rdfs:range inq:MandatoryLeave ;
+  skos:definition "A policy mandating that employees utilize a certain amount of their accrued leave within a specified period."@en ;
+  sth:xmlTag "mandatoryLeaveAllocation" ;
 .
 inq:minimumWage
   rdf:type owl:DatatypeProperty ;

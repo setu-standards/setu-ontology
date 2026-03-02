@@ -1188,10 +1188,26 @@ inq:LeaveArrangement
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
+      sh:path setu:mandatoryLeaveAllocation ;
+      sh:maxCount 1 ;
+      sh:order 22 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
       sh:path setu:description ;
       sh:description "A free-text field for capturing additional details related to reward element (NL: beloningscomponent), such as specifics, limitations and other conditions."@en ;
       sh:maxCount 1 ;
       sh:order 25 ;
+    ] ;
+.
+inq:MandatoryLeave
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "Description of the mandatory leave allocation."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
     ] ;
 .
 inq:OtherArrangement
