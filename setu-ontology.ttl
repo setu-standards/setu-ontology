@@ -175,6 +175,10 @@ inq:Condition
   rdfs:label "Condition"@en ;
   skos:definition "A container element for providing more information about a condition that has to be met before a rate is applied. An employee that meets these conditions is eligible for the rate."@en ;
 .
+inq:Franchise
+  rdf:type owl:Class ;
+  rdfs:label "Franchise"@en ;
+.
 inq:GeneralSalaryIncrease
   rdf:type owl:Class ;
   rdfs:label "General salary increase"@en ;
@@ -405,6 +409,13 @@ inq:employmentDuration
   rdfs:range xsd:boolean ;
   skos:definition "Indicates whether proportional calculation must be applied according to the employee's length of employment."@en ;
   sth:xmlTag "employmentDuration" ;
+.
+inq:franchise
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "franchise"@en ;
+  rdfs:range inq:Franchise ;
+  skos:definition "Indicator whether an employer makes use of a franchise."@en ;
+  sth:xmlTag "franchise" ;
 .
 inq:generalSalaryIncrease
   rdf:type owl:ObjectProperty ;

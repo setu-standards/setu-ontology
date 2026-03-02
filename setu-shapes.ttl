@@ -870,6 +870,16 @@ inq:CareerLevel
       sh:order 1 ;
     ] ;
 .
+inq:Franchise
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "Free text description of the franchise."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+.
 inq:GeneralSalaryIncrease
   rdf:type sh:NodeShape ;
   sh:property [
@@ -1200,6 +1210,13 @@ inq:PensionArrangement
       sh:path inq:arrangementLine ;
       sh:datatype inq:ArrangementLine ;
       sh:order 10 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:franchise ;
+      sh:datatype inq:Franchise ;
+      sh:maxCount 1 ;
+      sh:order 15 ;
     ] ;
 .
 inq:PositionProfileReference
