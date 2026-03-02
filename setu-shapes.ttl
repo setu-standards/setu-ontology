@@ -434,6 +434,12 @@ inq:AllowanceArrangement
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
+      sh:path inq:arrangementLine ;
+      sh:datatype inq:ArrangementLine ;
+      sh:order 10 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
       sh:path inq:payDate ;
       sh:description "If the employer has a specific pay date for the allowance, it can be specified here. If only the start is provided, the pay date is a specific date. If a start and an end date are provided, the payment can be made somewhere in this date range."@en ;
       sh:maxCount 1 ;
@@ -649,12 +655,6 @@ inq:Arrangement
       sh:description "Indicates the validity period of this arrangement. The period is from the start date up to and including the end date."@en ;
       sh:maxCount 1 ;
       sh:order 3 ;
-    ] ;
-  sh:property [
-      rdf:type sh:PropertyShape ;
-      sh:path inq:arrangementLine ;
-      sh:datatype inq:ArrangementLine ;
-      sh:order 10 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
@@ -898,6 +898,12 @@ inq:HolidayAllowanceArrangement
   rdf:type sh:NodeShape ;
   sh:property [
       rdf:type sh:PropertyShape ;
+      sh:path inq:arrangementLine ;
+      sh:datatype inq:ArrangementLine ;
+      sh:order 10 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
       sh:path inq:payDate ;
       sh:description "If the employer has a specific pay date for the holiday allowance, it can be specified here. If only the start is provided, the pay date is a specific date. If a start and an end date are provided, the payment can be made somewhere in this date range."@en ;
       sh:maxCount 1 ;
@@ -944,6 +950,22 @@ inq:IkbReference
       sh:description "A free text-field for additional information and/or context about the ikb reference."@en ;
       sh:maxCount 1 ;
       sh:order 2 ;
+    ] ;
+.
+inq:IndividualChoiceBudgetArrangement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:arrangementLine ;
+      sh:datatype inq:ArrangementLineExtended ;
+      sh:order 10 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:option ;
+      sh:datatype inq:option ;
+      sh:description "."@en ;
+      sh:order 14 ;
     ] ;
 .
 inq:IndividualSalaryIncrease
@@ -1111,6 +1133,64 @@ inq:LabourAgreements
       sh:path setu:customLabourAgreement ;
       sh:maxCount 1 ;
       sh:order 2 ;
+    ] ;
+.
+inq:LeaveArrangement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path hropen:idRef ;
+      sh:datatype hropen:Identifier ;
+      sh:description "The unique identifier of this arrangement."@en ;
+      sh:maxCount 1 ;
+      sh:order 0 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:name ;
+      sh:description "The name or description of the arrangement, indicating the type of arrangement and providing extra information that does not fit in any of the other fields."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 1 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:origin ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 2 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:effectivePeriod ;
+      sh:description "Indicates the validity period of this arrangement. The period is from the start date up to and including the end date."@en ;
+      sh:maxCount 1 ;
+      sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "A free-text field for capturing additional details related to reward element (NL: beloningscomponent), such as specifics, limitations and other conditions."@en ;
+      sh:maxCount 1 ;
+      sh:order 25 ;
+    ] ;
+.
+inq:OtherArrangement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:arrangementLine ;
+      sh:datatype inq:ArrangementLineExtended ;
+      sh:order 10 ;
+    ] ;
+.
+inq:PensionArrangement
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:arrangementLine ;
+      sh:datatype inq:ArrangementLine ;
+      sh:order 10 ;
     ] ;
 .
 inq:PositionProfileReference
@@ -1317,6 +1397,12 @@ inq:SickPayArrangement
       sh:maxCount 1 ;
       sh:order 6 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:arrangementLine ;
+      sh:datatype inq:ArrangementLine ;
+      sh:order 10 ;
+    ] ;
 .
 inq:SupplementaryArrangement
   rdf:type sh:NodeShape ;
@@ -1328,6 +1414,12 @@ inq:SupplementaryArrangement
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:arrangementLine ;
+      sh:datatype inq:ArrangementLineExtended ;
+      sh:order 10 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
@@ -1347,6 +1439,12 @@ inq:SustainableEmployabilityArrangement
       sh:maxCount 1 ;
       sh:minCount 1 ;
       sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:arrangementLine ;
+      sh:datatype inq:ArrangementLineExtended ;
+      sh:order 10 ;
     ] ;
 .
 inq:WaitingDays

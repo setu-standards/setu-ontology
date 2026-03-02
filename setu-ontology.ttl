@@ -246,7 +246,6 @@ inq:LabourAgreements
 .
 inq:LeaveArrangement
   rdf:type owl:Class ;
-  rdfs:subClassOf inq:Arrangement ;
   rdfs:label "Leave arrangement"@en ;
 .
 inq:OtherArrangement
