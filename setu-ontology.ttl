@@ -200,6 +200,10 @@ inq:IndividualChoiceBudgetArrangement
   rdfs:subClassOf inq:Arrangement ;
   rdfs:label "Individual choice budget arrangement"@en ;
 .
+inq:IndividualChoiceBudgetOption
+  rdf:type owl:Class ;
+  rdfs:label "Individual choice budget option"@en ;
+.
 inq:IndividualSalaryIncrease
   rdf:type owl:Class ;
   rdfs:label "Individual salary increase"@en ;
@@ -503,6 +507,13 @@ inq:minimumWage
   rdfs:range xsd:boolean ;
   skos:definition "A boolean that indicates whether this salary step is equal to the minimum wage."@en ;
   sth:xmlTag "minimumWage" ;
+.
+inq:option
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "option"@en ;
+  rdfs:range inq:IndividualChoiceBudgetOption ;
+  skos:definition "Associates the different rates on how this individual choice budget can be spent (e.g. the percentage of salary that one extra day of vacation costs)."@en ;
+  sth:xmlTag "option" ;
 .
 inq:origin
   rdf:type owl:ObjectProperty ;

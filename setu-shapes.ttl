@@ -963,9 +963,18 @@ inq:IndividualChoiceBudgetArrangement
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path inq:option ;
-      sh:datatype inq:option ;
-      sh:description "."@en ;
       sh:order 14 ;
+    ] ;
+.
+inq:IndividualChoiceBudgetOption
+  rdf:type sh:NodeShape ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "Detailed free text description on the method in which this budget can be spent by an employee."@en ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:order 0 ;
     ] ;
 .
 inq:IndividualSalaryIncrease
