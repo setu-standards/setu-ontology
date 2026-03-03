@@ -184,6 +184,12 @@ inq:Condition
   rdfs:label "Condition"@en ;
   skos:definition "A container element for providing more information about a condition that has to be met before a rate is applied. An employee that meets these conditions is eligible for the rate."@en ;
 .
+inq:ContributionSourceType
+  rdf:type rdfs:Datatype ;
+  rdfs:label "Contribution source"@en ;
+  rdfs:subClassOf xsd:string ;
+  owl:onDatatype xsd:string ;
+.
 inq:Franchise
   rdf:type owl:Class ;
   rdfs:label "Franchise"@en ;
@@ -415,6 +421,13 @@ inq:conditions
   rdfs:range inq:Condition ;
   skos:definition "A container element for providing more information about the conditions that have to be met before this rate is applied. An employee that meets these conditions is eligible for the rate."@en ;
   sth:xmlTag "conditions" ;
+.
+inq:contributionSource
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "contribution source"@en ;
+  rdfs:range inq:ContributionSourceType ;
+  skos:definition "Indicates the classification of the line within a remuneration or benefits arrangement. This element specifies whether the line represents the coverage value (the employee's entitlement), an employee contribution, or an employer contribution. If the element is not provided, the line is interpreted by default as the coverage value of the arrangement. The element enables multiple line entries within a single arrangement (e.g., as coverage value, employee premium, and employer premium) while maintaining clarity about the purpose of each line."@en ;
+  sth:xmlTag "contributionSource" ;
 .
 inq:effectiveDate
   rdf:type owl:ObjectProperty ;

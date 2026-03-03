@@ -734,13 +734,19 @@ inq:ArrangementLine
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:conditions ;
+      sh:path inq:contributionSource ;
+      sh:maxCount 1 ;
       sh:order 3 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:ikbReference ;
+      sh:path inq:conditions ;
       sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:ikbReference ;
+      sh:order 5 ;
     ] ;
 .
 inq:ArrangementLineExtended
@@ -768,13 +774,19 @@ inq:ArrangementLineExtended
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:conditions ;
+      sh:path inq:contributionSource ;
+      sh:maxCount 1 ;
       sh:order 3 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:ikbReference ;
+      sh:path inq:conditions ;
       sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:ikbReference ;
+      sh:order 5 ;
     ] ;
 .
 inq:ArrangementLineLeave
@@ -811,19 +823,25 @@ inq:ArrangementLineLeave
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:conditions ;
+      sh:path inq:contributionSource ;
+      sh:maxCount 1 ;
       sh:order 4 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:conditions ;
+      sh:order 5 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path inq:leaveDayValue ;
       sh:maxCount 1 ;
-      sh:order 5 ;
+      sh:order 6 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
       sh:path inq:ikbReference ;
-      sh:order 6 ;
+      sh:order 7 ;
     ] ;
 .
 inq:ArrangementLineLimited
@@ -851,8 +869,14 @@ inq:ArrangementLineLimited
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:conditions ;
+      sh:path inq:contributionSource ;
+      sh:maxCount 1 ;
       sh:order 3 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:conditions ;
+      sh:order 4 ;
     ] ;
 .
 inq:BaseAmount
