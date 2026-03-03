@@ -1433,7 +1433,6 @@ inq:RemunerationPackage
       sh:datatype inq:Interval ;
       sh:description "Defines the interval at which the remuneration of the salary table is determined, for example, per month, per four weeks, per week, etc."@en ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
       sh:order 3 ;
     ] ;
   sh:property [
@@ -1446,7 +1445,6 @@ inq:RemunerationPackage
       rdf:type sh:PropertyShape ;
       sh:path inq:salaryScaleStructure ;
       sh:datatype inq:SalaryScale ;
-      sh:minCount 1 ;
       sh:order 5 ;
     ] ;
   sh:property [
