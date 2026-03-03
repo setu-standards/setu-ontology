@@ -810,7 +810,6 @@ inq:ArrangementLineLeave
       sh:path inq:amount ;
       sh:datatype inq:AmountExtended ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
       sh:order 2 ;
     ] ;
   sh:property [
@@ -818,7 +817,6 @@ inq:ArrangementLineLeave
       sh:path inq:interval ;
       sh:description "This element is used to signify the interval in which this rate is applied. If this rate is applied every hour then the unit code would be 'Hour' or if this rate is applied every kilometer, the interval code would be 'Kilometer'. The value can be used to express denominations of the provided interval code. If for instance it is required that the interval is every 15 minutes, the unit code can be 'Hour' and the value will be 0.25 as a quarter of 60 minutes is 15 minutes."@en ;
       sh:maxCount 1 ;
-      sh:minCount 1 ;
       sh:order 3 ;
     ] ;
   sh:property [
