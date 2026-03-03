@@ -69,7 +69,7 @@ inq:
   dc:contributor <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:description "The Inquiry Pay Equity module of the SETU ontology includes concepts created from the SETU context used in the SETU Inquiry Pay Equity standard."@en ;
-  dc:modified "2026-03-02"^^xsd:date ;
+  dc:modified "2026-03-03"^^xsd:date ;
   dc:title "SETU Inquiry Pay Equity module" ;
   owl:versionInfo "0.9" ;
 .
@@ -378,7 +378,7 @@ inq:arrangementLine
   rdf:type owl:ObjectProperty ;
   rdfs:label "line"@en ;
   skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
-  sth:xmlTag "arrangementLine" ;
+  sth:xmlTag "line" ;
 .
 inq:baseAmount
   rdf:type owl:ObjectProperty ;
@@ -682,7 +682,7 @@ inq:salaryScaleStructure
   rdfs:label "salary scale"@en ;
   rdfs:range inq:SalaryScale ;
   skos:definition "Base salary of a job or of an employee including minimum and maximum salary and certain salary steps."@en ;
-  sth:xmlTag "salaryScaleStructure" ;
+  sth:xmlTag "salaryScale" ;
 .
 inq:salaryStep
   rdf:type owl:ObjectProperty ;
@@ -795,7 +795,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-03-02"^^xsd:date ;
+  dc:modified "2026-03-03"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
 .
