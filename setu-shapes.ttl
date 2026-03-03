@@ -1359,6 +1359,12 @@ inq:OtherArrangement
       sh:datatype inq:ArrangementLineExtended ;
       sh:order 10 ;
     ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:coverage ;
+      sh:maxCount 1 ;
+      sh:order 17 ;
+    ] ;
 .
 inq:PensionArrangement
   rdf:type sh:NodeShape ;
@@ -1601,6 +1607,12 @@ inq:SupplementaryArrangement
       sh:path inq:arrangementLine ;
       sh:datatype inq:ArrangementLineExtended ;
       sh:order 10 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path inq:coverage ;
+      sh:maxCount 1 ;
+      sh:order 17 ;
     ] ;
 .
 inq:SustainableEmployabilityArrangement

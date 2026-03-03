@@ -429,6 +429,13 @@ inq:contributionSource
   skos:definition "Indicates the classification of the line within a remuneration or benefits arrangement. This element specifies whether the line represents the coverage value (the employee's entitlement), an employee contribution, or an employer contribution. If the element is not provided, the line is interpreted by default as the coverage value of the arrangement. The element enables multiple line entries within a single arrangement (e.g., as coverage value, employee premium, and employer premium) while maintaining clarity about the purpose of each line."@en ;
   sth:xmlTag "contributionSource" ;
 .
+inq:coverage
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "coverage"@en ;
+  rdfs:range inq:AmountExtended ;
+  skos:definition "Specifies the insured coverage amount associated with an Other or Supplementary Arrangement. The coverage element represents the value against which the employee is insured, such as the benefit level in disability gap insurance (e.g., WGA-hiaat) or accident insurance."@en ;
+  sth:xmlTag "coverage" ;
+.
 inq:effectiveDate
   rdf:type owl:ObjectProperty ;
   rdfs:label "effective date"@en ;
