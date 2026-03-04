@@ -69,7 +69,7 @@ inq:
   dc:contributor <https://www.linkedin.com/in/jelte-bootsma-184634193/> ;
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:description "The Inquiry Pay Equity module of the SETU ontology includes concepts created from the SETU context used in the SETU Inquiry Pay Equity standard."@en ;
-  dc:modified "2026-03-03"^^xsd:date ;
+  dc:modified "2026-03-04"^^xsd:date ;
   dc:title "SETU Inquiry Pay Equity module" ;
   owl:versionInfo "0.9" ;
 .
@@ -471,6 +471,7 @@ inq:holidays
   rdfs:domain inq:LeaveArrangement ;
   rdfs:label "holidays"@en ;
   rdfs:range inq:ArrangementLineLeave ;
+  skos:definition "A container that contains details of the (public) holidays offered by the employer. It contains an amount of holidays compensation, an interval that this compensation is repeated (if applicable) and any conditions that have to be met."@en ;
   sth:xmlTag "holidays" ;
 .
 inq:holidayAllowanceArrangement
@@ -815,7 +816,7 @@ setu:
   dc:creator <https://www.linkedin.com/in/robin-de-veer/> ;
   dc:creator <https://www.linkedin.com/in/jeanine-de-graaf-beekhuis-7a9a4a151/> ;
   dc:description "The SETU ontology includes concepts created from the SETU context used in the SETU Standard for Planning and Scheduling and the version 2.x series of the Purchase to Pay standards."@en ;
-  dc:modified "2026-03-03"^^xsd:date ;
+  dc:modified "2026-03-04"^^xsd:date ;
   dc:title "SETU ontology" ;
   owl:versionInfo "2.9" ;
 .
