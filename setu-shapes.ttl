@@ -734,13 +734,13 @@ inq:ArrangementLine
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:contributionSource ;
-      sh:maxCount 1 ;
+      sh:path inq:conditions ;
       sh:order 3 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:conditions ;
+      sh:path inq:contributionSource ;
+      sh:maxCount 1 ;
       sh:order 4 ;
     ] ;
   sh:property [
@@ -774,13 +774,13 @@ inq:ArrangementLineExtended
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:contributionSource ;
-      sh:maxCount 1 ;
+      sh:path inq:conditions ;
       sh:order 3 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:conditions ;
+      sh:path inq:contributionSource ;
+      sh:maxCount 1 ;
       sh:order 4 ;
     ] ;
   sh:property [
@@ -867,13 +867,13 @@ inq:ArrangementLineLimited
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:contributionSource ;
-      sh:maxCount 1 ;
+      sh:path inq:conditions ;
       sh:order 3 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:conditions ;
+      sh:path inq:contributionSource ;
+      sh:maxCount 1 ;
       sh:order 4 ;
     ] ;
 .
