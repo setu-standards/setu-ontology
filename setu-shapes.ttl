@@ -685,6 +685,7 @@ inq:Arrangement
       sh:path setu:name ;
       sh:description "The name or description of the arrangement, indicating the type of arrangement and providing extra information that does not fit in any of the other fields."@en ;
       sh:maxCount 1 ;
+      sh:minCount 1 ;
       sh:order 1 ;
     ] ;
   sh:property [
