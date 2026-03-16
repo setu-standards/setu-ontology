@@ -822,13 +822,13 @@ inq:ArrangementLineLeave
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:contributionSource ;
-      sh:maxCount 1 ;
+      sh:path inq:conditions ;
       sh:order 4 ;
     ] ;
   sh:property [
       rdf:type sh:PropertyShape ;
-      sh:path inq:conditions ;
+      sh:path inq:contributionSource ;
+      sh:maxCount 1 ;
       sh:order 5 ;
     ] ;
   sh:property [
@@ -841,6 +841,13 @@ inq:ArrangementLineLeave
       rdf:type sh:PropertyShape ;
       sh:path inq:ikbReference ;
       sh:order 7 ;
+    ] ;
+  sh:property [
+      rdf:type sh:PropertyShape ;
+      sh:path setu:description ;
+      sh:description "A free-text field for capturing additional details related to reward element (NL: beloningscomponent), such as specifics, limitations and other conditions."@en ;
+      sh:maxCount 1 ;
+      sh:order 8 ;
     ] ;
 .
 inq:ArrangementLineLimited
