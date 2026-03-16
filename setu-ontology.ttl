@@ -97,11 +97,6 @@ inq:Amount
   rdfs:label "Amount"@en ;
   skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
 .
-inq:AmountExtended
-  rdf:type owl:Class ;
-  rdfs:label "Amount extended"@en ;
-  skos:definition "Container element that contains the value of the amount, the type of unit of the value and a base. These three elements together can be used to calculate the amount of any type of rate. If applicable, a minimum and a maximum value can also be provided to signify a minimum and maximum that this rate provides. This implies that if the amount as a combination of the value and the base and the unit code is less than the minimum value, the minimum value will replace the value element."@en ;
-.
 inq:AmountLimited
   rdf:type owl:Class ;
   rdfs:label "Amount limited"@en ;
@@ -116,14 +111,6 @@ inq:AmountUnitCode
   rdf:type rdfs:Datatype ;
   rdfs:subClassOf setu:UnitCode ;
   rdfs:label "Amount unit code" ;
-  sth:allowedValue "Euro" ;
-  sth:allowedValue "Hour" ;
-  sth:allowedValue "Percentage" ;
-.
-inq:AmountUnitCodeExtended
-  rdf:type rdfs:Datatype ;
-  rdfs:subClassOf setu:UnitCode ;
-  rdfs:label "Amount unit code extended" ;
   sth:allowedValue "Day" ;
   sth:allowedValue "Euro" ;
   sth:allowedValue "Hour" ;
@@ -138,11 +125,6 @@ inq:Arrangement
 inq:ArrangementLine
   rdf:type owl:Class ;
   rdfs:label "Arrangement line"@en ;
-  skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
-.
-inq:ArrangementLineExtended
-  rdf:type owl:Class ;
-  rdfs:label "Arrangement line extended"@en ;
   skos:definition "A container that contains the details of the rate to be applied for the remuneration component. It includes elements such as the amount that is provided, the interval in which this is applied in the specified period (e.g. each year) and any conditions that might have to be met for this rate to be applicable."@en ;
 .
 inq:ArrangementLineLeave
@@ -432,7 +414,7 @@ inq:contributionSource
 inq:coverage
   rdf:type owl:ObjectProperty ;
   rdfs:label "coverage"@en ;
-  rdfs:range inq:AmountExtended ;
+  rdfs:range inq:Amount ;
   skos:definition "Specifies the insured coverage amount associated with an Other or Supplementary Arrangement. The coverage element represents the value against which the employee is insured, such as the benefit level in disability gap insurance (e.g., WGA-hiaat) or accident insurance."@en ;
   sth:xmlTag "coverage" ;
 .
@@ -658,7 +640,7 @@ inq:positionProfileReference
 .
 inq:proportional
   rdf:type owl:ObjectProperty ;
-  rdfs:domain inq:AmountExtended ;
+  rdfs:domain inq:Amount ;
   rdfs:label "proportional"@en ;
   rdfs:range inq:Proportional ;
   skos:definition "The proportional element is used to specify whether certain work-related conditions such as leave entitlements, remuneration, or similar employment provisions are applied proportionally based on specific employee characteristics."@en ;
